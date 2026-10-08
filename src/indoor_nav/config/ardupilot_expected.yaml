@@ -1,0 +1,13 @@
+# Expected FC state: checked using MAVROS ParamGet, not automatically applied.
+# Values must be checked against the actual target firmware (Copter 4.7 etc.).
+ekf:
+  AHRS_EKF_TYPE: 3
+  EK3_SRC1_POSXY: 6
+  EK3_SRC1_POSZ: 2
+  EK3_SRC1_VELXY: 5
+  EK3_SRC1_VELZ: 0
+  EK3_SRC1_YAW: 1
+mtf01p:
+  FLOW_TYPE: 5
+  RNGFND1_TYPE: 10
+  RNGFND1_ORIENT: 25

@@ -1,0 +1,26 @@
+# FUNCTION-LEVEL MOCK ONLY: no fake serial/radio or MTF-01P emulation.
+ground_truth:
+  source: gazebo_model_states        # or pose_stamped, NEVER mavros EKF local_position
+  topic: /gazebo/model_states
+  model_name: iris                   # set to YOUR Gazebo model name
+uwb_sim:
+  rate_hz: 25.0
+  seed: 41
+  noise_std_xy_m: 0.05
+  bias_x_m: 0.04
+  bias_y_m: -0.03
+  delay_ms: 50
+  dropout_probability: 0.0
+  jump_probability: 0.0
+  jump_size_m: 0.50
+  jump_now: false
+  drop_all: false
+  freeze: false
+ground_tag:
+  true_xy: [0.30, 0.30]
+  bias_x_m: 0.04
+  bias_y_m: -0.03
+  noise_std_xy_m: 0.01
+
+mock_range:
+  bias_m: 0.15  # mock range = Gazebo body Z + nominal laser mount height

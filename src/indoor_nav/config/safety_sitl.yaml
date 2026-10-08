@@ -1,0 +1,20 @@
+# DO NOT enlarge geofence to fill 3x3 enclosure.
+geofence:
+  x_min: -1.10
+  x_max: 1.10
+  y_min: -1.10
+  y_max: 1.10
+  z_min: 0.30
+  z_max: 1.30
+mission:
+  max_xy_speed_mps: 0.40
+  max_z_speed_mps: 0.20
+  setpoint_timeout_s: 0.50
+  fence_prediction_s: 0.35
+operator_verified_fixed_ekf_origin: false  # must verify by hand
+check_fc_params: true
+freeze_detection:
+  enabled: false                   # requires independent velocity validation before enabling
+  min_speed_mps: 0.20
+  movement_epsilon_m: 0.015
+  window_s: 1.00

@@ -1,0 +1,56 @@
+# ==============================
+# ROS1 Catkin build artifacts
+# ==============================
+/build/
+/devel/
+/install/
+/logs/
+.catkin_tools/
+
+# ==============================
+# Python
+# ==============================
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+
+# ==============================
+# ROS logs and bag files
+# ==============================
+*.bag
+*.bag.active
+*.db3
+*.log
+*.log.*
+*.roslog
+
+# ==============================
+# SITL runtime files
+# ==============================
+.sitl_runtime/
+eeprom.bin
+*.BIN
+*.tlog
+*.tlog.raw
+*.ulg
+
+# ==============================
+# Editors and OS
+# ==============================
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+
+# ==============================
+# Temporary and backup files
+# ==============================
+*.tmp
+*.bak
+*.orig
+*.rej

@@ -1,0 +1,19 @@
+# Coordinates are metres in persistent world_lab (not current takeoff-relative).
+# Operator manually ARMs, TAKES OFF and enters GUIDED before /mission/start.
+frame_id: world_lab
+motion:
+  horizontal_speed_mps: 0.30
+  vertical_speed_mps: 0.15
+  yaw_rate_degps: 15.0          # informational V1; FC limits yaw controller
+  max_accel_xy_mps2: 0.30      # informational V1; enforce FC WP_ACC separately
+  max_accel_z_mps2: 0.20
+arrival:
+  xy_tolerance_m: 0.15
+  z_tolerance_m: 0.08
+  yaw_tolerance_deg: 10.0
+  stable_time_s: 1.0
+waypoints:
+  - {x: 0.50, y: 0.50, z: 0.80, yaw_deg: 0.0, hold_s: 3.0}
+  - {x: 1.00, y: 0.50, z: 0.80, yaw_deg: 0.0, hold_s: 2.0}
+  - {x: 1.00, y: 1.00, z: 0.80, yaw_deg: 0.0, hold_s: 2.0}
+  - {x: 0.50, y: 1.00, z: 0.80, yaw_deg: 0.0, hold_s: 2.0}

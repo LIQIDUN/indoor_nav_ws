@@ -1,0 +1,26 @@
+<launch>
+  <!-- This package does not start MAVROS or FC: use existing mavros / all_sensors launch. -->
+  <arg name="start_nlink" default="false" />
+  <arg name="external_nav_enabled" default="false" />
+  <arg name="publish_frame_tf" default="true" />
+  <arg name="localization_file" default="$(find indoor_nav)/config/localization.yaml" />
+  <arg name="mission_file" default="$(find indoor_nav)/config/mission.yaml" />
+  <arg name="safety_file" default="$(find indoor_nav)/config/safety.yaml" />
+  <rosparam command="load" file="$(arg localization_file)" ns="/indoor_nav/localization" />
+  <rosparam command="load" file="$(arg mission_file)" ns="/indoor_nav/mission" />
+  <rosparam command="load" file="$(arg safety_file)" ns="/indoor_nav/safety" />
+  <rosparam command="load" file="$(find indoor_nav)/config/ardupilot_expected.yaml" ns="/indoor_nav/ardupilot_expected" />
+  <param name="/indoor_nav/localization/output/external_nav_enabled" value="$(arg external_nav_enabled)" />
+  <include if="$(arg start_nlink)" file="$(find nlink_parser)/launch/linktrack.launch" />
+  <!-- IMPORTANT for MAVROS odometry plugin: odom->odom_ned and FLU->FRD transforms.
+       Disable if these are ALREADY published by other nodes. -->
+  <node if="$(arg publish_frame_tf)" pkg="tf2_ros" type="static_transform_publisher"
+        name="odom_to_odom_ned"
+        args="0 0 0 0.7071067811865476 0.7071067811865476 0 0 odom_ned odom" />
+  <node if="$(arg publish_frame_tf)" pkg="tf2_ros" type="static_transform_publisher"
+        name="base_link_to_frd"
+        args="0 0 0 1 0 0 0 base_link_frd base_link" />
+  <node pkg="indoor_nav" type="world_estimator.py" name="world_estimator" output="screen" />
+  <node pkg="indoor_nav" type="mission_manager.py" name="mission_manager" output="screen" />
+  <node pkg="indoor_nav" type="safety_supervisor.py" name="safety_supervisor" output="screen" />
+</launch>

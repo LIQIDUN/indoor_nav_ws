@@ -1,0 +1,28 @@
+<launch>
+  <!-- SITL requires external Gazebo11 + ArduPilot + MAVROS.
+       No automatic arm, no automatic takeoff, default forwarding disabled. -->
+  <arg name="external_nav_enabled" default="false" />
+  <arg name="gazebo_model_name" default="iris" />
+  <arg name="uwb_noise_std_xy_m" default="0.0" />
+  <arg name="uwb_delay_ms" default="0" />
+
+  <include file="$(find indoor_nav)/launch/indoor_nav.launch">
+  <arg name="start_nlink" value="false" />
+  <arg name="external_nav_enabled" value="$(arg external_nav_enabled)" />
+  <arg name="safety_file" value="$(find indoor_nav)/config/safety_sitl.yaml" />
+</include>
+  <rosparam command="load" file="$(find indoor_nav)/config/sitl.yaml" ns="/indoor_nav/mock" />
+  <param name="/indoor_nav/mock/ground_truth/model_name" value="$(arg gazebo_model_name)" />
+  <!-- First bringup: zero noise, zero delay; inject faults only after frame checks. -->
+  <param name="/indoor_nav/mock/uwb_sim/noise_std_xy_m" value="$(arg uwb_noise_std_xy_m)" />
+  <param name="/indoor_nav/mock/uwb_sim/delay_ms" value="$(arg uwb_delay_ms)" />
+  <param name="/indoor_nav/localization/world/anchor_map_verified" value="true" />
+  <param name="/indoor_nav/safety/operator_verified_fixed_ekf_origin" value="true" />
+  <param name="/indoor_nav/localization/height/range_topic" value="/indoor_nav/sitl/mock_range" />
+  <param name="/indoor_nav/localization/height/range_to_body_z_m" value="-0.15" />
+  <param name="/indoor_nav/safety/freeze_detection/enabled" value="true" />
+  <!-- Only in function-level SITL: FC parameter checks are disabled initially.
+       Must re-enable and verify EKF/Range/Flow configuration before closed-loop testing. -->
+  <param name="/indoor_nav/safety/check_fc_params" value="false" />
+  <node pkg="indoor_nav" type="mock_uwb_node.py" name="mock_uwb_node" output="screen" />
+</launch>

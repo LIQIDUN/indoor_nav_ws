@@ -1,0 +1,11 @@
+std_msgs/Header header
+bool calibrated
+bool transform_locked
+bool healthy
+bool armed
+bool flight_controller_connected
+float32 uwb_age_s
+float32 laser_age_s
+float32 eop_xy_m
+uint32 rejected_count
+string reason
