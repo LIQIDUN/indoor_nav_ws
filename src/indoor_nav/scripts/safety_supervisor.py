@@ -5,22 +5,34 @@ Not a certified failsafe. FC's independent EKF/RC/battery failsafes remain
 required, and the human must be able to switch ALT_HOLD/STABILIZE directly.
 """
 import math
+import json
 import rospy
-from geometry_msgs.msg import PoseStamped, TransformStamped, TwistStamped
+from geometry_msgs.msg import PoseStamped, TransformStamped, TwistStamped, PointStamped
 from mavros_msgs.msg import State
 from mavros_msgs.srv import ParamGet, SetMode
 from std_msgs.msg import String, Float64
 from std_srvs.srv import Trigger, TriggerResponse
 from indoor_nav.msg import LocalizationStatus, SafetyStatus
-from indoor_nav.core import Transform2D, inside_box, finite
+from indoor_nav.core import Transform2D, inside_box, finite, fence_reason, FreezeWindow
 
 
 class SafetySupervisor:
     def __init__(self):
         rospy.init_node('safety_supervisor')
+        if rospy.get_param('/use_sim_time', False):
+            raise ValueError('Safety watchdog requires /use_sim_time=false; /clock is monitored separately')
         self.cfg = rospy.get_param('/indoor_nav/safety', {})
         self.params_cfg = rospy.get_param('/indoor_nav/ardupilot_expected', {})
         self.box = self.cfg.get('geofence', {})
+        frame = rospy.get_param('/indoor_nav/localization/world/frame_id', 'world_lab')
+        if self.cfg.get('profile') != self.cfg.get('expected_profile') or self.cfg.get('frame_id') != frame:
+            raise ValueError('Safety profile/frame mismatch: ' + repr(self.cfg))
+        for axis in ('x', 'y', 'z'):
+            lo, hi = self.box[axis+'_min'], self.box[axis+'_max']
+            if not finite(lo, hi) or lo >= hi:
+                raise ValueError('Invalid geofence bounds')
+        rospy.logwarn('Effective safety config: %s', json.dumps(self.cfg, sort_keys=True))
+        self.diagnostics = rospy.Publisher('/indoor_nav/safety_diagnostics', String, queue_size=1, latch=True)
         self.fc = State()
         self.fc_timestamp = 0.
         self.world = None
@@ -41,10 +53,29 @@ class SafetySupervisor:
         self.param_reason = 'FC_PARAM_CHECK_PENDING'
         self.was_guided_flying = False
         self.last_land_attempt = 0.
+        self.velocity_frame = rospy.get_param('/mavros/local_position/frame_id', 'map')
         self.velocity = None
         self.velocity_stamp = 0.
-        self.freeze_start = None
-        self.freeze_anchor_xy = None
+        f = self.cfg.get('freeze_detection', {})
+        self.freeze_detector = FreezeWindow(f.get('window_s', 1.),
+            f.get('movement_epsilon_m', .015), f.get('min_speed_mps', .20))
+        self.accepted_uwb = None
+        self.truth = None
+        self.truth_error = 'GAZEBO_TRUTH_MISSING'
+        self.gazebo_clock_rewound = False
+        self.clock = None
+        self.clock_progress_receipt = None
+        self.freeze_snapshot = {}
+        self.abort_snapshot = None
+        self.last_freeze_classification = None
+        self.abort_diagnostics = rospy.Publisher('/indoor_nav/abort_snapshot', String, queue_size=1, latch=True)
+        rospy.Subscriber('/indoor_nav/accepted_uwb', PointStamped, self.accepted_uwb_cb, queue_size=30)
+        if self.cfg.get('profile') == 'sitl':
+            from gazebo_msgs.msg import ModelStates
+            from rosgraph_msgs.msg import Clock
+            self.model_name = rospy.get_param('/indoor_nav/mock/ground_truth/model_name', 'iris')
+            rospy.Subscriber('/gazebo/model_states', ModelStates, self.truth_cb, queue_size=1)
+            rospy.Subscriber('/clock', Clock, self.clock_cb, queue_size=1)
         self.last_pub_reason = ''
         self.publisher = rospy.Publisher('/mavros/setpoint_position/local', PoseStamped, queue_size=3)
         self.status = rospy.Publisher('/indoor_nav/safety_status', SafetyStatus,
@@ -67,6 +98,9 @@ class SafetySupervisor:
         rospy.Timer(rospy.Duration(3.), self.validate_params)
 
     def fc_cb(self, msg):
+        if msg.connected != self.fc.connected:
+            rospy.logwarn('FC connection transition: connected=%s receipt_s=%.6f armed=%s mode=%s',
+                          msg.connected, rospy.get_time(), msg.armed, msg.mode)
         self.fc = msg
         self.fc_timestamp = rospy.get_time()
 
@@ -101,13 +135,16 @@ class SafetySupervisor:
         if not self.origin_verified:
             return TriggerResponse(False, 'Fixed EKF origin not manually verified in safety.yaml')
         self.operator_ack = True
-        return TriggerResponse(True, 'Operator acknowledged. This does NOT arm or start flight.')
+        ok, reason = self.checks(rospy.get_time())
+        return TriggerResponse(True, 'Operator acknowledged; next check: '+reason+'. Does NOT arm or start flight.')
 
     def reset(self, _req):
         if self.fc.armed:
             return TriggerResponse(False, 'Cannot reset abort while armed')
         self.abort_latched = False
         self.abort_reason = ''
+        self.freeze_detector.reset('OPERATOR_RESET')
+        self.gazebo_clock_rewound = False
         self.was_guided_flying = False
         self.operator_ack = False
         return TriggerResponse(True, 'Abort reset, repeat /safety/acknowledge before flight')
@@ -117,7 +154,7 @@ class SafetySupervisor:
             self.param_good = True
             self.param_reason = 'PARAM_CHECK_DISABLED_FOR_EXPLICIT_SITL'
             return
-        expected = self.params_cfg.get('ekf', {})
+        expected = dict(self.params_cfg.get('ekf', {}))
         expected.update(self.params_cfg.get('mtf01p', {}))
         if not expected:
             self.param_good = False
@@ -145,29 +182,119 @@ class SafetySupervisor:
         if not self.param_good:
             rospy.logwarn_throttle(5., 'FC param verification: %s', self.param_reason)
 
+    def accepted_uwb_cb(self, msg):
+        self.accepted_uwb = (msg, rospy.get_time())
+
+    def truth_cb(self, msg):
+        try:
+            i = msg.name.index(self.model_name)
+            p = msg.pose[i].position
+            if not finite(p.x, p.y, p.z):
+                raise ValueError('nonfinite pose')
+            twist = msg.twist[i].linear if i < len(msg.twist) else None
+            if twist is not None and not finite(twist.x, twist.y, twist.z):
+                raise ValueError('nonfinite Gazebo twist')
+            self.truth = ((p.x, p.y), rospy.get_time(),
+                          (twist.x, twist.y) if twist is not None else None)
+            self.truth_error = ''
+        except (ValueError, IndexError):
+            self.truth = None
+            self.truth_error = 'GAZEBO_MODEL_MISSING_OR_INVALID'
+
+    def clock_cb(self, msg):
+        value, now = msg.clock.to_sec(), rospy.get_time()
+        if self.clock is None or value != self.clock:
+            self.clock_progress_receipt = now
+        if self.clock is not None and value < self.clock:
+            self.gazebo_clock_rewound = True
+            self.freeze_detector.reset('GAZEBO_CLOCK_REWIND')
+            self.truth = None
+            self.truth_error = 'GAZEBO_CLOCK_REWIND'
+        self.clock = value
+
+    @staticmethod
+    def message_age(msg, now):
+        return now-msg.header.stamp.to_sec()
+
     def freeze_check(self, now):
+        """SITL requires independent truth; never silently fall back to EKF."""
         f = self.cfg.get('freeze_detection', {})
-        if not f.get('enabled', False) or self.world is None or self.velocity is None:
+        if not f.get('enabled', False):
+            self.freeze_detector.reset('DISABLED')
+            self.freeze_snapshot = dict(self.freeze_detector.snapshot)
             return False
-        if now-self.velocity_stamp > .30:
-            self.freeze_start = None
+        context = {'now_s': now, 'world_receipt_age_s': now-self.world_timestamp,
+                   'world_header_age_s': self.message_age(self.world, now) if self.world else None,
+                   'velocity_receipt_age_s': now-self.velocity_stamp,
+                   'velocity_header_age_s': self.message_age(self.velocity, now) if self.velocity else None,
+                   'world_xyz': [self.world.pose.position.x, self.world.pose.position.y,
+                                 self.world.pose.position.z] if self.world else None,
+                   'velocity_frame': self.velocity.header.frame_id if self.velocity else None,
+                   'uwb_age_s': self.localization.uwb_age_s if self.localization else None,
+                   'range_age_s': self.localization.laser_age_s if self.localization else None,
+                   'fc_connected': self.fc.connected, 'fc_age_s': now-self.fc_timestamp,
+                   'fc_armed': self.fc.armed, 'fc_mode': self.fc.mode,
+                   'mission_state': self.mission_state}
+        self.freeze_snapshot = context
+        def unavailable(reason):
+            previous = self.freeze_detector.snapshot
+            self.freeze_detector.reset(reason)
+            context.update(self.freeze_detector.snapshot)
+            if previous.get('samples'):
+                context['previous_window'] = previous
             return False
-        v = math.hypot(self.velocity.twist.linear.x, self.velocity.twist.linear.y)
-        xy = (self.world.pose.position.x, self.world.pose.position.y)
-        if v < float(f.get('min_speed_mps', .20)):
-            self.freeze_anchor_xy = xy
-            self.freeze_start = None
-            return False
-        if self.freeze_anchor_xy is None:
-            self.freeze_anchor_xy = xy
-        if math.hypot(xy[0]-self.freeze_anchor_xy[0], xy[1]-self.freeze_anchor_xy[1]) > float(
-                f.get('movement_epsilon_m', .015)):
-            self.freeze_anchor_xy = xy
-            self.freeze_start = None
-            return False
-        if self.freeze_start is None:
-            self.freeze_start = now
-        return now-self.freeze_start > float(f.get('window_s', 1.0))
+        if (not self.localization or not self.localization.healthy or
+                not 0 <= now-self.localization_timestamp <= .30 or
+                not self.fc.connected or not 0 <= now-self.fc_timestamp <= 1.):
+            return unavailable('LOCALIZATION_OR_FC_UNAVAILABLE')
+        if (self.world is None or not 0 <= now-self.world_timestamp <= .30 or
+                not 0 <= self.message_age(self.world, now) <= .30):
+            return unavailable('WORLD_POSE_STALE')
+        if self.accepted_uwb is None:
+            return unavailable('ACCEPTED_UWB_MISSING')
+        uwb, received = self.accepted_uwb
+        stamp = uwb.header.stamp.to_sec()
+        context.update(uwb_receipt_age_s=now-received, uwb_header_age_s=now-stamp,
+                       uwb_sample_stamp_s=stamp, uwb_frame=uwb.header.frame_id)
+        if not (0 <= now-received <= .30 and 0 <= now-stamp <= .30):
+            return unavailable('ACCEPTED_UWB_STALE')
+        if uwb.header.frame_id != 'uwb_anchor':
+            return unavailable('INVALID_UWB_FRAME')
+        if (self.velocity is None or not 0 <= now-self.velocity_stamp <= .30 or
+                not 0 <= self.message_age(self.velocity, now) <= .30 or
+                self.transform is None):
+            return unavailable('VELOCITY_STALE_OR_TRANSFORM_MISSING')
+        # MAVROS velocity_local is ENU, never body FLU. Refuse an unexpected frame.
+        if self.velocity.header.frame_id not in (self.velocity_frame, 'odom'):
+            return unavailable('INVALID_VELOCITY_FRAME')
+        v = self.velocity.twist.linear
+        c, sn = math.cos(self.transform.yaw), math.sin(self.transform.yaw)
+        velocity_world = (c*v.x+sn*v.y, -sn*v.x+c*v.y)
+        context['velocity_nav_xy'] = [v.x, v.y]
+        context['velocity_world_xy'] = list(velocity_world)
+        truth_xy = None
+        if self.cfg.get('profile') == 'sitl':
+            if self.gazebo_clock_rewound:
+                return unavailable('GAZEBO_CLOCK_REWIND')
+            context['truth_age_s'] = now-self.truth[1] if self.truth else None
+            context['gazebo_clock_s'] = self.clock
+            context['clock_progress_age_s'] = (now-self.clock_progress_receipt
+                                               if self.clock_progress_receipt is not None else None)
+            if self.truth is None or not 0 <= now-self.truth[1] <= .30:
+                return unavailable(self.truth_error or 'GAZEBO_TRUTH_STALE')
+            if self.clock_progress_receipt is None or not 0 <= now-self.clock_progress_receipt <= .30:
+                return unavailable('GAZEBO_CLOCK_STALLED_OR_MISSING')
+            truth_xy = self.truth[0]
+            context['truth_velocity_xy'] = self.truth[2]
+            context['truth_speed_mps'] = math.hypot(*self.truth[2]) if self.truth[2] is not None else None
+        triggered = self.freeze_detector.observe(stamp, (uwb.point.x, uwb.point.y),
+                                                  velocity_world, truth_xy, dict(context))
+        context.update(self.freeze_detector.snapshot)
+        classification = context['classification']
+        if classification != self.last_freeze_classification:
+            rospy.logwarn('Freeze classification: %s', json.dumps(context))
+            self.last_freeze_classification = classification
+        return triggered
 
     def checks(self, now):
         if not self.origin_verified:
@@ -178,31 +305,39 @@ class SafetySupervisor:
             return False, 'ABORT_LATCHED:' + self.abort_reason
         if not self.param_good:
             return False, 'PARAM_MISMATCH:' + self.param_reason
-        if not self.fc.connected or now-self.fc_timestamp > 1.:
+        if not self.fc.connected or not 0 <= now-self.fc_timestamp <= 1.:
             return False, 'FC_DISCONNECTED'
-        if (not self.localization or now-self.localization_timestamp > .30 or
+        if (not self.localization or not 0 <= now-self.localization_timestamp <= .30 or
                 not self.localization.healthy or not self.localization.transform_locked):
             return False, 'LOCALIZATION_UNHEALTHY'
         if not self.transform or self.z_offset is None or not finite(self.z_offset):
             return False, 'CALIBRATION_TRANSFORM_MISSING'
-        if self.world is None or now-self.world_timestamp > .30:
+        if self.world is None or not 0 <= now-self.world_timestamp <= .30:
             return False, 'WORLD_POSE_STALE'
         pos = (self.world.pose.position.x, self.world.pose.position.y,
                self.world.pose.position.z)
-        if not inside_box(pos, self.box):
-            # Pre-takeoff while unarmed may be below z_min, allow READY after
-            # x/y tests; but not while GUIDED+armed and in active route.
-            if self.fc.armed and self.fc.mode == 'GUIDED' and self.was_guided_flying:
-                return False, 'GEOFENCE_BREACH'
-            if not (self.box['x_min'] <= pos[0] <= self.box['x_max'] and
-                    self.box['y_min'] <= pos[1] <= self.box['y_max']):
-                return False, 'XY_OUTSIDE_FENCE'
+        if self.world.header.frame_id != self.cfg['frame_id']:
+            return False, 'INVALID_WORLD_FRAME'
+        reason = fence_reason(pos, self.box, self.fc.armed,
+                              self.mission_state in ('RUNNING', 'COMPLETE'))
+        if reason != 'READY':
+            return False, reason
+        if self.cfg.get('freeze_detection', {}).get('enabled', False):
+            unavailable = self.freeze_snapshot.get('classification', '')
+            if unavailable in ('WORLD_POSE_STALE', 'ACCEPTED_UWB_MISSING', 'ACCEPTED_UWB_STALE',
+                               'INVALID_UWB_FRAME', 'VELOCITY_STALE_OR_TRANSFORM_MISSING',
+                               'INVALID_VELOCITY_FRAME', 'GAZEBO_MODEL_MISSING_OR_INVALID',
+                               'GAZEBO_TRUTH_MISSING', 'GAZEBO_TRUTH_STALE', 'GAZEBO_CLOCK_REWIND',
+                               'GAZEBO_CLOCK_STALLED_OR_MISSING', 'GAZEBO_POSE_TWIST_INCONSISTENT', 'INVALID_SAMPLE'):
+                return False, unavailable
         # Predict near-future horizontal motion before hitting the hard fence.
         # Velocity is FC EKF output (not an independent collision sensor).
         horizon = float(self.cfg.get('mission', {}).get('fence_prediction_s', 0.35))
         if (self.was_guided_flying and self.fc.armed and self.fc.mode == 'GUIDED' and
                 horizon > 0 and self.velocity is not None and
-                now-self.velocity_stamp < .30):
+                0 <= now-self.velocity_stamp < .30 and
+                0 <= self.message_age(self.velocity, now) < .30 and
+                self.velocity.header.frame_id in (self.velocity_frame, 'odom')):
             vx = self.velocity.twist.linear.x
             vy = self.velocity.twist.linear.y
             if finite(vx, vy):
@@ -214,7 +349,7 @@ class SafetySupervisor:
                 if not (self.box['x_min'] <= px <= self.box['x_max'] and
                         self.box['y_min'] <= py <= self.box['y_max']):
                     return False, 'PREDICTED_FENCE_BREACH'
-        if self.freeze_check(now):
+        if self.freeze_snapshot.get('triggered', False):
             return False, 'POSSIBLE_UWB_FREEZE'
         return True, 'READY'
 
@@ -223,6 +358,12 @@ class SafetySupervisor:
             return
         self.abort_latched = True
         self.abort_reason = reason
+        self.abort_snapshot = {'event_s': rospy.get_time(), 'reason': reason,
+                               'freeze': self.freeze_snapshot,
+                               'localization_reason': self.localization.reason if self.localization else None}
+        payload = json.dumps(self.abort_snapshot)
+        self.abort_diagnostics.publish(String(data=payload))
+        rospy.logerr('INDOOR NAV ABORT SNAPSHOT: %s', payload)
         rospy.logerr('INDOOR NAV ABORT: %s', reason)
 
     def request_land(self, now):
@@ -240,6 +381,7 @@ class SafetySupervisor:
 
     def tick(self, _event):
         now = rospy.get_time()
+        self.freeze_check(now)
         ok, reason = self.checks(now)
         guided = self.fc.armed and self.fc.mode == 'GUIDED'
         active = self.mission_state in ('RUNNING', 'COMPLETE')
@@ -277,6 +419,18 @@ class SafetySupervisor:
         msg.abort_latched = self.abort_latched
         msg.reason = self.abort_reason if self.abort_latched else reason
         self.status.publish(msg)
+        p = self.world.pose.position if self.world else None
+        self.diagnostics.publish(String(data=json.dumps({
+            'freeze': {k: v for k, v in self.freeze_snapshot.items() if k not in ('samples', 'previous_window')},
+            'reason': msg.reason, 'profile': self.cfg.get('profile'),
+            'config_source': self.cfg.get('config_source'), 'geofence': self.box,
+            'world_xyz': [p.x, p.y, p.z] if p else None,
+            'frame_id': self.world.header.frame_id if self.world else None,
+            'armed': self.fc.armed, 'mode': self.fc.mode,
+            'world_age_s': now-self.world_timestamp,
+            'localization_age_s': now-self.localization_timestamp,
+            'uwb_age_s': self.localization.uwb_age_s if self.localization else None,
+            'laser_age_s': self.localization.laser_age_s if self.localization else None})))
 
 
 if __name__ == '__main__':

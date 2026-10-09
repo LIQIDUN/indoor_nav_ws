@@ -180,3 +180,98 @@ def rotate_vector(q, p):
     return (x+qw*tx+qy*tz-qz*ty,
             y+qw*ty+qz*tx-qx*tz,
             z+qw*tz+qx*ty-qy*tx)
+
+
+def fence_reason(position, box, armed=False, active=False):
+    """Only disarmed, inactive ground setup may be below the minimum Z."""
+    if not finite(*position):
+        return 'NONFINITE_WORLD_POSE'
+    if not (box['x_min'] <= position[0] <= box['x_max'] and
+            box['y_min'] <= position[1] <= box['y_max']):
+        return 'XY_OUTSIDE_FENCE'
+    if position[2] > box['z_max']:
+        return 'Z_ABOVE_FENCE'
+    if position[2] < box['z_min'] and (armed or active):
+        return 'Z_BELOW_FENCE'
+    return 'READY'
+
+
+class FreezeWindow:
+    """Bounded window of distinct accepted UWB observations, never timer ticks.
+
+    SITL evidence is independent Gazebo XY displacement. Else evidence remains
+    the explicitly labelled EKF-velocity heuristic (not independent of UWB).
+    All times supplied by the caller are ROS receipt times in one clock domain.
+    """
+    def __init__(self, window_s=1., epsilon_m=.015, min_speed_mps=.20, max_gap_s=.30):
+        from collections import deque
+        self.window = float(window_s)
+        self.epsilon = float(epsilon_m)
+        self.min_speed = float(min_speed_mps)
+        self.max_gap = float(max_gap_s)
+        if not finite(self.window, self.epsilon, self.min_speed, self.max_gap) or min(
+                self.window, self.epsilon, self.min_speed, self.max_gap) <= 0:
+            raise ValueError('invalid freeze window configuration')
+        self.samples = deque(maxlen=512)
+        self.snapshot = {}
+
+    def reset(self, reason):
+        self.samples.clear()
+        self.snapshot = {'classification': reason, 'triggered': False, 'samples': []}
+        return False
+
+    def observe(self, stamp, xy, velocity_world, truth_xy=None, context=None):
+        if not finite(stamp, *xy, *velocity_world) or (truth_xy is not None and not finite(*truth_xy)):
+            return self.reset('INVALID_SAMPLE')
+        if self.samples:
+            gap = stamp-self.samples[-1]['stamp']
+            if gap == 0:
+                return self.snapshot.get('triggered', False)
+            if gap < 0 or gap > self.max_gap:
+                self.reset('TIME_RESET_OR_SAMPLE_GAP')
+            elif (truth_xy is None) != (self.samples[-1]['truth_xy'] is None):
+                self.reset('MOTION_SOURCE_CHANGED')
+        self.samples.append({'stamp': stamp, 'uwb_xy': list(xy),
+                             'velocity_world': list(velocity_world),
+                             'truth_xy': list(truth_xy) if truth_xy is not None else None,
+                             'context': context or {}})
+        while len(self.samples) > 2 and stamp-self.samples[1]['stamp'] >= self.window:
+            self.samples.popleft()
+        rows = list(self.samples)
+        duration = stamp-rows[0]['stamp']
+        def span(key):
+            return math.hypot(*(max(r[key][i] for r in rows)-min(r[key][i] for r in rows)
+                                for i in (0, 1)))
+        uwb_span = span('uwb_xy')
+        speeds = [math.hypot(*r['velocity_world']) for r in rows]
+        source = 'GAZEBO_TRUTH' if truth_xy is not None else 'EKF_VELOCITY_HEURISTIC'
+        motion_path = 0.
+        truth_span = None
+        if truth_xy is not None:
+            truth_span = span('truth_xy')
+            motion_path = sum(math.hypot(*(b['truth_xy'][i]-a['truth_xy'][i] for i in (0, 1)))
+                              for a, b in zip(rows, rows[1:]))
+            moving = duration > 0 and motion_path/duration >= self.min_speed and truth_span > self.epsilon
+        else:
+            moving = min(speeds) >= self.min_speed
+            motion_path = sum(.5*(a+b)*(r2['stamp']-r1['stamp'])
+                              for a,b,r1,r2 in zip(speeds,speeds[1:],rows,rows[1:]))
+        complete = duration >= self.window
+        truth_speeds = [r['context'].get('truth_speed_mps') for r in rows]
+        truth_inconsistent = (complete and truth_span is not None and truth_span <= self.epsilon and
+                              all(v is not None and v >= self.min_speed for v in truth_speeds))
+        triggered = complete and uwb_span <= self.epsilon and moving and not truth_inconsistent
+        classification = ('GAZEBO_POSE_TWIST_INCONSISTENT' if truth_inconsistent else
+                          'POSSIBLE_UWB_FREEZE' if triggered else 'WINDOW_INCOMPLETE' if not complete
+                          else 'POSITION_CHANGING' if uwb_span > self.epsilon
+                          else 'STATIONARY_WITH_EKF_VELOCITY_DISAGREEMENT' if truth_xy is not None and max(speeds) >= self.min_speed
+                          else 'STATIONARY')
+        self.snapshot = {'classification': classification, 'triggered': triggered,
+                         'motion_source': source, 'duration_s': duration,
+                         'window_s': self.window, 'movement_epsilon_m': self.epsilon,
+                         'min_speed_mps': self.min_speed, 'uwb_span_m': uwb_span,
+                         'truth_span_m': truth_span, 'motion_path_m': motion_path,
+                         'motion_mean_speed_mps': motion_path/duration if duration else 0.,
+                         'ekf_speed_min_mps': min(speeds), 'ekf_speed_max_mps': max(speeds),
+                         'sample_count': len(rows), 'samples': rows}
+        return triggered

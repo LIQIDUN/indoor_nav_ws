@@ -5,12 +5,16 @@ ROS parameters /indoor_nav/mock/uwb_sim/freeze|drop_all|jump_now can be
 modified at runtime with rosparam set; no simulated radio/serial protocol.
 """
 import math
+import json
 import random
 from collections import deque
 import rospy
 from gazebo_msgs.msg import ModelStates
 from geometry_msgs.msg import PoseStamped
 from sensor_msgs.msg import Range
+from rosgraph_msgs.msg import Clock
+from std_msgs.msg import String
+from indoor_nav.core import finite
 from nlink_parser.msg import (LinktrackNodeframe2, LinktrackAnchorframe0,
                               LinktrackTag)
 
@@ -26,6 +30,12 @@ class MockUwb:
         self.aircraft_id = int(lc.get('uwb', {}).get('aircraft_tag_id', 0))
         self.ground_id = int(lc.get('world', {}).get('ground_reference', {}).get('tag_id', 1))
         self.truth = None
+        self.truth_stamp = None
+        self.truth_error = 'TRUTH_MISSING'
+        self.clock = None
+        self.clock_progress_receipt = None
+        self.last_diagnostic_reason = None
+        self.diag_pub = rospy.Publisher('/indoor_nav/sitl/mock_diagnostics', String, queue_size=1, latch=True)
         self.last = None
         self.held = None
         self.queue = deque()
@@ -38,6 +48,7 @@ class MockUwb:
         self.model_name = self.sim.get('model_name', 'iris')
         self.truth_mode = self.sim.get('source', 'gazebo_model_states')
         if self.truth_mode == 'gazebo_model_states':
+            rospy.Subscriber('/clock', Clock, self.clock_cb, queue_size=1)
             rospy.Subscriber(self.sim.get('topic', '/gazebo/model_states'),
                              ModelStates, self.gazebo_cb, queue_size=1)
         elif self.truth_mode == 'pose_stamped':
@@ -51,24 +62,80 @@ class MockUwb:
         rospy.Timer(rospy.Duration(1./hz), self.generate)
         rospy.Timer(rospy.Duration(.01), self.flush)
 
+    def invalidate_truth(self, reason):
+        self.truth = None
+        self.truth_error = reason
+        self.queue.clear()
+
+    def clock_cb(self, msg):
+        value, now = msg.clock.to_sec(), rospy.get_time()
+        if self.clock is None or value != self.clock:
+            self.clock_progress_receipt = now
+        if self.clock is not None and value < self.clock:
+            self.invalidate_truth('GAZEBO_CLOCK_REWIND')
+        self.clock = value
+
     def gazebo_cb(self, m):
         try:
             i = m.name.index(self.model_name)
-        except ValueError:
-            rospy.logwarn_throttle(5, 'No model %s in /gazebo/model_states', self.model_name)
-            return
-        self.truth = (m.pose[i].position.x, m.pose[i].position.y, m.pose[i].position.z)
+            p = m.pose[i].position
+            if not finite(p.x, p.y, p.z):
+                raise ValueError('nonfinite truth')
+            self.truth = (p.x, p.y, p.z)
+            self.truth_stamp = rospy.get_time()
+            self.truth_error = ''
+        except (ValueError, IndexError):
+            self.invalidate_truth('GAZEBO_MODEL_MISSING_OR_INVALID')
 
     def pose_cb(self, m):
-        self.truth = (m.pose.position.x, m.pose.position.y, m.pose.position.z)
+        p = m.pose.position
+        if not finite(p.x, p.y, p.z) or not 0 <= rospy.get_time()-m.header.stamp.to_sec() <= .3:
+            self.invalidate_truth('INVALID_OR_STALE_POSE_TRUTH')
+            return
+        self.truth_stamp = rospy.get_time()
+        self.truth = (p.x, p.y, p.z)
+        self.truth_error = ''
+
+    def truth_health(self, now):
+        if self.truth is None:
+            return self.truth_error or 'TRUTH_MISSING'
+        if self.truth_stamp is None or not 0 <= now-self.truth_stamp <= .3:
+            return 'TRUTH_STALE_OR_TIME_RESET'
+        if self.truth_mode == 'gazebo_model_states' and (self.clock_progress_receipt is None or
+                not 0 <= now-self.clock_progress_receipt <= .3):
+            return 'GAZEBO_CLOCK_STALLED_OR_MISSING'
+        return 'OK'
+
+    def diagnose(self, reason, cfg):
+        now = rospy.get_time()
+        data = {'stamp_s': now, 'reason': reason, 'model_name': self.model_name,
+                'source': self.truth_mode, 'truth_xyz': self.truth,
+                'truth_receipt_s': self.truth_stamp,
+                'truth_age_s': now-self.truth_stamp if self.truth_stamp is not None else None,
+                'gazebo_clock_s': self.clock,
+                'clock_progress_age_s': now-self.clock_progress_receipt if self.clock_progress_receipt is not None else None,
+                'queue_length': len(self.queue),
+                'freeze_injected': bool(cfg.get('freeze', False)),
+                'drop_all_injected': bool(cfg.get('drop_all', False)),
+                'delay_ms': cfg.get('delay_ms', 0), 'held_uwb_xyz': self.held}
+        payload = json.dumps(data)
+        self.diag_pub.publish(String(data=payload))
+        if reason != self.last_diagnostic_reason:
+            rospy.logwarn('Mock publication transition: %s', payload)
+            self.last_diagnostic_reason = reason
 
     def generate(self, _event):
-        if self.truth is None:
-            rospy.logwarn_throttle(5, 'Mock waiting for independent simulator ground truth')
-            return
         cfg = dict(self.base_cfg)
-        for p in ('freeze', 'drop_all', 'jump_now', 'dropout_probability', 'noise_std_xy_m'):
-            cfg[p] = rospy.get_param('/indoor_nav/mock/uwb_sim/' + p, cfg.get(p))
+        defaults = {'freeze': False, 'drop_all': False, 'jump_now': False,
+                    'dropout_probability': 0., 'noise_std_xy_m': .05}
+        for p, default in defaults.items():
+            cfg[p] = rospy.get_param('/indoor_nav/mock/uwb_sim/' + p, cfg.get(p, default))
+        reason = self.truth_health(rospy.get_time())
+        if reason != 'OK':
+            self.queue.clear()
+            self.diagnose(reason, cfg)
+            return
+        self.diagnose('FREEZE_INJECTED' if cfg.get('freeze') else 'DROP_ALL_INJECTED' if cfg.get('drop_all') else 'OK', cfg)
         px, py, pz = self.truth
         # Range observation is independent of the UWB stream and does not
         # disappear when simulating UWB loss.
@@ -119,6 +186,9 @@ class MockUwb:
 
     def flush(self, _event):
         now = rospy.get_time()
+        if self.truth_health(now) != 'OK':
+            self.queue.clear()
+            return
         while self.queue and self.queue[0][0] <= now:
             _, air, ref = self.queue.popleft()
             self.air_pub.publish(air)

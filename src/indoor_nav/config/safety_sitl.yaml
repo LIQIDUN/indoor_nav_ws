@@ -1,3 +1,5 @@
+profile: sitl
+frame_id: world_lab
 # DO NOT enlarge geofence to fill 3x3 enclosure.
 geofence:
   x_min: -1.10

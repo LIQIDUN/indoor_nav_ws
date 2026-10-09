@@ -83,7 +83,7 @@ class MissionManager:
         if not self.route:
             return TriggerResponse(False, 'mission.yaml has no waypoints')
         if not self.safestat or not self.safestat.ready or self.safestat.abort_latched:
-            return TriggerResponse(False, 'Safety supervisor not READY')
+            return TriggerResponse(False, 'Safety supervisor not READY: ' + (self.safestat.reason if self.safestat else 'NO_STATUS'))
         if not self.locstat or not self.locstat.healthy or not self.locstat.transform_locked:
             return TriggerResponse(False, 'Localization not calibrated/healthy')
         if not self.transform or self.world is None or now-self.world_stamp > .30:
@@ -140,11 +140,8 @@ class MissionManager:
         else:
             self.setpoint = target  # Continue holding final point until pilot takes over
         xy_n = self.transform.apply(self.setpoint[0], self.setpoint[1])
-        # Z uses measured conversion FC local-Z minus laser-derived world-Z.
+        # Z uses the fixed calibrated navigation offset.
         # Supervisor recomputes safety in world frame before forwarding.
-        # The navigation z_offset is supplied by current ap_local pose and laser,
-        # only if BOTH are fresh and estimator is healthy.
-        # See the shared /indoor_nav/z_offset_m message.
         offset = self.z_offset
         if offset is None or not finite(offset):
             self.mode = 'ABORT'

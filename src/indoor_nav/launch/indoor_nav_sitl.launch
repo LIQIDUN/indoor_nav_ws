@@ -7,6 +7,8 @@
   <arg name="uwb_delay_ms" default="0" />
 
   <include file="$(find indoor_nav)/launch/indoor_nav.launch">
+  <arg name="expected_profile" value="sitl" />
+  <arg name="ardupilot_file" value="$(find indoor_nav)/config/ardupilot_sitl_expected.yaml" />
   <arg name="start_nlink" value="false" />
   <arg name="external_nav_enabled" value="$(arg external_nav_enabled)" />
   <arg name="safety_file" value="$(find indoor_nav)/config/safety_sitl.yaml" />
@@ -21,8 +23,5 @@
   <param name="/indoor_nav/localization/height/range_topic" value="/indoor_nav/sitl/mock_range" />
   <param name="/indoor_nav/localization/height/range_to_body_z_m" value="-0.15" />
   <param name="/indoor_nav/safety/freeze_detection/enabled" value="true" />
-  <!-- Only in function-level SITL: FC parameter checks are disabled initially.
-       Must re-enable and verify EKF/Range/Flow configuration before closed-loop testing. -->
-  <param name="/indoor_nav/safety/check_fc_params" value="false" />
   <node pkg="indoor_nav" type="mock_uwb_node.py" name="mock_uwb_node" output="screen" />
 </launch>

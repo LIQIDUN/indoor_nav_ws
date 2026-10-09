@@ -1,0 +1,356 @@
+{
+  "capture_s": 1791526564.85364,
+  "gazebo_physics": {
+    "max_update_rate": 0.0,
+    "pause": false,
+    "success": true,
+    "time_step": 0.0025
+  },
+  "missing_topics": [
+    "/mavros/imu/data",
+    "/mavros/local_position/velocity_local",
+    "/indoor_nav/world_pose",
+    "/indoor_nav/abort_snapshot",
+    "/indoor_nav/localization_diagnostics",
+    "/indoor_nav/sitl/mock_diagnostics"
+  ],
+  "processes": [
+    " 838385  838366 rosmaster       Ssl   3.3       15:03 do_select",
+    " 838694  838459 mavproxy.py     Sl+   1.9       15:00 do_select",
+    " 838696  838693 arducopter      Rsl+ 88.2       15:00 -",
+    " 838811  838782 gzserver        Ss    0.0       14:59 do_wait",
+    " 838813  838782 gzclient        Ss    0.0       14:59 do_wait",
+    " 838882  838813 gzclient        SLl  24.4       14:59 do_sys_poll",
+    " 838885  838811 gzserver        SLl  30.5       14:59 hrtimer_nanosleep",
+    " 839158  839127 mavros_node     Ssl   0.5       14:56 hrtimer_nanosleep"
+  ],
+  "tcp_sockets": [
+    "LISTEN      0        5                                           0.0.0.0:5760                    0.0.0.0:*       users:((\"arducopter\",pid=838696,fd=9))         ",
+    "ESTAB       0        28                                        127.0.0.1:43202                 127.0.0.1:5760    users:((\"mavproxy.py\",pid=838694,fd=8))        ",
+    "ESTAB       755703   0                                         127.0.0.1:5760                  127.0.0.1:43202   users:((\"arducopter\",pid=838696,fd=10))        "
+  ],
+  "topics": {
+    "/clock": {
+      "count": 4001,
+      "first": {
+        "receipt_s": 1791526559.8420763,
+        "sim_s": 1624.5325
+      },
+      "last": {
+        "receipt_s": 1791526564.9505982,
+        "sim_s": 1634.5325
+      }
+    },
+    "/diagnostics": {
+      "count": 4,
+      "first": {
+        "frame_id": "",
+        "header_s": 1791526560.042846,
+        "receipt_s": 1791526560.042994,
+        "statuses": [
+          {
+            "level": 1,
+            "message": "not connected",
+            "name": "mavros: FCU connection",
+            "values": {
+              "Buffer overruns:": "0",
+              "Dropped packets:": "0",
+              "Parse errors:": "0",
+              "Received packets:": "15578",
+              "Rx sequence number:": "218",
+              "Rx speed:": "0.000000",
+              "Rx total bytes:": "526764",
+              "Tx sequence number:": "0",
+              "Tx speed:": "460.000000",
+              "Tx total bytes:": "1069605"
+            }
+          },
+          {
+            "level": 2,
+            "message": "No satellites",
+            "name": "mavros: GPS",
+            "values": {
+              "EPH (m)": "Unknown",
+              "EPV (m)": "Unknown",
+              "Fix type": "0",
+              "Satellites visible": "0"
+            }
+          },
+          {
+            "level": 1,
+            "message": "Can not diagnose in this targeting mode",
+            "name": "mavros: Mount",
+            "values": {
+              "Mode": "255"
+            }
+          },
+          {
+            "level": 2,
+            "message": "No events recorded.",
+            "name": "mavros: Heartbeat",
+            "values": {
+              "Autopilot type": "ArduPilot",
+              "Frequency (Hz)": "0.000000",
+              "Heartbeats since startup": "117",
+              "Mode": "LAND",
+              "System status": "Active",
+              "Vehicle type": "Quadrotor"
+            }
+          },
+          {
+            "level": 0,
+            "message": "Normal",
+            "name": "mavros: System",
+            "values": {
+              "3D accelerometer": "Ok",
+              "3D angular rate control": "Ok",
+              "3D gyro": "Ok",
+              "3D magnetometer": "Ok",
+              "AHRS subsystem health": "Ok",
+              "Battery": "Ok",
+              "CPU Load (%)": "100.0",
+              "Drop rate (%)": "0.0",
+              "Errors comm": "0",
+              "Errors count #1": "0",
+              "Errors count #2": "0",
+              "Errors count #3": "0",
+              "Errors count #4": "0",
+              "Logging": "Ok",
+              "Sensor enabled": "0x4361FD8F",
+              "Sensor health": "0x4771FD8F",
+              "Sensor present": "0x5371FD8F",
+              "Terrain subsystem health": "Ok",
+              "absolute pressure": "Ok",
+              "attitude stabilization": "Ok",
+              "computer vision position": "Ok",
+              "laser based position": "Ok",
+              "motor outputs / control": "Ok",
+              "propulsion (actuator, esc, motor or propellor)": "Ok",
+              "rc receiver": "Ok",
+              "x/y position control": "Ok",
+              "yaw position": "Ok",
+              "z/altitude control": "Ok"
+            }
+          },
+          {
+            "level": 0,
+            "message": "Normal",
+            "name": "mavros: Battery",
+            "values": {
+              "Current": "-0.0",
+              "Remaining": "100.0",
+              "Voltage": "12.60"
+            }
+          },
+          {
+            "level": 2,
+            "message": "No events recorded.",
+            "name": "mavros: Time Sync",
+            "values": {
+              "Estimated time offset (s)": "1791525668.404138088",
+              "Frequency (Hz)": "0.000000",
+              "Last RTT (ms)": "7.150329",
+              "Last remote time (s)": "112.032833000",
+              "Mean RTT (ms)": "4.508701",
+              "Timesyncs since startup": "1119"
+            }
+          }
+        ]
+      },
+      "last": {
+        "frame_id": "",
+        "header_s": 1791526564.0428252,
+        "receipt_s": 1791526564.0430088,
+        "statuses": [
+          {
+            "level": 1,
+            "message": "not connected",
+            "name": "mavros: FCU connection",
+            "values": {
+              "Buffer overruns:": "0",
+              "Dropped packets:": "0",
+              "Parse errors:": "0",
+              "Received packets:": "15578",
+              "Rx sequence number:": "218",
+              "Rx speed:": "0.000000",
+              "Rx total bytes:": "526764",
+              "Tx sequence number:": "0",
+              "Tx speed:": "460.000000",
+              "Tx total bytes:": "1070885"
+            }
+          },
+          {
+            "level": 2,
+            "message": "No satellites",
+            "name": "mavros: GPS",
+            "values": {
+              "EPH (m)": "Unknown",
+              "EPV (m)": "Unknown",
+              "Fix type": "0",
+              "Satellites visible": "0"
+            }
+          },
+          {
+            "level": 1,
+            "message": "Can not diagnose in this targeting mode",
+            "name": "mavros: Mount",
+            "values": {
+              "Mode": "255"
+            }
+          },
+          {
+            "level": 2,
+            "message": "No events recorded.",
+            "name": "mavros: Heartbeat",
+            "values": {
+              "Autopilot type": "ArduPilot",
+              "Frequency (Hz)": "0.000000",
+              "Heartbeats since startup": "117",
+              "Mode": "LAND",
+              "System status": "Active",
+              "Vehicle type": "Quadrotor"
+            }
+          },
+          {
+            "level": 0,
+            "message": "Normal",
+            "name": "mavros: System",
+            "values": {
+              "3D accelerometer": "Ok",
+              "3D angular rate control": "Ok",
+              "3D gyro": "Ok",
+              "3D magnetometer": "Ok",
+              "AHRS subsystem health": "Ok",
+              "Battery": "Ok",
+              "CPU Load (%)": "100.0",
+              "Drop rate (%)": "0.0",
+              "Errors comm": "0",
+              "Errors count #1": "0",
+              "Errors count #2": "0",
+              "Errors count #3": "0",
+              "Errors count #4": "0",
+              "Logging": "Ok",
+              "Sensor enabled": "0x4361FD8F",
+              "Sensor health": "0x4771FD8F",
+              "Sensor present": "0x5371FD8F",
+              "Terrain subsystem health": "Ok",
+              "absolute pressure": "Ok",
+              "attitude stabilization": "Ok",
+              "computer vision position": "Ok",
+              "laser based position": "Ok",
+              "motor outputs / control": "Ok",
+              "propulsion (actuator, esc, motor or propellor)": "Ok",
+              "rc receiver": "Ok",
+              "x/y position control": "Ok",
+              "yaw position": "Ok",
+              "z/altitude control": "Ok"
+            }
+          },
+          {
+            "level": 0,
+            "message": "Normal",
+            "name": "mavros: Battery",
+            "values": {
+              "Current": "-0.0",
+              "Remaining": "100.0",
+              "Voltage": "12.60"
+            }
+          },
+          {
+            "level": 2,
+            "message": "No events recorded.",
+            "name": "mavros: Time Sync",
+            "values": {
+              "Estimated time offset (s)": "1791525668.404138088",
+              "Frequency (Hz)": "0.000000",
+              "Last RTT (ms)": "7.150329",
+              "Last remote time (s)": "112.032833000",
+              "Mean RTT (ms)": "4.508701",
+              "Timesyncs since startup": "1119"
+            }
+          }
+        ]
+      }
+    },
+    "/gazebo/model_states": {
+      "count": 4002,
+      "first": {
+        "receipt_s": 1791526559.840901,
+        "xyz": [
+          0.8070256621991566,
+          1.0244660050356602,
+          -0.00043996932857454096
+        ]
+      },
+      "last": {
+        "receipt_s": 1791526564.9503858,
+        "xyz": [
+          0.8070259032312075,
+          1.0244663105388994,
+          -0.00042051741896448336
+        ]
+      }
+    },
+    "/indoor_nav/localization_status": {
+      "count": 154,
+      "first": {
+        "frame_id": "",
+        "header_s": 1791526559.838079,
+        "healthy": false,
+        "range_age_s": 0.03599715232849121,
+        "reason": "FC_LOST",
+        "receipt_s": 1791526559.8475564,
+        "uwb_age_s": 0.02757406234741211
+      },
+      "last": {
+        "frame_id": "",
+        "header_s": 1791526564.938093,
+        "healthy": false,
+        "range_age_s": 0.01581549644470215,
+        "reason": "FC_LOST",
+        "receipt_s": 1791526564.9382906,
+        "uwb_age_s": 0.007535219192504883
+      }
+    },
+    "/indoor_nav/sitl/mock_range": {
+      "count": 127,
+      "first": {
+        "frame_id": "sitl_range",
+        "header_s": 1791526559.8820946,
+        "range_m": 0.1495603770017624,
+        "receipt_s": 1791526559.8823678
+      },
+      "last": {
+        "frame_id": "sitl_range",
+        "header_s": 1791526564.9219406,
+        "range_m": 0.1495794653892517,
+        "receipt_s": 1791526564.922067
+      }
+    },
+    "/mavros/state": {
+      "count": 1,
+      "first": {
+        "armed": false,
+        "connected": false,
+        "frame_id": "",
+        "header_s": 1791525790.4671254,
+        "mode": "",
+        "receipt_s": 1791526559.8432522
+      },
+      "last": {
+        "armed": false,
+        "connected": false,
+        "frame_id": "",
+        "header_s": 1791525790.4671254,
+        "mode": "",
+        "receipt_s": 1791526559.8432522
+      }
+    }
+  },
+  "udp_sockets": [
+    "UNCONN   0        0                     127.0.0.1:9002           0.0.0.0:*       users:((\"gzserver\",pid=838885,fd=103))                                         ",
+    "UNCONN   6400     0                       0.0.0.0:9003           0.0.0.0:*       users:((\"arducopter\",pid=838696,fd=8))                                         ",
+    "ESTAB    0        0                     127.0.0.1:44493        127.0.0.1:9003    users:((\"gzserver\",pid=838885,fd=104))                                         ",
+    "UNCONN   0        0                       0.0.0.0:14552          0.0.0.0:*       users:((\"mavros_node\",pid=839158,fd=13))                                       "
+  ]
+}

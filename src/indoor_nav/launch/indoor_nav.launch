@@ -5,11 +5,15 @@
   <arg name="publish_frame_tf" default="true" />
   <arg name="localization_file" default="$(find indoor_nav)/config/localization.yaml" />
   <arg name="mission_file" default="$(find indoor_nav)/config/mission.yaml" />
+  <arg name="expected_profile" default="hardware" />
+  <arg name="ardupilot_file" default="$(find indoor_nav)/config/ardupilot_expected.yaml" />
   <arg name="safety_file" default="$(find indoor_nav)/config/safety.yaml" />
   <rosparam command="load" file="$(arg localization_file)" ns="/indoor_nav/localization" />
   <rosparam command="load" file="$(arg mission_file)" ns="/indoor_nav/mission" />
   <rosparam command="load" file="$(arg safety_file)" ns="/indoor_nav/safety" />
-  <rosparam command="load" file="$(find indoor_nav)/config/ardupilot_expected.yaml" ns="/indoor_nav/ardupilot_expected" />
+  <rosparam command="load" file="$(arg ardupilot_file)" ns="/indoor_nav/ardupilot_expected" />
+  <param name="/indoor_nav/safety/config_source" value="$(arg safety_file)" />
+  <param name="/indoor_nav/safety/expected_profile" value="$(arg expected_profile)" />
   <param name="/indoor_nav/localization/output/external_nav_enabled" value="$(arg external_nav_enabled)" />
   <include if="$(arg start_nlink)" file="$(find nlink_parser)/launch/linktrack.launch" />
   <!-- IMPORTANT for MAVROS odometry plugin: odom->odom_ned and FLU->FRD transforms.

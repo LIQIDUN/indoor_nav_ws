@@ -3,6 +3,7 @@ world:
   frame_id: world_lab
   anchor_map_verified: false       # operator must survey/persist Anchor Map, then set true
   nav_xy_at_world_origin: [0.0, 0.0]  # fixed EKF local XY at physical world_lab origin
+  nav_z_offset_m: 0.0              # range-derived Z -> nav Z offset; do not depend on FC local pose
   ground_reference:
     enabled: true
     tag_id: 1                      # replace with REAL tag ID
@@ -31,7 +32,9 @@ height:
   max_valid_m: 2.00
   timeout_s: 0.20
   range_to_body_z_m: 0.0          # surveyed sensor-to-body reference offset
-fc_pose_timeout_s: 0.40
+fc_pose_timeout_s: 0.40          # diagnostic only, not initialization gate
+imu_attitude_topic: /mavros/imu/data
+imu_attitude_timeout_s: 0.40
 freeze:
   movement_epsilon_m: 0.015
 output:

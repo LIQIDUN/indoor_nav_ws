@@ -2,21 +2,23 @@
 """Nooploop LinkTrack -> fixed world_lab -> MAVROS ODOMETRY.
 
 V1 is NOT an INS/Kalman filter. ExternalNav XY is from UWB. FC retains
-RangeFinder Z and OpticalFlow Vxy. Odometry Z mirrors FC local Z to avoid
-mixed-source vertical reset risks in some ArduPilot versions. Do not arm before
+RangeFinder Z and OpticalFlow Vxy. Odometry Z is estimated from the range sensor
+without feeding back EKF local_position (prevents ExternalNav cold-start deadlock).
+Do not arm before
 handheld frame checks and SITL source-mixing tests.
 """
 import math
+import json
 import threading
 from collections import deque
 
 import rospy
-from geometry_msgs.msg import PoseStamped, TransformStamped
+from geometry_msgs.msg import PoseStamped, TransformStamped, PointStamped
 from nav_msgs.msg import Odometry
-from sensor_msgs.msg import Range
+from sensor_msgs.msg import Range, Imu
 from mavros_msgs.msg import State
 from std_srvs.srv import Trigger, TriggerResponse
-from std_msgs.msg import Float64
+from std_msgs.msg import Float64, String
 from nlink_parser.msg import LinktrackNodeframe2, LinktrackAnchorframe0
 from indoor_nav.msg import LocalizationStatus
 from indoor_nav.core import (Transform2D, UwbGate, GroundCalibration, finite,
@@ -60,12 +62,19 @@ class WorldEstimator:
         self.bias = (0., 0.)
         self.z_offset = None
         self.nav_origin_xy = self.world_cfg.get('nav_xy_at_world_origin', [0., 0.])
+        self.nav_z_offset = float(self.world_cfg.get('nav_z_offset_m', 0.0))
+        if len(self.nav_origin_xy) != 2 or not finite(*self.nav_origin_xy, self.nav_z_offset):
+            raise ValueError('Invalid fixed navigation origin offsets')
         self.fc_state = State()
         self.fc_stamp = 0.
         self.fc_pose = None
         self.fc_pose_stamp = 0.
+        self.fc_imu = None
+        self.fc_imu_stamp = 0.
+        self.imu_timeout = float(self.cfg.get('imu_attitude_timeout_s', 0.40))
         self.height = None
         self.height_stamp = 0.
+        self.height_header_stamp = 0.
         self.height_cfg = height
         self.uwb = UwbGate(ucfg.get('max_jump_m', .30),
                            ucfg.get('max_implied_speed_mps', 1.50),
@@ -74,15 +83,19 @@ class WorldEstimator:
                            ucfg.get('max_eop_xy_m', .50))
         self.raw_xy = None
         self.eop = 0.
-        self.freeze_first = None
-        self.freeze_position = None
-        self.freeze_reason = ''
+        self.last_publish_reason = None
+        self.last_world_publish = None
+        self.raw_uwb = None
+        self.imu_rejection = ''
+        self.range_rejection = ''
         self.twist_pose_stale = float(self.cfg.get('fc_pose_timeout_s', .40))
         self.range_timeout = float(height.get('timeout_s', .20))
         self.output_enabled = bool(out.get('external_nav_enabled', False))
         self.output_rate = float(out.get('odom_rate_hz', 30.))
         self.status_pub = rospy.Publisher('/indoor_nav/localization_status', LocalizationStatus,
                                            queue_size=10, latch=True)
+        self.uwb_sample_pub = rospy.Publisher('/indoor_nav/accepted_uwb', PointStamped, queue_size=30)
+        self.diagnostics_pub = rospy.Publisher('/indoor_nav/localization_diagnostics', String, queue_size=1, latch=True)
         self.world_pub = rospy.Publisher('/indoor_nav/world_pose', PoseStamped, queue_size=10)
         self.nav_odom_pub = rospy.Publisher('/indoor_nav/ap_odom', Odometry, queue_size=10)
         self.fc_odom_pub = rospy.Publisher('/mavros/odometry/out', Odometry, queue_size=10)
@@ -96,7 +109,10 @@ class WorldEstimator:
             rospy.Subscriber(ref.get('topic', '/nlink_linktrack_anchorframe0'),
                              LinktrackAnchorframe0, self.ground_cb, queue_size=10)
         rospy.Subscriber('/mavros/state', State, self.state_cb, queue_size=5)
+        # Local EKF pose is kept only for diagnostics; NEVER required for calibration/output.
         rospy.Subscriber('/mavros/local_position/pose', PoseStamped, self.pose_cb, queue_size=5)
+        rospy.Subscriber(self.cfg.get('imu_attitude_topic', '/mavros/imu/data'),
+                         Imu, self.imu_cb, queue_size=10)
         rospy.Subscriber(height.get('range_topic', '/mavros/rangefinder/rangefinder'),
                          Range, self.range_cb, queue_size=5)
         rospy.Service('/indoor_nav/calibrate', Trigger, self.calibrate)
@@ -121,15 +137,41 @@ class WorldEstimator:
             self.fc_pose = m
             self.fc_pose_stamp = rospy.get_time()
 
+    def imu_cb(self, m):
+        with self.lock:
+            if not 0 <= rospy.get_time()-m.header.stamp.to_sec() <= self.imu_timeout:
+                self.imu_rejection = 'STALE_OR_FUTURE_HEADER'
+                return
+            self.imu_rejection = ''
+            q = get_quat(m.orientation)
+            if not finite(*q):
+                return
+            try:
+                normalize_quaternion(q)
+            except ValueError:
+                return
+            if m.orientation_covariance[0] == -1:
+                return
+            self.fc_imu = m
+            self.fc_imu_stamp = rospy.get_time()
+
     def range_cb(self, m):
         with self.lock:
+            if not 0 <= rospy.get_time()-m.header.stamp.to_sec() <= self.range_timeout:
+                self.range_rejection = 'STALE_OR_FUTURE_HEADER'
+                return
             if not finite(m.range):
+                self.range_rejection = 'NONFINITE_RANGE'
                 return
             valid_low = max(float(m.min_range), float(self.height_cfg.get('min_valid_m', .10)))
             valid_high = min(float(m.max_range), float(self.height_cfg.get('max_valid_m', 2.)))
             if valid_low <= float(m.range) <= valid_high:
                 self.height = float(m.range)
                 self.height_stamp = rospy.get_time()
+                self.height_header_stamp = m.header.stamp.to_sec()
+                self.range_rejection = ''
+            else:
+                self.range_rejection = 'OUT_OF_RANGE:' + str(m.range)
 
     def ground_cb(self, m):
         now = rospy.get_time()
@@ -151,16 +193,17 @@ class WorldEstimator:
                 ex, ey = float(m.eop_3d[0]), float(m.eop_3d[1])
             except (IndexError, TypeError, ValueError):
                 return
+            self.raw_uwb = {"receipt_s": now, "xy": [x, y], "eop_xy": [ex, ey],
+                            "device_local_time": m.local_time, "device_system_time": m.system_time}
             eop = math.hypot(ex, ey)
             if self.uwb.evaluate(now, x, y, eop):
                 self.raw_xy = (x, y)
                 self.eop = eop
-                if self.freeze_position is None or math.hypot(x-self.freeze_position[0],
-                                            y-self.freeze_position[1]) > float(
-                                               self.cfg.get('freeze', {}).get('movement_epsilon_m', .015)):
-                    self.freeze_first = now
-                    self.freeze_position = (x, y)
-                    self.freeze_reason = ''
+                sample = PointStamped()
+                sample.header.stamp = rospy.Time.now()
+                sample.header.frame_id = 'uwb_anchor'
+                sample.point.x, sample.point.y = x, y
+                self.uwb_sample_pub.publish(sample)
             # A single jump can be rejected, but the freshness timer is based
             # on LAST ACCEPTED measurement, never a freshly rejected packet.
 
@@ -176,9 +219,9 @@ class WorldEstimator:
                 return TriggerResponse(False, 'anchor_map_verified=false')
             if not self.uwb.fresh(rospy.get_time()):
                 return TriggerResponse(False, 'Aircraft UWB missing or stale')
-            if self.fc_pose is None or rospy.get_time()-self.fc_pose_stamp > self.twist_pose_stale:
-                return TriggerResponse(False, 'FC local pose missing or stale')
-            if self.height is None or rospy.get_time()-self.height_stamp > self.range_timeout:
+            if self.fc_imu is None or not 0 <= rospy.get_time()-self.fc_imu_stamp <= self.imu_timeout or not 0 <= rospy.get_time()-self.fc_imu.header.stamp.to_sec() <= self.imu_timeout:
+                return TriggerResponse(False, 'FC IMU attitude missing or stale')
+            if self.height is None or not 0 <= rospy.get_time()-self.height_stamp <= self.range_timeout or not 0 <= rospy.get_time()-self.height_header_stamp <= self.range_timeout:
                 return TriggerResponse(False, 'RangeFinder ROS topic missing or stale')
             if self.yaw_cfg.get('method', 'fixed_start_pose') != 'fixed_start_pose':
                 return TriggerResponse(False, 'Unsupported V1 yaw alignment method')
@@ -196,19 +239,19 @@ class WorldEstimator:
                     bias = self.ground_cal.result()
                 except ValueError as exc:
                     return TriggerResponse(False, str(exc))
-            yaw = quaternion_yaw(get_quat(self.fc_pose.pose.orientation))
+            yaw = quaternion_yaw(get_quat(self.fc_imu.orientation))
             # Physical aircraft +X is aligned with world +X at calibration.
             # ROS FC yaw is the heading of body X in the navigation ENU frame.
             if not finite(yaw, *bias, *self.nav_origin_xy):
                 return TriggerResponse(False, 'Nonfinite transform')
             self.bias = bias
-            self.z_offset = self.fc_pose.pose.position.z - self.height_m()
+            self.z_offset = self.nav_z_offset
             if not finite(self.z_offset):
                 return TriggerResponse(False, 'invalid height offset')
             self.z_offset_pub.publish(Float64(data=self.z_offset))
             self.transform = Transform2D(yaw, self.nav_origin_xy[0], self.nav_origin_xy[1])
             self.publish_transform()
-            rospy.logwarn('Calibration LOCKED: yaw world->nav=%.2f deg, T1 bias=(%.3f,%.3f)',
+            rospy.logwarn('Calibration LOCKED (NO EKF local-pose dependency): yaw world->nav=%.2f deg, T1 bias=(%.3f,%.3f)',
                           math.degrees(yaw), bias[0], bias[1])
             return TriggerResponse(True, 'CALIBRATED and LOCKED; check +X/+Y hand motion before flight')
 
@@ -219,14 +262,14 @@ class WorldEstimator:
         tr.child_frame_id = self.world_cfg.get('frame_id', 'world_lab')
         tr.transform.translation.x = self.transform.tx
         tr.transform.translation.y = self.transform.ty
-        tr.transform.translation.z = 0.
+        tr.transform.translation.z = self.nav_z_offset
         assign_quat(tr.transform.rotation, yaw_quaternion(self.transform.yaw))
         self.tf_pub.publish(tr)
 
     def height_m(self):
-        if self.height is None or self.fc_pose is None:
+        if self.height is None or self.fc_imu is None:
             return None
-        q = get_quat(self.fc_pose.pose.orientation)
+        q = get_quat(self.fc_imu.orientation)
         roll, pitch = roll_pitch(q)
         return self.height * math.cos(roll) * math.cos(pitch) + float(
                 self.height_cfg.get('range_to_body_z_m', 0.))
@@ -234,22 +277,20 @@ class WorldEstimator:
     def health(self, now):
         if self.transform is None:
             return False, 'NOT_CALIBRATED'
-        if not self.fc_state.connected or now-self.fc_stamp > 2.:
+        if not self.fc_state.connected or not 0 <= now-self.fc_stamp <= 2.:
             return False, 'FC_LOST'
         if not self.uwb.fresh(now):
             return False, 'UWB_STALE_OR_REJECTED'
-        if self.fc_pose is None or now-self.fc_pose_stamp > self.twist_pose_stale:
-            return False, 'FC_POSE_STALE'
-        if self.height is None or now-self.height_stamp > self.range_timeout:
+        if self.fc_imu is None or not 0 <= now-self.fc_imu_stamp <= self.imu_timeout or not 0 <= now-self.fc_imu.header.stamp.to_sec() <= self.imu_timeout:
+            return False, 'FC_IMU_STALE'
+        if self.height is None or not 0 <= now-self.height_stamp <= self.range_timeout or not 0 <= now-self.height_header_stamp <= self.range_timeout:
             return False, 'RANGE_STALE'
         return True, 'OK'
 
     def publish(self, _event):
         now = rospy.get_time()
         with self.lock:
-            # Optional coarse freeze heuristic: position static while FC EKF
-            # reports movement is implemented in the supervisor, not this
-            # estimator, to avoid falsely rejecting a stationary aircraft.
+            # Freeze evidence is gathered on accepted UWB samples by supervisor.
             ok, reason = self.health(now)
             st = LocalizationStatus()
             st.header.stamp = rospy.Time.now()
@@ -264,15 +305,31 @@ class WorldEstimator:
             st.rejected_count = self.uwb.rejected
             st.reason = reason
             self.status_pub.publish(st)
+            diagnostic = {'stamp_s': now, 'healthy': ok, 'reason': reason,
+                          'world_publish_enabled': ok, 'last_world_publish_s': self.last_world_publish,
+                          'fc_connected': self.fc_state.connected, 'fc_age_s': now-self.fc_stamp,
+                          'imu_age_s': now-self.fc_imu_stamp, 'range_age_s': now-self.height_stamp,
+                          'range_header_age_s': now-self.height_header_stamp,
+                          'range_rejection': self.range_rejection, 'imu_rejection': self.imu_rejection,
+                          'imu_header_age_s': now-self.fc_imu.header.stamp.to_sec() if self.fc_imu else None,
+                          'uwb_accepted_age_s': now-self.uwb.last[0] if self.uwb.last else None,
+                          'uwb_received_age_s': now-self.uwb.last_rx if self.uwb.last_rx is not None else None,
+                          'uwb_gate_reason': self.uwb.reason, 'uwb_rejected': self.uwb.rejected,
+                          'raw_uwb': self.raw_uwb, 'accepted_xy': self.raw_xy,
+                          'uwb_timestamp_basis': 'ROS_RECEIPT_NO_SYNCHRONIZED_DEVICE_HEADER'}
+            self.diagnostics_pub.publish(String(data=json.dumps(diagnostic)))
+            if reason != self.last_publish_reason:
+                rospy.logwarn('Localization publication transition: %s', json.dumps(diagnostic))
+                self.last_publish_reason = reason
             if not ok:
                 return
-            q = normalize_quaternion(get_quat(self.fc_pose.pose.orientation))
+            q = normalize_quaternion(get_quat(self.fc_imu.orientation))
             q_world = normalize_quaternion(quaternion_product(yaw_quaternion(-self.transform.yaw), q))
             tag_offset_world = rotate_vector(q_world, self.body_to_tag_flu)
             xw = self.raw_xy[0]-self.bias[0]-tag_offset_world[0]
             yw = self.raw_xy[1]-self.bias[1]-tag_offset_world[1]
-            zn = self.fc_pose.pose.position.z
             z_world = self.height_m()
+            zn = z_world + self.nav_z_offset
             if not finite(xw, yw, z_world, zn):
                 return
             xn, yn = self.transform.apply(xw, yw)
@@ -283,13 +340,14 @@ class WorldEstimator:
             assign_quat(world.pose.orientation,
                         q_world)
             self.world_pub.publish(world)
+            self.last_world_publish = now
             odom = Odometry()
             odom.header.stamp = st.header.stamp
             odom.header.frame_id = 'odom'
             odom.child_frame_id = 'base_link'
             odom.pose.pose.position.x, odom.pose.pose.position.y = xn, yn
-            # IMPORTANT: transmit FC's own current local Z (not 0 / UWB Z).
-            # ExternalNav Z may influence EKF even when POSZ!=6 in some versions.
+            # Independent range-derived Z; EKF POSZ must remain Baro in this test.
+            # Large ROS covariance alone cannot guarantee FC ignores ODOMETRY Z.
             odom.pose.pose.position.z = zn
             assign_quat(odom.pose.pose.orientation, q)
             odom.pose.covariance = [0.] * 36
