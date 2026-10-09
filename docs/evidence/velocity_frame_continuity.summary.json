@@ -1,0 +1,1309 @@
+{
+  "wall_start_s": 1791535496.9520597,
+  "duration_s": 60.16909585898975,
+  "ended_by_signal": false,
+  "rates": {
+    "/mavros/state": {
+      "count": 61,
+      "observed_hz": 1.0014240163054555,
+      "count_per_capture_s": 1.013809483575381,
+      "max_internal_gap_s": 1.0071425450005336,
+      "start_silence_s": 0.00728998398699332,
+      "end_silence_s": 0.24712535699654836
+    },
+    "/indoor_nav/localization_status": {
+      "count": 1806,
+      "observed_hz": 30.013431484653804,
+      "count_per_capture_s": 30.01540864487112,
+      "max_internal_gap_s": 0.036155152003630064,
+      "start_silence_s": 0.01399478099483531,
+      "end_silence_s": 0.01535994499863591
+    },
+    "/indoor_nav/localization_diagnostics": {
+      "count": 1806,
+      "observed_hz": 30.01366724167258,
+      "count_per_capture_s": 30.01540864487112,
+      "max_internal_gap_s": 0.047986630990635604,
+      "start_silence_s": 0.015033627991215326,
+      "end_silence_s": 0.014793494992773049
+    },
+    "/indoor_nav/publication_events": {
+      "count": 1,
+      "observed_hz": null,
+      "count_per_capture_s": 0.01661982759959641,
+      "max_internal_gap_s": null,
+      "start_silence_s": 0.015653110996936448,
+      "end_silence_s": 60.15344274799281
+    },
+    "/indoor_nav/uwb_velocity/status": {
+      "count": 1806,
+      "observed_hz": 30.01485200926402,
+      "count_per_capture_s": 30.01540864487112,
+      "max_internal_gap_s": 0.047052569992956705,
+      "start_silence_s": 0.01721700798952952,
+      "end_silence_s": 0.014983974993810989
+    },
+    "/indoor_nav/world_pose": {
+      "count": 1805,
+      "observed_hz": 30.000422285712844,
+      "count_per_capture_s": 29.998788817271524,
+      "max_internal_gap_s": 0.0352499630098464,
+      "start_silence_s": 0.021511986997211352,
+      "end_silence_s": 0.015096974995685741
+    },
+    "/indoor_nav/ap_odom": {
+      "count": 1805,
+      "observed_hz": 30.00060798044411,
+      "count_per_capture_s": 29.998788817271524,
+      "max_internal_gap_s": 0.03564248498878442,
+      "start_silence_s": 0.021948704990791157,
+      "end_silence_s": 0.015032458992209285
+    },
+    "/mavros/odometry/out": {
+      "count": 1805,
+      "observed_hz": 30.00083515906127,
+      "count_per_capture_s": 29.998788817271524,
+      "max_internal_gap_s": 0.03607291298976634,
+      "start_silence_s": 0.02258575199812185,
+      "end_silence_s": 0.0148507569974754
+    },
+    "/clock": {
+      "count": 573,
+      "observed_hz": 9.52678515027564,
+      "count_per_capture_s": 9.523161214568743,
+      "max_internal_gap_s": 0.10672537299979012,
+      "start_silence_s": 0.02277082100044936,
+      "end_silence_s": 0.10508436999225523
+    },
+    "/gazebo/model_states": {
+      "count": 573,
+      "observed_hz": 9.526685662094227,
+      "count_per_capture_s": 9.523161214568743,
+      "max_internal_gap_s": 0.10571735398843884,
+      "start_silence_s": 0.029479015996912494,
+      "end_silence_s": 0.09774915799789596
+    },
+    "/indoor_nav/sitl/mock_range": {
+      "count": 1504,
+      "observed_hz": 25.001346472632047,
+      "count_per_capture_s": 24.996220709793004,
+      "max_internal_gap_s": 0.04588107300514821,
+      "start_silence_s": 0.04361510199669283,
+      "end_silence_s": 0.008718579993001185
+    },
+    "/mavlink/from:1:1:30": {
+      "count": 1503,
+      "observed_hz": 24.991130119649707,
+      "count_per_capture_s": 24.979600882193406,
+      "max_internal_gap_s": 0.04591724700003397,
+      "start_silence_s": 0.04531978099839762,
+      "end_silence_s": 0.022452416000305675
+    },
+    "/mavlink/from:1:1:33": {
+      "count": 1503,
+      "observed_hz": 24.991074175801337,
+      "count_per_capture_s": 24.979600882193406,
+      "max_internal_gap_s": 0.047094559005927294,
+      "start_silence_s": 0.045485833994462155,
+      "end_silence_s": 0.022151822995510884
+    },
+    "/mavlink/from:1:1:1": {
+      "count": 1503,
+      "observed_hz": 24.991007169921396,
+      "count_per_capture_s": 24.979600882193406,
+      "max_internal_gap_s": 0.04681713000172749,
+      "start_silence_s": 0.04550522098725196,
+      "end_silence_s": 0.021971291993395425
+    },
+    "/mavros/imu/data": {
+      "count": 1503,
+      "observed_hz": 24.99123108947969,
+      "count_per_capture_s": 24.979600882193406,
+      "max_internal_gap_s": 0.04606344900093973,
+      "start_silence_s": 0.04568621299404185,
+      "end_silence_s": 0.022328805993311107
+    },
+    "/mavlink/from:1:1:125": {
+      "count": 1503,
+      "observed_hz": 24.990999762643543,
+      "count_per_capture_s": 24.979600882193406,
+      "max_internal_gap_s": 0.046892035999917425,
+      "start_silence_s": 0.04576575699320529,
+      "end_silence_s": 0.02169294199848082
+    },
+    "/mavlink/from:1:1:152": {
+      "count": 1503,
+      "observed_hz": 24.99098658514263,
+      "count_per_capture_s": 24.979600882193406,
+      "max_internal_gap_s": 0.04692453899770044,
+      "start_silence_s": 0.04589429699990433,
+      "end_silence_s": 0.02153271099086851
+    },
+    "/mavlink/from:1:1:62": {
+      "count": 1503,
+      "observed_hz": 24.991052373817805,
+      "count_per_capture_s": 24.979600882193406,
+      "max_internal_gap_s": 0.046955639991210774,
+      "start_silence_s": 0.04619917899253778,
+      "end_silence_s": 0.021386045991675928
+    },
+    "/mavlink/from:1:1:42": {
+      "count": 1503,
+      "observed_hz": 24.99098511025796,
+      "count_per_capture_s": 24.979600882193406,
+      "max_internal_gap_s": 0.04694109100091737,
+      "start_silence_s": 0.0462902659928659,
+      "end_silence_s": 0.021133194997673854
+    },
+    "/mavlink/from:1:1:74": {
+      "count": 1503,
+      "observed_hz": 24.990960025603382,
+      "count_per_capture_s": 24.979600882193406,
+      "max_internal_gap_s": 0.04699174899724312,
+      "start_silence_s": 0.046381051986827515,
+      "end_silence_s": 0.02098208200186491
+    },
+    "/mavlink/from:1:1:36": {
+      "count": 1503,
+      "observed_hz": 24.990925662611552,
+      "count_per_capture_s": 24.979600882193406,
+      "max_internal_gap_s": 0.04694702300184872,
+      "start_silence_s": 0.046490133987390436,
+      "end_silence_s": 0.020790358990780078
+    },
+    "/mavlink/from:1:1:65": {
+      "count": 1503,
+      "observed_hz": 24.9908921874774,
+      "count_per_capture_s": 24.979600882193406,
+      "max_internal_gap_s": 0.04696603000047617,
+      "start_silence_s": 0.04658610999467783,
+      "end_silence_s": 0.020613877000869252
+    },
+    "/mavlink/from:1:1:27": {
+      "count": 1503,
+      "observed_hz": 24.99087198583734,
+      "count_per_capture_s": 24.979600882193406,
+      "max_internal_gap_s": 0.0469962680072058,
+      "start_silence_s": 0.046701734987436794,
+      "end_silence_s": 0.020449667994398624
+    },
+    "/mavros/imu/data_raw": {
+      "count": 1503,
+      "observed_hz": 24.99089853646418,
+      "count_per_capture_s": 24.979600882193406,
+      "max_internal_gap_s": 0.047009033005451784,
+      "start_silence_s": 0.046813360997475684,
+      "end_silence_s": 0.020401895002578385
+    },
+    "/mavlink/from:1:1:116": {
+      "count": 1503,
+      "observed_hz": 24.99090330246313,
+      "count_per_capture_s": 24.979600882193406,
+      "max_internal_gap_s": 0.0470158959942637,
+      "start_silence_s": 0.046908004995202646,
+      "end_silence_s": 0.02031871299550403
+    },
+    "/mavlink/from:1:1:129": {
+      "count": 1503,
+      "observed_hz": 24.990874893587563,
+      "count_per_capture_s": 24.979600882193406,
+      "max_internal_gap_s": 0.0470145040017087,
+      "start_silence_s": 0.046967730988399126,
+      "end_silence_s": 0.020190665003610775
+    },
+    "/mavlink/from:1:1:29": {
+      "count": 1503,
+      "observed_hz": 24.990827341026193,
+      "count_per_capture_s": 24.979600882193406,
+      "max_internal_gap_s": 0.047029192006448284,
+      "start_silence_s": 0.04698405299859587,
+      "end_silence_s": 0.020059980990481563
+    },
+    "/mavlink/from:1:1:137": {
+      "count": 1503,
+      "observed_hz": 24.990790566733914,
+      "count_per_capture_s": 24.979600882193406,
+      "max_internal_gap_s": 0.04707775000133552,
+      "start_silence_s": 0.04703393999079708,
+      "end_silence_s": 0.019921653001802042
+    },
+    "/mavlink/from:1:1:24": {
+      "count": 1503,
+      "observed_hz": 24.990767806818006,
+      "count_per_capture_s": 24.979600882193406,
+      "max_internal_gap_s": 0.04715730500174686,
+      "start_silence_s": 0.04711219199816696,
+      "end_silence_s": 0.019788663994404487
+    },
+    "/mavlink/from:1:1:2": {
+      "count": 1503,
+      "observed_hz": 24.990752587961317,
+      "count_per_capture_s": 24.979600882193406,
+      "max_internal_gap_s": 0.04723226100031752,
+      "start_silence_s": 0.04718531398975756,
+      "end_silence_s": 0.019678940996527672
+    },
+    "/mavlink/from:1:1:163": {
+      "count": 1503,
+      "observed_hz": 24.99076919851547,
+      "count_per_capture_s": 24.979600882193406,
+      "max_internal_gap_s": 0.047306294000009075,
+      "start_silence_s": 0.04729972599307075,
+      "end_silence_s": 0.019604476998210885
+    },
+    "/mavlink/from:1:1:164": {
+      "count": 1503,
+      "observed_hz": 24.99079016631251,
+      "count_per_capture_s": 24.979600882193406,
+      "max_internal_gap_s": 0.04739079799037427,
+      "start_silence_s": 0.047426992998225614,
+      "end_silence_s": 0.01952763699227944
+    },
+    "/mavlink/from:1:1:178": {
+      "count": 1503,
+      "observed_hz": 24.990800123604643,
+      "count_per_capture_s": 24.979600882193406,
+      "max_internal_gap_s": 0.047582895000232384,
+      "start_silence_s": 0.0475325679872185,
+      "end_silence_s": 0.019446008998784237
+    },
+    "/mavlink/from:1:1:168": {
+      "count": 1503,
+      "observed_hz": 24.990812330419107,
+      "count_per_capture_s": 24.979600882193406,
+      "max_internal_gap_s": 0.04760052400524728,
+      "start_silence_s": 0.047639304990298115,
+      "end_silence_s": 0.019368629000382498
+    },
+    "/mavlink/from:1:1:173": {
+      "count": 1503,
+      "observed_hz": 24.99082407070613,
+      "count_per_capture_s": 24.979600882193406,
+      "max_internal_gap_s": 0.04765007199603133,
+      "start_silence_s": 0.04774262598948553,
+      "end_silence_s": 0.01929354299500119
+    },
+    "/mavlink/from:1:1:132": {
+      "count": 1503,
+      "observed_hz": 24.990846192874322,
+      "count_per_capture_s": 24.979600882193406,
+      "max_internal_gap_s": 0.04774503600492608,
+      "start_silence_s": 0.04788827899028547,
+      "end_silence_s": 0.01920109298953321
+    },
+    "/mavlink/from:1:1:136": {
+      "count": 1503,
+      "observed_hz": 24.990854941879352,
+      "count_per_capture_s": 24.979600882193406,
+      "max_internal_gap_s": 0.04782754599000327,
+      "start_silence_s": 0.047992380990763195,
+      "end_silence_s": 0.01911803199618589
+    },
+    "/mavlink/from:1:1:193": {
+      "count": 1503,
+      "observed_hz": 24.990858395576893,
+      "count_per_capture_s": 24.979600882193406,
+      "max_internal_gap_s": 0.047898973993142135,
+      "start_silence_s": 0.048094658995978534,
+      "end_silence_s": 0.01902405999135226
+    },
+    "/mavlink/from:1:1:32": {
+      "count": 1503,
+      "observed_hz": 24.99086205759228,
+      "count_per_capture_s": 24.979600882193406,
+      "max_internal_gap_s": 0.047992822001106106,
+      "start_silence_s": 0.04823578298965003,
+      "end_silence_s": 0.01889174299139995
+    },
+    "/mavros/local_position/velocity_local": {
+      "count": 1503,
+      "observed_hz": 24.990863257616972,
+      "count_per_capture_s": 24.979600882193406,
+      "max_internal_gap_s": 0.04803021499537863,
+      "start_silence_s": 0.048294877997250296,
+      "end_silence_s": 0.018835533992387354
+    },
+    "/mavlink/from:1:1:241": {
+      "count": 1503,
+      "observed_hz": 24.9908614912678,
+      "count_per_capture_s": 24.979600882193406,
+      "max_internal_gap_s": 0.04800774600880686,
+      "start_silence_s": 0.04833649899228476,
+      "end_silence_s": 0.018789665002259426
+    },
+    "/mavlink/from:1:1:147": {
+      "count": 1503,
+      "observed_hz": 24.990865686353544,
+      "count_per_capture_s": 24.979600882193406,
+      "max_internal_gap_s": 0.04811919199710246,
+      "start_silence_s": 0.04843771499872673,
+      "end_silence_s": 0.018698537998716347
+    },
+    "/nlink_linktrack_nodeframe2": {
+      "count": 1503,
+      "observed_hz": 25.000017498762247,
+      "count_per_capture_s": 24.979600882193406,
+      "max_internal_gap_s": 0.041353344000526704,
+      "start_silence_s": 0.048717437995946966,
+      "end_silence_s": 0.040420473989797756
+    },
+    "/indoor_nav/accepted_uwb": {
+      "count": 1503,
+      "observed_hz": 25.00000728861443,
+      "count_per_capture_s": 24.979600882193406,
+      "max_internal_gap_s": 0.046677603997522965,
+      "start_silence_s": 0.04889980299049057,
+      "end_silence_s": 0.040213571992353536
+    },
+    "/mavlink/from:1:1:111": {
+      "count": 607,
+      "observed_hz": 10.10046309360594,
+      "count_per_capture_s": 10.088235352955023,
+      "max_internal_gap_s": 0.11248558000079356,
+      "start_silence_s": 0.06717104699055199,
+      "end_silence_s": 0.10467573699133936
+    },
+    "/mavlink/from:1:1:77": {
+      "count": 42,
+      "observed_hz": 0.7003490485423388,
+      "count_per_capture_s": 0.6980327591830493,
+      "max_internal_gap_s": 2.0157438809983432,
+      "start_silence_s": 0.532053149989224,
+      "end_silence_s": 1.0948056839988567
+    },
+    "/mavlink/from:1:1:0": {
+      "count": 60,
+      "observed_hz": 0.9996303343133666,
+      "count_per_capture_s": 0.9971896559757847,
+      "max_internal_gap_s": 1.0071372840029653,
+      "start_silence_s": 0.9000756519963033,
+      "end_silence_s": 0.2472018659900641
+    },
+    "/mavlink/from:1:1:22": {
+      "count": 2,
+      "observed_hz": 0.03237676934341185,
+      "count_per_capture_s": 0.03323965519919282,
+      "max_internal_gap_s": 30.886342902012984,
+      "start_silence_s": 3.5551637779863086,
+      "end_silence_s": 25.727589178990456
+    }
+  },
+  "localization_transitions": [
+    {
+      "topic": "/indoor_nav/localization_status",
+      "elapsed_s": 0.01399478099483531,
+      "wall_s": 1791535496.966063,
+      "ros_s": 1791535496.9660563,
+      "header_s": 1791535496.9389837,
+      "header_age_s": 0.027072668075561523,
+      "frame_id": "",
+      "healthy": true,
+      "reason": "OK",
+      "connected": true
+    }
+  ],
+  "last": {
+    "/mavros/state": {
+      "topic": "/mavros/state",
+      "elapsed_s": 59.9219705019932,
+      "wall_s": 1791535556.8740342,
+      "ros_s": 1791535556.8740308,
+      "header_s": 1791535556.873896,
+      "header_age_s": 0.00013494491577148438,
+      "frame_id": "",
+      "connected": true,
+      "armed": false,
+      "mode": "STABILIZE"
+    },
+    "/indoor_nav/localization_status": {
+      "topic": "/indoor_nav/localization_status",
+      "elapsed_s": 60.15373591399111,
+      "wall_s": 1791535557.1058,
+      "ros_s": 1791535557.105796,
+      "header_s": 1791535557.1056864,
+      "header_age_s": 0.00010967254638671875,
+      "frame_id": "",
+      "healthy": true,
+      "reason": "OK",
+      "connected": true
+    },
+    "/indoor_nav/localization_diagnostics": {
+      "topic": "/indoor_nav/localization_diagnostics",
+      "elapsed_s": 60.154302363996976,
+      "wall_s": 1791535557.1063678,
+      "ros_s": 1791535557.1063626,
+      "data": {
+        "stamp_s": 1791535557.1053658,
+        "healthy": true,
+        "reason": "OK",
+        "world_publish_enabled": true,
+        "last_world_publish_s": 1791535557.1053658,
+        "fc_connected": true,
+        "fc_age_s": 0.23137450218200684,
+        "imu_age_s": 0.006648063659667969,
+        "range_age_s": 0.03245687484741211,
+        "range_header_age_s": 0.0330958366394043,
+        "range_rejection": "",
+        "imu_rejection": "",
+        "imu_header_age_s": 0.009830474853515625,
+        "uwb_accepted_age_s": 0.024626970291137695,
+        "uwb_received_age_s": 0.024626970291137695,
+        "uwb_gate_reason": "OK",
+        "uwb_rejected": 0,
+        "raw_uwb": {
+          "receipt_s": 1791535557.0807388,
+          "xy": [
+            0.040001560002565384,
+            -0.03004993125796318
+          ],
+          "eop_xy": [
+            0.009999999776482582,
+            0.009999999776482582
+          ],
+          "device_local_time": 534194640,
+          "device_system_time": 534194640
+        },
+        "accepted_xy": [
+          0.040001560002565384,
+          -0.03004993125796318
+        ],
+        "uwb_timestamp_basis": "ROS_RECEIPT_NO_SYNCHRONIZED_DEVICE_HEADER",
+        "packet_order_reason": "ORDERED_DEVICE_COUNTER_RECEIPT_TIME",
+        "packet_order_rejected": 0,
+        "transport_adapter": {
+          "enabled": false,
+          "reason": "DISABLED",
+          "checked_at_s": null,
+          "firmware": [],
+          "minimum_position_sigma_m": 0.2,
+          "fc_position_sigma_m": null,
+          "velocity_forwarding": false
+        },
+        "fc_armed": false,
+        "localization_healthy": true,
+        "localization_reason": "OK",
+        "imu_pending_header_s": null,
+        "imu_future_hold_limit_s": 0.02,
+        "imu_received_age_s": 0.006648063659667969,
+        "imu_received_header_age_s": 0.009830474853515625,
+        "uwb_age_s": 0.024626970291137695,
+        "publication": {
+          "world_pose": {
+            "sent_this_tick": true,
+            "reason": "OK",
+            "last_success_s": 1791535557.1053658,
+            "stopped_since_s": null,
+            "outage_duration_s": 0.0,
+            "tick_gap_s": 0.03333878517150879
+          },
+          "external_nav": {
+            "sent_this_tick": true,
+            "reason": "OK",
+            "last_success_s": 1791535557.1053658,
+            "stopped_since_s": null,
+            "outage_duration_s": 0.0,
+            "tick_gap_s": 0.03333878517150879
+          }
+        },
+        "external_nav_enabled": true,
+        "callback_elapsed_wall_s": 0.0005567810003412887
+      }
+    },
+    "/indoor_nav/publication_events": {
+      "topic": "/indoor_nav/publication_events",
+      "elapsed_s": 0.015653110996936448,
+      "wall_s": 1791535496.96772,
+      "ros_s": 1791535496.9677136,
+      "data": {
+        "fc_connected": true,
+        "fc_armed": false,
+        "localization_healthy": true,
+        "localization_reason": "OK",
+        "imu_age_s": 0.03292512893676758,
+        "imu_header_age_s": 0.0330204963684082,
+        "imu_pending_header_s": null,
+        "imu_future_hold_limit_s": 0.02,
+        "imu_received_age_s": 0.03292512893676758,
+        "imu_received_header_age_s": 0.0330204963684082,
+        "uwb_age_s": 0.004561185836791992,
+        "range_age_s": 0.013507604598999023,
+        "range_header_age_s": 0.013648271560668945,
+        "event": "RESUMED",
+        "stamp_s": 1791535430.4053638,
+        "stopped_since_s": 1791535412.5053692,
+        "duration_s": 17.899994611740112,
+        "previous_reason": "NOT_CALIBRATED",
+        "last_success_before_gap_s": null,
+        "sequence": 2,
+        "output": "external_nav"
+      }
+    },
+    "/indoor_nav/uwb_velocity/status": {
+      "topic": "/indoor_nav/uwb_velocity/status",
+      "elapsed_s": 60.15411188399594,
+      "wall_s": 1791535557.1061792,
+      "ros_s": 1791535557.106172,
+      "data": {
+        "stamp_s": 1791535557.1053658,
+        "frame_id": "world_lab",
+        "forwarded_to_fc": false,
+        "raw_native_uwb_anchor_xyz": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "native_reason": "MOCK_NATIVE_NOT_VALIDATED",
+        "native_verified": false,
+        "native_body_world_candidate": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "derived": {
+          "valid": false,
+          "source": "UNAVAILABLE",
+          "reason": "STATIONARY_OR_FROZEN_AMBIGUOUS",
+          "sample_count": 13,
+          "timestamp_basis": "ROS_RECEIPT",
+          "position_velocity_correlated": true,
+          "velocity_world_xy": [
+            1.7810266541926502e-07,
+            -9.724321491963497e-09
+          ],
+          "variance_world_xy": [
+            0.03435056998879032,
+            0.03435056998879032
+          ],
+          "window_s": 0.479902982711792,
+          "delay_s": 0.2645784616470337,
+          "sample_age_s": 0.024626970291137695,
+          "sample_stamp_s": 1791535557.0807388,
+          "candidate_source": "DERIVED_WINDOW",
+          "position_span_m": 8.57626231999795e-08,
+          "fit_residual_rms_m": 1.3111803889840618e-09
+        },
+        "selected": {
+          "valid": false,
+          "source": "UNAVAILABLE",
+          "reason": "STATIONARY_OR_FROZEN_AMBIGUOUS",
+          "sample_count": 13,
+          "timestamp_basis": "ROS_RECEIPT",
+          "position_velocity_correlated": true,
+          "velocity_world_xy": [
+            1.7810266541926502e-07,
+            -9.724321491963497e-09
+          ],
+          "variance_world_xy": [
+            0.03435056998879032,
+            0.03435056998879032
+          ],
+          "window_s": 0.479902982711792,
+          "delay_s": 0.2645784616470337,
+          "sample_age_s": 0.024626970291137695,
+          "sample_stamp_s": 1791535557.0807388,
+          "candidate_source": "DERIVED_WINDOW",
+          "position_span_m": 8.57626231999795e-08,
+          "fit_residual_rms_m": 1.3111803889840618e-09
+        },
+        "ekf": {
+          "receipt_s": 1791535557.1023831,
+          "header_s": 1791535557.0955353,
+          "frame_id": "base_link",
+          "xyz": [
+            0.13125404715538025,
+            -0.08629418164491653,
+            -0.0007542185485363007
+          ]
+        },
+        "gazebo_truth": "NOT_AN_ESTIMATOR_INPUT; compare using evaluation capture",
+        "position_velocity_correlation": "same UWB input; no independent fusion claim",
+        "velocity_nav_xy": [
+          -3.008211070319781e-08,
+          1.7581293602453226e-07
+        ],
+        "covariance_nav_xy": [
+          0.03435056998879032,
+          -0.0,
+          -0.0,
+          0.03435056998879032
+        ],
+        "body_flu_candidate_assuming_unknown_vz_zero": [
+          1.7818018362552285e-07,
+          -8.168778610120996e-09,
+          -4.637640774307849e-10
+        ]
+      }
+    },
+    "/indoor_nav/world_pose": {
+      "topic": "/indoor_nav/world_pose",
+      "elapsed_s": 60.15399888399406,
+      "wall_s": 1791535557.1060627,
+      "ros_s": 1791535557.106059,
+      "header_s": 1791535557.1056864,
+      "header_age_s": 0.0003726482391357422,
+      "frame_id": "world_lab"
+    },
+    "/indoor_nav/ap_odom": {
+      "topic": "/indoor_nav/ap_odom",
+      "elapsed_s": 60.15406339999754,
+      "wall_s": 1791535557.1061285,
+      "ros_s": 1791535557.1061237,
+      "header_s": 1791535557.1056864,
+      "header_age_s": 0.0004372596740722656,
+      "frame_id": "odom"
+    },
+    "/mavros/odometry/out": {
+      "topic": "/mavros/odometry/out",
+      "elapsed_s": 60.154245101992274,
+      "wall_s": 1791535557.1063094,
+      "ros_s": 1791535557.1063054,
+      "header_s": 1791535557.1056864,
+      "header_age_s": 0.0006189346313476562,
+      "frame_id": "odom"
+    },
+    "/clock": {
+      "topic": "/clock",
+      "elapsed_s": 60.064011488997494,
+      "wall_s": 1791535557.0160806,
+      "ros_s": 1791535557.0160732,
+      "sim_s": 148.3375
+    },
+    "/gazebo/model_states": {
+      "topic": "/gazebo/model_states",
+      "elapsed_s": 60.07134670099185,
+      "wall_s": 1791535557.0234177,
+      "ros_s": 1791535557.0234075
+    },
+    "/indoor_nav/sitl/mock_range": {
+      "topic": "/indoor_nav/sitl/mock_range",
+      "elapsed_s": 60.16037727899675,
+      "wall_s": 1791535557.1124427,
+      "ros_s": 1791535557.1124377,
+      "header_s": 1791535557.1121764,
+      "header_age_s": 0.0002613067626953125,
+      "frame_id": "sitl_range"
+    },
+    "/mavlink/from": {
+      "topic": "/mavlink/from",
+      "elapsed_s": 60.15039732099103,
+      "wall_s": 1791535557.10246,
+      "ros_s": 1791535557.1024573,
+      "header_s": 1791535557.1024165,
+      "header_age_s": 4.076957702636719e-05,
+      "frame_id": "",
+      "msgid": 147,
+      "sysid": 1,
+      "compid": 1,
+      "seq": 101
+    },
+    "/mavros/imu/data": {
+      "topic": "/mavros/imu/data",
+      "elapsed_s": 60.14676705299644,
+      "wall_s": 1791535557.0988345,
+      "ros_s": 1791535557.0988283,
+      "header_s": 1791535557.0955353,
+      "header_age_s": 0.0032930374145507812,
+      "frame_id": "base_link"
+    },
+    "/mavros/imu/data_raw": {
+      "topic": "/mavros/imu/data_raw",
+      "elapsed_s": 60.14869396398717,
+      "wall_s": 1791535557.100757,
+      "ros_s": 1791535557.1007543,
+      "header_s": 1791535557.0959074,
+      "header_age_s": 0.004846811294555664,
+      "frame_id": "base_link"
+    },
+    "/mavros/local_position/velocity_local": {
+      "topic": "/mavros/local_position/velocity_local",
+      "elapsed_s": 60.15026032499736,
+      "wall_s": 1791535557.1023242,
+      "ros_s": 1791535557.1023207,
+      "header_s": 1791535557.0955353,
+      "header_age_s": 0.006785392761230469,
+      "frame_id": "base_link"
+    },
+    "/nlink_linktrack_nodeframe2": {
+      "topic": "/nlink_linktrack_nodeframe2",
+      "elapsed_s": 60.12867538499995,
+      "wall_s": 1791535557.0807438,
+      "ros_s": 1791535557.080736,
+      "device_local": 534194640,
+      "device_system": 534194640
+    },
+    "/indoor_nav/accepted_uwb": {
+      "topic": "/indoor_nav/accepted_uwb",
+      "elapsed_s": 60.128882286997396,
+      "wall_s": 1791535557.0809493,
+      "ros_s": 1791535557.0809429,
+      "header_s": 1791535557.0807607,
+      "header_age_s": 0.00018215179443359375,
+      "frame_id": "uwb_anchor"
+    }
+  },
+  "metadata": {
+    "kind": "metadata",
+    "wall_start_s": 1791535496.9520597,
+    "duration_requested_s": 60.0,
+    "params": {
+      "/use_sim_time": false,
+      "/mavros/fcu_url": "udp://:14552@",
+      "/mavros/gcs_url": "",
+      "/mavros/conn": {
+        "heartbeat_rate": 1.0,
+        "heartbeat_mav_type": "ONBOARD_CONTROLLER",
+        "timeout": 10.0,
+        "timesync_rate": 10.0,
+        "system_time_rate": 1.0
+      },
+      "/mavros/plugin_blacklist": [
+        "actuator_control",
+        "ftp",
+        "safety_area",
+        "hil",
+        "altitude",
+        "debug_value",
+        "image_pub",
+        "px4flow",
+        "vibration",
+        "vision_speed_estimate",
+        "wheel_odometry"
+      ],
+      "/mavros/plugin_whitelist": [],
+      "/indoor_nav/localization": {
+        "world": {
+          "frame_id": "world_lab",
+          "anchor_map_verified": true,
+          "nav_xy_at_world_origin": [
+            0.0,
+            0.0
+          ],
+          "nav_z_offset_m": 0.0,
+          "ground_reference": {
+            "enabled": true,
+            "tag_id": 1,
+            "physical_xy": [
+              0.3,
+              0.3
+            ],
+            "calibration_time_s": 8.0,
+            "min_samples": 25,
+            "max_allowed_offset_m": 0.3,
+            "max_std_m": 0.1,
+            "topic": "/nlink_linktrack_anchorframe0"
+          },
+          "yaw_alignment": {
+            "method": "fixed_start_pose",
+            "require_nose_along_world_x": true
+          }
+        },
+        "uwb": {
+          "aircraft_tag_id": 0,
+          "body_to_tag_flu_m": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "aircraft_topic": "/nlink_linktrack_nodeframe2",
+          "timeout_s": 0.2,
+          "max_jump_m": 0.3,
+          "max_implied_speed_mps": 1.5,
+          "noise_floor_m": 0.1,
+          "max_eop_xy_m": 0.5
+        },
+        "height": {
+          "range_topic": "/indoor_nav/sitl/mock_range",
+          "min_valid_m": 0.1,
+          "max_valid_m": 2.0,
+          "timeout_s": 0.2,
+          "range_to_body_z_m": -0.15
+        },
+        "fc_pose_timeout_s": 0.4,
+        "imu_attitude_topic": "/mavros/imu/data",
+        "imu_attitude_timeout_s": 0.4,
+        "freeze": {
+          "movement_epsilon_m": 0.015
+        },
+        "output": {
+          "odom_rate_hz": 30.0,
+          "min_xy_sigma_m": 0.1,
+          "external_nav_enabled": true
+        }
+      },
+      "/indoor_nav/safety/profile": "sitl",
+      "/indoor_nav/sitl_experiments": {
+        "external_nav": {
+          "enabled": false,
+          "minimum_position_sigma_m": 0.2
+        }
+      }
+    },
+    "published_topics": [
+      [
+        "/rosout_agg",
+        "rosgraph_msgs/Log"
+      ],
+      [
+        "/rosout",
+        "rosgraph_msgs/Log"
+      ],
+      [
+        "/clock",
+        "rosgraph_msgs/Clock"
+      ],
+      [
+        "/gazebo/link_states",
+        "gazebo_msgs/LinkStates"
+      ],
+      [
+        "/gazebo/model_states",
+        "gazebo_msgs/ModelStates"
+      ],
+      [
+        "/gazebo/performance_metrics",
+        "gazebo_msgs/PerformanceMetrics"
+      ],
+      [
+        "/gazebo/parameter_descriptions",
+        "dynamic_reconfigure/ConfigDescription"
+      ],
+      [
+        "/gazebo/parameter_updates",
+        "dynamic_reconfigure/Config"
+      ],
+      [
+        "/diagnostics",
+        "diagnostic_msgs/DiagnosticArray"
+      ],
+      [
+        "/tf",
+        "tf2_msgs/TFMessage"
+      ],
+      [
+        "/tf_static",
+        "tf2_msgs/TFMessage"
+      ],
+      [
+        "/mavlink/from",
+        "mavros_msgs/Mavlink"
+      ],
+      [
+        "/mavros/radio_status",
+        "mavros_msgs/RadioStatus"
+      ],
+      [
+        "/mavros/adsb/vehicle",
+        "mavros_msgs/ADSBVehicle"
+      ],
+      [
+        "/mavros/cam_imu_sync/cam_imu_stamp",
+        "mavros_msgs/CamIMUStamp"
+      ],
+      [
+        "/mavros/camera/image_captured",
+        "mavros_msgs/CameraImageCaptured"
+      ],
+      [
+        "/mavros/distance_sensor/rangefinder_pub",
+        "sensor_msgs/Range"
+      ],
+      [
+        "/mavros/esc_info",
+        "mavros_msgs/ESCInfo"
+      ],
+      [
+        "/mavros/esc_status",
+        "mavros_msgs/ESCStatus"
+      ],
+      [
+        "/mavros/esc_telemetry",
+        "mavros_msgs/ESCTelemetry"
+      ],
+      [
+        "/mavros/geofence/waypoints",
+        "mavros_msgs/WaypointList"
+      ],
+      [
+        "/mavros/global_position/raw/fix",
+        "sensor_msgs/NavSatFix"
+      ],
+      [
+        "/mavros/global_position/raw/gps_vel",
+        "geometry_msgs/TwistStamped"
+      ],
+      [
+        "/mavros/global_position/raw/satellites",
+        "std_msgs/UInt32"
+      ],
+      [
+        "/mavros/global_position/global",
+        "sensor_msgs/NavSatFix"
+      ],
+      [
+        "/mavros/global_position/local",
+        "nav_msgs/Odometry"
+      ],
+      [
+        "/mavros/global_position/rel_alt",
+        "std_msgs/Float64"
+      ],
+      [
+        "/mavros/global_position/compass_hdg",
+        "std_msgs/Float64"
+      ],
+      [
+        "/mavros/global_position/gp_origin",
+        "geographic_msgs/GeoPointStamped"
+      ],
+      [
+        "/mavros/global_position/gp_lp_offset",
+        "geometry_msgs/PoseStamped"
+      ],
+      [
+        "/mavros/gps_rtk/rtk_baseline",
+        "mavros_msgs/RTKBaseline"
+      ],
+      [
+        "/mavros/gpsstatus/gps1/raw",
+        "mavros_msgs/GPSRAW"
+      ],
+      [
+        "/mavros/gpsstatus/gps2/raw",
+        "mavros_msgs/GPSRAW"
+      ],
+      [
+        "/mavros/gpsstatus/gps1/rtk",
+        "mavros_msgs/GPSRTK"
+      ],
+      [
+        "/mavros/gpsstatus/gps2/rtk",
+        "mavros_msgs/GPSRTK"
+      ],
+      [
+        "/move_base_simple/goal",
+        "geometry_msgs/PoseStamped"
+      ],
+      [
+        "/mavros/home_position/home",
+        "mavros_msgs/HomePosition"
+      ],
+      [
+        "/mavros/imu/data",
+        "sensor_msgs/Imu"
+      ],
+      [
+        "/mavros/imu/mag",
+        "sensor_msgs/MagneticField"
+      ],
+      [
+        "/mavros/imu/temperature_imu",
+        "sensor_msgs/Temperature"
+      ],
+      [
+        "/mavros/imu/temperature_baro",
+        "sensor_msgs/Temperature"
+      ],
+      [
+        "/mavros/imu/static_pressure",
+        "sensor_msgs/FluidPressure"
+      ],
+      [
+        "/mavros/imu/diff_pressure",
+        "sensor_msgs/FluidPressure"
+      ],
+      [
+        "/mavros/imu/data_raw",
+        "sensor_msgs/Imu"
+      ],
+      [
+        "/mavros/landing_target/pose_in",
+        "geometry_msgs/PoseStamped"
+      ],
+      [
+        "/mavros/landing_target/lt_marker",
+        "geometry_msgs/Vector3Stamped"
+      ],
+      [
+        "/mavros/local_position/pose",
+        "geometry_msgs/PoseStamped"
+      ],
+      [
+        "/mavros/local_position/pose_cov",
+        "geometry_msgs/PoseWithCovarianceStamped"
+      ],
+      [
+        "/mavros/local_position/velocity_local",
+        "geometry_msgs/TwistStamped"
+      ],
+      [
+        "/mavros/local_position/velocity_body",
+        "geometry_msgs/TwistStamped"
+      ],
+      [
+        "/mavros/local_position/velocity_body_cov",
+        "geometry_msgs/TwistWithCovarianceStamped"
+      ],
+      [
+        "/mavros/local_position/accel",
+        "geometry_msgs/AccelWithCovarianceStamped"
+      ],
+      [
+        "/mavros/local_position/odom",
+        "nav_msgs/Odometry"
+      ],
+      [
+        "/mavros/log_transfer/raw/log_entry",
+        "mavros_msgs/LogEntry"
+      ],
+      [
+        "/mavros/log_transfer/raw/log_data",
+        "mavros_msgs/LogData"
+      ],
+      [
+        "/mavros/mag_calibration/status",
+        "std_msgs/UInt8"
+      ],
+      [
+        "/mavros/mag_calibration/report",
+        "mavros_msgs/MagnetometerReporter"
+      ],
+      [
+        "/mavros/manual_control/control",
+        "mavros_msgs/ManualControl"
+      ],
+      [
+        "/mavros/mount_control/orientation",
+        "geometry_msgs/Quaternion"
+      ],
+      [
+        "/mavros/mount_control/status",
+        "geometry_msgs/Vector3Stamped"
+      ],
+      [
+        "/mavros/nav_controller_output",
+        "mavros_msgs/NavControllerOutput"
+      ],
+      [
+        "/mavros/odometry/in",
+        "nav_msgs/Odometry"
+      ],
+      [
+        "/mavros/param/param_value",
+        "mavros_msgs/Param"
+      ],
+      [
+        "/mavros/rallypoint/waypoints",
+        "mavros_msgs/WaypointList"
+      ],
+      [
+        "/mavros/rangefinder/rangefinder",
+        "sensor_msgs/Range"
+      ],
+      [
+        "/mavros/rc/in",
+        "mavros_msgs/RCIn"
+      ],
+      [
+        "/mavros/rc/out",
+        "mavros_msgs/RCOut"
+      ],
+      [
+        "/mavros/setpoint_raw/target_local",
+        "mavros_msgs/PositionTarget"
+      ],
+      [
+        "/mavros/setpoint_raw/target_global",
+        "mavros_msgs/GlobalPositionTarget"
+      ],
+      [
+        "/mavros/setpoint_raw/target_attitude",
+        "mavros_msgs/AttitudeTarget"
+      ],
+      [
+        "/mavros/setpoint_trajectory/desired",
+        "nav_msgs/Path"
+      ],
+      [
+        "/mavros/state",
+        "mavros_msgs/State"
+      ],
+      [
+        "/mavros/extended_state",
+        "mavros_msgs/ExtendedState"
+      ],
+      [
+        "/mavros/battery",
+        "sensor_msgs/BatteryState"
+      ],
+      [
+        "/mavros/estimator_status",
+        "mavros_msgs/EstimatorStatus"
+      ],
+      [
+        "/mavros/statustext/recv",
+        "mavros_msgs/StatusText"
+      ],
+      [
+        "/mavros/sys_status",
+        "mavros_msgs/SysStatus"
+      ],
+      [
+        "/mavros/time_reference",
+        "sensor_msgs/TimeReference"
+      ],
+      [
+        "/mavros/timesync_status",
+        "mavros_msgs/TimesyncStatus"
+      ],
+      [
+        "/mavros/terrain/report",
+        "mavros_msgs/TerrainReport"
+      ],
+      [
+        "/mavros/trajectory/desired",
+        "mavros_msgs/Trajectory"
+      ],
+      [
+        "/mavros/tunnel/out",
+        "mavros_msgs/Tunnel"
+      ],
+      [
+        "/mavros/vfr_hud",
+        "mavros_msgs/VFR_HUD"
+      ],
+      [
+        "/mavros/mission/waypoints",
+        "mavros_msgs/WaypointList"
+      ],
+      [
+        "/mavros/mission/reached",
+        "mavros_msgs/WaypointReached"
+      ],
+      [
+        "/mavros/wind_estimation",
+        "geometry_msgs/TwistWithCovarianceStamped"
+      ],
+      [
+        "/mavlink/gcs_ip",
+        "std_msgs/String"
+      ],
+      [
+        "/indoor_nav/sitl/mock_diagnostics",
+        "std_msgs/String"
+      ],
+      [
+        "/nlink_linktrack_nodeframe2",
+        "nlink_parser/LinktrackNodeframe2"
+      ],
+      [
+        "/nlink_linktrack_anchorframe0",
+        "nlink_parser/LinktrackAnchorframe0"
+      ],
+      [
+        "/indoor_nav/sitl/mock_range",
+        "sensor_msgs/Range"
+      ],
+      [
+        "/indoor_nav/desired_setpoint",
+        "geometry_msgs/PoseStamped"
+      ],
+      [
+        "/indoor_nav/mission_state",
+        "std_msgs/String"
+      ],
+      [
+        "/indoor_nav/uwb_velocity/status",
+        "std_msgs/String"
+      ],
+      [
+        "/indoor_nav/uwb_velocity/world",
+        "geometry_msgs/TwistWithCovarianceStamped"
+      ],
+      [
+        "/indoor_nav/publication_events",
+        "std_msgs/String"
+      ],
+      [
+        "/indoor_nav/accepted_uwb_details",
+        "std_msgs/String"
+      ],
+      [
+        "/indoor_nav/localization_status",
+        "indoor_nav/LocalizationStatus"
+      ],
+      [
+        "/indoor_nav/accepted_uwb",
+        "geometry_msgs/PointStamped"
+      ],
+      [
+        "/indoor_nav/safety_diagnostics",
+        "std_msgs/String"
+      ],
+      [
+        "/indoor_nav/localization_diagnostics",
+        "std_msgs/String"
+      ],
+      [
+        "/indoor_nav/world_pose",
+        "geometry_msgs/PoseStamped"
+      ],
+      [
+        "/indoor_nav/ap_odom",
+        "nav_msgs/Odometry"
+      ],
+      [
+        "/indoor_nav/abort_snapshot",
+        "std_msgs/String"
+      ],
+      [
+        "/mavros/odometry/out",
+        "nav_msgs/Odometry"
+      ],
+      [
+        "/indoor_nav/nav_from_world",
+        "geometry_msgs/TransformStamped"
+      ],
+      [
+        "/indoor_nav/z_offset_m",
+        "std_msgs/Float64"
+      ],
+      [
+        "/mavros/setpoint_position/local",
+        "geometry_msgs/PoseStamped"
+      ],
+      [
+        "/indoor_nav/safety_status",
+        "indoor_nav/SafetyStatus"
+      ]
+    ],
+    "system": {
+      "processes": [
+        " 975589    4185 terminator      Sl    0.2       01:33 /usr/bin/python3 /usr/bin/terminator -u --geometry=850x430+0+340 -T INDOOR-UWB ArduPilot SITL / MAVProxy -x bash -c echo $BASHPID > /home/liqidun/github/indoor_nav_ws/.sitl_runtime/sitl.shell.pid; cd /home/liqidun/github/ardupilot/Tools/autotest && echo '[RUN] sim_vehicle.py -v ArduCopter -f gazebo-iris --model gazebo --out 127.0.0.1:14552' && python3 sim_vehicle.py -v ArduCopter -f gazebo-iris --model gazebo --mavproxy-args=--streamrate=25 --out=127.0.0.1:14552; ret=$?; echo; echo '[indoor SITL] \u7ec4\u4ef6\u5df2\u9000\u51fa\uff0c\u72b6\u6001\u7801:' $ret; exec bash",
+        " 975600  975589 bash            Ss+   0.0       01:33 bash -c echo $BASHPID > /home/liqidun/github/indoor_nav_ws/.sitl_runtime/sitl.shell.pid; cd /home/liqidun/github/ardupilot/Tools/autotest && echo '[RUN] sim_vehicle.py -v ArduCopter -f gazebo-iris --model gazebo --out 127.0.0.1:14552' && python3 sim_vehicle.py -v ArduCopter -f gazebo-iris --model gazebo --mavproxy-args=--streamrate=25 --out=127.0.0.1:14552; ret=$?; echo; echo '[indoor SITL] \u7ec4\u4ef6\u5df2\u9000\u51fa\uff0c\u72b6\u6001\u7801:' $ret; exec bash",
+        " 975601  975600 python3         S+    0.8       01:33 python3 sim_vehicle.py -v ArduCopter -f gazebo-iris --model gazebo --mavproxy-args=--streamrate=25 --out=127.0.0.1:14552",
+        " 975835    4185 xterm           S+    0.0       01:32 xterm -iconic -xrm XTerm*selectToClipboard: true -xrm XTerm*initialFont: 6 -n ArduCopter -name ArduCopter -T ArduCopter -hold -e /home/liqidun/github/ardupilot/build/sitl/bin/arducopter -S --model gazebo --speedup 1 --slave 0 --defaults default_params/copter.parm,default_params/gazebo-iris.parm --sim-address=127.0.0.1 -I0",
+        " 975836  975601 mavproxy.py     Sl+  15.1       01:32 /usr/bin/python3 /home/liqidun/.local/bin/mavproxy.py --out 127.0.0.1:14550 --master tcp:127.0.0.1:5760 --sitl 127.0.0.1:5501 --streamrate 25 --out 127.0.0.1:14552",
+        " 975849  975835 arducopter      Ssl+  3.2       01:31 /home/liqidun/github/ardupilot/build/sitl/bin/arducopter -S --model gazebo --speedup 1 --slave 0 --defaults default_params/copter.parm,default_params/gazebo-iris.parm --sim-address=127.0.0.1 -I0",
+        " 975953  975924 gzserver        Ss    0.0       01:31 /bin/sh /opt/ros/noetic/lib/gazebo_ros/gzserver --verbose -e ode /home/liqidun/github/ardupilot_gazebo/worlds/iris_ardupilot.world __name:=gazebo __log:=/home/liqidun/.ros/log/7be4da00-c3bd-11f1-bc59-710cf840f56d/gazebo-1.log",
+        " 976027  975953 gzserver        SLl  24.6       01:31 gzserver --verbose -e ode /home/liqidun/github/ardupilot_gazebo/worlds/iris_ardupilot.world -s /opt/ros/noetic/lib/libgazebo_ros_paths_plugin.so -s /opt/ros/noetic/lib/libgazebo_ros_api_plugin.so __name:=gazebo __log:=/home/liqidun/.ros/log/7be4da00-c3bd-11f1-bc59-710cf840f56d/gazebo-1.log",
+        " 976308  976275 mavros_node     Ssl   1.9       01:28 /opt/ros/noetic/lib/mavros/mavros_node __name:=mavros __log:=/home/liqidun/.ros/log/7be4da00-c3bd-11f1-bc59-710cf840f56d/mavros-1.log",
+        " 976406    4185 terminator      Sl    0.2       01:25 /usr/bin/python3 /usr/bin/terminator -u --geometry=650x360+1600+470 -T INDOOR-UWB QGroundControl -x bash -c echo $BASHPID > /home/liqidun/github/indoor_nav_ws/.sitl_runtime/qgc.shell.pid; echo '[RUN] QGroundControl: /home/liqidun/appimage/QGroundControl.AppImage' && /home/liqidun/appimage/QGroundControl.AppImage; ret=$?; echo; echo '[indoor SITL] \u7ec4\u4ef6\u5df2\u9000\u51fa\uff0c\u72b6\u6001\u7801:' $ret; exec bash",
+        " 976436    4185 QGroundControl. Ssl   0.5       01:25 /home/liqidun/appimage/QGroundControl.AppImage",
+        " 976442  976423 QGroundControl  Sl+   8.8       01:25 /tmp/.mount_QGrounPfGNkH/QGroundControl",
+        " 976537  976474 world_estimator Ssl   4.1       01:24 /usr/bin/python3 /home/liqidun/github/indoor_nav_ws/devel/lib/indoor_nav/world_estimator.py __name:=world_estimator __log:=/home/liqidun/.ros/log/7be4da00-c3bd-11f1-bc59-710cf840f56d/world_estimator-3.log"
+      ],
+      "udp": [
+        "UNCONN   0        0                     127.0.0.1:9002           0.0.0.0:*       users:((\"gzserver\",pid=976027,fd=103))                                         ",
+        "UNCONN   0        0                       0.0.0.0:9003           0.0.0.0:*       users:((\"arducopter\",pid=975849,fd=8))                                         ",
+        "ESTAB    0        0                     127.0.0.1:43687        127.0.0.1:9003    users:((\"gzserver\",pid=976027,fd=104))                                         ",
+        "UNCONN   0        0                       0.0.0.0:14550          0.0.0.0:*       users:((\"QGroundControl\",pid=976442,fd=55))                                    ",
+        "UNCONN   0        0                       0.0.0.0:14552          0.0.0.0:*       users:((\"mavros_node\",pid=976308,fd=13))                                       "
+      ],
+      "tcp": [
+        "LISTEN      0        5                                           0.0.0.0:5760                   0.0.0.0:*        users:((\"arducopter\",pid=975849,fd=9))         ",
+        "ESTAB       0        244                                       127.0.0.1:49160                127.0.0.1:5760     users:((\"mavproxy.py\",pid=975836,fd=8))        ",
+        "ESTAB       0        0                                         127.0.0.1:5760                 127.0.0.1:49160    users:((\"arducopter\",pid=975849,fd=10))        "
+      ]
+    }
+  }
+}

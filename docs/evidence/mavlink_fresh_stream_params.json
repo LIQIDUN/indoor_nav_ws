@@ -1,0 +1,76 @@
+{
+  "source": "fresh FC PARAM_VALUE replies to PARAM_REQUEST_READ (ID20)",
+  "wall_s": 1791532011.7283638,
+  "state": {
+    "connected": true,
+    "armed": false
+  },
+  "params": {
+    "SIM_SPEEDUP": {
+      "value": 1.0,
+      "param_type": 9,
+      "receipt_wall_s": 1791532010.7308528,
+      "index": 65535
+    },
+    "SERIAL0_PROTOCOL": {
+      "value": 2.0,
+      "param_type": 2,
+      "receipt_wall_s": 1791532010.828098,
+      "index": 65535
+    },
+    "SR0_RAW_SENS": {
+      "value": 25.0,
+      "param_type": 4,
+      "receipt_wall_s": 1791532010.9257717,
+      "index": 65535
+    },
+    "SR0_EXTRA1": {
+      "value": 25.0,
+      "param_type": 4,
+      "receipt_wall_s": 1791532011.0305722,
+      "index": 65535
+    },
+    "SR0_POSITION": {
+      "value": 25.0,
+      "param_type": 4,
+      "receipt_wall_s": 1791532011.1279657,
+      "index": 65535
+    },
+    "SR1_RAW_SENS": {
+      "value": 0.0,
+      "param_type": 4,
+      "receipt_wall_s": 1791532011.2328742,
+      "index": 65535
+    },
+    "SR1_EXTRA1": {
+      "value": 0.0,
+      "param_type": 4,
+      "receipt_wall_s": 1791532011.3306174,
+      "index": 65535
+    },
+    "SR1_POSITION": {
+      "value": 0.0,
+      "param_type": 4,
+      "receipt_wall_s": 1791532011.4281218,
+      "index": 65535
+    },
+    "EK3_SRC1_VELXY": {
+      "value": 0.0,
+      "param_type": 2,
+      "receipt_wall_s": 1791532011.5258865,
+      "index": 65535
+    },
+    "EK3_SRC1_POSXY": {
+      "value": 6.0,
+      "param_type": 2,
+      "receipt_wall_s": 1791532011.6305742,
+      "index": 65535
+    },
+    "EK3_SRC1_POSZ": {
+      "value": 1.0,
+      "param_type": 2,
+      "receipt_wall_s": 1791532011.7283332,
+      "index": 65535
+    }
+  }
+}

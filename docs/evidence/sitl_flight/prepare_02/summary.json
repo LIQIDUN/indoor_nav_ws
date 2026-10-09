@@ -1,0 +1,43 @@
+{
+  "result": "FAILED",
+  "error": "event() got multiple values for argument 'name'",
+  "events": [
+    {
+      "time": 1791546559.0014427,
+      "event": "IDENTITY",
+      "stage": "PREPARE",
+      "identity": {
+        "sitl_pid": 1083704,
+        "sitl_created": 1791546309.69,
+        "proxy_pid": 1083706,
+        "mavros_pid": 1083814,
+        "master": "http://127.0.0.1:11321",
+        "params": {
+          "SIM_SPEEDUP": 1.0,
+          "GPS_TYPE": 0,
+          "EK3_SRC1_POSXY": 6,
+          "EK3_SRC1_VELXY": 0,
+          "EK3_SRC1_POSZ": 1,
+          "ARMING_CHECK": 0,
+          "LOG_DISARMED": 0,
+          "LOG_BACKEND_TYPE": 1
+        },
+        "armed": false,
+        "mode": "STABILIZE"
+      }
+    },
+    {
+      "time": 1791546559.0409749,
+      "event": "FAILURE",
+      "stage": "PREPARE",
+      "error": "event() got multiple values for argument 'name'"
+    },
+    {
+      "time": 1791546559.0412254,
+      "event": "RESULT",
+      "stage": "PREPARE",
+      "result": "FAILED",
+      "error": "event() got multiple values for argument 'name'"
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+# Development trajectory ONLY; selected explicitly by isolated flight launcher.
+frame_id: world_lab
+motion:
+  horizontal_speed_mps: 0.20
+  vertical_speed_mps: 0.15
+arrival:
+  xy_tolerance_m: 0.12
+  z_tolerance_m: 0.08
+  yaw_tolerance_deg: 10.0
+  stable_time_s: 0.7
+waypoints:
+  - {x: 0.0, y: 0.0, z: 0.8, yaw_deg: 0.0, hold_s: 3.0}
+  - {x: 0.4, y: 0.0, z: 0.8, yaw_deg: 0.0, hold_s: 1.0}
+  - {x: -0.4, y: 0.0, z: 0.8, yaw_deg: 0.0, hold_s: 1.0}
+  - {x: 0.0, y: 0.4, z: 0.8, yaw_deg: 0.0, hold_s: 1.0}
+  - {x: 0.0, y: -0.4, z: 0.8, yaw_deg: 0.0, hold_s: 1.0}
+  - {x: 0.35, y: -0.35, z: 0.8, yaw_deg: 0.0, hold_s: 1.0}
+  - {x: 0.35, y: 0.35, z: 0.8, yaw_deg: 0.0, hold_s: 1.0}
+  - {x: -0.35, y: 0.35, z: 0.8, yaw_deg: 0.0, hold_s: 1.0}
+  - {x: -0.35, y: -0.35, z: 0.8, yaw_deg: 0.0, hold_s: 1.0}
+  - {x: 0.0, y: 0.0, z: 0.8, yaw_deg: 0.0, hold_s: 2.0}

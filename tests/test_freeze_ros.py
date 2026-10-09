@@ -1,5 +1,6 @@
 """Actual supervisor and mock callbacks, generated messages, mocked transport only."""
 import json
+import math
 import unittest
 from unittest.mock import patch
 from test_pipeline_ros_messages import ROS, module, Pub
@@ -135,5 +136,59 @@ class SupervisorFreeze(unittest.TestCase):
             self.s.freeze_check(self.now)
         # Repeated source stamp cannot accumulate a complete window.
         self.assertFalse(self.s.freeze_snapshot['triggered'])
+
+
+    def test_odometry_decode_preserves_stamp_and_stale_guard(self):
+        from nav_msgs.msg import Odometry
+        self.cycle(0)
+        msg=Odometry();msg.header.frame_id='map';msg.child_frame_id='base_link'
+        msg.header.stamp=rospy.Time.from_sec(self.now-.31)
+        msg.pose.pose.orientation.w=1.;msg.twist.twist.linear.x=.4
+        self.s.odometry_velocity_cb(msg)
+        self.assertEqual(self.s.velocity.header.stamp,msg.header.stamp)
+        self.s.freeze_check(self.now)
+        self.assertEqual(self.s.freeze_snapshot['classification'],'VELOCITY_STALE_OR_TRANSFORM_MISSING')
+        msg.header.stamp=rospy.Time.from_sec(self.now+.01)
+        self.s.odometry_velocity_cb(msg);self.s.freeze_check(self.now)
+        self.assertEqual(self.s.freeze_snapshot['classification'],'VELOCITY_STALE_OR_TRANSFORM_MISSING')
+        msg.header.frame_id='base_link'
+        self.s.odometry_velocity_cb(msg)
+        self.assertIsNone(self.s.velocity)
+        self.assertEqual(self.s.velocity_source_error,'INVALID_VELOCITY_FRAME')
+
+    def test_decoded_velocity_drives_world_predictive_fence(self):
+        from nav_msgs.msg import Odometry
+        self.cycle(0)
+        self.s.cfg['freeze_detection']['enabled']=False
+        self.s.was_guided_flying=True
+        self.s.world.pose.position.x=.9
+        msg=Odometry();msg.header.frame_id='map';msg.child_frame_id='base_link'
+        msg.header.stamp=rospy.Time.from_sec(self.now)
+        # Body forward at yaw=90 is nav north; calibration yaw=90 maps it to world +x.
+        msg.pose.pose.orientation.z=math.sqrt(.5)
+        msg.pose.pose.orientation.w=math.sqrt(.5)
+        msg.twist.twist.linear.x=1.
+        self.s.odometry_velocity_cb(msg)
+        self.assertAlmostEqual(self.s.velocity.twist.linear.y,1.)
+        self.assertEqual(self.s.checks(self.now)[1],'PREDICTED_FENCE_BREACH')
+
+    def test_first_target_uses_existing_deadline_without_forwarding(self):
+        from std_msgs.msg import String
+        self.cycle(0)
+        self.s.mission_state_cb(String(data='RUNNING'))
+        self.s.tick(None)
+        self.assertFalse(self.s.abort_latched)
+        self.assertEqual(len(self.s.publisher.messages),0)
+        self.cycle(12)
+        # Duplicate RUNNING must not reset the first-target deadline.
+        self.s.mission_state_cb(String(data='RUNNING'))
+        self.s.tick(None)
+        self.assertFalse(self.s.abort_latched)
+        self.cycle(13)
+        with patch.object(self.s,'request_land'):
+            self.s.tick(None)
+        self.assertTrue(self.s.abort_latched)
+        self.assertEqual(self.s.abort_reason,'SETPOINT_TIMEOUT')
+        self.assertEqual(len(self.s.publisher.messages),0)
 
 if __name__=='__main__':unittest.main()

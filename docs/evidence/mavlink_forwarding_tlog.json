@@ -1,0 +1,1028 @@
+{
+  "start_wall_s": 1791531605.838454,
+  "end_wall_s": 1791532205.9144228,
+  "stream_requests": [
+    {
+      "wall_s": 1791531615.896143,
+      "source": [
+        255,
+        230
+      ],
+      "stream_id": 0,
+      "rate_hz": 25,
+      "on": 1
+    },
+    {
+      "wall_s": 1791531630.903703,
+      "source": [
+        255,
+        230
+      ],
+      "stream_id": 0,
+      "rate_hz": 25,
+      "on": 1
+    },
+    {
+      "wall_s": 1791531645.905323,
+      "source": [
+        255,
+        230
+      ],
+      "stream_id": 0,
+      "rate_hz": 25,
+      "on": 1
+    },
+    {
+      "wall_s": 1791531660.906731,
+      "source": [
+        255,
+        230
+      ],
+      "stream_id": 0,
+      "rate_hz": 25,
+      "on": 1
+    },
+    {
+      "wall_s": 1791531675.916847,
+      "source": [
+        255,
+        230
+      ],
+      "stream_id": 0,
+      "rate_hz": 25,
+      "on": 1
+    },
+    {
+      "wall_s": 1791531690.9168868,
+      "source": [
+        255,
+        230
+      ],
+      "stream_id": 0,
+      "rate_hz": 25,
+      "on": 1
+    },
+    {
+      "wall_s": 1791531705.9169629,
+      "source": [
+        255,
+        230
+      ],
+      "stream_id": 0,
+      "rate_hz": 25,
+      "on": 1
+    },
+    {
+      "wall_s": 1791531720.9269788,
+      "source": [
+        255,
+        230
+      ],
+      "stream_id": 0,
+      "rate_hz": 25,
+      "on": 1
+    },
+    {
+      "wall_s": 1791531735.937031,
+      "source": [
+        255,
+        230
+      ],
+      "stream_id": 0,
+      "rate_hz": 25,
+      "on": 1
+    },
+    {
+      "wall_s": 1791531750.937335,
+      "source": [
+        255,
+        230
+      ],
+      "stream_id": 0,
+      "rate_hz": 25,
+      "on": 1
+    },
+    {
+      "wall_s": 1791531765.939971,
+      "source": [
+        255,
+        230
+      ],
+      "stream_id": 0,
+      "rate_hz": 25,
+      "on": 1
+    },
+    {
+      "wall_s": 1791531780.940263,
+      "source": [
+        255,
+        230
+      ],
+      "stream_id": 0,
+      "rate_hz": 25,
+      "on": 1
+    },
+    {
+      "wall_s": 1791531795.950219,
+      "source": [
+        255,
+        230
+      ],
+      "stream_id": 0,
+      "rate_hz": 25,
+      "on": 1
+    },
+    {
+      "wall_s": 1791531810.959431,
+      "source": [
+        255,
+        230
+      ],
+      "stream_id": 0,
+      "rate_hz": 25,
+      "on": 1
+    },
+    {
+      "wall_s": 1791531825.963687,
+      "source": [
+        255,
+        230
+      ],
+      "stream_id": 0,
+      "rate_hz": 25,
+      "on": 1
+    },
+    {
+      "wall_s": 1791531840.970335,
+      "source": [
+        255,
+        230
+      ],
+      "stream_id": 0,
+      "rate_hz": 25,
+      "on": 1
+    },
+    {
+      "wall_s": 1791531855.971427,
+      "source": [
+        255,
+        230
+      ],
+      "stream_id": 0,
+      "rate_hz": 25,
+      "on": 1
+    },
+    {
+      "wall_s": 1791531870.973439,
+      "source": [
+        255,
+        230
+      ],
+      "stream_id": 0,
+      "rate_hz": 25,
+      "on": 1
+    },
+    {
+      "wall_s": 1791531885.973651,
+      "source": [
+        255,
+        230
+      ],
+      "stream_id": 0,
+      "rate_hz": 25,
+      "on": 1
+    },
+    {
+      "wall_s": 1791531900.9780948,
+      "source": [
+        255,
+        230
+      ],
+      "stream_id": 0,
+      "rate_hz": 25,
+      "on": 1
+    },
+    {
+      "wall_s": 1791531915.987707,
+      "source": [
+        255,
+        230
+      ],
+      "stream_id": 0,
+      "rate_hz": 25,
+      "on": 1
+    },
+    {
+      "wall_s": 1791531930.995255,
+      "source": [
+        255,
+        230
+      ],
+      "stream_id": 0,
+      "rate_hz": 25,
+      "on": 1
+    },
+    {
+      "wall_s": 1791531946.003491,
+      "source": [
+        255,
+        230
+      ],
+      "stream_id": 0,
+      "rate_hz": 25,
+      "on": 1
+    },
+    {
+      "wall_s": 1791531961.003815,
+      "source": [
+        255,
+        230
+      ],
+      "stream_id": 0,
+      "rate_hz": 25,
+      "on": 1
+    },
+    {
+      "wall_s": 1791531976.006655,
+      "source": [
+        255,
+        230
+      ],
+      "stream_id": 0,
+      "rate_hz": 25,
+      "on": 1
+    },
+    {
+      "wall_s": 1791531991.0103228,
+      "source": [
+        255,
+        230
+      ],
+      "stream_id": 0,
+      "rate_hz": 25,
+      "on": 1
+    },
+    {
+      "wall_s": 1791532006.0170069,
+      "source": [
+        255,
+        230
+      ],
+      "stream_id": 0,
+      "rate_hz": 25,
+      "on": 1
+    },
+    {
+      "wall_s": 1791532021.027087,
+      "source": [
+        255,
+        230
+      ],
+      "stream_id": 0,
+      "rate_hz": 25,
+      "on": 1
+    },
+    {
+      "wall_s": 1791532036.0365548,
+      "source": [
+        255,
+        230
+      ],
+      "stream_id": 0,
+      "rate_hz": 25,
+      "on": 1
+    },
+    {
+      "wall_s": 1791532051.0399668,
+      "source": [
+        255,
+        230
+      ],
+      "stream_id": 0,
+      "rate_hz": 25,
+      "on": 1
+    },
+    {
+      "wall_s": 1791532066.042567,
+      "source": [
+        255,
+        230
+      ],
+      "stream_id": 0,
+      "rate_hz": 25,
+      "on": 1
+    },
+    {
+      "wall_s": 1791532081.0426629,
+      "source": [
+        255,
+        230
+      ],
+      "stream_id": 0,
+      "rate_hz": 25,
+      "on": 1
+    },
+    {
+      "wall_s": 1791532096.052079,
+      "source": [
+        255,
+        230
+      ],
+      "stream_id": 0,
+      "rate_hz": 25,
+      "on": 1
+    },
+    {
+      "wall_s": 1791532111.059367,
+      "source": [
+        255,
+        230
+      ],
+      "stream_id": 0,
+      "rate_hz": 25,
+      "on": 1
+    },
+    {
+      "wall_s": 1791532126.061271,
+      "source": [
+        255,
+        230
+      ],
+      "stream_id": 0,
+      "rate_hz": 25,
+      "on": 1
+    },
+    {
+      "wall_s": 1791532141.061939,
+      "source": [
+        255,
+        230
+      ],
+      "stream_id": 0,
+      "rate_hz": 25,
+      "on": 1
+    },
+    {
+      "wall_s": 1791532156.070659,
+      "source": [
+        255,
+        230
+      ],
+      "stream_id": 0,
+      "rate_hz": 25,
+      "on": 1
+    },
+    {
+      "wall_s": 1791532171.072999,
+      "source": [
+        255,
+        230
+      ],
+      "stream_id": 0,
+      "rate_hz": 25,
+      "on": 1
+    },
+    {
+      "wall_s": 1791532186.072995,
+      "source": [
+        255,
+        230
+      ],
+      "stream_id": 0,
+      "rate_hz": 25,
+      "on": 1
+    },
+    {
+      "wall_s": 1791532201.073055,
+      "source": [
+        255,
+        230
+      ],
+      "stream_id": 0,
+      "rate_hz": 25,
+      "on": 1
+    }
+  ],
+  "message_interval_requests": [
+    {
+      "wall_s": 1791531608.0016818,
+      "source": [
+        255,
+        190
+      ],
+      "message_id": 242.0,
+      "interval_us": 1000000.0
+    },
+    {
+      "wall_s": 1791531619.021837,
+      "source": [
+        255,
+        190
+      ],
+      "message_id": 242.0,
+      "interval_us": 1000000.0
+    },
+    {
+      "wall_s": 1791531630.971745,
+      "source": [
+        255,
+        190
+      ],
+      "message_id": 242.0,
+      "interval_us": 1000000.0
+    },
+    {
+      "wall_s": 1791531641.971299,
+      "source": [
+        255,
+        190
+      ],
+      "message_id": 242.0,
+      "interval_us": 1000000.0
+    },
+    {
+      "wall_s": 1791531652.9687319,
+      "source": [
+        255,
+        190
+      ],
+      "message_id": 242.0,
+      "interval_us": 1000000.0
+    },
+    {
+      "wall_s": 1791531663.968391,
+      "source": [
+        255,
+        190
+      ],
+      "message_id": 242.0,
+      "interval_us": 1000000.0
+    },
+    {
+      "wall_s": 1791531674.9693599,
+      "source": [
+        255,
+        190
+      ],
+      "message_id": 242.0,
+      "interval_us": 1000000.0
+    },
+    {
+      "wall_s": 1791531685.9684849,
+      "source": [
+        255,
+        190
+      ],
+      "message_id": 242.0,
+      "interval_us": 1000000.0
+    },
+    {
+      "wall_s": 1791531696.957011,
+      "source": [
+        255,
+        190
+      ],
+      "message_id": 242.0,
+      "interval_us": 1000000.0
+    },
+    {
+      "wall_s": 1791531707.973271,
+      "source": [
+        255,
+        190
+      ],
+      "message_id": 242.0,
+      "interval_us": 1000000.0
+    },
+    {
+      "wall_s": 1791531718.969784,
+      "source": [
+        255,
+        190
+      ],
+      "message_id": 242.0,
+      "interval_us": 1000000.0
+    },
+    {
+      "wall_s": 1791531729.96889,
+      "source": [
+        255,
+        190
+      ],
+      "message_id": 242.0,
+      "interval_us": 1000000.0
+    },
+    {
+      "wall_s": 1791531740.9694479,
+      "source": [
+        255,
+        190
+      ],
+      "message_id": 242.0,
+      "interval_us": 1000000.0
+    },
+    {
+      "wall_s": 1791531751.967639,
+      "source": [
+        255,
+        190
+      ],
+      "message_id": 242.0,
+      "interval_us": 1000000.0
+    },
+    {
+      "wall_s": 1791531762.9674258,
+      "source": [
+        255,
+        190
+      ],
+      "message_id": 242.0,
+      "interval_us": 1000000.0
+    },
+    {
+      "wall_s": 1791531773.968946,
+      "source": [
+        255,
+        190
+      ],
+      "message_id": 242.0,
+      "interval_us": 1000000.0
+    },
+    {
+      "wall_s": 1791531784.970573,
+      "source": [
+        255,
+        190
+      ],
+      "message_id": 242.0,
+      "interval_us": 1000000.0
+    },
+    {
+      "wall_s": 1791531795.9685478,
+      "source": [
+        255,
+        190
+      ],
+      "message_id": 242.0,
+      "interval_us": 1000000.0
+    },
+    {
+      "wall_s": 1791531806.969174,
+      "source": [
+        255,
+        190
+      ],
+      "message_id": 242.0,
+      "interval_us": 1000000.0
+    },
+    {
+      "wall_s": 1791531817.9672909,
+      "source": [
+        255,
+        190
+      ],
+      "message_id": 242.0,
+      "interval_us": 1000000.0
+    },
+    {
+      "wall_s": 1791531828.970356,
+      "source": [
+        255,
+        190
+      ],
+      "message_id": 242.0,
+      "interval_us": 1000000.0
+    },
+    {
+      "wall_s": 1791531839.9707558,
+      "source": [
+        255,
+        190
+      ],
+      "message_id": 242.0,
+      "interval_us": 1000000.0
+    },
+    {
+      "wall_s": 1791531850.9698389,
+      "source": [
+        255,
+        190
+      ],
+      "message_id": 242.0,
+      "interval_us": 1000000.0
+    },
+    {
+      "wall_s": 1791531861.968561,
+      "source": [
+        255,
+        190
+      ],
+      "message_id": 242.0,
+      "interval_us": 1000000.0
+    },
+    {
+      "wall_s": 1791531872.969233,
+      "source": [
+        255,
+        190
+      ],
+      "message_id": 242.0,
+      "interval_us": 1000000.0
+    },
+    {
+      "wall_s": 1791531883.969234,
+      "source": [
+        255,
+        190
+      ],
+      "message_id": 242.0,
+      "interval_us": 1000000.0
+    },
+    {
+      "wall_s": 1791531894.973706,
+      "source": [
+        255,
+        190
+      ],
+      "message_id": 242.0,
+      "interval_us": 1000000.0
+    },
+    {
+      "wall_s": 1791531905.973765,
+      "source": [
+        255,
+        190
+      ],
+      "message_id": 242.0,
+      "interval_us": 1000000.0
+    },
+    {
+      "wall_s": 1791531916.977273,
+      "source": [
+        255,
+        190
+      ],
+      "message_id": 242.0,
+      "interval_us": 1000000.0
+    },
+    {
+      "wall_s": 1791531927.970887,
+      "source": [
+        255,
+        190
+      ],
+      "message_id": 242.0,
+      "interval_us": 1000000.0
+    },
+    {
+      "wall_s": 1791531938.971163,
+      "source": [
+        255,
+        190
+      ],
+      "message_id": 242.0,
+      "interval_us": 1000000.0
+    },
+    {
+      "wall_s": 1791531949.958865,
+      "source": [
+        255,
+        190
+      ],
+      "message_id": 242.0,
+      "interval_us": 1000000.0
+    },
+    {
+      "wall_s": 1791531960.9676878,
+      "source": [
+        255,
+        190
+      ],
+      "message_id": 242.0,
+      "interval_us": 1000000.0
+    },
+    {
+      "wall_s": 1791531971.971279,
+      "source": [
+        255,
+        190
+      ],
+      "message_id": 242.0,
+      "interval_us": 1000000.0
+    },
+    {
+      "wall_s": 1791531982.968258,
+      "source": [
+        255,
+        190
+      ],
+      "message_id": 242.0,
+      "interval_us": 1000000.0
+    },
+    {
+      "wall_s": 1791531993.967768,
+      "source": [
+        255,
+        190
+      ],
+      "message_id": 242.0,
+      "interval_us": 1000000.0
+    },
+    {
+      "wall_s": 1791532004.956261,
+      "source": [
+        255,
+        190
+      ],
+      "message_id": 242.0,
+      "interval_us": 1000000.0
+    },
+    {
+      "wall_s": 1791532015.970022,
+      "source": [
+        255,
+        190
+      ],
+      "message_id": 242.0,
+      "interval_us": 1000000.0
+    },
+    {
+      "wall_s": 1791532026.968571,
+      "source": [
+        255,
+        190
+      ],
+      "message_id": 242.0,
+      "interval_us": 1000000.0
+    },
+    {
+      "wall_s": 1791532037.956416,
+      "source": [
+        255,
+        190
+      ],
+      "message_id": 242.0,
+      "interval_us": 1000000.0
+    },
+    {
+      "wall_s": 1791532048.972688,
+      "source": [
+        255,
+        190
+      ],
+      "message_id": 242.0,
+      "interval_us": 1000000.0
+    },
+    {
+      "wall_s": 1791532059.967918,
+      "source": [
+        255,
+        190
+      ],
+      "message_id": 242.0,
+      "interval_us": 1000000.0
+    },
+    {
+      "wall_s": 1791532070.969817,
+      "source": [
+        255,
+        190
+      ],
+      "message_id": 242.0,
+      "interval_us": 1000000.0
+    },
+    {
+      "wall_s": 1791532081.9688249,
+      "source": [
+        255,
+        190
+      ],
+      "message_id": 242.0,
+      "interval_us": 1000000.0
+    },
+    {
+      "wall_s": 1791532092.9675188,
+      "source": [
+        255,
+        190
+      ],
+      "message_id": 242.0,
+      "interval_us": 1000000.0
+    },
+    {
+      "wall_s": 1791532103.971107,
+      "source": [
+        255,
+        190
+      ],
+      "message_id": 242.0,
+      "interval_us": 1000000.0
+    },
+    {
+      "wall_s": 1791532114.9719799,
+      "source": [
+        255,
+        190
+      ],
+      "message_id": 242.0,
+      "interval_us": 1000000.0
+    },
+    {
+      "wall_s": 1791532125.9572768,
+      "source": [
+        255,
+        190
+      ],
+      "message_id": 242.0,
+      "interval_us": 1000000.0
+    },
+    {
+      "wall_s": 1791532136.9720528,
+      "source": [
+        255,
+        190
+      ],
+      "message_id": 242.0,
+      "interval_us": 1000000.0
+    },
+    {
+      "wall_s": 1791532147.971601,
+      "source": [
+        255,
+        190
+      ],
+      "message_id": 242.0,
+      "interval_us": 1000000.0
+    },
+    {
+      "wall_s": 1791532158.9560518,
+      "source": [
+        255,
+        190
+      ],
+      "message_id": 242.0,
+      "interval_us": 1000000.0
+    },
+    {
+      "wall_s": 1791532169.97117,
+      "source": [
+        255,
+        190
+      ],
+      "message_id": 242.0,
+      "interval_us": 1000000.0
+    },
+    {
+      "wall_s": 1791532180.9730508,
+      "source": [
+        255,
+        190
+      ],
+      "message_id": 242.0,
+      "interval_us": 1000000.0
+    },
+    {
+      "wall_s": 1791532191.9590168,
+      "source": [
+        255,
+        190
+      ],
+      "message_id": 242.0,
+      "interval_us": 1000000.0
+    },
+    {
+      "wall_s": 1791532202.972769,
+      "source": [
+        255,
+        190
+      ],
+      "message_id": 242.0,
+      "interval_us": 1000000.0
+    }
+  ],
+  "command_counts": {
+    "410": 360,
+    "511": 55
+  },
+  "parameter_sets": [],
+  "parameter_reads": [
+    {
+      "wall_s": 1791532010.638134,
+      "source": [
+        246,
+        191
+      ],
+      "name": "SIM_SPEEDUP"
+    },
+    {
+      "wall_s": 1791532010.7351708,
+      "source": [
+        246,
+        191
+      ],
+      "name": "SERIAL0_PROTOCOL"
+    },
+    {
+      "wall_s": 1791532010.8284109,
+      "source": [
+        246,
+        191
+      ],
+      "name": "SR0_RAW_SENS"
+    },
+    {
+      "wall_s": 1791532010.926085,
+      "source": [
+        246,
+        191
+      ],
+      "name": "SR0_EXTRA1"
+    },
+    {
+      "wall_s": 1791532011.031015,
+      "source": [
+        246,
+        191
+      ],
+      "name": "SR0_POSITION"
+    },
+    {
+      "wall_s": 1791532011.132715,
+      "source": [
+        246,
+        191
+      ],
+      "name": "SR1_RAW_SENS"
+    },
+    {
+      "wall_s": 1791532011.2332249,
+      "source": [
+        246,
+        191
+      ],
+      "name": "SR1_EXTRA1"
+    },
+    {
+      "wall_s": 1791532011.334653,
+      "source": [
+        246,
+        191
+      ],
+      "name": "SR1_POSITION"
+    },
+    {
+      "wall_s": 1791532011.4284558,
+      "source": [
+        246,
+        191
+      ],
+      "name": "EK3_SRC1_VELXY"
+    },
+    {
+      "wall_s": 1791532011.526223,
+      "source": [
+        246,
+        191
+      ],
+      "name": "EK3_SRC1_POSXY"
+    },
+    {
+      "wall_s": 1791532011.6308699,
+      "source": [
+        246,
+        191
+      ],
+      "name": "EK3_SRC1_POSZ"
+    }
+  ],
+  "fc_boot_clocks": {
+    "ATTITUDE": {
+      "first": {
+        "wall_s": 1791531605.848464,
+        "boot_s": 46.219
+      },
+      "last": {
+        "wall_s": 1791532205.9058878,
+        "boot_s": 646.059
+      },
+      "rewinds": 0
+    },
+    "LOCAL_POSITION_NED": {
+      "first": {
+        "wall_s": 1791531605.852716,
+        "boot_s": 46.219
+      },
+      "last": {
+        "wall_s": 1791532205.91012,
+        "boot_s": 646.059
+      },
+      "rewinds": 0
+    }
+  },
+  "odometry": {
+    "count": 18003,
+    "observed_hz": 29.99979255581534,
+    "max_gap_s": 0.04414796829223633,
+    "claim": "MAVProxy forwarded to FC TCP socket; not proof EKF accepted/fused"
+  }
+}

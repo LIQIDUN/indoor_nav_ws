@@ -1,0 +1,54 @@
+{
+  "topic": "/indoor_nav/localization_diagnostics",
+  "elapsed_s": 25.585253433004254,
+  "wall_s": 1791530441.44952,
+  "ros_s": 1791530441.4495132,
+  "data": {
+    "stamp_s": 1791530441.4490614,
+    "healthy": false,
+    "reason": "FC_IMU_STALE",
+    "world_publish_enabled": false,
+    "last_world_publish_s": 1791530438.3157413,
+    "fc_connected": true,
+    "fc_age_s": 0.12849760055541992,
+    "imu_age_s": 3.518827199935913,
+    "range_age_s": 0.011281728744506836,
+    "range_header_age_s": 0.01139211654663086,
+    "range_rejection": "",
+    "imu_rejection": "STALE_OR_FUTURE_HEADER",
+    "imu_header_age_s": 3.51894474029541,
+    "uwb_accepted_age_s": 0.002252817153930664,
+    "uwb_received_age_s": 0.002252817153930664,
+    "uwb_gate_reason": "OK",
+    "uwb_rejected": 0,
+    "raw_uwb": {
+      "receipt_s": 1791530441.4468086,
+      "xy": [
+        0.04007761925458908,
+        -0.030201010406017303
+      ],
+      "eop_xy": [
+        0.009999999776482582,
+        0.009999999776482582
+      ],
+      "device_local_time": 529079005,
+      "device_system_time": 529079005
+    },
+    "accepted_xy": [
+      0.04007761925458908,
+      -0.030201010406017303
+    ],
+    "uwb_timestamp_basis": "ROS_RECEIPT_NO_SYNCHRONIZED_DEVICE_HEADER",
+    "packet_order_reason": "ORDERED_DEVICE_COUNTER_RECEIPT_TIME",
+    "packet_order_rejected": 0,
+    "transport_adapter": {
+      "enabled": false,
+      "reason": "DISABLED",
+      "checked_at_s": null,
+      "firmware": [],
+      "minimum_position_sigma_m": 0.2,
+      "fc_position_sigma_m": null,
+      "velocity_forwarding": false
+    }
+  }
+}

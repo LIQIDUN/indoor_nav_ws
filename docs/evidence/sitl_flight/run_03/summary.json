@@ -1,0 +1,104 @@
+{
+  "result": "FAILED",
+  "error": "SAFETY_ABORT:SETPOINT_TIMEOUT",
+  "events": [
+    {
+      "time": 1791547268.4798899,
+      "event": "IDENTITY",
+      "stage": "PREFLIGHT",
+      "identity": {
+        "sitl_pid": 1083704,
+        "sitl_created": 1791546309.69,
+        "proxy_pid": 1083706,
+        "mavros_pid": 1083814,
+        "master": "http://127.0.0.1:11321",
+        "params": {
+          "SIM_SPEEDUP": 1.0,
+          "GPS_TYPE": 0,
+          "EK3_SRC1_POSXY": 6,
+          "EK3_SRC1_VELXY": 0,
+          "EK3_SRC1_POSZ": 1,
+          "ARMING_CHECK": 1,
+          "LOG_DISARMED": 1,
+          "LOG_BACKEND_TYPE": 1
+        },
+        "armed": false,
+        "mode": "STABILIZE"
+      }
+    },
+    {
+      "time": 1791547270.5862613,
+      "event": "MODE",
+      "stage": "PREFLIGHT",
+      "mode": "GUIDED"
+    },
+    {
+      "time": 1791547270.640779,
+      "event": "ARM_RESPONSE",
+      "stage": "PREFLIGHT",
+      "success": true,
+      "result": 0
+    },
+    {
+      "time": 1791547270.7960908,
+      "event": "TAKEOFF_RESPONSE",
+      "stage": "TAKEOFF",
+      "success": true,
+      "result": 0
+    },
+    {
+      "time": 1791547275.3039603,
+      "event": "HOVER_REACHED",
+      "stage": "HOVER",
+      "truth_z": 0.6881065163377326
+    },
+    {
+      "time": 1791547278.3096101,
+      "event": "MISSION_START",
+      "stage": "MISSION",
+      "success": true,
+      "message": "Mission started: no auto arm / no auto takeoff"
+    },
+    {
+      "time": 1791547278.3599312,
+      "event": "FAILURE",
+      "stage": "MISSION",
+      "error": "SAFETY_ABORT:SETPOINT_TIMEOUT"
+    },
+    {
+      "time": 1791547278.4611025,
+      "event": "MODE",
+      "stage": "LAND",
+      "mode": "LAND"
+    },
+    {
+      "time": 1791547282.3667147,
+      "event": "LANDED_DISARMED",
+      "stage": "LAND",
+      "truth_z": -0.0002129828726402383
+    },
+    {
+      "time": 1791547282.4646876,
+      "event": "MODE",
+      "stage": "LAND",
+      "mode": "STABILIZE"
+    },
+    {
+      "time": 1791547282.468204,
+      "event": "RESET_REQUIRES_NEW_OPERATOR_ACK",
+      "stage": "LAND"
+    },
+    {
+      "time": 1791547282.5215647,
+      "event": "MODEL_RESTORED_ON_GROUND",
+      "stage": "RESTORE"
+    },
+    {
+      "time": 1791547282.521893,
+      "event": "RESULT",
+      "stage": "RESTORE",
+      "result": "FAILED",
+      "error": "SAFETY_ABORT:SETPOINT_TIMEOUT"
+    }
+  ]
+}

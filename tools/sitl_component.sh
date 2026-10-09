@@ -5,12 +5,14 @@ TOOLS_DIR="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd)"
 WS_ROOT="$(cd -- "$TOOLS_DIR/.." && pwd)"
 # shellcheck source=/dev/null
 source "$TOOLS_DIR/sitl.env"
+set +u  # ROS setup scripts read optional unset environment variables
 source /opt/ros/noetic/setup.bash
 if [[ ! -f "$WS_ROOT/devel/setup.bash" ]]; then
   echo "[ERROR] 缺少 $WS_ROOT/devel/setup.bash，请先 catkin_make。" >&2
   exit 2
 fi
 source "$WS_ROOT/devel/setup.bash"
+set -u
 export ROS_MASTER_URI="http://127.0.0.1:11311"
 unset ROS_IP ROS_HOSTNAME || true
 
@@ -42,7 +44,10 @@ case "$component" in
     cd "$AP_ROOT/Tools/autotest"
     echo "[ArduPilot] frame=$SITL_FRAME model=$SITL_MODEL out=$MAVROS_UDP_PORT"
     # --model gazebo: legacy Gazebo Classic binary backend, not JSON.
-    sitl_opts=()
+    [[ "${SITL_MAVLINK_STREAMRATE:-25}" =~ ^[0-9]+$ ]] || exit 2
+    (( SITL_MAVLINK_STREAMRATE >= 1 && SITL_MAVLINK_STREAMRATE <= 50 )) || exit 2
+    if (( SITL_MAVLINK_STREAMRATE < 20 )); then echo "[WARN] Telemetry below 20Hz: diagnostic rollback only; not flight acceptance." >&2; fi
+    sitl_opts=("--mavproxy-args=--streamrate=$SITL_MAVLINK_STREAMRATE")
     if [[ "$SITL_CONSOLE" == "true" ]]; then sitl_opts+=(--console); fi
     if [[ "$SITL_MAP" == "true" ]]; then sitl_opts+=(--map); fi
     exec python3 sim_vehicle.py \

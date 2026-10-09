@@ -1,0 +1,18 @@
+# Shadow diagnostics only. Does not change EKF source or ODOMETRY twist.
+window:
+  window_s: 0.50
+  min_samples: 8
+  min_span_s: 0.25
+  timeout_s: 0.20
+  position_sigma_m: 0.10       # conservative unverified hardware floor, metres
+  speed_sigma_floor_mps: 0.05 # estimator uncertainty floor, not an accuracy claim
+  max_sigma_mps: 1.00
+  max_speed_mps: 1.50
+  static_epsilon_m: 0.015
+native:
+  verified: false
+  evidence: ""
+  units: unverified
+  frame_id: unverified
+  reference_point: unverified
+  sigma_mps: 0.10

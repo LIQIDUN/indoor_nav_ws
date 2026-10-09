@@ -8,6 +8,8 @@ import math
 import json
 import rospy
 from geometry_msgs.msg import PoseStamped, TransformStamped, TwistStamped, PointStamped
+from nav_msgs.msg import Odometry
+from indoor_nav.navigation_velocity import paired_odometry_velocity
 from mavros_msgs.msg import State
 from mavros_msgs.srv import ParamGet, SetMode
 from std_msgs.msg import String, Float64
@@ -44,6 +46,7 @@ class SafetySupervisor:
         self.transform = None
         self.z_offset = None
         self.mission_state = 'IDLE'
+        self.mission_start_stamp = None
         self.abort_latched = False
         self.abort_reason = ''
         self.operator_ack = False
@@ -54,6 +57,9 @@ class SafetySupervisor:
         self.was_guided_flying = False
         self.last_land_attempt = 0.
         self.velocity_frame = rospy.get_param('/mavros/local_position/frame_id', 'map')
+        self.velocity_body_frame = rospy.get_param(
+            '/mavros/local_position/tf/child_frame_id', 'base_link')
+        self.velocity_source_error = None
         self.velocity = None
         self.velocity_stamp = 0.
         f = self.cfg.get('freeze_detection', {})
@@ -89,13 +95,18 @@ class SafetySupervisor:
                          self.tf_cb, queue_size=1)
         rospy.Subscriber('/indoor_nav/z_offset_m', Float64, self.z_cb, queue_size=1)
         rospy.Subscriber('/indoor_nav/mission_state', String,
-                         lambda m: setattr(self, 'mission_state', m.data), queue_size=5)
-        rospy.Subscriber('/mavros/local_position/velocity_local', TwistStamped,
-                         self.velocity_cb, queue_size=5)
+                         self.mission_state_cb, queue_size=5)
+        rospy.Subscriber('/mavros/local_position/odom', Odometry,
+                         self.odometry_velocity_cb, queue_size=5)
         rospy.Service('/indoor_nav/safety/acknowledge', Trigger, self.ack)
         rospy.Service('/indoor_nav/safety/reset', Trigger, self.reset)
         rospy.Timer(rospy.Duration(.05), self.tick)
         rospy.Timer(rospy.Duration(3.), self.validate_params)
+
+    def mission_state_cb(self, msg):
+        if msg.data == 'RUNNING' and self.mission_state != 'RUNNING':
+            self.mission_start_stamp = rospy.get_time()
+        self.mission_state = msg.data
 
     def fc_cb(self, msg):
         if msg.connected != self.fc.connected:
@@ -124,6 +135,22 @@ class SafetySupervisor:
 
     def z_cb(self, msg):
         self.z_offset = msg.data
+
+    def odometry_velocity_cb(self, msg):
+        """Undo MAVROS' paired ENU-to-FLU encoding; retain measurement stamp."""
+        try:
+            xyz = paired_odometry_velocity(msg, self.velocity_frame,
+                                           self.velocity_body_frame)
+        except ValueError as exc:
+            self.velocity_source_error = str(exc)
+            self.velocity = None  # Invalid new data must not leave old data usable.
+            return
+        velocity = TwistStamped()
+        velocity.header.stamp = msg.header.stamp
+        velocity.header.frame_id = msg.header.frame_id
+        velocity.twist.linear.x, velocity.twist.linear.y, velocity.twist.linear.z = xyz
+        self.velocity_source_error = None
+        self.velocity_cb(velocity)
 
     def velocity_cb(self, msg):
         self.velocity = msg
@@ -230,6 +257,8 @@ class SafetySupervisor:
                    'world_xyz': [self.world.pose.position.x, self.world.pose.position.y,
                                  self.world.pose.position.z] if self.world else None,
                    'velocity_frame': self.velocity.header.frame_id if self.velocity else None,
+                   'velocity_source': '/mavros/local_position/odom',
+                   'velocity_source_error': self.velocity_source_error,
                    'uwb_age_s': self.localization.uwb_age_s if self.localization else None,
                    'range_age_s': self.localization.laser_age_s if self.localization else None,
                    'fc_connected': self.fc.connected, 'fc_age_s': now-self.fc_timestamp,
@@ -264,8 +293,8 @@ class SafetySupervisor:
                 not 0 <= self.message_age(self.velocity, now) <= .30 or
                 self.transform is None):
             return unavailable('VELOCITY_STALE_OR_TRANSFORM_MISSING')
-        # MAVROS velocity_local is ENU, never body FLU. Refuse an unexpected frame.
-        if self.velocity.header.frame_id not in (self.velocity_frame, 'odom'):
+        # Paired Odometry has been decoded into navigation ENU. Check its frame.
+        if self.velocity.header.frame_id != self.velocity_frame:
             return unavailable('INVALID_VELOCITY_FRAME')
         v = self.velocity.twist.linear
         c, sn = math.cos(self.transform.yaw), math.sin(self.transform.yaw)
@@ -337,11 +366,11 @@ class SafetySupervisor:
                 horizon > 0 and self.velocity is not None and
                 0 <= now-self.velocity_stamp < .30 and
                 0 <= self.message_age(self.velocity, now) < .30 and
-                self.velocity.header.frame_id in (self.velocity_frame, 'odom')):
+                self.velocity.header.frame_id == self.velocity_frame):
             vx = self.velocity.twist.linear.x
             vy = self.velocity.twist.linear.y
             if finite(vx, vy):
-                # velocity_local is nav ENU. Convert into world using inverse rotation.
+                # Decoded velocity is nav ENU. Convert using inverse world rotation.
                 c, s = math.cos(self.transform.yaw), math.sin(self.transform.yaw)
                 wx, wy = c*vx+s*vy, -s*vx+c*vy
                 px = pos[0] + horizon*wx
@@ -389,7 +418,14 @@ class SafetySupervisor:
         if guided and active and ok:
             if self.goal is None or now-self.goal_timestamp > float(
                     self.cfg.get('mission', {}).get('setpoint_timeout_s', .50)):
-                self.abort('SETPOINT_TIMEOUT')
+                # A RUNNING state and its first target use different ROS
+                # connections. Give the first target the SAME configured
+                # deadline; forward nothing while waiting. Never extend it
+                # with repeated RUNNING messages or after forwarding began.
+                started = getattr(self, 'mission_start_stamp', None)
+                timeout = float(self.cfg.get('mission', {}).get('setpoint_timeout_s', .50))
+                if self.was_guided_flying or started is None or now-started >= timeout:
+                    self.abort('SETPOINT_TIMEOUT')
             elif self.goal.header.frame_id != 'odom':
                 self.abort('INVALID_SETPOINT_FRAME')
             else:

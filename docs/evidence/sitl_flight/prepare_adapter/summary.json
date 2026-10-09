@@ -1,0 +1,43 @@
+{
+  "result": "FAILED",
+  "error": "Not at initial ground origin",
+  "events": [
+    {
+      "time": 1791547188.1359258,
+      "event": "IDENTITY",
+      "stage": "PREPARE",
+      "identity": {
+        "sitl_pid": 1083704,
+        "sitl_created": 1791546309.69,
+        "proxy_pid": 1083706,
+        "mavros_pid": 1083814,
+        "master": "http://127.0.0.1:11321",
+        "params": {
+          "SIM_SPEEDUP": 1.0,
+          "GPS_TYPE": 0,
+          "EK3_SRC1_POSXY": 6,
+          "EK3_SRC1_VELXY": 0,
+          "EK3_SRC1_POSZ": 1,
+          "ARMING_CHECK": 1,
+          "LOG_DISARMED": 1,
+          "LOG_BACKEND_TYPE": 1
+        },
+        "armed": false,
+        "mode": "STABILIZE"
+      }
+    },
+    {
+      "time": 1791547188.1360722,
+      "event": "FAILURE",
+      "stage": "PREPARE",
+      "error": "Not at initial ground origin"
+    },
+    {
+      "time": 1791547188.1362066,
+      "event": "RESULT",
+      "stage": "PREPARE",
+      "result": "FAILED",
+      "error": "Not at initial ground origin"
+    }
+  ]
+}

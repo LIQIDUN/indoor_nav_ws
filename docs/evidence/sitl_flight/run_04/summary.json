@@ -1,0 +1,104 @@
+{
+  "result": "FAILED",
+  "error": "STALE:/indoor_nav/mission_state",
+  "events": [
+    {
+      "time": 1791547438.1724863,
+      "event": "IDENTITY",
+      "stage": "PREFLIGHT",
+      "identity": {
+        "sitl_pid": 1083704,
+        "sitl_created": 1791546309.69,
+        "proxy_pid": 1083706,
+        "mavros_pid": 1083814,
+        "master": "http://127.0.0.1:11321",
+        "params": {
+          "SIM_SPEEDUP": 1.0,
+          "GPS_TYPE": 0,
+          "EK3_SRC1_POSXY": 6,
+          "EK3_SRC1_VELXY": 0,
+          "EK3_SRC1_POSZ": 1,
+          "ARMING_CHECK": 1,
+          "LOG_DISARMED": 1,
+          "LOG_BACKEND_TYPE": 1
+        },
+        "armed": false,
+        "mode": "STABILIZE"
+      }
+    },
+    {
+      "time": 1791547440.2752457,
+      "event": "MODE",
+      "stage": "PREFLIGHT",
+      "mode": "GUIDED"
+    },
+    {
+      "time": 1791547440.331891,
+      "event": "ARM_RESPONSE",
+      "stage": "PREFLIGHT",
+      "success": true,
+      "result": 0
+    },
+    {
+      "time": 1791547440.5365632,
+      "event": "TAKEOFF_RESPONSE",
+      "stage": "TAKEOFF",
+      "success": true,
+      "result": 0
+    },
+    {
+      "time": 1791547444.9920776,
+      "event": "HOVER_REACHED",
+      "stage": "HOVER",
+      "truth_z": 0.6873473986139575
+    },
+    {
+      "time": 1791547447.9979887,
+      "event": "MISSION_START",
+      "stage": "MISSION",
+      "success": true,
+      "message": "Mission started: no auto arm / no auto takeoff"
+    },
+    {
+      "time": 1791547448.9996064,
+      "event": "FAILURE",
+      "stage": "MISSION",
+      "error": "STALE:/indoor_nav/mission_state"
+    },
+    {
+      "time": 1791547449.1654928,
+      "event": "MODE",
+      "stage": "LAND",
+      "mode": "LAND"
+    },
+    {
+      "time": 1791547453.32122,
+      "event": "LANDED_DISARMED",
+      "stage": "LAND",
+      "truth_z": -0.0002607847250003792
+    },
+    {
+      "time": 1791547453.4262047,
+      "event": "MODE",
+      "stage": "LAND",
+      "mode": "STABILIZE"
+    },
+    {
+      "time": 1791547453.4290524,
+      "event": "RESET_REQUIRES_NEW_OPERATOR_ACK",
+      "stage": "LAND"
+    },
+    {
+      "time": 1791547453.483487,
+      "event": "MODEL_RESTORED_ON_GROUND",
+      "stage": "RESTORE"
+    },
+    {
+      "time": 1791547453.483735,
+      "event": "RESULT",
+      "stage": "RESTORE",
+      "result": "FAILED",
+      "error": "STALE:/indoor_nav/mission_state"
+    }
+  ]
+}

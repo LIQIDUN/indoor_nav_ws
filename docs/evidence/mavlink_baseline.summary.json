@@ -1,0 +1,2253 @@
+{
+  "wall_start_s": 1791530415.8642583,
+  "duration_s": 60.10442168499867,
+  "rates": {
+    "/mavros/state": {
+      "count": 61,
+      "observed_hz": 1.0091497775868712,
+      "count_per_capture_s": 1.0149003732153845,
+      "max_internal_gap_s": 1.0047752449900145,
+      "start_silence_s": 0.006527431003632955,
+      "end_silence_s": 0.6419033470010618
+    },
+    "/indoor_nav/localization_status": {
+      "count": 1804,
+      "observed_hz": 30.013420672847015,
+      "count_per_capture_s": 30.014430709517274,
+      "max_internal_gap_s": 0.036775671993382275,
+      "start_silence_s": 0.012107218004530296,
+      "end_silence_s": 0.019188525999197736
+    },
+    "/indoor_nav/localization_diagnostics": {
+      "count": 1804,
+      "observed_hz": 30.00752538657461,
+      "count_per_capture_s": 30.014430709517274,
+      "max_internal_gap_s": 0.04721881900331937,
+      "start_silence_s": 0.013056958006927744,
+      "end_silence_s": 0.006436803989345208
+    },
+    "/indoor_nav/sitl/mock_range": {
+      "count": 1503,
+      "observed_hz": 24.99971826174644,
+      "count_per_capture_s": 25.00647968758562,
+      "max_internal_gap_s": 0.04954952200932894,
+      "start_silence_s": 0.013911832997109741,
+      "end_silence_s": 0.009832771000219509
+    },
+    "/indoor_nav/uwb_velocity/status": {
+      "count": 1804,
+      "observed_hz": 30.014889170438263,
+      "count_per_capture_s": 30.014430709517274,
+      "max_internal_gap_s": 0.047460415997193195,
+      "start_silence_s": 0.015125051999348216,
+      "end_silence_s": 0.019109807995846495
+    },
+    "/nlink_linktrack_nodeframe2": {
+      "count": 1502,
+      "observed_hz": 25.000005687460305,
+      "count_per_capture_s": 24.989841976549304,
+      "max_internal_gap_s": 0.05014264000055846,
+      "start_silence_s": 0.02256032200239133,
+      "end_silence_s": 0.04187502199783921
+    },
+    "/indoor_nav/accepted_uwb": {
+      "count": 1502,
+      "observed_hz": 24.999938689770023,
+      "count_per_capture_s": 24.989841976549304,
+      "max_internal_gap_s": 0.050305846001720056,
+      "start_silence_s": 0.022708568998496048,
+      "end_silence_s": 0.04156587299075909
+    },
+    "/gazebo/model_states": {
+      "count": 573,
+      "observed_hz": 9.532221922330976,
+      "count_per_capture_s": 9.533408423810087,
+      "max_internal_gap_s": 0.10939021299418528,
+      "start_silence_s": 0.025079822007683106,
+      "end_silence_s": 0.07234615299967118
+    },
+    "/clock": {
+      "count": 573,
+      "observed_hz": 9.527480949063097,
+      "count_per_capture_s": 9.533408423810087,
+      "max_internal_gap_s": 0.1140900650061667,
+      "start_silence_s": 0.02518712000164669,
+      "end_silence_s": 0.042378751997603104
+    },
+    "/mavlink/from:1:1:111": {
+      "count": 607,
+      "observed_hz": 10.100076351022405,
+      "count_per_capture_s": 10.099090599044892,
+      "max_internal_gap_s": 0.1065953209908912,
+      "start_silence_s": 0.05533438400016166,
+      "end_silence_s": 0.049540867999894544
+    },
+    "/mavlink/from:1:1:30": {
+      "count": 241,
+      "observed_hz": 3.999493118440023,
+      "count_per_capture_s": 4.009688359752585,
+      "max_internal_gap_s": 0.25515552300203126,
+      "start_silence_s": 0.06272659100068267,
+      "end_silence_s": 0.034090906992787495
+    },
+    "/mavros/imu/data": {
+      "count": 241,
+      "observed_hz": 3.999493047857844,
+      "count_per_capture_s": 4.009688359752585,
+      "max_internal_gap_s": 0.25526251101109665,
+      "start_silence_s": 0.06283784699917305,
+      "end_silence_s": 0.03397859199321829
+    },
+    "/mavlink/from:1:1:33": {
+      "count": 241,
+      "observed_hz": 3.999500019569454,
+      "count_per_capture_s": 4.009688359752585,
+      "max_internal_gap_s": 0.2571258259995375,
+      "start_silence_s": 0.06310482400294859,
+      "end_silence_s": 0.03381621699372772
+    },
+    "/mavlink/from:1:1:1": {
+      "count": 241,
+      "observed_hz": 3.9994993992581493,
+      "count_per_capture_s": 4.009688359752585,
+      "max_internal_gap_s": 0.2582705469976645,
+      "start_silence_s": 0.06323038700793404,
+      "end_silence_s": 0.03368134699121583
+    },
+    "/mavlink/from:1:1:125": {
+      "count": 241,
+      "observed_hz": 3.9994975267275175,
+      "count_per_capture_s": 4.009688359752585,
+      "max_internal_gap_s": 0.2584843710064888,
+      "start_silence_s": 0.0633394979959121,
+      "end_silence_s": 0.033544140998856165
+    },
+    "/mavlink/from:1:1:152": {
+      "count": 241,
+      "observed_hz": 3.9994954934405285,
+      "count_per_capture_s": 4.009688359752585,
+      "max_internal_gap_s": 0.2598094479908468,
+      "start_silence_s": 0.0634461550071137,
+      "end_silence_s": 0.033406977003323846
+    },
+    "/mavlink/from:1:1:62": {
+      "count": 241,
+      "observed_hz": 3.9994944303084323,
+      "count_per_capture_s": 4.009688359752585,
+      "max_internal_gap_s": 0.2598254390031798,
+      "start_silence_s": 0.06356351199792698,
+      "end_silence_s": 0.03327366900339257
+    },
+    "/mavlink/from:1:1:42": {
+      "count": 241,
+      "observed_hz": 3.9994925867091706,
+      "count_per_capture_s": 4.009688359752585,
+      "max_internal_gap_s": 0.2597022699919762,
+      "start_silence_s": 0.06366277500637807,
+      "end_silence_s": 0.033146745001431555
+    },
+    "/mavlink/from:1:1:74": {
+      "count": 241,
+      "observed_hz": 3.999490537296151,
+      "count_per_capture_s": 4.009688359752585,
+      "max_internal_gap_s": 0.2595776590023888,
+      "start_silence_s": 0.06376601499505341,
+      "end_silence_s": 0.03301275600097142
+    },
+    "/mavlink/from:1:1:36": {
+      "count": 241,
+      "observed_hz": 3.999488323528474,
+      "count_per_capture_s": 4.009688359752585,
+      "max_internal_gap_s": 0.25941155599139165,
+      "start_silence_s": 0.06388926300860476,
+      "end_silence_s": 0.03285629299352877
+    },
+    "/mavlink/from:1:1:65": {
+      "count": 241,
+      "observed_hz": 3.9994867797233726,
+      "count_per_capture_s": 4.009688359752585,
+      "max_internal_gap_s": 0.2592603629891528,
+      "start_silence_s": 0.06399790399882477,
+      "end_silence_s": 0.032724488992244005
+    },
+    "/mavlink/from:1:1:27": {
+      "count": 241,
+      "observed_hz": 3.9994848724809913,
+      "count_per_capture_s": 4.009688359752585,
+      "max_internal_gap_s": 0.2591106640029466,
+      "start_silence_s": 0.06411564200243447,
+      "end_silence_s": 0.032578134996583685
+    },
+    "/mavros/imu/data_raw": {
+      "count": 241,
+      "observed_hz": 3.99948522878892,
+      "count_per_capture_s": 4.009688359752585,
+      "max_internal_gap_s": 0.2569759499892825,
+      "start_silence_s": 0.06418262100487482,
+      "end_silence_s": 0.03251650198944844
+    },
+    "/mavlink/from:1:1:116": {
+      "count": 241,
+      "observed_hz": 3.999483372601378,
+      "count_per_capture_s": 4.009688359752585,
+      "max_internal_gap_s": 0.2588374949991703,
+      "start_silence_s": 0.06424692600558046,
+      "end_silence_s": 0.03242434699495789
+    },
+    "/mavlink/from:1:1:129": {
+      "count": 241,
+      "observed_hz": 3.9994792691321948,
+      "count_per_capture_s": 4.009688359752585,
+      "max_internal_gap_s": 0.25857864299905486,
+      "start_silence_s": 0.06432104000123218,
+      "end_silence_s": 0.032288664995576255
+    },
+    "/mavlink/from:1:1:29": {
+      "count": 241,
+      "observed_hz": 3.999478782258828,
+      "count_per_capture_s": 4.009688359752585,
+      "max_internal_gap_s": 0.2585372129979078,
+      "start_silence_s": 0.06445882600382902,
+      "end_silence_s": 0.032143573989742436
+    },
+    "/mavlink/from:1:1:137": {
+      "count": 241,
+      "observed_hz": 3.9994760744340234,
+      "count_per_capture_s": 4.009688359752585,
+      "max_internal_gap_s": 0.25850751499820035,
+      "start_silence_s": 0.0645690000092145,
+      "end_silence_s": 0.03199277199746575
+    },
+    "/mavlink/from:1:1:24": {
+      "count": 241,
+      "observed_hz": 3.9994748898104393,
+      "count_per_capture_s": 4.009688359752585,
+      "max_internal_gap_s": 0.2584081639943179,
+      "start_silence_s": 0.06467978400178254,
+      "end_silence_s": 0.031864213990047574
+    },
+    "/mavlink/from:1:1:2": {
+      "count": 241,
+      "observed_hz": 3.9994728010271148,
+      "count_per_capture_s": 4.009688359752585,
+      "max_internal_gap_s": 0.2582828410086222,
+      "start_silence_s": 0.06479284299712162,
+      "end_silence_s": 0.03171981500054244
+    },
+    "/mavlink/from:1:1:163": {
+      "count": 241,
+      "observed_hz": 3.9994649671750966,
+      "count_per_capture_s": 4.009688359752585,
+      "max_internal_gap_s": 0.2582052899961127,
+      "start_silence_s": 0.06485648700618185,
+      "end_silence_s": 0.031538631999865174
+    },
+    "/mavlink/from:1:1:164": {
+      "count": 241,
+      "observed_hz": 3.999460156401001,
+      "count_per_capture_s": 4.009688359752585,
+      "max_internal_gap_s": 0.2580703290004749,
+      "start_silence_s": 0.06493931700242683,
+      "end_silence_s": 0.03138362099707592
+    },
+    "/mavlink/from:1:1:178": {
+      "count": 241,
+      "observed_hz": 3.9994582272563353,
+      "count_per_capture_s": 4.009688359752585,
+      "max_internal_gap_s": 0.25794467600644566,
+      "start_silence_s": 0.06504096400749404,
+      "end_silence_s": 0.0312530289957067
+    },
+    "/mavlink/from:1:1:168": {
+      "count": 241,
+      "observed_hz": 3.9994543762358914,
+      "count_per_capture_s": 4.009688359752585,
+      "max_internal_gap_s": 0.257824141997844,
+      "start_silence_s": 0.06511515799502376,
+      "end_silence_s": 0.031121053994866088
+    },
+    "/mavlink/from:1:1:173": {
+      "count": 241,
+      "observed_hz": 3.999455526256168,
+      "count_per_capture_s": 4.009688359752585,
+      "max_internal_gap_s": 0.2577321240096353,
+      "start_silence_s": 0.06525871600024402,
+      "end_silence_s": 0.030994750995887443
+    },
+    "/mavlink/from:1:1:132": {
+      "count": 241,
+      "observed_hz": 3.9994555081943983,
+      "count_per_capture_s": 4.009688359752585,
+      "max_internal_gap_s": 0.257634023000719,
+      "start_silence_s": 0.0654112710035406,
+      "end_silence_s": 0.03084192499227356
+    },
+    "/mavlink/from:1:1:136": {
+      "count": 241,
+      "observed_hz": 3.9994553152478063,
+      "count_per_capture_s": 4.009688359752585,
+      "max_internal_gap_s": 0.25754983100341633,
+      "start_silence_s": 0.06554632300685626,
+      "end_silence_s": 0.03070397800183855
+    },
+    "/mavlink/from:1:1:193": {
+      "count": 241,
+      "observed_hz": 3.999459201925219,
+      "count_per_capture_s": 4.009688359752585,
+      "max_internal_gap_s": 0.25752793900028337,
+      "start_silence_s": 0.06570974900387228,
+      "end_silence_s": 0.030598867990192957
+    },
+    "/mavlink/from:1:1:32": {
+      "count": 241,
+      "observed_hz": 3.9994576024917676,
+      "count_per_capture_s": 4.009688359752585,
+      "max_internal_gap_s": 0.2576002679998055,
+      "start_silence_s": 0.06585506099509075,
+      "end_silence_s": 0.030429557999013923
+    },
+    "/mavros/local_position/velocity_local": {
+      "count": 241,
+      "observed_hz": 3.9994593497521054,
+      "count_per_capture_s": 4.009688359752585,
+      "max_internal_gap_s": 0.2576282230002107,
+      "start_silence_s": 0.06594510500144679,
+      "end_silence_s": 0.03036572999553755
+    },
+    "/mavlink/from:1:1:241": {
+      "count": 241,
+      "observed_hz": 3.999461912528152,
+      "count_per_capture_s": 4.009688359752585,
+      "max_internal_gap_s": 0.257673321000766,
+      "start_silence_s": 0.06602937800926156,
+      "end_silence_s": 0.030319908997626044
+    },
+    "/mavlink/from:1:1:147": {
+      "count": 241,
+      "observed_hz": 3.9994687361028607,
+      "count_per_capture_s": 4.009688359752585,
+      "max_internal_gap_s": 0.25780972400389146,
+      "start_silence_s": 0.06623794199549593,
+      "end_silence_s": 0.030213726000511087
+    },
+    "/indoor_nav/world_pose": {
+      "count": 523,
+      "observed_hz": 8.979468972896802,
+      "count_per_capture_s": 8.701522871994198,
+      "max_internal_gap_s": 3.633915315003833,
+      "start_silence_s": 0.08649821899598464,
+      "end_silence_s": 1.8853098809922813
+    },
+    "/mavros/odometry/out": {
+      "count": 523,
+      "observed_hz": 8.979514059678337,
+      "count_per_capture_s": 8.701522871994198,
+      "max_internal_gap_s": 3.633809826002107,
+      "start_silence_s": 0.08674213099584449,
+      "end_silence_s": 1.8853578569978708
+    },
+    "/mavlink/from:1:1:77": {
+      "count": 41,
+      "observed_hz": 0.690092858931334,
+      "count_per_capture_s": 0.682146152489029,
+      "max_internal_gap_s": 2.0102685909951106,
+      "start_silence_s": 0.1613331999978982,
+      "end_silence_s": 1.979874575001304
+    },
+    "/mavlink/from:1:1:0": {
+      "count": 60,
+      "observed_hz": 0.9998110899650092,
+      "count_per_capture_s": 0.9982626621790668,
+      "max_internal_gap_s": 1.004787188998307,
+      "start_silence_s": 0.4511980450042756,
+      "end_silence_s": 0.6420758419990307
+    },
+    "/mavlink/from:1:1:22": {
+      "count": 1,
+      "observed_hz": null,
+      "count_per_capture_s": 0.016637711036317778,
+      "max_internal_gap_s": null,
+      "start_silence_s": 29.87411651700677,
+      "end_silence_s": 30.2303051679919
+    }
+  },
+  "localization_transitions": [
+    {
+      "topic": "/indoor_nav/localization_status",
+      "elapsed_s": 0.012107218004530296,
+      "wall_s": 1791530415.8763742,
+      "ros_s": 1791530415.876368,
+      "header_s": 1791530415.8491282,
+      "header_age_s": 0.02723979949951172,
+      "frame_id": "",
+      "healthy": false,
+      "reason": "FC_IMU_STALE",
+      "connected": true
+    },
+    {
+      "topic": "/indoor_nav/localization_status",
+      "elapsed_s": 0.08564368399675004,
+      "wall_s": 1791530415.9499092,
+      "ros_s": 1791530415.9499032,
+      "header_s": 1791530415.949241,
+      "header_age_s": 0.0006623268127441406,
+      "frame_id": "",
+      "healthy": true,
+      "reason": "OK",
+      "connected": true
+    },
+    {
+      "topic": "/indoor_nav/localization_status",
+      "elapsed_s": 0.4859587850078242,
+      "wall_s": 1791530416.3502226,
+      "ros_s": 1791530416.3502183,
+      "header_s": 1791530416.3495622,
+      "header_age_s": 0.0006561279296875,
+      "frame_id": "",
+      "healthy": false,
+      "reason": "FC_IMU_STALE",
+      "connected": true
+    },
+    {
+      "topic": "/indoor_nav/localization_status",
+      "elapsed_s": 0.5853657139959978,
+      "wall_s": 1791530416.4496336,
+      "ros_s": 1791530416.4496255,
+      "header_s": 1791530416.4491458,
+      "header_age_s": 0.00047969818115234375,
+      "frame_id": "",
+      "healthy": true,
+      "reason": "OK",
+      "connected": true
+    },
+    {
+      "topic": "/indoor_nav/localization_status",
+      "elapsed_s": 0.9853785199957201,
+      "wall_s": 1791530416.849645,
+      "ros_s": 1791530416.8496385,
+      "header_s": 1791530416.849179,
+      "header_age_s": 0.00045943260192871094,
+      "frame_id": "",
+      "healthy": false,
+      "reason": "FC_IMU_STALE",
+      "connected": true
+    },
+    {
+      "topic": "/indoor_nav/localization_status",
+      "elapsed_s": 2.818388605999644,
+      "wall_s": 1791530418.682651,
+      "ros_s": 1791530418.6826475,
+      "header_s": 1791530418.6824806,
+      "header_age_s": 0.00016689300537109375,
+      "frame_id": "",
+      "healthy": true,
+      "reason": "OK",
+      "connected": true
+    },
+    {
+      "topic": "/indoor_nav/localization_status",
+      "elapsed_s": 3.219020090007689,
+      "wall_s": 1791530419.0832896,
+      "ros_s": 1791530419.083281,
+      "header_s": 1791530419.082852,
+      "header_age_s": 0.0004291534423828125,
+      "frame_id": "",
+      "healthy": false,
+      "reason": "FC_IMU_STALE",
+      "connected": true
+    },
+    {
+      "topic": "/indoor_nav/localization_status",
+      "elapsed_s": 3.5852884619962424,
+      "wall_s": 1791530419.4495544,
+      "ros_s": 1791530419.449548,
+      "header_s": 1791530419.44918,
+      "header_age_s": 0.0003681182861328125,
+      "frame_id": "",
+      "healthy": true,
+      "reason": "OK",
+      "connected": true
+    },
+    {
+      "topic": "/indoor_nav/localization_status",
+      "elapsed_s": 3.9852441780094523,
+      "wall_s": 1791530419.8495097,
+      "ros_s": 1791530419.8495038,
+      "header_s": 1791530419.849165,
+      "header_age_s": 0.0003387928009033203,
+      "frame_id": "",
+      "healthy": false,
+      "reason": "FC_IMU_STALE",
+      "connected": true
+    },
+    {
+      "topic": "/indoor_nav/localization_status",
+      "elapsed_s": 4.318517330000759,
+      "wall_s": 1791530420.1827805,
+      "ros_s": 1791530420.1827762,
+      "header_s": 1791530420.182469,
+      "header_age_s": 0.00030732154846191406,
+      "frame_id": "",
+      "healthy": true,
+      "reason": "OK",
+      "connected": true
+    },
+    {
+      "topic": "/indoor_nav/localization_status",
+      "elapsed_s": 4.718829264995293,
+      "wall_s": 1791530420.5830922,
+      "ros_s": 1791530420.5830889,
+      "header_s": 1791530420.5826755,
+      "header_age_s": 0.0004134178161621094,
+      "frame_id": "",
+      "healthy": false,
+      "reason": "FC_IMU_STALE",
+      "connected": true
+    },
+    {
+      "topic": "/indoor_nav/localization_status",
+      "elapsed_s": 5.818540199004929,
+      "wall_s": 1791530421.6828046,
+      "ros_s": 1791530421.6827993,
+      "header_s": 1791530421.6825116,
+      "header_age_s": 0.00028777122497558594,
+      "frame_id": "",
+      "healthy": true,
+      "reason": "OK",
+      "connected": true
+    },
+    {
+      "topic": "/indoor_nav/localization_status",
+      "elapsed_s": 6.218755346999387,
+      "wall_s": 1791530422.0830188,
+      "ros_s": 1791530422.0830145,
+      "header_s": 1791530422.0826957,
+      "header_age_s": 0.00031876564025878906,
+      "frame_id": "",
+      "healthy": false,
+      "reason": "FC_IMU_STALE",
+      "connected": true
+    },
+    {
+      "topic": "/indoor_nav/localization_status",
+      "elapsed_s": 8.08554355200613,
+      "wall_s": 1791530423.949807,
+      "ros_s": 1791530423.9498026,
+      "header_s": 1791530423.9491801,
+      "header_age_s": 0.0006225109100341797,
+      "frame_id": "",
+      "healthy": true,
+      "reason": "OK",
+      "connected": true
+    },
+    {
+      "topic": "/indoor_nav/localization_status",
+      "elapsed_s": 8.485426095008734,
+      "wall_s": 1791530424.3496947,
+      "ros_s": 1791530424.349686,
+      "header_s": 1791530424.349387,
+      "header_age_s": 0.0002989768981933594,
+      "frame_id": "",
+      "healthy": false,
+      "reason": "FC_IMU_STALE",
+      "connected": true
+    },
+    {
+      "topic": "/indoor_nav/localization_status",
+      "elapsed_s": 8.81850931000372,
+      "wall_s": 1791530424.6827753,
+      "ros_s": 1791530424.6827686,
+      "header_s": 1791530424.6824698,
+      "header_age_s": 0.0002987384796142578,
+      "frame_id": "",
+      "healthy": true,
+      "reason": "OK",
+      "connected": true
+    },
+    {
+      "topic": "/indoor_nav/localization_status",
+      "elapsed_s": 9.21884051199595,
+      "wall_s": 1791530425.083104,
+      "ros_s": 1791530425.0830996,
+      "header_s": 1791530425.082667,
+      "header_age_s": 0.0004324913024902344,
+      "frame_id": "",
+      "healthy": false,
+      "reason": "FC_IMU_STALE",
+      "connected": true
+    },
+    {
+      "topic": "/indoor_nav/localization_status",
+      "elapsed_s": 9.818562590007787,
+      "wall_s": 1791530425.6828256,
+      "ros_s": 1791530425.6828218,
+      "header_s": 1791530425.68252,
+      "header_age_s": 0.0003018379211425781,
+      "frame_id": "",
+      "healthy": true,
+      "reason": "OK",
+      "connected": true
+    },
+    {
+      "topic": "/indoor_nav/localization_status",
+      "elapsed_s": 10.218754020999768,
+      "wall_s": 1791530426.0830257,
+      "ros_s": 1791530426.0830178,
+      "header_s": 1791530426.0826905,
+      "header_age_s": 0.0003273487091064453,
+      "frame_id": "",
+      "healthy": false,
+      "reason": "FC_IMU_STALE",
+      "connected": true
+    },
+    {
+      "topic": "/indoor_nav/localization_status",
+      "elapsed_s": 11.085439681002754,
+      "wall_s": 1791530426.949707,
+      "ros_s": 1791530426.9497,
+      "header_s": 1791530426.949242,
+      "header_age_s": 0.00045800209045410156,
+      "frame_id": "",
+      "healthy": true,
+      "reason": "OK",
+      "connected": true
+    },
+    {
+      "topic": "/indoor_nav/localization_status",
+      "elapsed_s": 11.48535376500513,
+      "wall_s": 1791530427.349626,
+      "ros_s": 1791530427.3496165,
+      "header_s": 1791530427.349315,
+      "header_age_s": 0.00030159950256347656,
+      "frame_id": "",
+      "healthy": false,
+      "reason": "FC_IMU_STALE",
+      "connected": true
+    },
+    {
+      "topic": "/indoor_nav/localization_status",
+      "elapsed_s": 13.585228923999239,
+      "wall_s": 1791530429.4494927,
+      "ros_s": 1791530429.449488,
+      "header_s": 1791530429.4491878,
+      "header_age_s": 0.0003001689910888672,
+      "frame_id": "",
+      "healthy": true,
+      "reason": "OK",
+      "connected": true
+    },
+    {
+      "topic": "/indoor_nav/localization_status",
+      "elapsed_s": 14.219048597995425,
+      "wall_s": 1791530430.0833132,
+      "ros_s": 1791530430.083308,
+      "header_s": 1791530430.0827394,
+      "header_age_s": 0.0005686283111572266,
+      "frame_id": "",
+      "healthy": false,
+      "reason": "FC_IMU_STALE",
+      "connected": true
+    },
+    {
+      "topic": "/indoor_nav/localization_status",
+      "elapsed_s": 16.085276947997045,
+      "wall_s": 1791530431.9495418,
+      "ros_s": 1791530431.9495373,
+      "header_s": 1791530431.9492102,
+      "header_age_s": 0.00032711029052734375,
+      "frame_id": "",
+      "healthy": true,
+      "reason": "OK",
+      "connected": true
+    },
+    {
+      "topic": "/indoor_nav/localization_status",
+      "elapsed_s": 16.485428433006746,
+      "wall_s": 1791530432.3496943,
+      "ros_s": 1791530432.3496878,
+      "header_s": 1791530432.3493562,
+      "header_age_s": 0.00033164024353027344,
+      "frame_id": "",
+      "healthy": false,
+      "reason": "FC_IMU_STALE",
+      "connected": true
+    },
+    {
+      "topic": "/indoor_nav/localization_status",
+      "elapsed_s": 16.818911342008505,
+      "wall_s": 1791530432.6831775,
+      "ros_s": 1791530432.6831708,
+      "header_s": 1791530432.6825264,
+      "header_age_s": 0.0006444454193115234,
+      "frame_id": "",
+      "healthy": true,
+      "reason": "OK",
+      "connected": true
+    },
+    {
+      "topic": "/indoor_nav/localization_status",
+      "elapsed_s": 17.218625509005506,
+      "wall_s": 1791530433.0828917,
+      "ros_s": 1791530433.082885,
+      "header_s": 1791530433.082618,
+      "header_age_s": 0.00026702880859375,
+      "frame_id": "",
+      "healthy": false,
+      "reason": "FC_IMU_STALE",
+      "connected": true
+    },
+    {
+      "topic": "/indoor_nav/localization_status",
+      "elapsed_s": 17.585437804998946,
+      "wall_s": 1791530433.4497035,
+      "ros_s": 1791530433.4496973,
+      "header_s": 1791530433.449182,
+      "header_age_s": 0.0005152225494384766,
+      "frame_id": "",
+      "healthy": true,
+      "reason": "OK",
+      "connected": true
+    },
+    {
+      "topic": "/indoor_nav/localization_status",
+      "elapsed_s": 17.98535193000862,
+      "wall_s": 1791530433.8496194,
+      "ros_s": 1791530433.8496118,
+      "header_s": 1791530433.8491209,
+      "header_age_s": 0.0004909038543701172,
+      "frame_id": "",
+      "healthy": false,
+      "reason": "FC_IMU_STALE",
+      "connected": true
+    },
+    {
+      "topic": "/indoor_nav/localization_status",
+      "elapsed_s": 18.318866298999637,
+      "wall_s": 1791530434.1831315,
+      "ros_s": 1791530434.1831257,
+      "header_s": 1791530434.1825163,
+      "header_age_s": 0.0006093978881835938,
+      "frame_id": "",
+      "healthy": true,
+      "reason": "OK",
+      "connected": true
+    },
+    {
+      "topic": "/indoor_nav/localization_status",
+      "elapsed_s": 18.718817125001806,
+      "wall_s": 1791530434.5830843,
+      "ros_s": 1791530434.583077,
+      "header_s": 1791530434.5827012,
+      "header_age_s": 0.0003757476806640625,
+      "frame_id": "",
+      "healthy": false,
+      "reason": "FC_IMU_STALE",
+      "connected": true
+    },
+    {
+      "topic": "/indoor_nav/localization_status",
+      "elapsed_s": 21.31871228100499,
+      "wall_s": 1791530437.1829793,
+      "ros_s": 1791530437.182972,
+      "header_s": 1791530437.1824603,
+      "header_age_s": 0.0005116462707519531,
+      "frame_id": "",
+      "healthy": true,
+      "reason": "OK",
+      "connected": true
+    },
+    {
+      "topic": "/indoor_nav/localization_status",
+      "elapsed_s": 21.71871568899951,
+      "wall_s": 1791530437.5829816,
+      "ros_s": 1791530437.5829751,
+      "header_s": 1791530437.582656,
+      "header_age_s": 0.0003192424774169922,
+      "frame_id": "",
+      "healthy": false,
+      "reason": "FC_IMU_STALE",
+      "connected": true
+    },
+    {
+      "topic": "/indoor_nav/localization_status",
+      "elapsed_s": 22.085401250995346,
+      "wall_s": 1791530437.9496684,
+      "ros_s": 1791530437.9496613,
+      "header_s": 1791530437.9492288,
+      "header_age_s": 0.0004324913024902344,
+      "frame_id": "",
+      "healthy": true,
+      "reason": "OK",
+      "connected": true
+    },
+    {
+      "topic": "/indoor_nav/localization_status",
+      "elapsed_s": 22.485509470003308,
+      "wall_s": 1791530438.349776,
+      "ros_s": 1791530438.349769,
+      "header_s": 1791530438.3493762,
+      "header_age_s": 0.000392913818359375,
+      "frame_id": "",
+      "healthy": false,
+      "reason": "FC_IMU_STALE",
+      "connected": true
+    },
+    {
+      "topic": "/indoor_nav/localization_status",
+      "elapsed_s": 26.08522515700315,
+      "wall_s": 1791530441.9494884,
+      "ros_s": 1791530441.9494843,
+      "header_s": 1791530441.9491768,
+      "header_age_s": 0.0003075599670410156,
+      "frame_id": "",
+      "healthy": true,
+      "reason": "OK",
+      "connected": true
+    },
+    {
+      "topic": "/indoor_nav/localization_status",
+      "elapsed_s": 26.485244645999046,
+      "wall_s": 1791530442.3495095,
+      "ros_s": 1791530442.349504,
+      "header_s": 1791530442.3492682,
+      "header_age_s": 0.0002357959747314453,
+      "frame_id": "",
+      "healthy": false,
+      "reason": "FC_IMU_STALE",
+      "connected": true
+    },
+    {
+      "topic": "/indoor_nav/localization_status",
+      "elapsed_s": 26.85200425000221,
+      "wall_s": 1791530442.7162673,
+      "ros_s": 1791530442.7162635,
+      "header_s": 1791530442.7159085,
+      "header_age_s": 0.00035500526428222656,
+      "frame_id": "",
+      "healthy": true,
+      "reason": "OK",
+      "connected": true
+    },
+    {
+      "topic": "/indoor_nav/localization_status",
+      "elapsed_s": 27.25215926200326,
+      "wall_s": 1791530443.1164231,
+      "ros_s": 1791530443.1164184,
+      "header_s": 1791530443.115911,
+      "header_age_s": 0.000507354736328125,
+      "frame_id": "",
+      "healthy": false,
+      "reason": "FC_IMU_STALE",
+      "connected": true
+    },
+    {
+      "topic": "/indoor_nav/localization_status",
+      "elapsed_s": 27.585118736998993,
+      "wall_s": 1791530443.4493818,
+      "ros_s": 1791530443.4493778,
+      "header_s": 1791530443.4491255,
+      "header_age_s": 0.0002522468566894531,
+      "frame_id": "",
+      "healthy": true,
+      "reason": "OK",
+      "connected": true
+    },
+    {
+      "topic": "/indoor_nav/localization_status",
+      "elapsed_s": 27.985036847996525,
+      "wall_s": 1791530443.849299,
+      "ros_s": 1791530443.849296,
+      "header_s": 1791530443.8490975,
+      "header_age_s": 0.00019860267639160156,
+      "frame_id": "",
+      "healthy": false,
+      "reason": "FC_IMU_STALE",
+      "connected": true
+    },
+    {
+      "topic": "/indoor_nav/localization_status",
+      "elapsed_s": 28.35187275100907,
+      "wall_s": 1791530444.2161367,
+      "ros_s": 1791530444.216132,
+      "header_s": 1791530444.215815,
+      "header_age_s": 0.00031685829162597656,
+      "frame_id": "",
+      "healthy": true,
+      "reason": "OK",
+      "connected": true
+    },
+    {
+      "topic": "/indoor_nav/localization_status",
+      "elapsed_s": 28.751779341997462,
+      "wall_s": 1791530444.616045,
+      "ros_s": 1791530444.6160388,
+      "header_s": 1791530444.6157963,
+      "header_age_s": 0.00024247169494628906,
+      "frame_id": "",
+      "healthy": false,
+      "reason": "FC_IMU_STALE",
+      "connected": true
+    },
+    {
+      "topic": "/indoor_nav/localization_status",
+      "elapsed_s": 31.351776237002923,
+      "wall_s": 1791530447.2160408,
+      "ros_s": 1791530447.2160356,
+      "header_s": 1791530447.2158859,
+      "header_age_s": 0.00014972686767578125,
+      "frame_id": "",
+      "healthy": true,
+      "reason": "OK",
+      "connected": true
+    },
+    {
+      "topic": "/indoor_nav/localization_status",
+      "elapsed_s": 31.751893053005915,
+      "wall_s": 1791530447.6161563,
+      "ros_s": 1791530447.616152,
+      "header_s": 1791530447.6158373,
+      "header_age_s": 0.0003147125244140625,
+      "frame_id": "",
+      "healthy": false,
+      "reason": "FC_IMU_STALE",
+      "connected": true
+    },
+    {
+      "topic": "/indoor_nav/localization_status",
+      "elapsed_s": 32.08521132399619,
+      "wall_s": 1791530447.9494746,
+      "ros_s": 1791530447.9494708,
+      "header_s": 1791530447.9491782,
+      "header_age_s": 0.0002925395965576172,
+      "frame_id": "",
+      "healthy": true,
+      "reason": "OK",
+      "connected": true
+    },
+    {
+      "topic": "/indoor_nav/localization_status",
+      "elapsed_s": 32.48552314900735,
+      "wall_s": 1791530448.3497872,
+      "ros_s": 1791530448.3497825,
+      "header_s": 1791530448.349379,
+      "header_age_s": 0.00040340423583984375,
+      "frame_id": "",
+      "healthy": false,
+      "reason": "FC_IMU_STALE",
+      "connected": true
+    },
+    {
+      "topic": "/indoor_nav/localization_status",
+      "elapsed_s": 32.85228381500929,
+      "wall_s": 1791530448.716551,
+      "ros_s": 1791530448.7165434,
+      "header_s": 1791530448.7159493,
+      "header_age_s": 0.0005941390991210938,
+      "frame_id": "",
+      "healthy": true,
+      "reason": "OK",
+      "connected": true
+    },
+    {
+      "topic": "/indoor_nav/localization_status",
+      "elapsed_s": 33.25199580800836,
+      "wall_s": 1791530449.1162655,
+      "ros_s": 1791530449.116257,
+      "header_s": 1791530449.115907,
+      "header_age_s": 0.00034999847412109375,
+      "frame_id": "",
+      "healthy": false,
+      "reason": "FC_IMU_STALE",
+      "connected": true
+    },
+    {
+      "topic": "/indoor_nav/localization_status",
+      "elapsed_s": 33.585205406998284,
+      "wall_s": 1791530449.4494686,
+      "ros_s": 1791530449.4494646,
+      "header_s": 1791530449.449141,
+      "header_age_s": 0.0003235340118408203,
+      "frame_id": "",
+      "healthy": true,
+      "reason": "OK",
+      "connected": true
+    },
+    {
+      "topic": "/indoor_nav/localization_status",
+      "elapsed_s": 33.98541941300209,
+      "wall_s": 1791530449.8496826,
+      "ros_s": 1791530449.8496785,
+      "header_s": 1791530449.8491542,
+      "header_age_s": 0.0005242824554443359,
+      "frame_id": "",
+      "healthy": false,
+      "reason": "FC_IMU_STALE",
+      "connected": true
+    },
+    {
+      "topic": "/indoor_nav/localization_status",
+      "elapsed_s": 34.35211764900305,
+      "wall_s": 1791530450.2163815,
+      "ros_s": 1791530450.2163768,
+      "header_s": 1791530450.2158818,
+      "header_age_s": 0.0004949569702148438,
+      "frame_id": "",
+      "healthy": true,
+      "reason": "OK",
+      "connected": true
+    },
+    {
+      "topic": "/indoor_nav/localization_status",
+      "elapsed_s": 34.75192245200742,
+      "wall_s": 1791530450.6161888,
+      "ros_s": 1791530450.616182,
+      "header_s": 1791530450.615843,
+      "header_age_s": 0.0003390312194824219,
+      "frame_id": "",
+      "healthy": false,
+      "reason": "FC_IMU_STALE",
+      "connected": true
+    },
+    {
+      "topic": "/indoor_nav/localization_status",
+      "elapsed_s": 36.585264273002394,
+      "wall_s": 1791530452.4495273,
+      "ros_s": 1791530452.4495234,
+      "header_s": 1791530452.4491456,
+      "header_age_s": 0.00037789344787597656,
+      "frame_id": "",
+      "healthy": true,
+      "reason": "OK",
+      "connected": true
+    },
+    {
+      "topic": "/indoor_nav/localization_status",
+      "elapsed_s": 36.98528457300563,
+      "wall_s": 1791530452.8495498,
+      "ros_s": 1791530452.849544,
+      "header_s": 1791530452.8491788,
+      "header_age_s": 0.00036525726318359375,
+      "frame_id": "",
+      "healthy": false,
+      "reason": "FC_IMU_STALE",
+      "connected": true
+    },
+    {
+      "topic": "/indoor_nav/localization_status",
+      "elapsed_s": 37.35213701799512,
+      "wall_s": 1791530453.2164023,
+      "ros_s": 1791530453.2163966,
+      "header_s": 1791530453.215924,
+      "header_age_s": 0.0004725456237792969,
+      "frame_id": "",
+      "healthy": true,
+      "reason": "OK",
+      "connected": true
+    },
+    {
+      "topic": "/indoor_nav/localization_status",
+      "elapsed_s": 37.75191377599549,
+      "wall_s": 1791530453.6161797,
+      "ros_s": 1791530453.6161733,
+      "header_s": 1791530453.6158352,
+      "header_age_s": 0.0003380775451660156,
+      "frame_id": "",
+      "healthy": false,
+      "reason": "FC_IMU_STALE",
+      "connected": true
+    },
+    {
+      "topic": "/indoor_nav/localization_status",
+      "elapsed_s": 38.08510088300682,
+      "wall_s": 1791530453.9493635,
+      "ros_s": 1791530453.94936,
+      "header_s": 1791530453.9491374,
+      "header_age_s": 0.0002224445343017578,
+      "frame_id": "",
+      "healthy": true,
+      "reason": "OK",
+      "connected": true
+    },
+    {
+      "topic": "/indoor_nav/localization_status",
+      "elapsed_s": 38.48542669499875,
+      "wall_s": 1791530454.3496912,
+      "ros_s": 1791530454.349686,
+      "header_s": 1791530454.3492737,
+      "header_age_s": 0.00041222572326660156,
+      "frame_id": "",
+      "healthy": false,
+      "reason": "FC_IMU_STALE",
+      "connected": true
+    },
+    {
+      "topic": "/indoor_nav/localization_status",
+      "elapsed_s": 39.5853249720094,
+      "wall_s": 1791530455.4495883,
+      "ros_s": 1791530455.4495842,
+      "header_s": 1791530455.44918,
+      "header_age_s": 0.00040435791015625,
+      "frame_id": "",
+      "healthy": true,
+      "reason": "OK",
+      "connected": true
+    },
+    {
+      "topic": "/indoor_nav/localization_status",
+      "elapsed_s": 39.98514810000779,
+      "wall_s": 1791530455.8494117,
+      "ros_s": 1791530455.8494072,
+      "header_s": 1791530455.8491445,
+      "header_age_s": 0.0002627372741699219,
+      "frame_id": "",
+      "healthy": false,
+      "reason": "FC_IMU_STALE",
+      "connected": true
+    },
+    {
+      "topic": "/indoor_nav/localization_status",
+      "elapsed_s": 40.35218374100805,
+      "wall_s": 1791530456.2164514,
+      "ros_s": 1791530456.2164447,
+      "header_s": 1791530456.2158961,
+      "header_age_s": 0.0005486011505126953,
+      "frame_id": "",
+      "healthy": true,
+      "reason": "OK",
+      "connected": true
+    },
+    {
+      "topic": "/indoor_nav/localization_status",
+      "elapsed_s": 40.75198134999664,
+      "wall_s": 1791530456.6162462,
+      "ros_s": 1791530456.616241,
+      "header_s": 1791530456.615939,
+      "header_age_s": 0.0003020763397216797,
+      "frame_id": "",
+      "healthy": false,
+      "reason": "FC_IMU_STALE",
+      "connected": true
+    },
+    {
+      "topic": "/indoor_nav/localization_status",
+      "elapsed_s": 42.08539338799892,
+      "wall_s": 1791530457.9496617,
+      "ros_s": 1791530457.9496543,
+      "header_s": 1791530457.9492261,
+      "header_age_s": 0.00042819976806640625,
+      "frame_id": "",
+      "healthy": true,
+      "reason": "OK",
+      "connected": true
+    },
+    {
+      "topic": "/indoor_nav/localization_status",
+      "elapsed_s": 42.485608564995346,
+      "wall_s": 1791530458.3498728,
+      "ros_s": 1791530458.3498678,
+      "header_s": 1791530458.3493323,
+      "header_age_s": 0.0005354881286621094,
+      "frame_id": "",
+      "healthy": false,
+      "reason": "FC_IMU_STALE",
+      "connected": true
+    },
+    {
+      "topic": "/indoor_nav/localization_status",
+      "elapsed_s": 42.85234692999802,
+      "wall_s": 1791530458.716615,
+      "ros_s": 1791530458.7166064,
+      "header_s": 1791530458.7159426,
+      "header_age_s": 0.00066375732421875,
+      "frame_id": "",
+      "healthy": true,
+      "reason": "OK",
+      "connected": true
+    },
+    {
+      "topic": "/indoor_nav/localization_status",
+      "elapsed_s": 43.252036500009126,
+      "wall_s": 1791530459.1162996,
+      "ros_s": 1791530459.1162956,
+      "header_s": 1791530459.1158977,
+      "header_age_s": 0.0003979206085205078,
+      "frame_id": "",
+      "healthy": false,
+      "reason": "FC_IMU_STALE",
+      "connected": true
+    },
+    {
+      "topic": "/indoor_nav/localization_status",
+      "elapsed_s": 43.58512697799597,
+      "wall_s": 1791530459.44939,
+      "ros_s": 1791530459.449386,
+      "header_s": 1791530459.449168,
+      "header_age_s": 0.00021791458129882812,
+      "frame_id": "",
+      "healthy": true,
+      "reason": "OK",
+      "connected": true
+    },
+    {
+      "topic": "/indoor_nav/localization_status",
+      "elapsed_s": 43.98515476299508,
+      "wall_s": 1791530459.849418,
+      "ros_s": 1791530459.8494139,
+      "header_s": 1791530459.8491414,
+      "header_age_s": 0.00027251243591308594,
+      "frame_id": "",
+      "healthy": false,
+      "reason": "FC_IMU_STALE",
+      "connected": true
+    },
+    {
+      "topic": "/indoor_nav/localization_status",
+      "elapsed_s": 47.352271431998815,
+      "wall_s": 1791530463.2165358,
+      "ros_s": 1791530463.2165308,
+      "header_s": 1791530463.2158792,
+      "header_age_s": 0.0006515979766845703,
+      "frame_id": "",
+      "healthy": true,
+      "reason": "OK",
+      "connected": true
+    },
+    {
+      "topic": "/indoor_nav/localization_status",
+      "elapsed_s": 47.75215348500933,
+      "wall_s": 1791530463.6164184,
+      "ros_s": 1791530463.6164129,
+      "header_s": 1791530463.6158452,
+      "header_age_s": 0.0005676746368408203,
+      "frame_id": "",
+      "healthy": false,
+      "reason": "FC_IMU_STALE",
+      "connected": true
+    },
+    {
+      "topic": "/indoor_nav/localization_status",
+      "elapsed_s": 48.08519573000376,
+      "wall_s": 1791530463.94946,
+      "ros_s": 1791530463.9494548,
+      "header_s": 1791530463.949222,
+      "header_age_s": 0.000232696533203125,
+      "frame_id": "",
+      "healthy": true,
+      "reason": "OK",
+      "connected": true
+    },
+    {
+      "topic": "/indoor_nav/localization_status",
+      "elapsed_s": 48.48544025499723,
+      "wall_s": 1791530464.3497066,
+      "ros_s": 1791530464.3496997,
+      "header_s": 1791530464.349293,
+      "header_age_s": 0.0004067420959472656,
+      "frame_id": "",
+      "healthy": false,
+      "reason": "FC_IMU_STALE",
+      "connected": true
+    },
+    {
+      "topic": "/indoor_nav/localization_status",
+      "elapsed_s": 48.585163857002044,
+      "wall_s": 1791530464.4494271,
+      "ros_s": 1791530464.4494228,
+      "header_s": 1791530464.4491568,
+      "header_age_s": 0.00026607513427734375,
+      "frame_id": "",
+      "healthy": true,
+      "reason": "OK",
+      "connected": true
+    },
+    {
+      "topic": "/indoor_nav/localization_status",
+      "elapsed_s": 48.98510215799615,
+      "wall_s": 1791530464.8493683,
+      "ros_s": 1791530464.8493617,
+      "header_s": 1791530464.8491218,
+      "header_age_s": 0.00023984909057617188,
+      "frame_id": "",
+      "healthy": false,
+      "reason": "FC_IMU_STALE",
+      "connected": true
+    },
+    {
+      "topic": "/indoor_nav/localization_status",
+      "elapsed_s": 52.58529520400043,
+      "wall_s": 1791530468.449558,
+      "ros_s": 1791530468.4495544,
+      "header_s": 1791530468.449149,
+      "header_age_s": 0.0004055500030517578,
+      "frame_id": "",
+      "healthy": true,
+      "reason": "OK",
+      "connected": true
+    },
+    {
+      "topic": "/indoor_nav/localization_status",
+      "elapsed_s": 52.98510130800423,
+      "wall_s": 1791530468.8493648,
+      "ros_s": 1791530468.8493605,
+      "header_s": 1791530468.8491685,
+      "header_age_s": 0.0001919269561767578,
+      "frame_id": "",
+      "healthy": false,
+      "reason": "FC_IMU_STALE",
+      "connected": true
+    },
+    {
+      "topic": "/indoor_nav/localization_status",
+      "elapsed_s": 54.8519521200069,
+      "wall_s": 1791530470.7162178,
+      "ros_s": 1791530470.7162127,
+      "header_s": 1791530470.7158766,
+      "header_age_s": 0.0003361701965332031,
+      "frame_id": "",
+      "healthy": true,
+      "reason": "OK",
+      "connected": true
+    },
+    {
+      "topic": "/indoor_nav/localization_status",
+      "elapsed_s": 55.25216521600669,
+      "wall_s": 1791530471.1164346,
+      "ros_s": 1791530471.1164274,
+      "header_s": 1791530471.1160665,
+      "header_age_s": 0.0003609657287597656,
+      "frame_id": "",
+      "healthy": false,
+      "reason": "FC_IMU_STALE",
+      "connected": true
+    },
+    {
+      "topic": "/indoor_nav/localization_status",
+      "elapsed_s": 55.58529824600555,
+      "wall_s": 1791530471.4495625,
+      "ros_s": 1791530471.4495575,
+      "header_s": 1791530471.4491668,
+      "header_age_s": 0.00039076805114746094,
+      "frame_id": "",
+      "healthy": true,
+      "reason": "OK",
+      "connected": true
+    },
+    {
+      "topic": "/indoor_nav/localization_status",
+      "elapsed_s": 55.98518623200653,
+      "wall_s": 1791530471.849451,
+      "ros_s": 1791530471.8494458,
+      "header_s": 1791530471.8491464,
+      "header_age_s": 0.0002994537353515625,
+      "frame_id": "",
+      "healthy": false,
+      "reason": "FC_IMU_STALE",
+      "connected": true
+    },
+    {
+      "topic": "/indoor_nav/localization_status",
+      "elapsed_s": 56.3520337039954,
+      "wall_s": 1791530472.2162988,
+      "ros_s": 1791530472.2162936,
+      "header_s": 1791530472.2159216,
+      "header_age_s": 0.0003719329833984375,
+      "frame_id": "",
+      "healthy": true,
+      "reason": "OK",
+      "connected": true
+    },
+    {
+      "topic": "/indoor_nav/localization_status",
+      "elapsed_s": 56.752268227006425,
+      "wall_s": 1791530472.6165352,
+      "ros_s": 1791530472.6165276,
+      "header_s": 1791530472.6158447,
+      "header_age_s": 0.000682830810546875,
+      "frame_id": "",
+      "healthy": false,
+      "reason": "FC_IMU_STALE",
+      "connected": true
+    },
+    {
+      "topic": "/indoor_nav/localization_status",
+      "elapsed_s": 57.085255547004635,
+      "wall_s": 1791530472.9495206,
+      "ros_s": 1791530472.949515,
+      "header_s": 1791530472.949215,
+      "header_age_s": 0.0003001689910888672,
+      "frame_id": "",
+      "healthy": true,
+      "reason": "OK",
+      "connected": true
+    },
+    {
+      "topic": "/indoor_nav/localization_status",
+      "elapsed_s": 57.48550744600652,
+      "wall_s": 1791530473.3497734,
+      "ros_s": 1791530473.3497674,
+      "header_s": 1791530473.3494055,
+      "header_age_s": 0.0003619194030761719,
+      "frame_id": "",
+      "healthy": false,
+      "reason": "FC_IMU_STALE",
+      "connected": true
+    },
+    {
+      "topic": "/indoor_nav/localization_status",
+      "elapsed_s": 57.85200714299572,
+      "wall_s": 1791530473.7162724,
+      "ros_s": 1791530473.716267,
+      "header_s": 1791530473.715894,
+      "header_age_s": 0.0003731250762939453,
+      "frame_id": "",
+      "healthy": true,
+      "reason": "OK",
+      "connected": true
+    },
+    {
+      "topic": "/indoor_nav/localization_status",
+      "elapsed_s": 58.252275025006384,
+      "wall_s": 1791530474.11654,
+      "ros_s": 1791530474.1165345,
+      "header_s": 1791530474.11616,
+      "header_age_s": 0.0003745555877685547,
+      "frame_id": "",
+      "healthy": false,
+      "reason": "FC_IMU_STALE",
+      "connected": true
+    }
+  ],
+  "last": {
+    "/mavros/state": {
+      "topic": "/mavros/state",
+      "elapsed_s": 59.46251833799761,
+      "wall_s": 1791530475.326782,
+      "ros_s": 1791530475.3267777,
+      "header_s": 1791530475.326518,
+      "header_age_s": 0.00025963783264160156,
+      "frame_id": "",
+      "connected": true,
+      "armed": false,
+      "mode": "STABILIZE"
+    },
+    "/indoor_nav/localization_status": {
+      "topic": "/indoor_nav/localization_status",
+      "elapsed_s": 60.08523315899947,
+      "wall_s": 1791530475.9495034,
+      "ros_s": 1791530475.949495,
+      "header_s": 1791530475.9492633,
+      "header_age_s": 0.00023174285888671875,
+      "frame_id": "",
+      "healthy": false,
+      "reason": "FC_IMU_STALE",
+      "connected": true
+    },
+    "/indoor_nav/localization_diagnostics": {
+      "topic": "/indoor_nav/localization_diagnostics",
+      "elapsed_s": 60.097984881009324,
+      "wall_s": 1791530475.9622576,
+      "ros_s": 1791530475.9622467,
+      "data": {
+        "stamp_s": 1791530475.9490962,
+        "healthy": false,
+        "reason": "FC_IMU_STALE",
+        "world_publish_enabled": false,
+        "last_world_publish_s": 1791530474.0824113,
+        "fc_connected": true,
+        "fc_age_s": 0.6224105358123779,
+        "imu_age_s": 2.260246515274048,
+        "range_age_s": 0.030602693557739258,
+        "range_header_age_s": 0.03080606460571289,
+        "range_rejection": "",
+        "imu_rejection": "STALE_OR_FUTURE_HEADER",
+        "imu_header_age_s": 2.260301113128662,
+        "uwb_accepted_age_s": 0.022284984588623047,
+        "uwb_received_age_s": 0.022284984588623047,
+        "uwb_gate_reason": "OK",
+        "uwb_rejected": 0,
+        "raw_uwb": {
+          "receipt_s": 1791530475.9268112,
+          "xy": [
+            0.04007673263549805,
+            -0.03020108863711357
+          ],
+          "eop_xy": [
+            0.009999999776482582,
+            0.009999999776482582
+          ],
+          "device_local_time": 529113486,
+          "device_system_time": 529113486
+        },
+        "accepted_xy": [
+          0.04007673263549805,
+          -0.03020108863711357
+        ],
+        "uwb_timestamp_basis": "ROS_RECEIPT_NO_SYNCHRONIZED_DEVICE_HEADER",
+        "packet_order_reason": "ORDERED_DEVICE_COUNTER_RECEIPT_TIME",
+        "packet_order_rejected": 0,
+        "transport_adapter": {
+          "enabled": false,
+          "reason": "DISABLED",
+          "checked_at_s": null,
+          "firmware": [],
+          "minimum_position_sigma_m": 0.2,
+          "fc_position_sigma_m": null,
+          "velocity_forwarding": false
+        }
+      }
+    },
+    "/indoor_nav/sitl/mock_range": {
+      "topic": "/indoor_nav/sitl/mock_range",
+      "elapsed_s": 60.09458891399845,
+      "wall_s": 1791530475.9588568,
+      "ros_s": 1791530475.9588501,
+      "header_s": 1791530475.9586759,
+      "header_age_s": 0.0001742839813232422,
+      "frame_id": "sitl_range"
+    },
+    "/indoor_nav/uwb_velocity/status": {
+      "topic": "/indoor_nav/uwb_velocity/status",
+      "elapsed_s": 60.08531187700282,
+      "wall_s": 1791530475.9495773,
+      "ros_s": 1791530475.9495711,
+      "data": {
+        "stamp_s": 1791530475.9490962,
+        "frame_id": "world_lab",
+        "forwarded_to_fc": false,
+        "raw_native_uwb_anchor_xyz": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "native_reason": "MOCK_NATIVE_NOT_VALIDATED",
+        "native_verified": false,
+        "native_body_world_candidate": null,
+        "derived": {
+          "valid": false,
+          "source": "UNAVAILABLE",
+          "reason": "ATTITUDE_OR_CALIBRATION_UNAVAILABLE",
+          "sample_count": 0,
+          "timestamp_basis": "ROS_RECEIPT",
+          "position_velocity_correlated": true,
+          "velocity_world_xy": null,
+          "variance_world_xy": null,
+          "window_s": 0.0,
+          "delay_s": null
+        },
+        "selected": {
+          "valid": false,
+          "source": "UNAVAILABLE",
+          "reason": "LOCALIZATION:FC_IMU_STALE",
+          "sample_count": 0,
+          "timestamp_basis": "ROS_RECEIPT",
+          "position_velocity_correlated": true,
+          "velocity_world_xy": null,
+          "variance_world_xy": null,
+          "window_s": 0.0,
+          "delay_s": null
+        },
+        "ekf": {
+          "receipt_s": 1791530475.9383829,
+          "header_s": 1791530475.9382343,
+          "frame_id": "base_link",
+          "xyz": [
+            0.2543167769908905,
+            -0.1667882204055786,
+            -0.0007501664804294705
+          ]
+        },
+        "gazebo_truth": "NOT_AN_ESTIMATOR_INPUT; compare using evaluation capture",
+        "position_velocity_correlation": "same UWB input; no independent fusion claim"
+      }
+    },
+    "/nlink_linktrack_nodeframe2": {
+      "topic": "/nlink_linktrack_nodeframe2",
+      "elapsed_s": 60.06254666300083,
+      "wall_s": 1791530475.9268136,
+      "ros_s": 1791530475.9268062,
+      "device_local": 529113486,
+      "device_system": 529113486
+    },
+    "/indoor_nav/accepted_uwb": {
+      "topic": "/indoor_nav/accepted_uwb",
+      "elapsed_s": 60.06285581200791,
+      "wall_s": 1791530475.9271226,
+      "ros_s": 1791530475.9271154,
+      "header_s": 1791530475.926847,
+      "header_age_s": 0.0002684593200683594,
+      "frame_id": "uwb_anchor"
+    },
+    "/gazebo/model_states": {
+      "topic": "/gazebo/model_states",
+      "elapsed_s": 60.032075531999,
+      "wall_s": 1791530475.8963675,
+      "ros_s": 1791530475.8963404
+    },
+    "/clock": {
+      "topic": "/clock",
+      "elapsed_s": 60.06204293300107,
+      "wall_s": 1791530475.9263053,
+      "ros_s": 1791530475.9263022,
+      "sim_s": 736.045
+    },
+    "/mavlink/from": {
+      "topic": "/mavlink/from",
+      "elapsed_s": 60.07420795899816,
+      "wall_s": 1791530475.9384696,
+      "ros_s": 1791530475.9384668,
+      "header_s": 1791530475.9384265,
+      "header_age_s": 4.029273986816406e-05,
+      "frame_id": "",
+      "msgid": 147,
+      "sysid": 1,
+      "compid": 1,
+      "seq": 39
+    },
+    "/mavros/imu/data": {
+      "topic": "/mavros/imu/data",
+      "elapsed_s": 60.07044309300545,
+      "wall_s": 1791530475.9347072,
+      "ros_s": 1791530475.9347024,
+      "header_s": 1791530475.9382343,
+      "header_age_s": -0.003531932830810547,
+      "frame_id": "base_link"
+    },
+    "/mavros/imu/data_raw": {
+      "topic": "/mavros/imu/data_raw",
+      "elapsed_s": 60.07190518300922,
+      "wall_s": 1791530475.9361691,
+      "ros_s": 1791530475.9361646,
+      "header_s": 1791530475.9391954,
+      "header_age_s": -0.0030307769775390625,
+      "frame_id": "base_link"
+    },
+    "/mavros/local_position/velocity_local": {
+      "topic": "/mavros/local_position/velocity_local",
+      "elapsed_s": 60.07405595500313,
+      "wall_s": 1791530475.9383206,
+      "ros_s": 1791530475.9383152,
+      "header_s": 1791530475.9382343,
+      "header_age_s": 8.082389831542969e-05,
+      "frame_id": "base_link"
+    },
+    "/indoor_nav/world_pose": {
+      "topic": "/indoor_nav/world_pose",
+      "elapsed_s": 58.21911180400639,
+      "wall_s": 1791530474.0833757,
+      "ros_s": 1791530474.083371,
+      "header_s": 1791530474.082783,
+      "header_age_s": 0.0005879402160644531,
+      "frame_id": "world_lab"
+    },
+    "/mavros/odometry/out": {
+      "topic": "/mavros/odometry/out",
+      "elapsed_s": 58.2190638280008,
+      "wall_s": 1791530474.0833266,
+      "ros_s": 1791530474.0833228,
+      "header_s": 1791530474.082783,
+      "header_age_s": 0.0005397796630859375,
+      "frame_id": "odom"
+    }
+  },
+  "metadata": {
+    "kind": "metadata",
+    "wall_start_s": 1791530415.8642583,
+    "duration_requested_s": 60.0,
+    "params": {
+      "/use_sim_time": false,
+      "/mavros/fcu_url": "udp://:14552@",
+      "/mavros/gcs_url": "",
+      "/mavros/conn": {
+        "heartbeat_rate": 1.0,
+        "heartbeat_mav_type": "ONBOARD_CONTROLLER",
+        "timeout": 10.0,
+        "timesync_rate": 10.0,
+        "system_time_rate": 1.0
+      },
+      "/mavros/plugin_blacklist": [
+        "actuator_control",
+        "ftp",
+        "safety_area",
+        "hil",
+        "altitude",
+        "debug_value",
+        "image_pub",
+        "px4flow",
+        "vibration",
+        "vision_speed_estimate",
+        "wheel_odometry"
+      ],
+      "/mavros/plugin_whitelist": [],
+      "/indoor_nav/localization": {
+        "world": {
+          "frame_id": "world_lab",
+          "anchor_map_verified": true,
+          "nav_xy_at_world_origin": [
+            0.0,
+            0.0
+          ],
+          "nav_z_offset_m": 0.0,
+          "ground_reference": {
+            "enabled": true,
+            "tag_id": 1,
+            "physical_xy": [
+              0.3,
+              0.3
+            ],
+            "calibration_time_s": 8.0,
+            "min_samples": 25,
+            "max_allowed_offset_m": 0.3,
+            "max_std_m": 0.1,
+            "topic": "/nlink_linktrack_anchorframe0"
+          },
+          "yaw_alignment": {
+            "method": "fixed_start_pose",
+            "require_nose_along_world_x": true
+          }
+        },
+        "uwb": {
+          "aircraft_tag_id": 0,
+          "body_to_tag_flu_m": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "aircraft_topic": "/nlink_linktrack_nodeframe2",
+          "timeout_s": 0.2,
+          "max_jump_m": 0.3,
+          "max_implied_speed_mps": 1.5,
+          "noise_floor_m": 0.1,
+          "max_eop_xy_m": 0.5
+        },
+        "height": {
+          "range_topic": "/indoor_nav/sitl/mock_range",
+          "min_valid_m": 0.1,
+          "max_valid_m": 2.0,
+          "timeout_s": 0.2,
+          "range_to_body_z_m": -0.15
+        },
+        "fc_pose_timeout_s": 0.4,
+        "imu_attitude_topic": "/mavros/imu/data",
+        "imu_attitude_timeout_s": 0.4,
+        "freeze": {
+          "movement_epsilon_m": 0.015
+        },
+        "output": {
+          "odom_rate_hz": 30.0,
+          "min_xy_sigma_m": 0.1,
+          "external_nav_enabled": true
+        }
+      },
+      "/indoor_nav/safety/profile": "sitl",
+      "/indoor_nav/sitl_experiments": {
+        "external_nav": {
+          "enabled": false,
+          "minimum_position_sigma_m": 0.2
+        }
+      }
+    },
+    "published_topics": [
+      [
+        "/rosout_agg",
+        "rosgraph_msgs/Log"
+      ],
+      [
+        "/rosout",
+        "rosgraph_msgs/Log"
+      ],
+      [
+        "/clock",
+        "rosgraph_msgs/Clock"
+      ],
+      [
+        "/gazebo/link_states",
+        "gazebo_msgs/LinkStates"
+      ],
+      [
+        "/gazebo/model_states",
+        "gazebo_msgs/ModelStates"
+      ],
+      [
+        "/gazebo/performance_metrics",
+        "gazebo_msgs/PerformanceMetrics"
+      ],
+      [
+        "/gazebo/parameter_descriptions",
+        "dynamic_reconfigure/ConfigDescription"
+      ],
+      [
+        "/gazebo/parameter_updates",
+        "dynamic_reconfigure/Config"
+      ],
+      [
+        "/diagnostics",
+        "diagnostic_msgs/DiagnosticArray"
+      ],
+      [
+        "/tf",
+        "tf2_msgs/TFMessage"
+      ],
+      [
+        "/tf_static",
+        "tf2_msgs/TFMessage"
+      ],
+      [
+        "/mavlink/from",
+        "mavros_msgs/Mavlink"
+      ],
+      [
+        "/mavros/radio_status",
+        "mavros_msgs/RadioStatus"
+      ],
+      [
+        "/mavros/adsb/vehicle",
+        "mavros_msgs/ADSBVehicle"
+      ],
+      [
+        "/mavros/cam_imu_sync/cam_imu_stamp",
+        "mavros_msgs/CamIMUStamp"
+      ],
+      [
+        "/mavros/camera/image_captured",
+        "mavros_msgs/CameraImageCaptured"
+      ],
+      [
+        "/mavros/distance_sensor/rangefinder_pub",
+        "sensor_msgs/Range"
+      ],
+      [
+        "/mavros/esc_info",
+        "mavros_msgs/ESCInfo"
+      ],
+      [
+        "/mavros/esc_status",
+        "mavros_msgs/ESCStatus"
+      ],
+      [
+        "/mavros/esc_telemetry",
+        "mavros_msgs/ESCTelemetry"
+      ],
+      [
+        "/mavros/geofence/waypoints",
+        "mavros_msgs/WaypointList"
+      ],
+      [
+        "/mavros/global_position/raw/fix",
+        "sensor_msgs/NavSatFix"
+      ],
+      [
+        "/mavros/global_position/raw/gps_vel",
+        "geometry_msgs/TwistStamped"
+      ],
+      [
+        "/mavros/global_position/raw/satellites",
+        "std_msgs/UInt32"
+      ],
+      [
+        "/mavros/global_position/global",
+        "sensor_msgs/NavSatFix"
+      ],
+      [
+        "/mavros/global_position/local",
+        "nav_msgs/Odometry"
+      ],
+      [
+        "/mavros/global_position/rel_alt",
+        "std_msgs/Float64"
+      ],
+      [
+        "/mavros/global_position/compass_hdg",
+        "std_msgs/Float64"
+      ],
+      [
+        "/mavros/global_position/gp_origin",
+        "geographic_msgs/GeoPointStamped"
+      ],
+      [
+        "/mavros/global_position/gp_lp_offset",
+        "geometry_msgs/PoseStamped"
+      ],
+      [
+        "/mavros/gps_rtk/rtk_baseline",
+        "mavros_msgs/RTKBaseline"
+      ],
+      [
+        "/mavros/gpsstatus/gps1/raw",
+        "mavros_msgs/GPSRAW"
+      ],
+      [
+        "/mavros/gpsstatus/gps2/raw",
+        "mavros_msgs/GPSRAW"
+      ],
+      [
+        "/mavros/gpsstatus/gps1/rtk",
+        "mavros_msgs/GPSRTK"
+      ],
+      [
+        "/mavros/gpsstatus/gps2/rtk",
+        "mavros_msgs/GPSRTK"
+      ],
+      [
+        "/move_base_simple/goal",
+        "geometry_msgs/PoseStamped"
+      ],
+      [
+        "/mavros/home_position/home",
+        "mavros_msgs/HomePosition"
+      ],
+      [
+        "/mavros/imu/data",
+        "sensor_msgs/Imu"
+      ],
+      [
+        "/mavros/imu/mag",
+        "sensor_msgs/MagneticField"
+      ],
+      [
+        "/mavros/imu/temperature_imu",
+        "sensor_msgs/Temperature"
+      ],
+      [
+        "/mavros/imu/temperature_baro",
+        "sensor_msgs/Temperature"
+      ],
+      [
+        "/mavros/imu/static_pressure",
+        "sensor_msgs/FluidPressure"
+      ],
+      [
+        "/mavros/imu/diff_pressure",
+        "sensor_msgs/FluidPressure"
+      ],
+      [
+        "/mavros/imu/data_raw",
+        "sensor_msgs/Imu"
+      ],
+      [
+        "/mavros/landing_target/pose_in",
+        "geometry_msgs/PoseStamped"
+      ],
+      [
+        "/mavros/landing_target/lt_marker",
+        "geometry_msgs/Vector3Stamped"
+      ],
+      [
+        "/mavros/local_position/pose",
+        "geometry_msgs/PoseStamped"
+      ],
+      [
+        "/mavros/local_position/pose_cov",
+        "geometry_msgs/PoseWithCovarianceStamped"
+      ],
+      [
+        "/mavros/local_position/velocity_local",
+        "geometry_msgs/TwistStamped"
+      ],
+      [
+        "/mavros/local_position/velocity_body",
+        "geometry_msgs/TwistStamped"
+      ],
+      [
+        "/mavros/local_position/velocity_body_cov",
+        "geometry_msgs/TwistWithCovarianceStamped"
+      ],
+      [
+        "/mavros/local_position/accel",
+        "geometry_msgs/AccelWithCovarianceStamped"
+      ],
+      [
+        "/mavros/local_position/odom",
+        "nav_msgs/Odometry"
+      ],
+      [
+        "/mavros/log_transfer/raw/log_entry",
+        "mavros_msgs/LogEntry"
+      ],
+      [
+        "/mavros/log_transfer/raw/log_data",
+        "mavros_msgs/LogData"
+      ],
+      [
+        "/mavros/mag_calibration/status",
+        "std_msgs/UInt8"
+      ],
+      [
+        "/mavros/mag_calibration/report",
+        "mavros_msgs/MagnetometerReporter"
+      ],
+      [
+        "/mavros/manual_control/control",
+        "mavros_msgs/ManualControl"
+      ],
+      [
+        "/mavros/mount_control/orientation",
+        "geometry_msgs/Quaternion"
+      ],
+      [
+        "/mavros/mount_control/status",
+        "geometry_msgs/Vector3Stamped"
+      ],
+      [
+        "/mavros/nav_controller_output",
+        "mavros_msgs/NavControllerOutput"
+      ],
+      [
+        "/mavros/odometry/in",
+        "nav_msgs/Odometry"
+      ],
+      [
+        "/mavros/param/param_value",
+        "mavros_msgs/Param"
+      ],
+      [
+        "/mavros/rallypoint/waypoints",
+        "mavros_msgs/WaypointList"
+      ],
+      [
+        "/mavros/rangefinder/rangefinder",
+        "sensor_msgs/Range"
+      ],
+      [
+        "/mavros/rc/in",
+        "mavros_msgs/RCIn"
+      ],
+      [
+        "/mavros/rc/out",
+        "mavros_msgs/RCOut"
+      ],
+      [
+        "/mavros/setpoint_raw/target_local",
+        "mavros_msgs/PositionTarget"
+      ],
+      [
+        "/mavros/setpoint_raw/target_global",
+        "mavros_msgs/GlobalPositionTarget"
+      ],
+      [
+        "/mavros/setpoint_raw/target_attitude",
+        "mavros_msgs/AttitudeTarget"
+      ],
+      [
+        "/mavros/setpoint_trajectory/desired",
+        "nav_msgs/Path"
+      ],
+      [
+        "/mavros/state",
+        "mavros_msgs/State"
+      ],
+      [
+        "/mavros/extended_state",
+        "mavros_msgs/ExtendedState"
+      ],
+      [
+        "/mavros/battery",
+        "sensor_msgs/BatteryState"
+      ],
+      [
+        "/mavros/estimator_status",
+        "mavros_msgs/EstimatorStatus"
+      ],
+      [
+        "/mavros/statustext/recv",
+        "mavros_msgs/StatusText"
+      ],
+      [
+        "/mavros/sys_status",
+        "mavros_msgs/SysStatus"
+      ],
+      [
+        "/mavros/time_reference",
+        "sensor_msgs/TimeReference"
+      ],
+      [
+        "/mavros/timesync_status",
+        "mavros_msgs/TimesyncStatus"
+      ],
+      [
+        "/mavros/terrain/report",
+        "mavros_msgs/TerrainReport"
+      ],
+      [
+        "/mavros/trajectory/desired",
+        "mavros_msgs/Trajectory"
+      ],
+      [
+        "/mavros/tunnel/out",
+        "mavros_msgs/Tunnel"
+      ],
+      [
+        "/mavros/vfr_hud",
+        "mavros_msgs/VFR_HUD"
+      ],
+      [
+        "/mavros/mission/waypoints",
+        "mavros_msgs/WaypointList"
+      ],
+      [
+        "/mavros/mission/reached",
+        "mavros_msgs/WaypointReached"
+      ],
+      [
+        "/mavros/wind_estimation",
+        "geometry_msgs/TwistWithCovarianceStamped"
+      ],
+      [
+        "/mavlink/gcs_ip",
+        "std_msgs/String"
+      ],
+      [
+        "/indoor_nav/desired_setpoint",
+        "geometry_msgs/PoseStamped"
+      ],
+      [
+        "/indoor_nav/mission_state",
+        "std_msgs/String"
+      ],
+      [
+        "/indoor_nav/safety_diagnostics",
+        "std_msgs/String"
+      ],
+      [
+        "/indoor_nav/abort_snapshot",
+        "std_msgs/String"
+      ],
+      [
+        "/mavros/setpoint_position/local",
+        "geometry_msgs/PoseStamped"
+      ],
+      [
+        "/indoor_nav/safety_status",
+        "indoor_nav/SafetyStatus"
+      ],
+      [
+        "/indoor_nav/sitl/mock_diagnostics",
+        "std_msgs/String"
+      ],
+      [
+        "/nlink_linktrack_nodeframe2",
+        "nlink_parser/LinktrackNodeframe2"
+      ],
+      [
+        "/nlink_linktrack_anchorframe0",
+        "nlink_parser/LinktrackAnchorframe0"
+      ],
+      [
+        "/indoor_nav/sitl/mock_range",
+        "sensor_msgs/Range"
+      ],
+      [
+        "/indoor_nav/uwb_velocity/status",
+        "std_msgs/String"
+      ],
+      [
+        "/indoor_nav/uwb_velocity/world",
+        "geometry_msgs/TwistWithCovarianceStamped"
+      ],
+      [
+        "/indoor_nav/accepted_uwb_details",
+        "std_msgs/String"
+      ],
+      [
+        "/indoor_nav/localization_status",
+        "indoor_nav/LocalizationStatus"
+      ],
+      [
+        "/indoor_nav/accepted_uwb",
+        "geometry_msgs/PointStamped"
+      ],
+      [
+        "/indoor_nav/localization_diagnostics",
+        "std_msgs/String"
+      ],
+      [
+        "/indoor_nav/world_pose",
+        "geometry_msgs/PoseStamped"
+      ],
+      [
+        "/indoor_nav/ap_odom",
+        "nav_msgs/Odometry"
+      ],
+      [
+        "/mavros/odometry/out",
+        "nav_msgs/Odometry"
+      ],
+      [
+        "/indoor_nav/nav_from_world",
+        "geometry_msgs/TransformStamped"
+      ],
+      [
+        "/indoor_nav/z_offset_m",
+        "std_msgs/Float64"
+      ]
+    ],
+    "system": {
+      "processes": [
+        " 892348    4185 terminator      Sl    0.0       11:21 /usr/bin/python3 /usr/bin/terminator -u --geometry=850x430+0+340 -T INDOOR-UWB ArduPilot SITL / MAVProxy -x bash -c echo $BASHPID > /home/liqidun/github/indoor_nav_ws/.sitl_runtime/sitl.shell.pid; cd /home/liqidun/github/ardupilot/Tools/autotest && echo '[RUN] sim_vehicle.py -v ArduCopter -f gazebo-iris --model gazebo --out 127.0.0.1:14552' && python3 sim_vehicle.py -v ArduCopter -f gazebo-iris --model gazebo  --out=127.0.0.1:14552; ret=$?; echo; echo '[indoor SITL] \u7ec4\u4ef6\u5df2\u9000\u51fa\uff0c\u72b6\u6001\u7801:' $ret; exec bash",
+        " 892359  892348 bash            Ss+   0.0       11:21 bash -c echo $BASHPID > /home/liqidun/github/indoor_nav_ws/.sitl_runtime/sitl.shell.pid; cd /home/liqidun/github/ardupilot/Tools/autotest && echo '[RUN] sim_vehicle.py -v ArduCopter -f gazebo-iris --model gazebo --out 127.0.0.1:14552' && python3 sim_vehicle.py -v ArduCopter -f gazebo-iris --model gazebo  --out=127.0.0.1:14552; ret=$?; echo; echo '[indoor SITL] \u7ec4\u4ef6\u5df2\u9000\u51fa\uff0c\u72b6\u6001\u7801:' $ret; exec bash",
+        " 892360  892359 python3         S+    0.1       11:21 python3 sim_vehicle.py -v ArduCopter -f gazebo-iris --model gazebo --out=127.0.0.1:14552",
+        " 892594    4185 xterm           S+    0.0       11:19 xterm -iconic -xrm XTerm*selectToClipboard: true -xrm XTerm*initialFont: 6 -n ArduCopter -name ArduCopter -T ArduCopter -hold -e /home/liqidun/github/ardupilot/build/sitl/bin/arducopter -S --model gazebo --speedup 1 --slave 0 --defaults default_params/copter.parm,default_params/gazebo-iris.parm --sim-address=127.0.0.1 -I0",
+        " 892595  892360 mavproxy.py     Sl+   4.6       11:19 /usr/bin/python3 /home/liqidun/.local/bin/mavproxy.py --out 127.0.0.1:14550 --master tcp:127.0.0.1:5760 --sitl 127.0.0.1:5501 --out 127.0.0.1:14552",
+        " 892597  892594 arducopter      Ssl+  3.1       11:19 /home/liqidun/github/ardupilot/build/sitl/bin/arducopter -S --model gazebo --speedup 1 --slave 0 --defaults default_params/copter.parm,default_params/gazebo-iris.parm --sim-address=127.0.0.1 -I0",
+        " 892712  892683 gzserver        Ss    0.0       11:19 /bin/sh /opt/ros/noetic/lib/gazebo_ros/gzserver --verbose -e ode /home/liqidun/github/ardupilot_gazebo/worlds/iris_ardupilot.world __name:=gazebo __log:=/home/liqidun/.ros/log/48f4e944-c3b0-11f1-bc59-710cf840f56d/gazebo-1.log",
+        " 892786  892712 gzserver        SLl  23.3       11:18 gzserver --verbose -e ode /home/liqidun/github/ardupilot_gazebo/worlds/iris_ardupilot.world -s /opt/ros/noetic/lib/libgazebo_ros_paths_plugin.so -s /opt/ros/noetic/lib/libgazebo_ros_api_plugin.so __name:=gazebo __log:=/home/liqidun/.ros/log/48f4e944-c3b0-11f1-bc59-710cf840f56d/gazebo-1.log",
+        " 893058  893027 mavros_node     Ssl   0.8       11:16 /opt/ros/noetic/lib/mavros/mavros_node __name:=mavros __log:=/home/liqidun/.ros/log/48f4e944-c3b0-11f1-bc59-710cf840f56d/mavros-1.log",
+        " 893144    4185 terminator      Sl    0.0       11:13 /usr/bin/python3 /usr/bin/terminator -u --geometry=650x360+1600+470 -T INDOOR-UWB QGroundControl -x bash -c echo $BASHPID > /home/liqidun/github/indoor_nav_ws/.sitl_runtime/qgc.shell.pid; echo '[RUN] QGroundControl: /home/liqidun/appimage/QGroundControl.AppImage' && /home/liqidun/appimage/QGroundControl.AppImage; ret=$?; echo; echo '[indoor SITL] \u7ec4\u4ef6\u5df2\u9000\u51fa\uff0c\u72b6\u6001\u7801:' $ret; exec bash",
+        " 893164    4185 QGroundControl. Ssl   0.0       11:12 /home/liqidun/appimage/QGroundControl.AppImage",
+        " 893176  893160 QGroundControl  Sl+   4.2       11:12 /tmp/.mount_QGrouno0xjYJ/QGroundControl",
+        " 893277  893215 world_estimator Ssl   2.4       11:12 /usr/bin/python3 /home/liqidun/github/indoor_nav_ws/devel/lib/indoor_nav/world_estimator.py __name:=world_estimator __log:=/home/liqidun/.ros/log/48f4e944-c3b0-11f1-bc59-710cf840f56d/world_estimator-3.log"
+      ],
+      "udp": [
+        "UNCONN   0        0                     127.0.0.1:9002           0.0.0.0:*       users:((\"gzserver\",pid=892786,fd=104))                                         ",
+        "UNCONN   0        0                       0.0.0.0:9003           0.0.0.0:*       users:((\"arducopter\",pid=892597,fd=8))                                         ",
+        "ESTAB    0        0                     127.0.0.1:42435        127.0.0.1:9003    users:((\"gzserver\",pid=892786,fd=105))                                         ",
+        "UNCONN   0        0                       0.0.0.0:14550          0.0.0.0:*       users:((\"QGroundControl\",pid=893176,fd=55))                                    ",
+        "UNCONN   0        0                       0.0.0.0:14552          0.0.0.0:*       users:((\"mavros_node\",pid=893058,fd=13))                                       "
+      ],
+      "tcp": [
+        "LISTEN      0        5                                           0.0.0.0:5760                   0.0.0.0:*        users:((\"arducopter\",pid=892597,fd=9))         ",
+        "ESTAB       0        0                                         127.0.0.1:5760                 127.0.0.1:56596    users:((\"arducopter\",pid=892597,fd=10))        ",
+        "ESTAB       0        0                                         127.0.0.1:56596                127.0.0.1:5760     users:((\"mavproxy.py\",pid=892595,fd=8))        "
+      ]
+    },
+    "fc_params": {
+      "SIM_SPEEDUP": 1.0,
+      "EK3_SRC1_VELXY": 0,
+      "EK3_SRC1_POSXY": 6,
+      "EK3_SRC1_POSZ": 1,
+      "VISO_POS_M_NSE": 0.20000000298023224,
+      "SR0_RAW_SENS": 0,
+      "SR0_EXT_STAT": 0,
+      "SR0_POSITION": 0,
+      "SR0_EXTRA1": 0,
+      "SR0_EXTRA2": 0,
+      "SR0_EXTRA3": 0,
+      "SR1_RAW_SENS": 0,
+      "SR1_EXT_STAT": 0,
+      "SR1_POSITION": 0,
+      "SR1_EXTRA1": 0,
+      "SR1_EXTRA2": 0,
+      "SR1_EXTRA3": 0,
+      "SR2_RAW_SENS": 0,
+      "SR2_EXT_STAT": 0,
+      "SR2_POSITION": 0,
+      "SR2_EXTRA1": 0,
+      "SR2_EXTRA2": 0,
+      "SR2_EXTRA3": 0,
+      "SR3_RAW_SENS": 0,
+      "SR3_EXT_STAT": 0,
+      "SR3_POSITION": 0,
+      "SR3_EXTRA1": 0,
+      "SR3_EXTRA2": 0,
+      "SR3_EXTRA3": 0
+    },
+    "vehicles": [
+      {
+        "sysid": 1,
+        "compid": 1,
+        "autopilot": 3,
+        "type": 2,
+        "version": 67438591
+      }
+    ]
+  }
+}

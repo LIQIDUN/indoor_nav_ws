@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 """Nooploop LinkTrack -> fixed world_lab -> MAVROS ODOMETRY.
 
-V1 is NOT an INS/Kalman filter. ExternalNav XY is from UWB. FC retains
-RangeFinder Z and OpticalFlow Vxy. Odometry Z is estimated from the range sensor
+V1 is NOT an INS/Kalman filter. ExternalNav XY is from UWB. Actual FC
+height/velocity source selection is checked separately; velocity is shadow-only. Odometry Z is estimated from the range sensor
 without feeding back EKF local_position (prevents ExternalNav cold-start deadlock).
 Do not arm before
 handheld frame checks and SITL source-mixing tests.
@@ -10,17 +10,22 @@ handheld frame checks and SITL source-mixing tests.
 import math
 import json
 import threading
+import time
 from collections import deque
 
 import rospy
-from geometry_msgs.msg import PoseStamped, TransformStamped, PointStamped
+from geometry_msgs.msg import PoseStamped, TransformStamped, PointStamped, TwistStamped
 from nav_msgs.msg import Odometry
 from sensor_msgs.msg import Range, Imu
 from mavros_msgs.msg import State
 from std_srvs.srv import Trigger, TriggerResponse
 from std_msgs.msg import Float64, String
 from nlink_parser.msg import LinktrackNodeframe2, LinktrackAnchorframe0
-from indoor_nav.msg import LocalizationStatus
+from indoor_nav.msg import LocalizationStatus, SafetyStatus
+from indoor_nav.publication import PublicationTracker
+from indoor_nav.velocity import DeviceCounterGate
+from indoor_nav.velocity_ros import VelocityShadow
+from indoor_nav.external_nav import PositionOnlyAdapter
 from indoor_nav.core import (Transform2D, UwbGate, GroundCalibration, finite,
                              quaternion_yaw, yaw_quaternion, quaternion_product,
                              normalize_quaternion, roll_pitch, rotate_vector)
@@ -81,10 +86,23 @@ class WorldEstimator:
                            ucfg.get('timeout_s', .20),
                            ucfg.get('noise_floor_m', .10),
                            ucfg.get('max_eop_xy_m', .50))
+        self.packet_gate = DeviceCounterGate()
+        self.profile = rospy.get_param('/indoor_nav/safety/profile', 'hardware')
+        self.velocity_shadow = VelocityShadow(rospy.get_param('/indoor_nav/velocity', {}),
+            self.profile, self.body_to_tag_flu, self.world_cfg.get('frame_id', 'world_lab'))
+        self.velocity_frozen = False
+        self.ekf_velocity = None
         self.raw_xy = None
         self.eop = 0.
         self.last_publish_reason = None
         self.last_world_publish = None
+        self.world_publication = PublicationTracker(1./float(out.get('odom_rate_hz',30.)))
+        self.external_publication = PublicationTracker(1./float(out.get('odom_rate_hz',30.)))
+        self.pending_imu = None
+        self.imu_future_hold_s = .020  # bounded hold; never accept a future header
+        self.last_imu_receipt = None
+        self.last_imu_header = None
+        self.last_imu_callback_wall_s = None
         self.raw_uwb = None
         self.imu_rejection = ''
         self.range_rejection = ''
@@ -92,6 +110,10 @@ class WorldEstimator:
         self.range_timeout = float(height.get('timeout_s', .20))
         self.output_enabled = bool(out.get('external_nav_enabled', False))
         self.output_rate = float(out.get('odom_rate_hz', 30.))
+        self.transport_adapter = PositionOnlyAdapter(self.profile,
+            rospy.get_param('/indoor_nav/sitl_experiments/external_nav', {}), lambda: self.fc_state)
+        self.publication_events_pub = rospy.Publisher('/indoor_nav/publication_events', String, queue_size=100, latch=True)
+        self.accepted_details_pub = rospy.Publisher('/indoor_nav/accepted_uwb_details', String, queue_size=30)
         self.status_pub = rospy.Publisher('/indoor_nav/localization_status', LocalizationStatus,
                                            queue_size=10, latch=True)
         self.uwb_sample_pub = rospy.Publisher('/indoor_nav/accepted_uwb', PointStamped, queue_size=30)
@@ -108,6 +130,8 @@ class WorldEstimator:
         if self.require_ground:
             rospy.Subscriber(ref.get('topic', '/nlink_linktrack_anchorframe0'),
                              LinktrackAnchorframe0, self.ground_cb, queue_size=10)
+        rospy.Subscriber('/indoor_nav/safety_status', SafetyStatus, self.safety_cb, queue_size=5)
+        rospy.Subscriber('/mavros/local_position/velocity_local', TwistStamped, self.ekf_velocity_cb, queue_size=5)
         rospy.Subscriber('/mavros/state', State, self.state_cb, queue_size=5)
         # Local EKF pose is kept only for diagnostics; NEVER required for calibration/output.
         rospy.Subscriber('/mavros/local_position/pose', PoseStamped, self.pose_cb, queue_size=5)
@@ -119,6 +143,18 @@ class WorldEstimator:
         rospy.Timer(rospy.Duration(1.0/self.output_rate), self.publish)
         rospy.logwarn('world_estimator: external nav forwarding=%s; only calibrated frames publish',
                       self.output_enabled)
+
+    def safety_cb(self, msg):
+        with self.lock:
+            self.velocity_frozen = msg.abort_latched and 'POSSIBLE_UWB_FREEZE' in msg.reason
+
+    def ekf_velocity_cb(self, msg):
+        # Comparison only: never enters UWB fitting or native selection.
+        v=msg.twist.linear
+        with self.lock:
+            self.ekf_velocity={'receipt_s':rospy.get_time(), 'header_s':msg.header.stamp.to_sec(),
+                               'frame_id':msg.header.frame_id,
+                               'xyz':[v.x,v.y,v.z] if finite(v.x,v.y,v.z) else None}
 
     def state_cb(self, m):
         with self.lock:
@@ -139,9 +175,9 @@ class WorldEstimator:
 
     def imu_cb(self, m):
         with self.lock:
-            if not 0 <= rospy.get_time()-m.header.stamp.to_sec() <= self.imu_timeout:
-                self.imu_rejection = 'STALE_OR_FUTURE_HEADER'
-                return
+            self.last_imu_receipt = rospy.get_time()
+            self.last_imu_header = m.header.stamp.to_sec()
+            self.last_imu_callback_wall_s = time.monotonic()
             self.imu_rejection = ''
             q = get_quat(m.orientation)
             if not finite(*q):
@@ -152,8 +188,36 @@ class WorldEstimator:
                 return
             if m.orientation_covariance[0] == -1:
                 return
+            now = self.last_imu_receipt
+            age = now-m.header.stamp.to_sec()
+            if -self.imu_future_hold_s <= age < 0:
+                # Synchronization may lead wall time by a few milliseconds.
+                # Keep the ORIGINAL receipt/header, release only once time catches up.
+                self.pending_imu = (m, now)
+                self.imu_rejection = 'FUTURE_HEADER_PENDING'
+                return
+            if not 0 <= age <= self.imu_timeout:
+                self.pending_imu = None
+                self.imu_rejection = 'STALE_OR_FUTURE_HEADER'
+                return
+            self.pending_imu = None
             self.fc_imu = m
-            self.fc_imu_stamp = rospy.get_time()
+            self.fc_imu_stamp = now
+
+    def promote_pending_imu(self, now):
+        if self.pending_imu is None:
+            return
+        msg, receipt = self.pending_imu
+        age = now-msg.header.stamp.to_sec()
+        if now < receipt or now-receipt > self.imu_timeout or age > self.imu_timeout:
+            self.pending_imu = None
+            self.imu_rejection = 'PENDING_IMU_STALE_OR_TIME_RESET'
+        elif age >= 0:
+            self.pending_imu = None
+            if self.fc_imu is None or msg.header.stamp >= self.fc_imu.header.stamp:
+                self.fc_imu = msg
+                self.fc_imu_stamp = receipt
+                self.imu_rejection = ''
 
     def range_cb(self, m):
         with self.lock:
@@ -195,6 +259,11 @@ class WorldEstimator:
                 return
             self.raw_uwb = {"receipt_s": now, "xy": [x, y], "eop_xy": [ex, ey],
                             "device_local_time": m.local_time, "device_system_time": m.system_time}
+            if not self.packet_gate.accept(now, m.local_time, m.system_time):
+                # A duplicate never refreshes UWB/velocity measurement freshness.
+                if self.packet_gate.reason != 'DUPLICATE_DEVICE_PACKET':
+                    self.velocity_shadow.window.clear(self.packet_gate.reason)
+                return
             eop = math.hypot(ex, ey)
             if self.uwb.evaluate(now, x, y, eop):
                 self.raw_xy = (x, y)
@@ -204,6 +273,24 @@ class WorldEstimator:
                 sample.header.frame_id = 'uwb_anchor'
                 sample.point.x, sample.point.y = x, y
                 self.uwb_sample_pub.publish(sample)
+                native=list(m.vel_3d)
+                q_world=None
+                angular=None
+                if (self.transform is not None and self.fc_imu is not None and
+                        0 <= now-self.fc_imu.header.stamp.to_sec() <= self.imu_timeout):
+                    q_world=normalize_quaternion(quaternion_product(yaw_quaternion(-self.transform.yaw),
+                                                                     get_quat(self.fc_imu.orientation)))
+                    v=self.fc_imu.angular_velocity
+                    if self.fc_imu.angular_velocity_covariance[0]!=-1 and finite(v.x,v.y,v.z):
+                        angular=(v.x,v.y,v.z)
+                self.velocity_shadow.observe(now,(x,y),self.bias,native,q_world,angular)
+                self.accepted_details_pub.publish(String(data=json.dumps({
+                    'receipt_s':now,'frame_id':'uwb_anchor','xy':[x,y], 'native_velocity_xyz':
+                    native if finite(*native) else None, 'eop_xy':[ex,ey],
+                    'device_local_time':m.local_time,'device_system_time':m.system_time,
+                    'timing':self.packet_gate.reason, 'native_velocity_verified':self.velocity_shadow.native_verified})))
+            else:
+                self.velocity_shadow.window.clear('UWB_REJECTED:'+self.uwb.reason)
             # A single jump can be rejected, but the freshness timer is based
             # on LAST ACCEPTED measurement, never a freshly rejected packet.
 
@@ -275,6 +362,7 @@ class WorldEstimator:
                 self.height_cfg.get('range_to_body_z_m', 0.))
 
     def health(self, now):
+        self.promote_pending_imu(now)
         if self.transform is None:
             return False, 'NOT_CALIBRATED'
         if not self.fc_state.connected or not 0 <= now-self.fc_stamp <= 2.:
@@ -287,11 +375,57 @@ class WorldEstimator:
             return False, 'RANGE_STALE'
         return True, 'OK'
 
+    def publication_diagnostic(self, now, healthy, reason, world_sent=False, external_sent=False,
+                               external_reason=None, callback_started=None):
+        context={'fc_connected':self.fc_state.connected,'fc_armed':self.fc_state.armed,
+                 'localization_healthy':healthy,'localization_reason':reason,
+                 'imu_age_s':now-self.fc_imu_stamp,
+                 'imu_header_age_s':now-self.fc_imu.header.stamp.to_sec() if self.fc_imu else None,
+                 'imu_pending_header_s':self.pending_imu[0].header.stamp.to_sec() if self.pending_imu else None,
+                 'imu_future_hold_limit_s':self.imu_future_hold_s,
+                 'imu_received_age_s':now-self.last_imu_receipt if self.last_imu_receipt is not None else None,
+                 'imu_received_header_age_s':now-self.last_imu_header if self.last_imu_header is not None else None,
+                 'uwb_age_s':now-self.uwb.last[0] if self.uwb.last else None,
+                 'range_age_s':now-self.height_stamp,
+                 'range_header_age_s':now-self.height_header_stamp}
+        world, world_events=self.world_publication.update(now,world_sent,reason,context)
+        external, external_events=self.external_publication.update(now,external_sent,
+            external_reason or reason,context)
+        for name,events in (('world_pose',world_events),('external_nav',external_events)):
+            for event in events:
+                event['output']=name
+                self.publication_events_pub.publish(String(data=json.dumps(event)))
+                rospy.logwarn('Publication event: %s',json.dumps(event))
+        diagnostic = {'stamp_s': now, 'healthy': healthy, 'reason': reason,
+                          'world_publish_enabled': world_sent, 'last_world_publish_s': self.last_world_publish,
+                          'fc_connected': self.fc_state.connected, 'fc_age_s': now-self.fc_stamp,
+                          'imu_age_s': now-self.fc_imu_stamp, 'range_age_s': now-self.height_stamp,
+                          'range_header_age_s': now-self.height_header_stamp,
+                          'range_rejection': self.range_rejection, 'imu_rejection': self.imu_rejection,
+                          'imu_header_age_s': now-self.fc_imu.header.stamp.to_sec() if self.fc_imu else None,
+                          'uwb_accepted_age_s': now-self.uwb.last[0] if self.uwb.last else None,
+                          'uwb_received_age_s': now-self.uwb.last_rx if self.uwb.last_rx is not None else None,
+                          'uwb_gate_reason': self.uwb.reason, 'uwb_rejected': self.uwb.rejected,
+                          'raw_uwb': self.raw_uwb, 'accepted_xy': self.raw_xy,
+                          'uwb_timestamp_basis': 'ROS_RECEIPT_NO_SYNCHRONIZED_DEVICE_HEADER',
+                          'packet_order_reason':self.packet_gate.reason,
+                          'packet_order_rejected':self.packet_gate.rejected,
+                          'transport_adapter':self.transport_adapter.diagnostic()}
+
+        diagnostic.update(context, publication={'world_pose':world,'external_nav':external},
+                          external_nav_enabled=self.output_enabled,
+                          callback_elapsed_wall_s=time.monotonic()-callback_started if callback_started is not None else None)
+        self.diagnostics_pub.publish(String(data=json.dumps(diagnostic)))
+
     def publish(self, _event):
-        now = rospy.get_time()
+        callback_started=time.monotonic()
         with self.lock:
+            now = rospy.get_time()
             # Freeze evidence is gathered on accepted UWB samples by supervisor.
             ok, reason = self.health(now)
+            q_nav=(get_quat(self.fc_imu.orientation) if self.fc_imu is not None else None)
+            self.velocity_shadow.report(now,ok,reason,self.transform,q_nav,
+                                        frozen=self.velocity_frozen,ekf=self.ekf_velocity)
             st = LocalizationStatus()
             st.header.stamp = rospy.Time.now()
             st.calibrated = self.transform is not None
@@ -305,23 +439,8 @@ class WorldEstimator:
             st.rejected_count = self.uwb.rejected
             st.reason = reason
             self.status_pub.publish(st)
-            diagnostic = {'stamp_s': now, 'healthy': ok, 'reason': reason,
-                          'world_publish_enabled': ok, 'last_world_publish_s': self.last_world_publish,
-                          'fc_connected': self.fc_state.connected, 'fc_age_s': now-self.fc_stamp,
-                          'imu_age_s': now-self.fc_imu_stamp, 'range_age_s': now-self.height_stamp,
-                          'range_header_age_s': now-self.height_header_stamp,
-                          'range_rejection': self.range_rejection, 'imu_rejection': self.imu_rejection,
-                          'imu_header_age_s': now-self.fc_imu.header.stamp.to_sec() if self.fc_imu else None,
-                          'uwb_accepted_age_s': now-self.uwb.last[0] if self.uwb.last else None,
-                          'uwb_received_age_s': now-self.uwb.last_rx if self.uwb.last_rx is not None else None,
-                          'uwb_gate_reason': self.uwb.reason, 'uwb_rejected': self.uwb.rejected,
-                          'raw_uwb': self.raw_uwb, 'accepted_xy': self.raw_xy,
-                          'uwb_timestamp_basis': 'ROS_RECEIPT_NO_SYNCHRONIZED_DEVICE_HEADER'}
-            self.diagnostics_pub.publish(String(data=json.dumps(diagnostic)))
-            if reason != self.last_publish_reason:
-                rospy.logwarn('Localization publication transition: %s', json.dumps(diagnostic))
-                self.last_publish_reason = reason
             if not ok:
+                self.publication_diagnostic(now,ok,reason,external_reason=reason if self.output_enabled else 'FORWARDING_DISABLED',callback_started=callback_started)
                 return
             q = normalize_quaternion(get_quat(self.fc_imu.orientation))
             q_world = normalize_quaternion(quaternion_product(yaw_quaternion(-self.transform.yaw), q))
@@ -331,6 +450,7 @@ class WorldEstimator:
             z_world = self.height_m()
             zn = z_world + self.nav_z_offset
             if not finite(xw, yw, z_world, zn):
+                self.publication_diagnostic(now,False,'NONFINITE_OUTPUT',callback_started=callback_started)
                 return
             xn, yn = self.transform.apply(xw, yw)
             world = PoseStamped()
@@ -362,8 +482,18 @@ class WorldEstimator:
             for index in (0, 7, 14, 21, 28, 35):
                 odom.twist.covariance[index] = 1e3
             self.nav_odom_pub.publish(odom)
+            external_sent=False
+            external_reason='FORWARDING_DISABLED'
             if self.output_enabled:
-                self.fc_odom_pub.publish(odom)
+                transport=self.transport_adapter.adapt(odom,now)
+                if transport is not None:
+                    self.fc_odom_pub.publish(transport)
+                    external_sent=True
+                    external_reason='OK'
+                else:
+                    external_reason='TRANSPORT_ADAPTER:'+self.transport_adapter.reason
+            self.publication_diagnostic(now,ok,reason,world_sent=True,external_sent=external_sent,
+                external_reason=external_reason,callback_started=callback_started)
 
 
 if __name__ == '__main__':

@@ -1,0 +1,804 @@
+{
+  "capture_s": 1791532476.062147,
+  "checkpoints": [
+    {
+      "processes": [
+        " 922822 arducopter      Ssl+  3.2       15:20",
+        " 922927 gzserver        Ss    0.0       15:19",
+        " 923004 gzserver        SLl  25.8       15:19",
+        " 923283 mavros_node     Ssl   3.3       15:16"
+      ],
+      "tcp": [
+        "LISTEN      0        5                                           0.0.0.0:5760                   0.0.0.0:*        users:((\"arducopter\",pid=922822,fd=9))         ",
+        "ESTAB       0        0                                         127.0.0.1:52732                127.0.0.1:5760     users:((\"mavproxy.py\",pid=922809,fd=8))        ",
+        "ESTAB       0        907                                       127.0.0.1:5760                 127.0.0.1:52732    users:((\"arducopter\",pid=922822,fd=10))        "
+      ],
+      "topics": {
+        "/clock": {
+          "count": 2004,
+          "last": {
+            "receipt_s": 1791532475.9649749,
+            "receipt_wall_s": 1791532475.9649777,
+            "sim_s": 916.33
+          },
+          "receipt_age_wall_s": 0.006013393402099609
+        },
+        "/diagnostics": {
+          "count": 4,
+          "last": {
+            "frame_id": "",
+            "header_s": 1791532475.965664,
+            "receipt_s": 1791532475.9658163,
+            "receipt_wall_s": 1791532475.96582,
+            "statuses": [
+              {
+                "level": 0,
+                "message": "connected",
+                "name": "mavros: FCU connection",
+                "values": {
+                  "Buffer overruns:": "0",
+                  "Dropped packets:": "0",
+                  "Parse errors:": "0",
+                  "Received packets:": "55810",
+                  "Rx sequence number:": "2",
+                  "Rx speed:": "23106.000000",
+                  "Rx total bytes:": "20888573",
+                  "Tx sequence number:": "0",
+                  "Tx speed:": "7640.000000",
+                  "Tx total bytes:": "6739069"
+                }
+              },
+              {
+                "level": 2,
+                "message": "No satellites",
+                "name": "mavros: GPS",
+                "values": {
+                  "EPH (m)": "Unknown",
+                  "EPV (m)": "Unknown",
+                  "Fix type": "0",
+                  "Satellites visible": "0"
+                }
+              },
+              {
+                "level": 1,
+                "message": "Can not diagnose in this targeting mode",
+                "name": "mavros: Mount",
+                "values": {
+                  "Mode": "255"
+                }
+              },
+              {
+                "level": 0,
+                "message": "Normal",
+                "name": "mavros: Heartbeat",
+                "values": {
+                  "Autopilot type": "ArduPilot",
+                  "Frequency (Hz)": "1.000001",
+                  "Heartbeats since startup": "917",
+                  "Mode": "STABILIZE",
+                  "System status": "Standby",
+                  "Vehicle type": "Quadrotor"
+                }
+              },
+              {
+                "level": 0,
+                "message": "Normal",
+                "name": "mavros: System",
+                "values": {
+                  "3D accelerometer": "Ok",
+                  "3D angular rate control": "Ok",
+                  "3D gyro": "Ok",
+                  "3D magnetometer": "Ok",
+                  "AHRS subsystem health": "Ok",
+                  "Battery": "Ok",
+                  "CPU Load (%)": "100.0",
+                  "Drop rate (%)": "0.0",
+                  "Errors comm": "0",
+                  "Errors count #1": "0",
+                  "Errors count #2": "0",
+                  "Errors count #3": "0",
+                  "Errors count #4": "0",
+                  "Sensor enabled": "0x42619D8F",
+                  "Sensor health": "0x47719D8F",
+                  "Sensor present": "0x5371FD8F",
+                  "Terrain subsystem health": "Ok",
+                  "absolute pressure": "Ok",
+                  "attitude stabilization": "Ok",
+                  "computer vision position": "Ok",
+                  "laser based position": "Ok",
+                  "motor outputs / control": "Ok",
+                  "propulsion (actuator, esc, motor or propellor)": "Ok",
+                  "rc receiver": "Ok",
+                  "yaw position": "Ok"
+                }
+              },
+              {
+                "level": 0,
+                "message": "Normal",
+                "name": "mavros: Battery",
+                "values": {
+                  "Current": "-0.0",
+                  "Remaining": "100.0",
+                  "Voltage": "12.60"
+                }
+              },
+              {
+                "level": 0,
+                "message": "Normal",
+                "name": "mavros: Time Sync",
+                "values": {
+                  "Estimated time offset (s)": "1791531559.904256344",
+                  "Frequency (Hz)": "10.000016",
+                  "Last RTT (ms)": "5.558053",
+                  "Last remote time (s)": "916.057937000",
+                  "Mean RTT (ms)": "4.651542",
+                  "Timesyncs since startup": "9162"
+                }
+              },
+              {
+                "level": 0,
+                "message": "Normal",
+                "name": "mavros: APM Memory",
+                "values": {
+                  "Free memory (B)": "131072",
+                  "Heap top": "0x0000"
+                }
+              },
+              {
+                "level": 2,
+                "message": "Not initialised",
+                "name": "mavros: APM Hardware",
+                "values": {
+                  "Core voltage": "-1.000000",
+                  "I2C errors": "0"
+                }
+              }
+            ]
+          },
+          "receipt_age_wall_s": 0.005187273025512695
+        },
+        "/gazebo/model_states": {
+          "count": 2004,
+          "last": {
+            "receipt_s": 1791532475.9647458,
+            "receipt_wall_s": 1791532475.9647503,
+            "xyz": [
+              8.668502345973876e-05,
+              -0.0003011505063633877,
+              -0.0002452958122557414
+            ]
+          },
+          "receipt_age_wall_s": 0.006239891052246094
+        },
+        "/indoor_nav/accepted_uwb_details": {
+          "count": 125,
+          "last": {
+            "data": "{\"receipt_s\": 1791532475.9400666, \"frame_id\": \"uwb_anchor\", \"xy\": [0.04008668288588524, -0.030301149934530258], \"native_velocity_xyz\": [0.0, 0.0, 0.0], \"eop_xy\": [0.009999999776482582, 0.009999999776482582], \"device_local_time\": 531113499, \"device_system_time\": 531113499, \"timing\": \"ORDERED_DEVICE_COUNTER_RECEIPT_TIME\", \"native_velocity_verified\": false}",
+            "receipt_s": 1791532475.9402294,
+            "receipt_wall_s": 1791532475.9402342
+          },
+          "receipt_age_wall_s": 0.03077220916748047
+        },
+        "/indoor_nav/localization_diagnostics": {
+          "count": 151,
+          "last": {
+            "data": "{\"stamp_s\": 1791532475.9390347, \"healthy\": true, \"reason\": \"OK\", \"world_publish_enabled\": true, \"last_world_publish_s\": 1791532475.9390347, \"fc_connected\": true, \"fc_age_s\": 0.9270672798156738, \"imu_age_s\": 0.012363672256469727, \"range_age_s\": 0.007478237152099609, \"range_header_age_s\": 0.007598161697387695, \"range_rejection\": \"\", \"imu_rejection\": \"\", \"imu_header_age_s\": 0.014799833297729492, \"uwb_accepted_age_s\": 0.038999080657958984, \"uwb_received_age_s\": 0.038999080657958984, \"uwb_gate_reason\": \"OK\", \"uwb_rejected\": 0, \"raw_uwb\": {\"receipt_s\": 1791532475.9000356, \"xy\": [0.04008668288588524, -0.030301149934530258], \"eop_xy\": [0.009999999776482582, 0.009999999776482582], \"device_local_time\": 531113459, \"device_system_time\": 531113459}, \"accepted_xy\": [0.04008668288588524, -0.030301149934530258], \"uwb_timestamp_basis\": \"ROS_RECEIPT_NO_SYNCHRONIZED_DEVICE_HEADER\", \"packet_order_reason\": \"ORDERED_DEVICE_COUNTER_RECEIPT_TIME\", \"packet_order_rejected\": 0, \"transport_adapter\": {\"enabled\": false, \"reason\": \"DISABLED\", \"checked_at_s\": null, \"firmware\": [], \"minimum_position_sigma_m\": 0.2, \"fc_position_sigma_m\": null, \"velocity_forwarding\": false}, \"fc_armed\": false, \"localization_healthy\": true, \"localization_reason\": \"OK\", \"imu_pending_header_s\": null, \"imu_future_hold_limit_s\": 0.02, \"imu_received_age_s\": 0.012363672256469727, \"imu_received_header_age_s\": 0.014799833297729492, \"uwb_age_s\": 0.038999080657958984, \"publication\": {\"world_pose\": {\"sent_this_tick\": true, \"reason\": \"OK\", \"last_success_s\": 1791532475.9390347, \"stopped_since_s\": null, \"outage_duration_s\": 0.0, \"tick_gap_s\": 0.03333735466003418}, \"external_nav\": {\"sent_this_tick\": true, \"reason\": \"OK\", \"last_success_s\": 1791532475.9390347, \"stopped_since_s\": null, \"outage_duration_s\": 0.0, \"tick_gap_s\": 0.03333735466003418}}, \"external_nav_enabled\": true, \"callback_elapsed_wall_s\": 0.00041469700227025896}",
+            "receipt_s": 1791532475.939747,
+            "receipt_wall_s": 1791532475.9397523
+          },
+          "receipt_age_wall_s": 0.031241178512573242
+        },
+        "/indoor_nav/localization_status": {
+          "count": 151,
+          "last": {
+            "frame_id": "",
+            "header_s": 1791532475.9393098,
+            "healthy": true,
+            "range_age_s": 0.007478237152099609,
+            "reason": "OK",
+            "receipt_s": 1791532475.9396374,
+            "receipt_wall_s": 1791532475.9396422,
+            "uwb_age_s": 0.038999080657958984
+          },
+          "receipt_age_wall_s": 0.031350135803222656
+        },
+        "/indoor_nav/sitl/mock_diagnostics": {
+          "count": 126,
+          "last": {
+            "data": "{\"stamp_s\": 1791532475.9313672, \"reason\": \"OK\", \"model_name\": \"iris\", \"source\": \"gazebo_model_states\", \"truth_xyz\": [8.668213796461031e-05, -0.00030115062972141583, -0.0002452984609987996], \"truth_receipt_s\": 1791532475.9271255, \"truth_age_s\": 0.0042417049407958984, \"gazebo_clock_s\": 916.2925, \"clock_progress_age_s\": 0.0040874481201171875, \"queue_length\": 0, \"freeze_injected\": false, \"drop_all_injected\": false, \"delay_ms\": 0, \"held_uwb_xyz\": [0.040086682790637436, -0.030301150579210748, -0.00024530146221421467]}",
+            "receipt_s": 1791532475.9315996,
+            "receipt_wall_s": 1791532475.931607
+          },
+          "receipt_age_wall_s": 0.039388418197631836
+        },
+        "/indoor_nav/sitl/mock_range": {
+          "count": 125,
+          "last": {
+            "frame_id": "sitl_range",
+            "header_s": 1791532475.9314365,
+            "range_m": 0.14975470304489136,
+            "receipt_s": 1791532475.9315045,
+            "receipt_wall_s": 1791532475.9315085
+          },
+          "receipt_age_wall_s": 0.039489030838012695
+        },
+        "/indoor_nav/uwb_velocity/status": {
+          "count": 151,
+          "last": {
+            "data": "{\"stamp_s\": 1791532475.9390347, \"frame_id\": \"world_lab\", \"forwarded_to_fc\": false, \"raw_native_uwb_anchor_xyz\": [0.0, 0.0, 0.0], \"native_reason\": \"MOCK_NATIVE_NOT_VALIDATED\", \"native_verified\": false, \"native_body_world_candidate\": [0.0, 0.0, 0.0], \"derived\": {\"valid\": false, \"source\": \"UNAVAILABLE\", \"reason\": \"STATIONARY_OR_FROZEN_AMBIGUOUS\", \"sample_count\": 13, \"timestamp_basis\": \"ROS_RECEIPT\", \"position_velocity_correlated\": true, \"velocity_world_xy\": [3.172553358172936e-08, 5.11725214628328e-09], \"variance_world_xy\": [0.03433662728394958, 0.03433662728394958], \"window_s\": 0.4799935817718506, \"delay_s\": 0.2789958715438843, \"sample_age_s\": 0.038999080657958984, \"sample_stamp_s\": 1791532475.9000356, \"candidate_source\": \"DERIVED_WINDOW\", \"position_span_m\": 1.501712528671799e-08, \"fit_residual_rms_m\": 1.0823847512413028e-09}, \"selected\": {\"valid\": false, \"source\": \"UNAVAILABLE\", \"reason\": \"STATIONARY_OR_FROZEN_AMBIGUOUS\", \"sample_count\": 13, \"timestamp_basis\": \"ROS_RECEIPT\", \"position_velocity_correlated\": true, \"velocity_world_xy\": [3.172553358172936e-08, 5.11725214628328e-09], \"variance_world_xy\": [0.03433662728394958, 0.03433662728394958], \"window_s\": 0.4799935817718506, \"delay_s\": 0.2789958715438843, \"sample_age_s\": 0.038999080657958984, \"sample_stamp_s\": 1791532475.9000356, \"candidate_source\": \"DERIVED_WINDOW\", \"position_span_m\": 1.501712528671799e-08, \"fit_residual_rms_m\": 1.0823847512413028e-09}, \"ekf\": {\"receipt_s\": 1791532475.9303463, \"header_s\": 1791532475.9242349, \"frame_id\": \"base_link\", \"xyz\": [0.02752985619008541, -0.020280003547668457, -0.0003570983244571835]}, \"gazebo_truth\": \"NOT_AN_ESTIMATOR_INPUT; compare using evaluation capture\", \"position_velocity_correlation\": \"same UWB input; no independent fusion claim\", \"velocity_nav_xy\": [-1.205378951626608e-08, 2.9789291849113035e-08], \"covariance_nav_xy\": [0.03433662728394958, -0.0, -0.0, 0.03433662728394958], \"body_flu_candidate_assuming_unknown_vz_zero\": [3.156206963721787e-08, 6.044125251365373e-09, -7.793285318758246e-12]}",
+            "receipt_s": 1791532475.939707,
+            "receipt_wall_s": 1791532475.9397151
+          },
+          "receipt_age_wall_s": 0.031281232833862305
+        },
+        "/indoor_nav/world_pose": {
+          "count": 150,
+          "last": {
+            "frame_id": "world_lab",
+            "header_s": 1791532475.9393098,
+            "receipt_s": 1791532475.9396758,
+            "receipt_wall_s": 1791532475.9396791,
+            "xyz": [
+              0.00012665818013796182,
+              -0.0003543646415559154,
+              -0.00024538767196397027
+            ]
+          },
+          "receipt_age_wall_s": 0.031319379806518555
+        },
+        "/mavros/imu/data": {
+          "count": 126,
+          "last": {
+            "frame_id": "base_link",
+            "header_s": 1791532475.9642563,
+            "receipt_s": 1791532475.9653192,
+            "receipt_wall_s": 1791532475.9653246
+          },
+          "receipt_age_wall_s": 0.005666971206665039
+        },
+        "/mavros/local_position/velocity_local": {
+          "count": 126,
+          "last": {
+            "frame_id": "base_link",
+            "header_s": 1791532475.9642563,
+            "receipt_s": 1791532475.9690754,
+            "receipt_wall_s": 1791532475.9690797,
+            "velocity": [
+              0.027079995721578598,
+              -0.02003169059753418,
+              -0.0003027713974006474
+            ]
+          },
+          "receipt_age_wall_s": 0.0019147396087646484
+        },
+        "/mavros/state": {
+          "count": 6,
+          "last": {
+            "armed": false,
+            "connected": true,
+            "frame_id": "",
+            "header_s": 1791532475.0118344,
+            "mode": "STABILIZE",
+            "receipt_s": 1791532475.0120773,
+            "receipt_wall_s": 1791532475.012082
+          },
+          "receipt_age_wall_s": 0.9589056968688965
+        }
+      },
+      "udp": [
+        "ESTAB    0        0                     127.0.0.1:37002        127.0.0.1:9003    users:((\"gzserver\",pid=923004,fd=104))                                         ",
+        "UNCONN   768      0                     127.0.0.1:9002           0.0.0.0:*       users:((\"gzserver\",pid=923004,fd=103))                                         ",
+        "UNCONN   0        0                       0.0.0.0:9003           0.0.0.0:*       users:((\"arducopter\",pid=922822,fd=8))                                         ",
+        "UNCONN   0        0                       0.0.0.0:14552          0.0.0.0:*       users:((\"mavros_node\",pid=923283,fd=13))                                       "
+      ],
+      "wall_s": 1791532475.9709854
+    }
+  ],
+  "gazebo_physics": {
+    "max_update_rate": 0.0,
+    "pause": false,
+    "success": true,
+    "time_step": 0.0025
+  },
+  "missing_topics": [
+    "/indoor_nav/abort_snapshot"
+  ],
+  "processes": [
+    " 922489  922466 rosmaster       Ssl   3.3       15:24 do_select",
+    " 922809  922568 mavproxy.py     Sl+  15.6       15:21 do_select",
+    " 922822  922808 arducopter      Ssl+  3.2       15:21 hrtimer_nanosleep",
+    " 922927  922902 gzserver        Ss    0.0       15:20 do_wait",
+    " 922930  922902 gzclient        Ss    0.0       15:20 do_wait",
+    " 922995  922930 gzclient        SLl  22.5       15:20 do_sys_poll",
+    " 923004  922927 gzserver        SLl  25.8       15:20 hrtimer_nanosleep",
+    " 923283  923247 mavros_node     Ssl   3.3       15:17 hrtimer_nanosleep"
+  ],
+  "tcp_sockets": [
+    "LISTEN      0        5                                           0.0.0.0:5760                   0.0.0.0:*        users:((\"arducopter\",pid=922822,fd=9))         ",
+    "ESTAB       0        244                                       127.0.0.1:52732                127.0.0.1:5760     users:((\"mavproxy.py\",pid=922809,fd=8))        ",
+    "ESTAB       0        0                                         127.0.0.1:5760                 127.0.0.1:52732    users:((\"arducopter\",pid=922822,fd=10))        "
+  ],
+  "topics": {
+    "/clock": {
+      "count": 2079,
+      "first": {
+        "receipt_s": 1791532470.9616706,
+        "receipt_wall_s": 1791532470.9616754,
+        "sim_s": 911.3225
+      },
+      "last": {
+        "receipt_s": 1791532476.1521604,
+        "receipt_wall_s": 1791532476.1521635,
+        "sim_s": 916.5175
+      }
+    },
+    "/diagnostics": {
+      "count": 4,
+      "first": {
+        "frame_id": "",
+        "header_s": 1791532471.9656925,
+        "receipt_s": 1791532471.9658802,
+        "receipt_wall_s": 1791532471.9658852,
+        "statuses": [
+          {
+            "level": 0,
+            "message": "connected",
+            "name": "mavros: FCU connection",
+            "values": {
+              "Buffer overruns:": "0",
+              "Dropped packets:": "0",
+              "Parse errors:": "0",
+              "Received packets:": "52961",
+              "Rx sequence number:": "225",
+              "Rx speed:": "22222.000000",
+              "Rx total bytes:": "20796517",
+              "Tx sequence number:": "0",
+              "Tx speed:": "7640.000000",
+              "Tx total bytes:": "6708509"
+            }
+          },
+          {
+            "level": 2,
+            "message": "No satellites",
+            "name": "mavros: GPS",
+            "values": {
+              "EPH (m)": "Unknown",
+              "EPV (m)": "Unknown",
+              "Fix type": "0",
+              "Satellites visible": "0"
+            }
+          },
+          {
+            "level": 1,
+            "message": "Can not diagnose in this targeting mode",
+            "name": "mavros: Mount",
+            "values": {
+              "Mode": "255"
+            }
+          },
+          {
+            "level": 0,
+            "message": "Normal",
+            "name": "mavros: Heartbeat",
+            "values": {
+              "Autopilot type": "ArduPilot",
+              "Frequency (Hz)": "0.965517",
+              "Heartbeats since startup": "913",
+              "Mode": "STABILIZE",
+              "System status": "Standby",
+              "Vehicle type": "Quadrotor"
+            }
+          },
+          {
+            "level": 0,
+            "message": "Normal",
+            "name": "mavros: System",
+            "values": {
+              "3D accelerometer": "Ok",
+              "3D angular rate control": "Ok",
+              "3D gyro": "Ok",
+              "3D magnetometer": "Ok",
+              "AHRS subsystem health": "Ok",
+              "Battery": "Ok",
+              "CPU Load (%)": "100.0",
+              "Drop rate (%)": "0.0",
+              "Errors comm": "0",
+              "Errors count #1": "0",
+              "Errors count #2": "0",
+              "Errors count #3": "0",
+              "Errors count #4": "0",
+              "Sensor enabled": "0x42619D8F",
+              "Sensor health": "0x47719D8F",
+              "Sensor present": "0x5371FD8F",
+              "Terrain subsystem health": "Ok",
+              "absolute pressure": "Ok",
+              "attitude stabilization": "Ok",
+              "computer vision position": "Ok",
+              "laser based position": "Ok",
+              "motor outputs / control": "Ok",
+              "propulsion (actuator, esc, motor or propellor)": "Ok",
+              "rc receiver": "Ok",
+              "yaw position": "Ok"
+            }
+          },
+          {
+            "level": 0,
+            "message": "Normal",
+            "name": "mavros: Battery",
+            "values": {
+              "Current": "-0.0",
+              "Remaining": "100.0",
+              "Voltage": "12.60"
+            }
+          },
+          {
+            "level": 0,
+            "message": "Normal",
+            "name": "mavros: Time Sync",
+            "values": {
+              "Estimated time offset (s)": "1791531559.903475046",
+              "Frequency (Hz)": "9.931026",
+              "Last RTT (ms)": "2.389612",
+              "Last remote time (s)": "911.956224000",
+              "Mean RTT (ms)": "4.646504",
+              "Timesyncs since startup": "9121"
+            }
+          },
+          {
+            "level": 0,
+            "message": "Normal",
+            "name": "mavros: APM Memory",
+            "values": {
+              "Free memory (B)": "131072",
+              "Heap top": "0x0000"
+            }
+          },
+          {
+            "level": 2,
+            "message": "Not initialised",
+            "name": "mavros: APM Hardware",
+            "values": {
+              "Core voltage": "-1.000000",
+              "I2C errors": "0"
+            }
+          }
+        ]
+      },
+      "last": {
+        "frame_id": "",
+        "header_s": 1791532475.965664,
+        "receipt_s": 1791532475.9658163,
+        "receipt_wall_s": 1791532475.96582,
+        "statuses": [
+          {
+            "level": 0,
+            "message": "connected",
+            "name": "mavros: FCU connection",
+            "values": {
+              "Buffer overruns:": "0",
+              "Dropped packets:": "0",
+              "Parse errors:": "0",
+              "Received packets:": "55810",
+              "Rx sequence number:": "2",
+              "Rx speed:": "23106.000000",
+              "Rx total bytes:": "20888573",
+              "Tx sequence number:": "0",
+              "Tx speed:": "7640.000000",
+              "Tx total bytes:": "6739069"
+            }
+          },
+          {
+            "level": 2,
+            "message": "No satellites",
+            "name": "mavros: GPS",
+            "values": {
+              "EPH (m)": "Unknown",
+              "EPV (m)": "Unknown",
+              "Fix type": "0",
+              "Satellites visible": "0"
+            }
+          },
+          {
+            "level": 1,
+            "message": "Can not diagnose in this targeting mode",
+            "name": "mavros: Mount",
+            "values": {
+              "Mode": "255"
+            }
+          },
+          {
+            "level": 0,
+            "message": "Normal",
+            "name": "mavros: Heartbeat",
+            "values": {
+              "Autopilot type": "ArduPilot",
+              "Frequency (Hz)": "1.000001",
+              "Heartbeats since startup": "917",
+              "Mode": "STABILIZE",
+              "System status": "Standby",
+              "Vehicle type": "Quadrotor"
+            }
+          },
+          {
+            "level": 0,
+            "message": "Normal",
+            "name": "mavros: System",
+            "values": {
+              "3D accelerometer": "Ok",
+              "3D angular rate control": "Ok",
+              "3D gyro": "Ok",
+              "3D magnetometer": "Ok",
+              "AHRS subsystem health": "Ok",
+              "Battery": "Ok",
+              "CPU Load (%)": "100.0",
+              "Drop rate (%)": "0.0",
+              "Errors comm": "0",
+              "Errors count #1": "0",
+              "Errors count #2": "0",
+              "Errors count #3": "0",
+              "Errors count #4": "0",
+              "Sensor enabled": "0x42619D8F",
+              "Sensor health": "0x47719D8F",
+              "Sensor present": "0x5371FD8F",
+              "Terrain subsystem health": "Ok",
+              "absolute pressure": "Ok",
+              "attitude stabilization": "Ok",
+              "computer vision position": "Ok",
+              "laser based position": "Ok",
+              "motor outputs / control": "Ok",
+              "propulsion (actuator, esc, motor or propellor)": "Ok",
+              "rc receiver": "Ok",
+              "yaw position": "Ok"
+            }
+          },
+          {
+            "level": 0,
+            "message": "Normal",
+            "name": "mavros: Battery",
+            "values": {
+              "Current": "-0.0",
+              "Remaining": "100.0",
+              "Voltage": "12.60"
+            }
+          },
+          {
+            "level": 0,
+            "message": "Normal",
+            "name": "mavros: Time Sync",
+            "values": {
+              "Estimated time offset (s)": "1791531559.904256344",
+              "Frequency (Hz)": "10.000016",
+              "Last RTT (ms)": "5.558053",
+              "Last remote time (s)": "916.057937000",
+              "Mean RTT (ms)": "4.651542",
+              "Timesyncs since startup": "9162"
+            }
+          },
+          {
+            "level": 0,
+            "message": "Normal",
+            "name": "mavros: APM Memory",
+            "values": {
+              "Free memory (B)": "131072",
+              "Heap top": "0x0000"
+            }
+          },
+          {
+            "level": 2,
+            "message": "Not initialised",
+            "name": "mavros: APM Hardware",
+            "values": {
+              "Core voltage": "-1.000000",
+              "I2C errors": "0"
+            }
+          }
+        ]
+      }
+    },
+    "/gazebo/model_states": {
+      "count": 2078,
+      "first": {
+        "receipt_s": 1791532470.9613986,
+        "receipt_wall_s": 1791532470.961458,
+        "xyz": [
+          7.965989853304294e-05,
+          -0.00025185832606112524,
+          -0.00018860985472687886
+        ]
+      },
+      "last": {
+        "receipt_s": 1791532476.15201,
+        "receipt_wall_s": 1791532476.152016,
+        "xyz": [
+          8.668879956846616e-05,
+          -0.00030115041299231193,
+          -0.00024528150742159083
+        ]
+      }
+    },
+    "/indoor_nav/accepted_uwb_details": {
+      "count": 130,
+      "first": {
+        "data": "{\"receipt_s\": 1791532470.9801183, \"frame_id\": \"uwb_anchor\", \"xy\": [0.04007966071367264, -0.03025185875594616], \"native_velocity_xyz\": [0.0, 0.0, 0.0], \"eop_xy\": [0.009999999776482582, 0.009999999776482582], \"device_local_time\": 531108539, \"device_system_time\": 531108539, \"timing\": \"ORDERED_DEVICE_COUNTER_RECEIPT_TIME\", \"native_velocity_verified\": false}",
+        "receipt_s": 1791532470.980347,
+        "receipt_wall_s": 1791532470.9803553
+      },
+      "last": {
+        "data": "{\"receipt_s\": 1791532476.1400795, \"frame_id\": \"uwb_anchor\", \"xy\": [0.040086690336465836, -0.030301149934530258], \"native_velocity_xyz\": [0.0, 0.0, 0.0], \"eop_xy\": [0.009999999776482582, 0.009999999776482582], \"device_local_time\": 531113699, \"device_system_time\": 531113699, \"timing\": \"ORDERED_DEVICE_COUNTER_RECEIPT_TIME\", \"native_velocity_verified\": false}",
+        "receipt_s": 1791532476.1402771,
+        "receipt_wall_s": 1791532476.1402855
+      }
+    },
+    "/indoor_nav/localization_diagnostics": {
+      "count": 157,
+      "first": {
+        "data": "{\"stamp_s\": 1791532470.9390528, \"healthy\": true, \"reason\": \"OK\", \"world_publish_enabled\": true, \"last_world_publish_s\": 1791532470.9390528, \"fc_connected\": true, \"fc_age_s\": 0.9221539497375488, \"imu_age_s\": 0.014655113220214844, \"range_age_s\": 0.007682085037231445, \"range_header_age_s\": 0.00781559944152832, \"range_rejection\": \"\", \"imu_rejection\": \"\", \"imu_header_age_s\": 0.014772176742553711, \"uwb_accepted_age_s\": 0.03899574279785156, \"uwb_received_age_s\": 0.03899574279785156, \"uwb_gate_reason\": \"OK\", \"uwb_rejected\": 0, \"raw_uwb\": {\"receipt_s\": 1791532470.900057, \"xy\": [0.04007966071367264, -0.03025185875594616], \"eop_xy\": [0.009999999776482582, 0.009999999776482582], \"device_local_time\": 531108459, \"device_system_time\": 531108459}, \"accepted_xy\": [0.04007966071367264, -0.03025185875594616], \"uwb_timestamp_basis\": \"ROS_RECEIPT_NO_SYNCHRONIZED_DEVICE_HEADER\", \"packet_order_reason\": \"ORDERED_DEVICE_COUNTER_RECEIPT_TIME\", \"packet_order_rejected\": 0, \"transport_adapter\": {\"enabled\": false, \"reason\": \"DISABLED\", \"checked_at_s\": null, \"firmware\": [], \"minimum_position_sigma_m\": 0.2, \"fc_position_sigma_m\": null, \"velocity_forwarding\": false}, \"fc_armed\": false, \"localization_healthy\": true, \"localization_reason\": \"OK\", \"imu_pending_header_s\": null, \"imu_future_hold_limit_s\": 0.02, \"imu_received_age_s\": 0.014655113220214844, \"imu_received_header_age_s\": 0.014772176742553711, \"uwb_age_s\": 0.03899574279785156, \"publication\": {\"world_pose\": {\"sent_this_tick\": true, \"reason\": \"OK\", \"last_success_s\": 1791532470.9390528, \"stopped_since_s\": null, \"outage_duration_s\": 0.0, \"tick_gap_s\": 0.03335213661193848}, \"external_nav\": {\"sent_this_tick\": true, \"reason\": \"OK\", \"last_success_s\": 1791532470.9390528, \"stopped_since_s\": null, \"outage_duration_s\": 0.0, \"tick_gap_s\": 0.03335213661193848}}, \"external_nav_enabled\": true, \"callback_elapsed_wall_s\": 0.0004897539911326021}",
+        "receipt_s": 1791532470.9648898,
+        "receipt_wall_s": 1791532470.964896
+      },
+      "last": {
+        "data": "{\"stamp_s\": 1791532476.1390357, \"healthy\": true, \"reason\": \"OK\", \"world_publish_enabled\": true, \"last_world_publish_s\": 1791532476.1390357, \"fc_connected\": true, \"fc_age_s\": 0.12209749221801758, \"imu_age_s\": 0.01696467399597168, \"range_age_s\": 0.007796525955200195, \"range_header_age_s\": 0.007871389389038086, \"range_rejection\": \"\", \"imu_rejection\": \"\", \"imu_header_age_s\": 0.014754533767700195, \"uwb_accepted_age_s\": 0.038970947265625, \"uwb_received_age_s\": 0.038970947265625, \"uwb_gate_reason\": \"OK\", \"uwb_rejected\": 0, \"raw_uwb\": {\"receipt_s\": 1791532476.1000648, \"xy\": [0.040086690336465836, -0.030301149934530258], \"eop_xy\": [0.009999999776482582, 0.009999999776482582], \"device_local_time\": 531113659, \"device_system_time\": 531113659}, \"accepted_xy\": [0.040086690336465836, -0.030301149934530258], \"uwb_timestamp_basis\": \"ROS_RECEIPT_NO_SYNCHRONIZED_DEVICE_HEADER\", \"packet_order_reason\": \"ORDERED_DEVICE_COUNTER_RECEIPT_TIME\", \"packet_order_rejected\": 0, \"transport_adapter\": {\"enabled\": false, \"reason\": \"DISABLED\", \"checked_at_s\": null, \"firmware\": [], \"minimum_position_sigma_m\": 0.2, \"fc_position_sigma_m\": null, \"velocity_forwarding\": false}, \"fc_armed\": false, \"localization_healthy\": true, \"localization_reason\": \"OK\", \"imu_pending_header_s\": null, \"imu_future_hold_limit_s\": 0.02, \"imu_received_age_s\": 0.01696467399597168, \"imu_received_header_age_s\": 0.014754533767700195, \"uwb_age_s\": 0.038970947265625, \"publication\": {\"world_pose\": {\"sent_this_tick\": true, \"reason\": \"OK\", \"last_success_s\": 1791532476.1390357, \"stopped_since_s\": null, \"outage_duration_s\": 0.0, \"tick_gap_s\": 0.03333687782287598}, \"external_nav\": {\"sent_this_tick\": true, \"reason\": \"OK\", \"last_success_s\": 1791532476.1390357, \"stopped_since_s\": null, \"outage_duration_s\": 0.0, \"tick_gap_s\": 0.03333687782287598}}, \"external_nav_enabled\": true, \"callback_elapsed_wall_s\": 0.0005005639977753162}",
+        "receipt_s": 1791532476.1398044,
+        "receipt_wall_s": 1791532476.1398144
+      }
+    },
+    "/indoor_nav/localization_status": {
+      "count": 157,
+      "first": {
+        "frame_id": "",
+        "header_s": 1791532470.9393718,
+        "healthy": true,
+        "range_age_s": 0.007682085037231445,
+        "reason": "OK",
+        "receipt_s": 1791532470.963234,
+        "receipt_wall_s": 1791532470.9632387,
+        "uwb_age_s": 0.03899574279785156
+      },
+      "last": {
+        "frame_id": "",
+        "header_s": 1791532476.1393187,
+        "healthy": true,
+        "range_age_s": 0.007796525955200195,
+        "reason": "OK",
+        "receipt_s": 1791532476.1395288,
+        "receipt_wall_s": 1791532476.1395323,
+        "uwb_age_s": 0.038970947265625
+      }
+    },
+    "/indoor_nav/sitl/mock_diagnostics": {
+      "count": 131,
+      "first": {
+        "data": "{\"stamp_s\": 1791532470.9311905, \"reason\": \"OK\", \"model_name\": \"iris\", \"source\": \"gazebo_model_states\", \"truth_xyz\": [7.966305013098625e-05, -0.0002518581535810478, -0.00018861268055678226], \"truth_receipt_s\": 1791532470.9244106, \"truth_age_s\": 0.006779909133911133, \"gazebo_clock_s\": 911.29, \"clock_progress_age_s\": 0.006592512130737305, \"queue_length\": 0, \"freeze_injected\": false, \"drop_all_injected\": false, \"delay_ms\": 0, \"held_uwb_xyz\": [0.04007966206871113, -0.030251858183602102, -0.00018861546860135525]}",
+        "receipt_s": 1791532470.966138,
+        "receipt_wall_s": 1791532470.966142
+      },
+      "last": {
+        "data": "{\"stamp_s\": 1791532476.1311033, \"reason\": \"OK\", \"model_name\": \"iris\", \"source\": \"gazebo_model_states\", \"truth_xyz\": [8.668990761154488e-05, -0.0003011503474790313, -0.0002452833795590914], \"truth_receipt_s\": 1791532476.1294644, \"truth_age_s\": 0.0016388893127441406, \"gazebo_clock_s\": 916.495, \"clock_progress_age_s\": 0.0015387535095214844, \"queue_length\": 0, \"freeze_injected\": false, \"drop_all_injected\": false, \"delay_ms\": 0, \"held_uwb_xyz\": [0.04008668857939052, -0.030301150390623244, -0.0002452867706740913]}",
+        "receipt_s": 1791532476.1312933,
+        "receipt_wall_s": 1791532476.131299
+      }
+    },
+    "/indoor_nav/sitl/mock_range": {
+      "count": 130,
+      "first": {
+        "frame_id": "sitl_range",
+        "header_s": 1791532470.9709835,
+        "range_m": 0.14981138706207275,
+        "receipt_s": 1791532470.9710686,
+        "receipt_wall_s": 1791532470.971074
+      },
+      "last": {
+        "frame_id": "sitl_range",
+        "header_s": 1791532476.1311643,
+        "range_m": 0.14975471794605255,
+        "receipt_s": 1791532476.1313405,
+        "receipt_wall_s": 1791532476.1313443
+      }
+    },
+    "/indoor_nav/uwb_velocity/status": {
+      "count": 157,
+      "first": {
+        "data": "{\"stamp_s\": 1791532470.9390528, \"frame_id\": \"world_lab\", \"forwarded_to_fc\": false, \"raw_native_uwb_anchor_xyz\": [0.0, 0.0, 0.0], \"native_reason\": \"MOCK_NATIVE_NOT_VALIDATED\", \"native_verified\": false, \"native_body_world_candidate\": [0.0, 0.0, 0.0], \"derived\": {\"valid\": false, \"source\": \"UNAVAILABLE\", \"reason\": \"STATIONARY_OR_FROZEN_AMBIGUOUS\", \"sample_count\": 13, \"timestamp_basis\": \"ROS_RECEIPT\", \"position_velocity_correlated\": true, \"velocity_world_xy\": [-1.791036662994243e-08, -4.3493686526532685e-09], \"variance_world_xy\": [0.03434034193833568, 0.03434034193833568], \"window_s\": 0.4799940586090088, \"delay_s\": 0.27899277210235596, \"sample_age_s\": 0.03899574279785156, \"sample_stamp_s\": 1791532470.900057, \"candidate_source\": \"DERIVED_WINDOW\", \"position_span_m\": 1.1780402288468106e-08, \"fit_residual_rms_m\": 1.6913360853099416e-09}, \"selected\": {\"valid\": false, \"source\": \"UNAVAILABLE\", \"reason\": \"STATIONARY_OR_FROZEN_AMBIGUOUS\", \"sample_count\": 13, \"timestamp_basis\": \"ROS_RECEIPT\", \"position_velocity_correlated\": true, \"velocity_world_xy\": [-1.791036662994243e-08, -4.3493686526532685e-09], \"variance_world_xy\": [0.03434034193833568, 0.03434034193833568], \"window_s\": 0.4799940586090088, \"delay_s\": 0.27899277210235596, \"sample_age_s\": 0.03899574279785156, \"sample_stamp_s\": 1791532470.900057, \"candidate_source\": \"DERIVED_WINDOW\", \"position_span_m\": 1.1780402288468106e-08, \"fit_residual_rms_m\": 1.6913360853099416e-09}, \"ekf\": {\"receipt_s\": 1791532470.9285345, \"header_s\": 1791532470.9242806, \"frame_id\": \"base_link\", \"xyz\": [0.08328981697559357, -0.05622362345457077, 3.6972745874663815e-05]}, \"gazebo_truth\": \"NOT_AN_ESTIMATOR_INPUT; compare using evaluation capture\", \"position_velocity_correlation\": \"same UWB input; no independent fusion claim\", \"velocity_nav_xy\": [8.228654638728086e-09, -1.6492043030873315e-08], \"covariance_nav_xy\": [0.03434034193833568, -0.0, -0.0, 0.03434034193833568], \"body_flu_candidate_assuming_unknown_vz_zero\": [-1.778385471827783e-08, -4.840625823741728e-09, 3.30679505043653e-11]}",
+        "receipt_s": 1791532470.9675777,
+        "receipt_wall_s": 1791532470.9675834
+      },
+      "last": {
+        "data": "{\"stamp_s\": 1791532476.1390357, \"frame_id\": \"world_lab\", \"forwarded_to_fc\": false, \"raw_native_uwb_anchor_xyz\": [0.0, 0.0, 0.0], \"native_reason\": \"MOCK_NATIVE_NOT_VALIDATED\", \"native_verified\": false, \"native_body_world_candidate\": [0.0, 0.0, 0.0], \"derived\": {\"valid\": false, \"source\": \"UNAVAILABLE\", \"reason\": \"STATIONARY_OR_FROZEN_AMBIGUOUS\", \"sample_count\": 13, \"timestamp_basis\": \"ROS_RECEIPT\", \"position_velocity_correlated\": true, \"velocity_world_xy\": [3.070458994253289e-08, 0.0], \"variance_world_xy\": [0.03434277958884246, 0.03434277958884246], \"window_s\": 0.47995662689208984, \"delay_s\": 0.2789492607116699, \"sample_age_s\": 0.038970947265625, \"sample_stamp_s\": 1791532476.1000648, \"candidate_source\": \"DERIVED_WINDOW\", \"position_span_m\": 1.4901161193847656e-08, \"fit_residual_rms_m\": 1.0270482690108848e-09}, \"selected\": {\"valid\": false, \"source\": \"UNAVAILABLE\", \"reason\": \"STATIONARY_OR_FROZEN_AMBIGUOUS\", \"sample_count\": 13, \"timestamp_basis\": \"ROS_RECEIPT\", \"position_velocity_correlated\": true, \"velocity_world_xy\": [3.070458994253289e-08, 0.0], \"variance_world_xy\": [0.03434277958884246, 0.03434277958884246], \"window_s\": 0.47995662689208984, \"delay_s\": 0.2789492607116699, \"sample_age_s\": 0.038970947265625, \"sample_stamp_s\": 1791532476.1000648, \"candidate_source\": \"DERIVED_WINDOW\", \"position_span_m\": 1.4901161193847656e-08, \"fit_residual_rms_m\": 1.0270482690108848e-09}, \"ekf\": {\"receipt_s\": 1791532476.12657, \"header_s\": 1791532476.1242812, \"frame_id\": \"base_link\", \"xyz\": [0.0252359751611948, -0.01883140206336975, -0.0002377599012106657]}, \"gazebo_truth\": \"NOT_AN_ESTIMATOR_INPUT; compare using evaluation capture\", \"position_velocity_correlation\": \"same UWB input; no independent fusion claim\", \"velocity_nav_xy\": [-6.837681538974437e-09, 2.9933559005080904e-08], \"covariance_nav_xy\": [0.03434277958884246, -0.0, -0.0, 0.03434277958884246], \"body_flu_candidate_assuming_unknown_vz_zero\": [3.069144684014696e-08, 8.982948932734612e-10, -8.259805842096924e-13]}",
+        "receipt_s": 1791532476.1394777,
+        "receipt_wall_s": 1791532476.1394858
+      }
+    },
+    "/indoor_nav/world_pose": {
+      "count": 156,
+      "first": {
+        "frame_id": "world_lab",
+        "header_s": 1791532470.972596,
+        "receipt_s": 1791532470.9728007,
+        "receipt_wall_s": 1791532470.972806,
+        "xyz": [
+          0.00011963973321565957,
+          -0.0003050734629718166,
+          -0.00018917861023132199
+        ]
+      },
+      "last": {
+        "frame_id": "world_lab",
+        "header_s": 1791532476.1393187,
+        "receipt_s": 1791532476.1397393,
+        "receipt_wall_s": 1791532476.139745,
+        "xyz": [
+          0.00012666563071855874,
+          -0.0003543646415559154,
+          -0.0002453669655166357
+        ]
+      }
+    },
+    "/mavros/imu/data": {
+      "count": 130,
+      "first": {
+        "frame_id": "base_link",
+        "header_s": 1791532470.9643056,
+        "receipt_s": 1791532470.9625342,
+        "receipt_wall_s": 1791532470.962538
+      },
+      "last": {
+        "frame_id": "base_link",
+        "header_s": 1791532476.1242812,
+        "receipt_s": 1791532476.1220872,
+        "receipt_wall_s": 1791532476.122092
+      }
+    },
+    "/mavros/local_position/velocity_local": {
+      "count": 130,
+      "first": {
+        "frame_id": "base_link",
+        "header_s": 1791532470.9643056,
+        "receipt_s": 1791532470.9660015,
+        "receipt_wall_s": 1791532470.9660056,
+        "velocity": [
+          0.08291028439998627,
+          -0.05589478090405464,
+          6.54734458294115e-06
+        ]
+      },
+      "last": {
+        "frame_id": "base_link",
+        "header_s": 1791532476.1242812,
+        "receipt_s": 1791532476.1265383,
+        "receipt_wall_s": 1791532476.1265428,
+        "velocity": [
+          0.0252359751611948,
+          -0.01883140206336975,
+          -0.0002377599012106657
+        ]
+      }
+    },
+    "/mavros/state": {
+      "count": 7,
+      "first": {
+        "armed": false,
+        "connected": true,
+        "frame_id": "",
+        "header_s": 1791532470.0167565,
+        "mode": "STABILIZE",
+        "receipt_s": 1791532470.9574769,
+        "receipt_wall_s": 1791532470.957486
+      },
+      "last": {
+        "armed": false,
+        "connected": true,
+        "frame_id": "",
+        "header_s": 1791532476.016767,
+        "mode": "STABILIZE",
+        "receipt_s": 1791532476.0170908,
+        "receipt_wall_s": 1791532476.0170953
+      }
+    }
+  },
+  "udp_sockets": [
+    "ESTAB    0        0                     127.0.0.1:37002        127.0.0.1:9003    users:((\"gzserver\",pid=923004,fd=104))                                         ",
+    "UNCONN   0        0                     127.0.0.1:9002           0.0.0.0:*       users:((\"gzserver\",pid=923004,fd=103))                                         ",
+    "UNCONN   0        0                       0.0.0.0:9003           0.0.0.0:*       users:((\"arducopter\",pid=922822,fd=8))                                         ",
+    "UNCONN   0        0                       0.0.0.0:14552          0.0.0.0:*       users:((\"mavros_node\",pid=923283,fd=13))                                       "
+  ]
+}

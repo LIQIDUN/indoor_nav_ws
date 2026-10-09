@@ -1,0 +1,91 @@
+{
+  "result": "FAILED",
+  "error": "SAFETY:FC_DISCONNECTED",
+  "airborne_test_window_s": 5.954017162322998,
+  "ekf_position_xy_error_m": {
+    "samples": 148,
+    "rms": 0.25755970772094416,
+    "max": 0.33419352053019613,
+    "p95": 0.3334732825261774
+  },
+  "ekf_velocity_xy_error_mps": {
+    "samples": 148,
+    "rms": 0.11559002671215739,
+    "max": 0.1623577422842465,
+    "p95": 0.16201913714681518
+  },
+  "uwb_position_xy_error_m": {
+    "samples": 179,
+    "rms": 0.0022692148694272926,
+    "max": 0.0064951616844783604,
+    "p95": 0.004832856743892385
+  },
+  "uwb_velocity_xy_error_mps": {
+    "samples": 56,
+    "rms": 0.0022399704564679693,
+    "max": 0.005110504562785935,
+    "p95": 0.004974470687972202
+  },
+  "state_max_gap_s": 1.0055911540985107,
+  "safety_reasons": {
+    "READY": 135,
+    "Z_BELOW_FENCE": 143,
+    "FC_DISCONNECTED": 1,
+    "OPERATOR_NOT_ACKNOWLEDGED": 8
+  },
+  "freeze_classifications": {
+    "STATIONARY": 122,
+    "POSITION_CHANGING": 86,
+    "LOCALIZATION_OR_FC_UNAVAILABLE": 1,
+    "WINDOW_INCOMPLETE": 28,
+    "STATIONARY_WITH_EKF_VELOCITY_DISAGREEMENT": 50
+  },
+  "truth_position_min": [
+    -0.16054380958002673,
+    -0.14748145158138307,
+    -0.0003020780146956725
+  ],
+  "truth_position_max": [
+    0.018934573018126354,
+    0.012871418839463295,
+    0.8194728758902687
+  ],
+  "comparison": "Header time; linear-interpolated Gazebo receipt-time samples; paired Odometry rotation and calibrated inverse yaw. No fitted frame or time lag.",
+  "VISP_PErr_m": {
+    "samples": 179,
+    "rms": 100.0,
+    "max": 100.0,
+    "p95": 100.0
+  },
+  "innovation_xy_m_by_core": {
+    "0": {
+      "samples": 59,
+      "rms": 0.2483777877019779,
+      "max": 0.31827660925679097,
+      "p95": 0.31827660925679097
+    },
+    "1": {
+      "samples": 59,
+      "rms": 0.2549243822743641,
+      "max": 0.33941125496954283,
+      "p95": 0.33941125496954283
+    }
+  },
+  "XKF4_SS_by_core": {
+    "0": [
+      74559,
+      76607,
+      78655,
+      80703
+    ],
+    "1": [
+      74559,
+      76607,
+      78655,
+      80703
+    ]
+  },
+  "PM_loop_hz": [
+    400
+  ]
+}

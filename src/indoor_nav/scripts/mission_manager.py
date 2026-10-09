@@ -100,6 +100,12 @@ class MissionManager:
         self.stable_since = None
         self.hold_since = None
         self.tick_prev = now
+        # Prime a legal hold target before announcing RUNNING. Separate ROS
+        # transports can still reorder callbacks; supervisor uses the existing
+        # setpoint deadline for the first message as well as later messages.
+        self.tick(None)
+        if self.mode != 'RUNNING':
+            return TriggerResponse(False, 'Mission initialization failed: '+self.mode)
         self.state_pub.publish(String(data=self.mode))
         return TriggerResponse(True, 'Mission started: no auto arm / no auto takeoff')
 

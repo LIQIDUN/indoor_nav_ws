@@ -68,6 +68,14 @@ class Pipeline(unittest.TestCase):
                 now[0]+=.04
                 pose.position.x=.01*i; pose.position.y=.005*i
                 cycle(); w.publish(None)
+            accepted_count=len(w.uwb_sample_pub.messages)
+            last_rx=w.uwb.last_rx
+            duplicate=m.air_pub.messages[-1]
+            now[0]+=.01; w.uwb_cb(duplicate)
+            self.assertEqual(w.uwb.last_rx,last_rx)
+            self.assertEqual(len(w.uwb_sample_pub.messages),accepted_count)
+            self.assertEqual(w.packet_gate.reason,'DUPLICATE_DEVICE_PACKET')
+            self.assertEqual(w.fc_odom_pub.messages[-1].twist.twist.linear.x,0.)
             b=w.fc_odom_pub.messages[-1].pose.pose.position
             self.assertAlmostEqual(b.x-a.x,.1)
             self.assertAlmostEqual(b.y-a.y,.05)

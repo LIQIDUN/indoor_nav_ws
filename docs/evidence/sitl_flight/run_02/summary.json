@@ -1,0 +1,92 @@
+{
+  "result": "FAILED",
+  "error": "SAFETY:FC_DISCONNECTED",
+  "events": [
+    {
+      "time": 1791547056.9486444,
+      "event": "IDENTITY",
+      "stage": "PREFLIGHT",
+      "identity": {
+        "sitl_pid": 1083704,
+        "sitl_created": 1791546309.69,
+        "proxy_pid": 1083706,
+        "mavros_pid": 1083814,
+        "master": "http://127.0.0.1:11321",
+        "params": {
+          "SIM_SPEEDUP": 1.0,
+          "GPS_TYPE": 0,
+          "EK3_SRC1_POSXY": 6,
+          "EK3_SRC1_VELXY": 0,
+          "EK3_SRC1_POSZ": 1,
+          "ARMING_CHECK": 1,
+          "LOG_DISARMED": 1,
+          "LOG_BACKEND_TYPE": 1
+        },
+        "armed": false,
+        "mode": "GUIDED"
+      }
+    },
+    {
+      "time": 1791547058.997011,
+      "event": "MODE",
+      "stage": "PREFLIGHT",
+      "mode": "GUIDED"
+    },
+    {
+      "time": 1791547059.0479655,
+      "event": "ARM_RESPONSE",
+      "stage": "PREFLIGHT",
+      "success": true,
+      "result": 0
+    },
+    {
+      "time": 1791547059.7438014,
+      "event": "TAKEOFF_RESPONSE",
+      "stage": "TAKEOFF",
+      "success": true,
+      "result": 0
+    },
+    {
+      "time": 1791547063.7449217,
+      "event": "HOVER_REACHED",
+      "stage": "HOVER",
+      "truth_z": 0.6909986348267406
+    },
+    {
+      "time": 1791547065.6978185,
+      "event": "FAILURE",
+      "stage": "HOVER",
+      "error": "SAFETY:FC_DISCONNECTED"
+    },
+    {
+      "time": 1791547065.8337455,
+      "event": "MODE",
+      "stage": "LAND",
+      "mode": "LAND"
+    },
+    {
+      "time": 1791547070.6902556,
+      "event": "LANDED_DISARMED",
+      "stage": "LAND",
+      "truth_z": -0.0004084975369498811
+    },
+    {
+      "time": 1791547070.7831032,
+      "event": "MODE",
+      "stage": "LAND",
+      "mode": "STABILIZE"
+    },
+    {
+      "time": 1791547070.7864413,
+      "event": "RESET_REQUIRES_NEW_OPERATOR_ACK",
+      "stage": "LAND"
+    },
+    {
+      "time": 1791547070.7866402,
+      "event": "RESULT",
+      "stage": "LAND",
+      "result": "FAILED",
+      "error": "SAFETY:FC_DISCONNECTED"
+    }
+  ]
+}

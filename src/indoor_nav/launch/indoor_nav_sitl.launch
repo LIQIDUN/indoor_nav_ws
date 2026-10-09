@@ -1,6 +1,10 @@
 <launch>
   <!-- SITL requires external Gazebo11 + ArduPilot + MAVROS.
        No automatic arm, no automatic takeoff, default forwarding disabled. -->
+  <arg name="mission_file" default="$(find indoor_nav)/config/mission.yaml" />
+  <arg name="sitl_covariance_adapter" default="false" />
+  <rosparam command="load" file="$(find indoor_nav)/config/sitl_external_nav_experiment.yaml" ns="/indoor_nav/sitl_experiments" />
+  <param name="/indoor_nav/sitl_experiments/external_nav/enabled" value="$(arg sitl_covariance_adapter)" />
   <arg name="external_nav_enabled" default="false" />
   <arg name="gazebo_model_name" default="iris" />
   <arg name="uwb_noise_std_xy_m" default="0.0" />
@@ -8,6 +12,7 @@
 
   <include file="$(find indoor_nav)/launch/indoor_nav.launch">
   <arg name="expected_profile" value="sitl" />
+  <arg name="mission_file" value="$(arg mission_file)" />
   <arg name="ardupilot_file" value="$(find indoor_nav)/config/ardupilot_sitl_expected.yaml" />
   <arg name="start_nlink" value="false" />
   <arg name="external_nav_enabled" value="$(arg external_nav_enabled)" />

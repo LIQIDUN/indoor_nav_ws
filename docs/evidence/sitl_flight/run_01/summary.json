@@ -1,0 +1,62 @@
+{
+  "result": "FAILED",
+  "error": "ARM_REJECTED:4",
+  "events": [
+    {
+      "time": 1791546964.670094,
+      "event": "IDENTITY",
+      "stage": "PREFLIGHT",
+      "identity": {
+        "sitl_pid": 1083704,
+        "sitl_created": 1791546309.69,
+        "proxy_pid": 1083706,
+        "mavros_pid": 1083814,
+        "master": "http://127.0.0.1:11321",
+        "params": {
+          "SIM_SPEEDUP": 1.0,
+          "GPS_TYPE": 0,
+          "EK3_SRC1_POSXY": 6,
+          "EK3_SRC1_VELXY": 0,
+          "EK3_SRC1_POSZ": 1,
+          "ARMING_CHECK": 1,
+          "LOG_DISARMED": 1,
+          "LOG_BACKEND_TYPE": 1
+        },
+        "armed": false,
+        "mode": "STABILIZE"
+      }
+    },
+    {
+      "time": 1791546966.7690027,
+      "event": "MODE",
+      "stage": "PREFLIGHT",
+      "mode": "GUIDED"
+    },
+    {
+      "time": 1791546966.8122976,
+      "event": "ARM_RESPONSE",
+      "stage": "PREFLIGHT",
+      "success": false,
+      "result": 4
+    },
+    {
+      "time": 1791546966.8125167,
+      "event": "FAILURE",
+      "stage": "PREFLIGHT",
+      "error": "ARM_REJECTED:4"
+    },
+    {
+      "time": 1791546966.8514228,
+      "event": "LANDED_DISARMED",
+      "stage": "LAND",
+      "truth_z": -0.0001543122668974939
+    },
+    {
+      "time": 1791546966.8516724,
+      "event": "RESULT",
+      "stage": "LAND",
+      "result": "FAILED",
+      "error": "ARM_REJECTED:4"
+    }
+  ]
+}

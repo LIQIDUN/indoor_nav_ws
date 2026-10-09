@@ -166,6 +166,9 @@ class MockUwb:
         elif self.rng.random() < float(cfg.get('jump_probability', 0.)):
             pos = (pos[0] + float(cfg.get('jump_size_m', .50)), pos[1], pos[2])
         msg = LinktrackNodeframe2()
+        # Simulated unique packet counter, not a claim about real device time units.
+        msg.local_time = int(rospy.get_time()*1000) & 0xffffffff
+        msg.system_time = msg.local_time
         msg.id = self.aircraft_id
         msg.role = 0
         msg.pos_3d = list(pos)

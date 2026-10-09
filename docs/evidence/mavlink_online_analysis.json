@@ -1,0 +1,131 @@
+{
+  "duration_s": 600.075968707999,
+  "health_samples": {
+    "OK": 18003
+  },
+  "armed_samples": {
+    "False": 600
+  },
+  "shadow_reasons": {
+    "STATIONARY_OR_FROZEN_AMBIGUOUS": 18003
+  },
+  "max_diagnostic_ages_and_callback": {
+    "imu_age_s": 0.07703542709350586,
+    "imu_header_age_s": 0.07330632209777832,
+    "imu_received_age_s": 0.0451505184173584,
+    "uwb_accepted_age_s": 0.03907918930053711,
+    "range_age_s": 0.041071176528930664,
+    "callback_elapsed_wall_s": 0.0021552990074269474
+  },
+  "imu_header_age_at_observer_receipt_s": [
+    -0.006639957427978516,
+    0.0070476531982421875
+  ],
+  "publication_events_during_window": [],
+  "checkpoint_count": 60,
+  "gazebo_sim_wall_ratio": 0.9999689338862738,
+  "first_process_snapshot": {
+    "processes": [
+      " 919239    4185 xterm           S     0.1       04:25 xterm -iconic -xrm XTerm*selectToClipboard: true -xrm XTerm*initialFont: 6 -n ArduCopter -name ArduCopter -T ArduCopter -hold -e /home/liqidun/github/ardupilot/build/sitl/bin/arducopter -S --model gazebo --speedup 1 --slave 0 --defaults default_params/copter.parm,default_params/gazebo-iris.parm --sim-address=127.0.0.1 -I0",
+      " 922549    4185 terminator      Sl    0.4       00:52 /usr/bin/python3 /usr/bin/terminator -u --geometry=850x430+0+340 -T INDOOR-UWB ArduPilot SITL / MAVProxy -x bash -c echo $BASHPID > /home/liqidun/github/indoor_nav_ws/.sitl_runtime/sitl.shell.pid; cd /home/liqidun/github/ardupilot/Tools/autotest && echo '[RUN] sim_vehicle.py -v ArduCopter -f gazebo-iris --model gazebo --out 127.0.0.1:14552' && python3 sim_vehicle.py -v ArduCopter -f gazebo-iris --model gazebo --mavproxy-args=--streamrate=25 --out=127.0.0.1:14552; ret=$?; echo; echo '[indoor SITL] \u7ec4\u4ef6\u5df2\u9000\u51fa\uff0c\u72b6\u6001\u7801:' $ret; exec bash",
+      " 922567  922549 bash            Ss+   0.0       00:52 bash -c echo $BASHPID > /home/liqidun/github/indoor_nav_ws/.sitl_runtime/sitl.shell.pid; cd /home/liqidun/github/ardupilot/Tools/autotest && echo '[RUN] sim_vehicle.py -v ArduCopter -f gazebo-iris --model gazebo --out 127.0.0.1:14552' && python3 sim_vehicle.py -v ArduCopter -f gazebo-iris --model gazebo --mavproxy-args=--streamrate=25 --out=127.0.0.1:14552; ret=$?; echo; echo '[indoor SITL] \u7ec4\u4ef6\u5df2\u9000\u51fa\uff0c\u72b6\u6001\u7801:' $ret; exec bash",
+      " 922568  922567 python3         S+    1.6       00:52 python3 sim_vehicle.py -v ArduCopter -f gazebo-iris --model gazebo --mavproxy-args=--streamrate=25 --out=127.0.0.1:14552",
+      " 922808    4185 xterm           S+    0.0       00:50 xterm -iconic -xrm XTerm*selectToClipboard: true -xrm XTerm*initialFont: 6 -n ArduCopter -name ArduCopter -T ArduCopter -hold -e /home/liqidun/github/ardupilot/build/sitl/bin/arducopter -S --model gazebo --speedup 1 --slave 0 --defaults default_params/copter.parm,default_params/gazebo-iris.parm --sim-address=127.0.0.1 -I0",
+      " 922809  922568 mavproxy.py     Sl+  13.9       00:50 /usr/bin/python3 /home/liqidun/.local/bin/mavproxy.py --out 127.0.0.1:14550 --master tcp:127.0.0.1:5760 --sitl 127.0.0.1:5501 --streamrate 25 --out 127.0.0.1:14552",
+      " 922822  922808 arducopter      Ssl+  2.9       00:50 /home/liqidun/github/ardupilot/build/sitl/bin/arducopter -S --model gazebo --speedup 1 --slave 0 --defaults default_params/copter.parm,default_params/gazebo-iris.parm --sim-address=127.0.0.1 -I0",
+      " 922927  922902 gzserver        Ss    0.0       00:49 /bin/sh /opt/ros/noetic/lib/gazebo_ros/gzserver --verbose -e ode /home/liqidun/github/ardupilot_gazebo/worlds/iris_ardupilot.world __name:=gazebo __log:=/home/liqidun/.ros/log/85823b1a-c3b4-11f1-bc59-710cf840f56d/gazebo-1.log",
+      " 923004  922927 gzserver        SLl  25.8       00:49 gzserver --verbose -e ode /home/liqidun/github/ardupilot_gazebo/worlds/iris_ardupilot.world -s /opt/ros/noetic/lib/libgazebo_ros_paths_plugin.so -s /opt/ros/noetic/lib/libgazebo_ros_api_plugin.so __name:=gazebo __log:=/home/liqidun/.ros/log/85823b1a-c3b4-11f1-bc59-710cf840f56d/gazebo-1.log",
+      " 923283  923247 mavros_node     Ssl   1.5       00:46 /opt/ros/noetic/lib/mavros/mavros_node __name:=mavros __log:=/home/liqidun/.ros/log/85823b1a-c3b4-11f1-bc59-710cf840f56d/mavros-1.log",
+      " 923374    4185 terminator      Sl    0.5       00:43 /usr/bin/python3 /usr/bin/terminator -u --geometry=650x360+1600+470 -T INDOOR-UWB QGroundControl -x bash -c echo $BASHPID > /home/liqidun/github/indoor_nav_ws/.sitl_runtime/qgc.shell.pid; echo '[RUN] QGroundControl: /home/liqidun/appimage/QGroundControl.AppImage' && /home/liqidun/appimage/QGroundControl.AppImage; ret=$?; echo; echo '[indoor SITL] \u7ec4\u4ef6\u5df2\u9000\u51fa\uff0c\u72b6\u6001\u7801:' $ret; exec bash",
+      " 923397    4185 QGroundControl. Ssl   1.0       00:43 /home/liqidun/appimage/QGroundControl.AppImage",
+      " 923404  923393 QGroundControl  Rl+   9.4       00:43 /tmp/.mount_QGrounpTU14Q/QGroundControl",
+      " 923509  923446 world_estimator Ssl   3.4       00:43 /usr/bin/python3 /home/liqidun/github/indoor_nav_ws/devel/lib/indoor_nav/world_estimator.py __name:=world_estimator __log:=/home/liqidun/.ros/log/85823b1a-c3b4-11f1-bc59-710cf840f56d/world_estimator-3.log"
+    ],
+    "udp": [
+      "ESTAB    0        0                     127.0.0.1:37002        127.0.0.1:9003    users:((\"gzserver\",pid=923004,fd=104))                                         ",
+      "UNCONN   0        0                     127.0.0.1:9002           0.0.0.0:*       users:((\"gzserver\",pid=923004,fd=103))                                         ",
+      "UNCONN   0        0                       0.0.0.0:9003           0.0.0.0:*       users:((\"arducopter\",pid=922822,fd=8))                                         ",
+      "UNCONN   0        0                       0.0.0.0:14550          0.0.0.0:*       users:((\"QGroundControl\",pid=923404,fd=56))                                    ",
+      "UNCONN   0        0                       0.0.0.0:14552          0.0.0.0:*       users:((\"mavros_node\",pid=923283,fd=13))                                       "
+    ],
+    "tcp": [
+      "LISTEN      0        5                                           0.0.0.0:5760                   0.0.0.0:*        users:((\"arducopter\",pid=922822,fd=9))         ",
+      "ESTAB       0        0                                         127.0.0.1:52732                127.0.0.1:5760     users:((\"mavproxy.py\",pid=922809,fd=8))        ",
+      "ESTAB       0        906                                       127.0.0.1:5760                 127.0.0.1:52732    users:((\"arducopter\",pid=922822,fd=10))        "
+    ]
+  },
+  "last_process_snapshot": {
+    "processes": [
+      " 919239    4185 xterm           S     0.4       14:22 xterm -iconic -xrm XTerm*selectToClipboard: true -xrm XTerm*initialFont: 6 -n ArduCopter -name ArduCopter -T ArduCopter -hold -e /home/liqidun/github/ardupilot/build/sitl/bin/arducopter -S --model gazebo --speedup 1 --slave 0 --defaults default_params/copter.parm,default_params/gazebo-iris.parm --sim-address=127.0.0.1 -I0",
+      " 922549    4185 terminator      Sl    0.0       10:49 /usr/bin/python3 /usr/bin/terminator -u --geometry=850x430+0+340 -T INDOOR-UWB ArduPilot SITL / MAVProxy -x bash -c echo $BASHPID > /home/liqidun/github/indoor_nav_ws/.sitl_runtime/sitl.shell.pid; cd /home/liqidun/github/ardupilot/Tools/autotest && echo '[RUN] sim_vehicle.py -v ArduCopter -f gazebo-iris --model gazebo --out 127.0.0.1:14552' && python3 sim_vehicle.py -v ArduCopter -f gazebo-iris --model gazebo --mavproxy-args=--streamrate=25 --out=127.0.0.1:14552; ret=$?; echo; echo '[indoor SITL] \u7ec4\u4ef6\u5df2\u9000\u51fa\uff0c\u72b6\u6001\u7801:' $ret; exec bash",
+      " 922567  922549 bash            Ss+   0.0       10:49 bash -c echo $BASHPID > /home/liqidun/github/indoor_nav_ws/.sitl_runtime/sitl.shell.pid; cd /home/liqidun/github/ardupilot/Tools/autotest && echo '[RUN] sim_vehicle.py -v ArduCopter -f gazebo-iris --model gazebo --out 127.0.0.1:14552' && python3 sim_vehicle.py -v ArduCopter -f gazebo-iris --model gazebo --mavproxy-args=--streamrate=25 --out=127.0.0.1:14552; ret=$?; echo; echo '[indoor SITL] \u7ec4\u4ef6\u5df2\u9000\u51fa\uff0c\u72b6\u6001\u7801:' $ret; exec bash",
+      " 922568  922567 python3         S+    0.1       10:49 python3 sim_vehicle.py -v ArduCopter -f gazebo-iris --model gazebo --mavproxy-args=--streamrate=25 --out=127.0.0.1:14552",
+      " 922808    4185 xterm           S+    0.0       10:47 xterm -iconic -xrm XTerm*selectToClipboard: true -xrm XTerm*initialFont: 6 -n ArduCopter -name ArduCopter -T ArduCopter -hold -e /home/liqidun/github/ardupilot/build/sitl/bin/arducopter -S --model gazebo --speedup 1 --slave 0 --defaults default_params/copter.parm,default_params/gazebo-iris.parm --sim-address=127.0.0.1 -I0",
+      " 922809  922568 mavproxy.py     Sl+  15.7       10:47 /usr/bin/python3 /home/liqidun/.local/bin/mavproxy.py --out 127.0.0.1:14550 --master tcp:127.0.0.1:5760 --sitl 127.0.0.1:5501 --streamrate 25 --out 127.0.0.1:14552",
+      " 922822  922808 arducopter      Ssl+  3.2       10:47 /home/liqidun/github/ardupilot/build/sitl/bin/arducopter -S --model gazebo --speedup 1 --slave 0 --defaults default_params/copter.parm,default_params/gazebo-iris.parm --sim-address=127.0.0.1 -I0",
+      " 922927  922902 gzserver        Ss    0.0       10:46 /bin/sh /opt/ros/noetic/lib/gazebo_ros/gzserver --verbose -e ode /home/liqidun/github/ardupilot_gazebo/worlds/iris_ardupilot.world __name:=gazebo __log:=/home/liqidun/.ros/log/85823b1a-c3b4-11f1-bc59-710cf840f56d/gazebo-1.log",
+      " 923004  922927 gzserver        SLl  26.0       10:46 gzserver --verbose -e ode /home/liqidun/github/ardupilot_gazebo/worlds/iris_ardupilot.world -s /opt/ros/noetic/lib/libgazebo_ros_paths_plugin.so -s /opt/ros/noetic/lib/libgazebo_ros_api_plugin.so __name:=gazebo __log:=/home/liqidun/.ros/log/85823b1a-c3b4-11f1-bc59-710cf840f56d/gazebo-1.log",
+      " 923283  923247 mavros_node     Ssl   3.9       10:43 /opt/ros/noetic/lib/mavros/mavros_node __name:=mavros __log:=/home/liqidun/.ros/log/85823b1a-c3b4-11f1-bc59-710cf840f56d/mavros-1.log",
+      " 923374    4185 terminator      Sl    0.0       10:40 /usr/bin/python3 /usr/bin/terminator -u --geometry=650x360+1600+470 -T INDOOR-UWB QGroundControl -x bash -c echo $BASHPID > /home/liqidun/github/indoor_nav_ws/.sitl_runtime/qgc.shell.pid; echo '[RUN] QGroundControl: /home/liqidun/appimage/QGroundControl.AppImage' && /home/liqidun/appimage/QGroundControl.AppImage; ret=$?; echo; echo '[indoor SITL] \u7ec4\u4ef6\u5df2\u9000\u51fa\uff0c\u72b6\u6001\u7801:' $ret; exec bash",
+      " 923397    4185 QGroundControl. Ssl   0.0       10:40 /home/liqidun/appimage/QGroundControl.AppImage",
+      " 923404  923393 QGroundControl  Sl+   4.4       10:40 /tmp/.mount_QGrounpTU14Q/QGroundControl",
+      " 923509  923446 world_estimator Ssl   4.5       10:40 /usr/bin/python3 /home/liqidun/github/indoor_nav_ws/devel/lib/indoor_nav/world_estimator.py __name:=world_estimator __log:=/home/liqidun/.ros/log/85823b1a-c3b4-11f1-bc59-710cf840f56d/world_estimator-3.log"
+    ],
+    "udp": [
+      "ESTAB    0        0                     127.0.0.1:37002        127.0.0.1:9003    users:((\"gzserver\",pid=923004,fd=104))                                         ",
+      "UNCONN   0        0                     127.0.0.1:9002           0.0.0.0:*       users:((\"gzserver\",pid=923004,fd=103))                                         ",
+      "UNCONN   0        0                       0.0.0.0:9003           0.0.0.0:*       users:((\"arducopter\",pid=922822,fd=8))                                         ",
+      "UNCONN   0        0                       0.0.0.0:14550          0.0.0.0:*       users:((\"QGroundControl\",pid=923404,fd=56))                                    ",
+      "UNCONN   0        0                       0.0.0.0:14552          0.0.0.0:*       users:((\"mavros_node\",pid=923283,fd=13))                                       "
+    ],
+    "tcp": [
+      "LISTEN      0        5                                           0.0.0.0:5760                   0.0.0.0:*        users:((\"arducopter\",pid=922822,fd=9))         ",
+      "ESTAB       0        244                                       127.0.0.1:52732                127.0.0.1:5760     users:((\"mavproxy.py\",pid=922809,fd=8))        ",
+      "ESTAB       0        0                                         127.0.0.1:5760                 127.0.0.1:52732    users:((\"arducopter\",pid=922822,fd=10))        "
+    ]
+  },
+  "cumulative_ps_cpu_percent_range": {
+    "mavproxy.py": [
+      13.9,
+      15.8
+    ],
+    "arducopter": [
+      2.9,
+      3.2
+    ],
+    "gzserver": [
+      0.0,
+      26.0
+    ],
+    "mavros_node": [
+      1.5,
+      3.9
+    ]
+  },
+  "sampled_queue_max_bytes": {
+    "udp": [
+      0,
+      0
+    ],
+    "tcp": [
+      244,
+      907
+    ]
+  },
+  "artifact_filter": {
+    "total_capture_rows": 637106,
+    "kept_rows": 238316,
+    "raw_ids": [
+      0,
+      20,
+      22,
+      27,
+      30,
+      31,
+      32,
+      66,
+      76
+    ],
+    "shadow_status_sample_s": 1.0
+  }
+}

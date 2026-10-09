@@ -1,0 +1,29 @@
+{
+  "params": {
+    "/mavros/local_position/frame_id": "map",
+    "/mavros/local_position/tf/frame_id": "map",
+    "/mavros/local_position/tf/child_frame_id": "base_link",
+    "/indoor_nav/safety/profile": "sitl"
+  },
+  "duration_s": 30.18574023246765,
+  "odom_hz": 24.993729328192593,
+  "paired_samples": 754,
+  "max_paired_component_error_mps": 1.3877787807814457e-16,
+  "max_nav_speed_mps": 0.13136237611107918,
+  "max_gazebo_speed_mps": 1.3172359099051176e-06,
+  "classifications": {
+    "WINDOW_INCOMPLETE": 6,
+    "STATIONARY": 599
+  },
+  "safety_reasons": {
+    "OPERATOR_NOT_ACKNOWLEDGED": 605
+  },
+  "all_disarmed": true,
+  "all_connected": true,
+  "modes": [
+    "STABILIZE"
+  ],
+  "max_velocity_header_age_s": 0.04505610466003418,
+  "gazebo_stationary_comparison_rms_mps": 0.09395439511855165,
+  "gazebo_stationary_comparison_max_mps": 0.13136289963681508
+}

@@ -1,0 +1,55 @@
+[
+  {
+    "time": 1791546806.5697863,
+    "event": "IDENTITY",
+    "stage": "PREPARE",
+    "identity": {
+      "sitl_pid": 1083704,
+      "sitl_created": 1791546309.69,
+      "proxy_pid": 1083706,
+      "mavros_pid": 1083814,
+      "master": "http://127.0.0.1:11321",
+      "params": {
+        "SIM_SPEEDUP": 1.0,
+        "GPS_TYPE": 0,
+        "EK3_SRC1_POSXY": 6,
+        "EK3_SRC1_VELXY": 0,
+        "EK3_SRC1_POSZ": 1,
+        "ARMING_CHECK": 1,
+        "LOG_DISARMED": 0,
+        "LOG_BACKEND_TYPE": 1
+      },
+      "armed": false,
+      "mode": "STABILIZE"
+    }
+  },
+  {
+    "time": 1791546806.6130555,
+    "event": "SITL_PARAMETER",
+    "stage": "PREPARE",
+    "name": "ARMING_CHECK",
+    "before": 1,
+    "after": 1
+  },
+  {
+    "time": 1791546806.650387,
+    "event": "SITL_PARAMETER",
+    "stage": "PREPARE",
+    "name": "LOG_DISARMED",
+    "before": 0,
+    "after": 1
+  },
+  {
+    "time": 1791546816.0911944,
+    "event": "FAILURE",
+    "stage": "PREPARE",
+    "error": "timeout exceeded while waiting for message on topic /mavros/global_position/gp_origin"
+  },
+  {
+    "time": 1791546816.0914595,
+    "event": "RESULT",
+    "stage": "PREPARE",
+    "result": "FAILED",
+    "error": "timeout exceeded while waiting for message on topic /mavros/global_position/gp_origin"
+  }
+]

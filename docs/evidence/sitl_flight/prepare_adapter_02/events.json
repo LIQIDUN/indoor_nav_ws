@@ -1,0 +1,76 @@
+[
+  {
+    "time": 1791547225.8408723,
+    "event": "IDENTITY",
+    "stage": "PREPARE",
+    "identity": {
+      "sitl_pid": 1083704,
+      "sitl_created": 1791546309.69,
+      "proxy_pid": 1083706,
+      "mavros_pid": 1083814,
+      "master": "http://127.0.0.1:11321",
+      "params": {
+        "SIM_SPEEDUP": 1.0,
+        "GPS_TYPE": 0,
+        "EK3_SRC1_POSXY": 6,
+        "EK3_SRC1_VELXY": 0,
+        "EK3_SRC1_POSZ": 1,
+        "ARMING_CHECK": 1,
+        "LOG_DISARMED": 1,
+        "LOG_BACKEND_TYPE": 1
+      },
+      "armed": false,
+      "mode": "STABILIZE"
+    }
+  },
+  {
+    "time": 1791547225.8811684,
+    "event": "HEARTBEAT_REQUEST",
+    "stage": "PREPARE",
+    "message_id": 0,
+    "rate_hz": 5.0
+  },
+  {
+    "time": 1791547225.9207203,
+    "event": "SITL_PARAMETER",
+    "stage": "PREPARE",
+    "name": "ARMING_CHECK",
+    "before": 1,
+    "after": 1
+  },
+  {
+    "time": 1791547225.961761,
+    "event": "SITL_PARAMETER",
+    "stage": "PREPARE",
+    "name": "LOG_DISARMED",
+    "before": 1,
+    "after": 1
+  },
+  {
+    "time": 1791547227.421583,
+    "event": "ORIGIN_ACCEPTED",
+    "stage": "PREPARE",
+    "lat": -35.363261,
+    "lon": 149.16523,
+    "alt": 583.9986291906523
+  },
+  {
+    "time": 1791547227.4249318,
+    "event": "CALIBRATED",
+    "stage": "PREPARE",
+    "message": "CALIBRATED and LOCKED; check +X/+Y hand motion before flight"
+  },
+  {
+    "time": 1791547227.4752176,
+    "event": "AWAIT_HUMAN_ACK",
+    "stage": "PREPARE",
+    "safety_reason": "OPERATOR_NOT_ACKNOWLEDGED"
+  },
+  {
+    "time": 1791547227.4755614,
+    "event": "RESULT",
+    "stage": "PREPARE",
+    "result": "PREPARED_AWAITING_HUMAN_ACK",
+    "error": null
+  }
+]

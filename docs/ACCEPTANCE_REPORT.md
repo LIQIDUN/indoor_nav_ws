@@ -48,3 +48,11 @@ git diff --check
 ## 2026-10-09 后续冻结误报排查
 
 已基于最新飞行 ROS 日志、DataFlash 00000343.BIN 及保留会话的只读在线数据完成专项排查与修复，详见 [FREEZE_INVESTIGATION.md](FREEZE_INVESTIGATION.md)。本次回放复现旧检测误报；新检测保留阈值与保护，用独立 Gazebo 运动证据区分静止与真冻结，并新增完整触发快照。当前 world_pose 停发直接原因已确认 FC_LOST；ArduPilot 处理停滞的具体内部原因、PErr=100m 导致的 EKF 质量问题尚未解决。此记录补充上次“无 Master”的验收结果；现在可访问用户保留的旧会话，但没有重启节点或进行飞行。后续测试：主测试 33/33、core 9/9。
+
+## UWB 速度与协方差后续交付
+
+本轮实现、离线结果及在线未验证项见 [UWB_EKF_ACCEPTANCE_SUMMARY.md](UWB_EKF_ACCEPTANCE_SUMMARY.md)。历史验收数字保留，不能用于证明新增适配已在线加载。
+
+## MAVLink/ExternalNav 连续性验收
+
+最新 [MAVLINK_EXTERNALNAV_FIX_REPORT.md](MAVLINK_EXTERNALNAV_FIX_REPORT.md) 记录了经操作员批准重启后的600秒真实无解锁验收：IMU/速度约25Hz、ExternalNav约30Hz、定位全程OK。此前报告中的“待批准重启/待在线连续性验证”是历史状态；协方差适配及EKF融合精度仍未验收。

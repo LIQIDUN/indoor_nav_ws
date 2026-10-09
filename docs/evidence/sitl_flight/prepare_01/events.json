@@ -1,0 +1,15 @@
+[
+  {
+    "time": 1791546532.1568315,
+    "event": "FAILURE",
+    "stage": "PREPARE",
+    "error": "Non-loopback MAVROS peer"
+  },
+  {
+    "time": 1791546532.1569664,
+    "event": "RESULT",
+    "stage": "PREPARE",
+    "result": "FAILED",
+    "error": "Non-loopback MAVROS peer"
+  }
+]

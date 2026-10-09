@@ -1,0 +1,85 @@
+{
+  "result": "FAILED",
+  "error": "SAFETY_ABORT:SETPOINT_TIMEOUT",
+  "airborne_test_window_s": 7.563840389251709,
+  "ekf_position_xy_error_m": {
+    "samples": 189,
+    "rms": 0.0055057268229795646,
+    "max": 0.009247870780884699,
+    "p95": 0.00911877866284149
+  },
+  "ekf_velocity_xy_error_mps": {
+    "samples": 189,
+    "rms": 0.010572440503038363,
+    "max": 0.015647230762653487,
+    "p95": 0.015501485462454384
+  },
+  "uwb_position_xy_error_m": {
+    "samples": 227,
+    "rms": 0.0003854244270891422,
+    "max": 0.0005770321822580074,
+    "p95": 0.0005142568670110328
+  },
+  "uwb_velocity_xy_error_mps": {
+    "samples": 0
+  },
+  "state_max_gap_s": 0.20547223091125488,
+  "safety_reasons": {
+    "READY": 117,
+    "Z_BELOW_FENCE": 81,
+    "SETPOINT_TIMEOUT": 83,
+    "OPERATOR_NOT_ACKNOWLEDGED": 10
+  },
+  "freeze_classifications": {
+    "STATIONARY": 281,
+    "WINDOW_INCOMPLETE": 10
+  },
+  "truth_position_min": [
+    -0.015482167530308585,
+    -0.009323041972869362,
+    -0.00011956076940275451
+  ],
+  "truth_position_max": [
+    0.003635425536481157,
+    0.0004993835663584361,
+    0.8460522734860008
+  ],
+  "comparison": "Header time; linear-interpolated Gazebo receipt-time samples; paired Odometry rotation and calibrated inverse yaw. No fitted frame or time lag.",
+  "VISP_PErr_m": {
+    "samples": 225,
+    "rms": 0.20000000298023224,
+    "max": 0.20000000298023224,
+    "p95": 0.20000000298023224
+  },
+  "innovation_xy_m_by_core": {
+    "0": {
+      "samples": 76,
+      "rms": 0.0,
+      "max": 0.0,
+      "p95": 0.0
+    },
+    "1": {
+      "samples": 76,
+      "rms": 0.0,
+      "max": 0.0,
+      "p95": 0.0
+    }
+  },
+  "XKF4_SS_by_core": {
+    "0": [
+      74559,
+      76607,
+      78655,
+      80703
+    ],
+    "1": [
+      74559,
+      76607,
+      78655,
+      80703
+    ]
+  },
+  "PM_loop_hz": [
+    400
+  ]
+}

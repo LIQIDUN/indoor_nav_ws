@@ -19,10 +19,17 @@ q() { printf '%q' "$1"; }
 [[ -f "$WORLD_FILE" ]] || fail "未找到 Gazebo world：$WORLD_FILE"
 [[ -f "$WS_ROOT/src/indoor_nav/launch/indoor_nav_sitl.launch" ]] || fail '未找到 indoor_nav_sitl.launch'
 [[ "${SITL_MODEL:-gazebo}" == gazebo ]] || fail 'Gazebo11 Classic 必须使用 SITL_MODEL=gazebo，而不是 JSON'
+# SITL telemetry only: runtime SR rates change; no PARAM_SET or EKF changes.
+[[ "${SITL_MAVLINK_STREAMRATE:-25}" =~ ^[0-9]+$ ]] || fail 'SITL_MAVLINK_STREAMRATE must be 1..50 Hz'
+(( SITL_MAVLINK_STREAMRATE >= 1 && SITL_MAVLINK_STREAMRATE <= 50 )) || fail 'SITL_MAVLINK_STREAMRATE must be 1..50 Hz'
+if (( SITL_MAVLINK_STREAMRATE < 20 )); then echo "[WARN] Telemetry below 20Hz: diagnostic rollback only; not flight acceptance." >&2; fi
+
 [[ -n "${DISPLAY:-}${WAYLAND_DISPLAY:-}" ]] || fail '未检测到图形桌面；本脚本使用 Terminator 独立窗口'
 command -v terminator >/dev/null || fail '未安装 terminator：sudo apt install terminator'
+set +u  # ROS setup scripts read optional unset environment variables
 source /opt/ros/noetic/setup.bash
 source "$WS_ROOT/devel/setup.bash"
+set -u
 export ROS_MASTER_URI=http://127.0.0.1:11311
 
 # 和参考脚本一样：启动前清理本项目旧实例；不执行 pkill -9 -f ros。
@@ -55,7 +62,7 @@ wait_for() {
 
 # 所有路径与参数都通过 shell 转义，以便目录中有空格时也能工作。
 ROS_ENV="source /opt/ros/noetic/setup.bash && source $(q "$WS_ROOT/devel/setup.bash") && export ROS_MASTER_URI=http://127.0.0.1:11311 && unset ROS_IP ROS_HOSTNAME"
-SITL_OPTIONS=""
+SITL_OPTIONS="--mavproxy-args=$(q "--streamrate=$SITL_MAVLINK_STREAMRATE")"
 [[ "${SITL_CONSOLE:-false}" == true ]] && SITL_OPTIONS+=' --console'
 [[ "${SITL_MAP:-false}" == true ]] && SITL_OPTIONS+=' --map'
 

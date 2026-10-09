@@ -1,0 +1,5 @@
+# Candidate transport change only, opt-in launch flag, requires fresh FC checks.
+# No parameter setters, source switching, velocity forwarding or automatic origin.
+external_nav:
+  enabled: false
+  minimum_position_sigma_m: 0.20

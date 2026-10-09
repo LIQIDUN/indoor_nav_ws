@@ -4,6 +4,8 @@
   <arg name="external_nav_enabled" default="false" />
   <arg name="publish_frame_tf" default="true" />
   <arg name="localization_file" default="$(find indoor_nav)/config/localization.yaml" />
+  <arg name="velocity_file" default="$(find indoor_nav)/config/uwb_velocity.yaml" />
+  <rosparam command="load" file="$(arg velocity_file)" ns="/indoor_nav/velocity" />
   <arg name="mission_file" default="$(find indoor_nav)/config/mission.yaml" />
   <arg name="expected_profile" default="hardware" />
   <arg name="ardupilot_file" default="$(find indoor_nav)/config/ardupilot_expected.yaml" />
