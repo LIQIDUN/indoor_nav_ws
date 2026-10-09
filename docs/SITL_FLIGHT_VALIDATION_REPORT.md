@@ -2,81 +2,74 @@
 
 日期：2026-10-09。本轮是少量闭环开发实验，不是可靠性或重复性验收。
 
-## 已完成结果
+## 本轮针对性复测：完整航点流程通过
 
-已完成 **3 次实际起飞，均正常自动降落并解除解锁，但尚无完整航点飞行通过**。另有1次解锁前被飞控拒绝的尝试，不算起飞。未执行5次重复性或10分钟稳定性验收。
+本轮实际飞行2次：`run_05` 失败后完成有证据的修复，经操作员另行明确授权，`run_06` **通过起飞→悬停→10个航点→自动LAND→落地解除解锁**。累计历史实际起飞5次，另有一次未解锁尝试；不计算可靠性成功率，也未追加重复性飞行。
 
-| 原始目录 | 实际飞行 | 起飞/悬停 | 航点 | 降落 | 结果与原因 |
-|---|---|---|---|---|---|
-| `run_01` | 否 | 未执行 | 未执行 | 保持落地未解锁 | 解锁拒绝：Main loop slow，约304 Hz < 400 Hz |
-| `run_02` | 第1次 | 起飞约0.8 m，悬停中止 | 未执行 | 成功、解除解锁 | FC连接仍true，但1 Hz状态消息间隔超过原1秒门禁 |
-| `run_03` | 第2次 | 成功 | 启动后立即中止 | 成功、解除解锁 | SETPOINT_TIMEOUT：RUNNING先于首个目标抵达 |
-| `run_04` | 第3次 | 成功 | 正常启动，1秒后被工具中止 | 成功、解除解锁 | 新工具错误地给锁存mission_state设置1秒过期时间 |
+| 本轮记录 | 结果 | 证据 |
+|---|---|---|
+| `run_05` | 失败，正常降落 | +X、-X方向正确，真值进入±0.4 m目标容差；在第3点停留完成前，速度微小未来header触发ABORT。Y和矩形未执行 |
+| `run_06` | **通过** | 航点任务53.13秒完成；全部10点真值进入0.12 m水平/0.08 m高度容差，mission返回COMPLETE，LAND后Gazebo落地且FC自动解除解锁 |
 
-没有把未执行的方向运动和矩形航点列为通过。第三次的测试工具错误已修复，等待操作员追加一次针对性复测授权，不能继续使用原“最多3次”的授权解锁。
+首个失败快照：`velocity_receipt_age_s=0.0002401`、`velocity_header_age_s=-0.00007343`，实际是新收到的测量时间戳约超前73微秒，不是速度断流或UWB冻结。新增监督器有界pending：只暂存最多超前20 ms的样本，到原header时刻后才可使用；保持原receipt/header及0.30秒过期检查，超过未来界限或pending过期继续拒绝。使用RLock将速度更新与watchdog取时/检查隔离，避免并发回调拿新消息与旧检查时刻比较。没有修改header、放宽过期阈值或发布旧位置。
 
-## 发现及修改
+修复后真实飞行中记录到3次pending等待；实际使用的速度header年龄始终为正，范围约0.00041～0.07962秒。73项主测试、9项核心测试PASS，新增覆盖等待/成熟、原始receipt不刷新、超界未来消息拒绝及pending过期。
 
-1. **仿真FDM采样不足。** 原Gazebo物理步长2.5 ms，对本机legacy binary backend实际只得到约304 Hz FC主循环。完整ARMING_CHECK揭示此前ARMING_CHECK=0遮住的问题。隔离世界副本改为1 ms后，DataFlash PM.LR实测400 Hz；保留完整解锁检查。
-2. **心跳频率与新鲜度门禁不匹配。** run_02中MAVROS connected=true，监督器fc_age_s=1.00198秒，实际状态最大间隔1.00559秒。只对隔离FC请求HEARTBEAT 5 Hz，实测最大间隔约0.205秒；不放宽FC_LOST门禁。
-3. **ExternalNav协方差耦合。** 基线VISP.PErr=100，起飞/悬停段EKF水平位置误差RMS0.258 m。启用已有、默认关闭且有固件/三套源参数门禁的SITL位置协方差传输适配，PErr实测0.20 m；run_03同类短段位置误差RMS0.00551 m。此比较不是单变量、同完整轨迹可靠性试验，不能据此给出统计可靠性结论。全局默认仍关闭；EK3_SRC1_VELXY仍0，无UWB速度融合。
-4. **任务首目标竞态。** mission_manager.start同步prime合法保持目标后再宣布RUNNING；监督器首次目标也使用已有0.5秒截止时间，重复RUNNING不能续期，等待时不转发目标，超时仍ABORT。持续飞行中的旧目标超时行为不变。run_04未再触发SETPOINT_TIMEOUT。
-5. **测试工具锁存话题误判。** mission_state是事件话题，不是周期心跳。改为保留其最新事件，并继续通过周期FC/定位/安全状态及监督器目标超时检查判断活性；ABORT仍立即失败。错误修复已通过回归测试，尚待追加飞行验证。
+两次均重新核实指定SITL二进制/PID、独立Master11321、loopback MAVROS14572、落地未解锁及相同已人工确认origin，通过正式ACK并等待真实READY。MAVLink25 Hz、ExternalNav配置30 Hz、位置协方差适配、围栏、冻结与FC_LOST门禁保持原设置。VELXY=0、影子速度不融合；没有实机连接或配置修改。批准及配置快照为 `retest_approval.json`、`retest_velocity_approval.json`。
 
-## 位置与速度对照
+### 最新实测（run_06）
 
-统计窗口为TAKEOFF接受到失败事件，不含LAND/地面复位。使用ROS header时间与线性插值Gazebo接收时间对齐；Odometry完整四元数还原ENU，再用实际标定变换逆转到world_lab。没有拟合旋转或选择最佳时间偏移。短时厘米以下结果受Mock零噪声、零延迟影响，不能代表真实UWB精度。
+统计窗口为TAKEOFF接受至MISSION_COMPLETE，约60.59秒；误差均为水平二维范数。
 
-| 实际飞行 | EKF水平位置RMS / 最大(m) | EKF水平速度RMS(m/s) | UWB位置RMS(m) | VISP.PErr(m) |
-|---|---|---|---|---|
-| 第1次 | 0.25756 / 0.33419 | 0.11559 | 0.00227 | 100 |
-| 第2次 | 0.00551 / 0.00925 | 0.01057 | 0.000385 | 0.20 |
-| 第3次 | 0.00649 / 0.00894 | 0.01249 | 0.000381 | 0.20 |
+| 指标 | RMS / 最大 |
+|---|---|
+| EKF位置与Gazebo真值 | 0.00777 / 0.01346 m |
+| UWB位置与Gazebo真值 | 0.00333 / 0.00911 m |
+| EKF速度与Gazebo真值 | 0.01406 / 0.02008 m/s |
+| UWB派生影子速度与Gazebo真值 | 0.00175 / 0.00549 m/s，917有效样本 |
+| 真值对正在移动的位置目标跟踪误差 | **0.1432 / 0.2414 m**，不能与上述定位误差混为一谈 |
 
-第1次UWB派生速度有效56样本，水平误差RMS0.00224 m/s。第2/3次水平近似静止，窗口标记STATIONARY_OR_FROZEN_AMBIGUOUS，未发布有效影子速度，不能计为速度测试通过。影子速度未送飞控。
+全部10个真值航点进入容差的任务相对时间约为0.50、6.36、12.51、17.73、23.89、28.07、33.95、39.70、45.45、50.35秒。最终COMPLETE证明任务节点完成其稳定/停留要求，53.13秒后结束航线。实际运动没有轴交换或符号反转；局部转弯及斜坡位置目标存在跟踪滞后，下一轮可针对控制响应改善，当前未调控制器或扩大围栏。
 
-轨迹、原始遥测、每次events/summary及分析在 `docs/evidence/sitl_flight/run_0*/`。每次含独立ROS bag和DataFlash快照；同一FC进程内DataFlash含整个启动序列，分析用VISP.RTimeUS限定各次窗口，不能把整个文件都算作该次飞行。
+VISP.PErr全程0.20 m，原100未复现；XKF3 IPN/IPE在两核均量化为0.00 m（日志分辨率0.01 m，不是连续创新严格为零）。EKF_STATUS_REPORT有效1693条，flags均831；动态EKF与真实位置、速度一致支持ExternalNav实际参与位置估计，不再仅凭发布频率判定融合。
 
-![基线飞行](evidence/sitl_flight/run_02/trajectory.png)
-![最新飞行](evidence/sitl_flight/run_04/trajectory.png)
+定位健康2035次均OK；无ABORT、POSSIBLE_UWB_FREEZE、FC_IMU_STALE、INVALID_VELOCITY_FRAME或FC_LOST。起降阶段Z_BELOW_FENCE为原有地面高度门禁，保持不变。
 
-XKF3水平位置创新RMS，core0/core1：第1次0.248/0.255 m；第2/3次日志0.01 m量化后为0，不代表连续值严格零。ExternalNav接收有VISP，源选择和“using external nav data”有状态文本，强位置观测后EKF与真值误差明显降低；目前完整动态融合/方向验证仍未完成，不能仅凭PErr下降断言航点闭环通过。
+IMU实测24.987 Hz、最大间隔46.1 ms；world_pose30.000 Hz、最大间隔37.0 ms。ExternalNav实测29.671 Hz、最大间隔67.7 ms：适配周期重新读参时，有22次单帧停发，原因为ADAPTER_CHECK_STALE_OR_PENDING；未补发旧数据、未导致定位不健康，但不能描述为每帧严格连续30 Hz，留作后续优化项。心跳最大间隔205.6 ms，FC主循环400～401 Hz。
 
-三次飞行定位状态均持续OK；没有POSSIBLE_UWB_FREEZE、FC_IMU_STALE或INVALID_VELOCITY_FRAME。run_03的SETPOINT_TIMEOUT是实际ABORT并触发LAND；run_04是工具主动失败收尾，监督器没有ABORT。地面/起降阶段出现Z_BELOW_FENCE是原有高度门禁的预期表现，未将其关闭。
+![完整航线与X/Y目标跟踪](evidence/sitl_flight/run_06/waypoint_tracking.png)
 
-## 工具与隔离
+原始ROS bag、DataFlash快照、tlog、telemetry、events、summary及分析均在 `evidence/sitl_flight/run_05/`、`run_06/`；最新细分结果为 `analysis.json`、`waypoint_analysis.json`、`health_analysis.json`、`rates.json`。同一进程DataFlash含整个启动期，按VISP测量时间限定本次窗口。轨迹图可用 `evidence/sitl_flight/plot_target_comparison.py <run目录>` 离线重建。
 
-新增 `tools/sitl_flight_instance.sh`、`tools/indoor_nav_flight_test.py`、`tools/analyze_sitl_flight.py` 和 `config/mission_sitl_flight.yaml`。SITL launch新增可选mission_file，原默认航线不变。
+**限制：** Mock仍是零注入噪声、零注入延迟；这是一次完整开发飞行成功，不代表真实UWB精度或可靠性验收。尚未执行真实噪声/延迟、故障注入、长时间或重复性测试。最终恢复地面初始姿态、STABILIZE和未解锁，安全确认已reset；本轮不再追加飞行。
 
-使用独立ROS Master11321、Gazebo Master11355、MAVROS loopback14572，不启动QGC。每次控制动作前核对实际SITL二进制/cwd/PID/创建时间、MAVProxy唯一TCP主链路及唯一UDP输出、MAVROS实际进程归属、loopback UDP绑定、命令服务同一提供者、FC版本/系统号/SIM参数。身份不符即拒绝。在线EKF监控解码ArduPilot实际发送的MAVLink EKF_STATUS_REPORT(193)，检查姿态、水平/垂直速度、相对水平/垂直位置有效及初始化状态；不依赖可能没有消息的ESTIMATOR_STATUS(230) ROS话题。run_04 bag中193消息370条、flags均831。
+## 历史失败与复测范围
 
-参数写入只在隔离EEPROM副本；每次冷启动重新复制原EEPROM。原工作目录和实机配置未修改。
+| 记录 | 实际起飞 | 结果 |
+|---|---|---|
+| run_01 | 否 | 完整解锁检查拒绝主循环约304 Hz；改隔离Gazebo步长为1 ms后恢复400 Hz |
+| run_02 | 第1次 | 起飞后1 Hz心跳触发1秒新鲜度门禁，LAND；改实际心跳5 Hz，原门禁不变 |
+| run_03 | 第2次 | 首目标启动竞态导致SETPOINT_TIMEOUT；同步prime首目标，并使用原0.5秒首次目标期限 |
+| run_04 | 第3次 | 测试工具误把锁存mission_state作为周期心跳，已修复；LAND正常 |
+| run_05 | 第4次，本轮第1次 | X轴航点正确，微小未来速度header触发ABORT；本轮有界pending修复 |
+| run_06 | 第5次，本轮第2次 | **完整航线通过，自动降落解除解锁** |
 
-人工门禁来自 `docs/SITL_DEBUG_AND_FLIGHT.md`；操作员本轮明确确认仿真origin并授权最多3次实际飞行的正式ACK。工具不自动伪造ACK或READY，fly只消费真实READY。origin为启动器明确指定的仿真home，并有接收回读；不是GPS测量。
+协方差适配前的run_02：VISP.PErr=100，EKF水平位置误差RMS0.258 m；最新run_06为PErr=0.20 m、误差RMS0.00777 m。不是同一完整轨迹单变量对照，不能解释成可靠性统计。上一轮详细记录保存在 [历史备注](evidence/sitl_flight/previous_stage_notes.md)，其“尚未完成”描述仅适用于上一轮。
 
-复现流程（需在有主机ROS权限的终端、确认无端口冲突后执行）：
+## 复现与回滚
+
+使用已有工具 `tools/sitl_flight_instance.sh` 启动独立实例，显式设置 `SITL_FLIGHT_COVARIANCE_ADAPTER=true`，适配全局默认仍关闭。原EEPROM复制到隔离运行目录，不控制真实飞控。工具每次动作前核对实例身份，fly不自动伪造ACK或READY。
 
 ```bash
 source /opt/ros/noetic/setup.bash
 source devel/setup.bash
-# 持久用户服务；adapter依旧必须显式opt-in，仅隔离SITL。
-systemd-run --user --unit=indoor-nav-autoflight --collect \
-  --setenv=SITL_FLIGHT_COVARIANCE_ADAPTER=true \
-  --working-directory="$PWD" "$PWD/tools/sitl_flight_instance.sh"
 export ROS_MASTER_URI=http://127.0.0.1:11321
-python3 tools/indoor_nav_flight_test.py prepare --output docs/evidence/sitl_flight/prepare_NEW
-# 人工核实prepare结果、origin和落地未解锁后，正式确认：
+# 实例已启动时，按本次origin/落地/身份证据完成正式人工安全确认后：
 rosservice call /indoor_nav/safety/acknowledge
 python3 tools/indoor_nav_flight_test.py fly --output docs/evidence/sitl_flight/run_NEW
 python3 tools/analyze_sitl_flight.py docs/evidence/sitl_flight/run_NEW
 ```
 
-不自动无限重试。fly失败也尝试身份复核后的LAND，只有真值落地且FC未解锁才reset和恢复Gazebo初始地面姿态；连接/身份丢失时不冒险发命令，记录RECOVERY_FAILED并保留现场。SIGINT/SIGTERM进入清理路径。每次reset重新要求正式ACK。原始bag/BIN/tlog受仓库ignore规则保护，仍留存在本地交付目录。
+以上是后续获授权后的复现方式，不表示本轮还会自动飞行。详细启动及隔离规则见历史备注。当前无需重启，保持落地未解锁及人工确认门禁。
 
-## 测试、回滚、下一步
-
-71项主测试、9项核心测试PASS，无skip；catkin_make、compileall、shell语法和git diff --check通过，见 evidence/sitl_flight/validation.txt。覆盖首次目标截止、重复RUNNING不能续期、无目标不转发、锁存事件不假报过期、周期FC陈旧和EKF无效仍拒绝及错误Master/实机URL拒绝。另有原冻结、坐标、协方差、时间戳回归。
-
-回滚仅撤销本次mission启动prime、supervisor首次目标截止及新增测试工具/可选SITL航线；保留此前所有未提交修改，不执行reset/clean。隔离FC仅改ARMING_CHECK=1、LOG_DISARMED=1，原副本初始分别0/0；完整停掉隔离服务后重新复制原EEPROM即可回滚副本。HEARTBEAT间隔冷启动复原，物理步长仅在隔离世界副本，适配默认仍关闭。
-
-尚未通过：完整航线、±X/±Y动态方向、矩形每段跟踪、移动时UWB速度误差和冻结误报排查。下一步是已修复工具的一次同轨迹复测，需超过原三次上限的新增授权，不做机械重复。
+本轮代码修改仅涉及 `safety_supervisor.py` 的速度pending与取时同步、`tests/test_freeze_ros.py` 的对应回归测试；另更新报告和离线轨迹证据。回滚只撤销这些pending/锁改动，保留上一轮坐标转换、首次目标时序及所有未提交修改；会恢复已知微小未来时间戳误报，不建议用于飞行。无本轮飞控参数需要回滚，不执行git reset/clean。

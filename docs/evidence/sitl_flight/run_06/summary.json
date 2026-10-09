@@ -1,0 +1,103 @@
+{
+  "result": "PASSED",
+  "error": null,
+  "events": [
+    {
+      "time": 1791549681.7142286,
+      "event": "IDENTITY",
+      "stage": "PREFLIGHT",
+      "identity": {
+        "sitl_pid": 1083704,
+        "sitl_created": 1791546309.69,
+        "proxy_pid": 1083706,
+        "mavros_pid": 1083814,
+        "master": "http://127.0.0.1:11321",
+        "params": {
+          "SIM_SPEEDUP": 1.0,
+          "GPS_TYPE": 0,
+          "EK3_SRC1_POSXY": 6,
+          "EK3_SRC1_VELXY": 0,
+          "EK3_SRC1_POSZ": 1,
+          "ARMING_CHECK": 1,
+          "LOG_DISARMED": 1,
+          "LOG_BACKEND_TYPE": 1
+        },
+        "armed": false,
+        "mode": "STABILIZE"
+      }
+    },
+    {
+      "time": 1791549683.8194413,
+      "event": "MODE",
+      "stage": "PREFLIGHT",
+      "mode": "GUIDED"
+    },
+    {
+      "time": 1791549683.874922,
+      "event": "ARM_RESPONSE",
+      "stage": "PREFLIGHT",
+      "success": true,
+      "result": 0
+    },
+    {
+      "time": 1791549684.0779116,
+      "event": "TAKEOFF_RESPONSE",
+      "stage": "TAKEOFF",
+      "success": true,
+      "result": 0
+    },
+    {
+      "time": 1791549688.5365856,
+      "event": "HOVER_REACHED",
+      "stage": "HOVER",
+      "truth_z": 0.6863448255806068
+    },
+    {
+      "time": 1791549691.5435133,
+      "event": "MISSION_START",
+      "stage": "MISSION",
+      "success": true,
+      "message": "Mission started: no auto arm / no auto takeoff"
+    },
+    {
+      "time": 1791549744.6720068,
+      "event": "MISSION_COMPLETE",
+      "stage": "MISSION"
+    },
+    {
+      "time": 1791549744.812331,
+      "event": "MODE",
+      "stage": "LAND",
+      "mode": "LAND"
+    },
+    {
+      "time": 1791549748.8684077,
+      "event": "LANDED_DISARMED",
+      "stage": "LAND",
+      "truth_z": -0.00033961004243912574
+    },
+    {
+      "time": 1791549748.9674413,
+      "event": "MODE",
+      "stage": "LAND",
+      "mode": "STABILIZE"
+    },
+    {
+      "time": 1791549748.9713218,
+      "event": "RESET_REQUIRES_NEW_OPERATOR_ACK",
+      "stage": "LAND"
+    },
+    {
+      "time": 1791549749.020613,
+      "event": "MODEL_RESTORED_ON_GROUND",
+      "stage": "RESTORE"
+    },
+    {
+      "time": 1791549749.0209124,
+      "event": "RESULT",
+      "stage": "RESTORE",
+      "result": "PASSED",
+      "error": null
+    }
+  ]
+}

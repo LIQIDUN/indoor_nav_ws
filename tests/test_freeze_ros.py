@@ -191,4 +191,41 @@ class SupervisorFreeze(unittest.TestCase):
         self.assertEqual(self.s.abort_reason,'SETPOINT_TIMEOUT')
         self.assertEqual(len(self.s.publisher.messages),0)
 
+    def test_small_future_velocity_waits_without_retimestamping(self):
+        from nav_msgs.msg import Odometry
+        self.cycle(0)
+        old=self.s.velocity
+        m=Odometry();m.header.frame_id='map';m.child_frame_id='base_link'
+        m.pose.pose.orientation.w=1.;m.twist.twist.linear.x=.8
+        m.header.stamp=rospy.Time.from_sec(self.now+.005)
+        self.s.odometry_velocity_cb(m)
+        self.s.freeze_check(self.now)
+        self.assertIs(self.s.velocity,old)
+        self.assertIsNotNone(self.s.velocity_pending)
+        received=self.now
+        self.now+=.006
+        self.s.freeze_check(self.now)
+        self.assertIsNone(self.s.velocity_pending)
+        self.assertAlmostEqual(self.s.velocity.twist.linear.x,.8)
+        self.assertEqual(self.s.velocity.header.stamp,m.header.stamp)
+        self.assertEqual(self.s.velocity_stamp,received)
+        self.assertGreaterEqual(self.s.message_age(self.s.velocity,self.now),0.)
+
+    def test_large_future_and_expired_pending_velocity_fail_closed(self):
+        from nav_msgs.msg import Odometry
+        self.cycle(0)
+        m=Odometry();m.header.frame_id='map';m.child_frame_id='base_link'
+        m.pose.pose.orientation.w=1.
+        m.header.stamp=rospy.Time.from_sec(self.now+.021)
+        self.s.odometry_velocity_cb(m)
+        self.assertIsNone(self.s.velocity)
+        self.assertEqual(self.s.velocity_source_error,'FUTURE_VELOCITY_HEADER')
+        m.header.stamp=rospy.Time.from_sec(self.now+.005)
+        self.s.odometry_velocity_cb(m)
+        self.now+=.31
+        self.s.release_pending_velocity(self.now)
+        self.assertIsNone(self.s.velocity)
+        self.assertIsNone(self.s.velocity_pending)
+        self.assertEqual(self.s.velocity_source_error,'PENDING_VELOCITY_EXPIRED')
+
 if __name__=='__main__':unittest.main()

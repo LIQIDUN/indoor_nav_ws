@@ -1,0 +1,122 @@
+{
+  "identity": {
+    "sitl_pid": 1083704,
+    "sitl_created": 1791546309.69,
+    "proxy_pid": 1083706,
+    "mavros_pid": 1083814,
+    "master": "http://127.0.0.1:11321",
+    "params": {
+      "SIM_SPEEDUP": 1.0,
+      "GPS_TYPE": 0,
+      "EK3_SRC1_POSXY": 6,
+      "EK3_SRC1_VELXY": 0,
+      "EK3_SRC1_POSZ": 1,
+      "ARMING_CHECK": 1,
+      "LOG_DISARMED": 1,
+      "LOG_BACKEND_TYPE": 1
+    },
+    "armed": false,
+    "mode": "STABILIZE"
+  },
+  "origin": [
+    -35.363261,
+    149.16523,
+    583.9986291906523
+  ],
+  "physics_step_s": 0.001,
+  "ack_message": "Operator acknowledged; next check: READY. Does NOT arm or start flight.",
+  "safety_reason": "READY",
+  "authorization": "Prior explicit human origin confirmation retained for same boot and origin; user now authorizes one targeted flight and official safety confirmation",
+  "mission": {
+    "frame_id": "world_lab",
+    "motion": {
+      "horizontal_speed_mps": 0.2,
+      "vertical_speed_mps": 0.15,
+      "yaw_rate_degps": 15.0,
+      "max_accel_xy_mps2": 0.3,
+      "max_accel_z_mps2": 0.2
+    },
+    "arrival": {
+      "xy_tolerance_m": 0.12,
+      "z_tolerance_m": 0.08,
+      "yaw_tolerance_deg": 10.0,
+      "stable_time_s": 0.7
+    },
+    "waypoints": [
+      {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.8,
+        "yaw_deg": 0.0,
+        "hold_s": 3.0
+      },
+      {
+        "x": 0.4,
+        "y": 0.0,
+        "z": 0.8,
+        "yaw_deg": 0.0,
+        "hold_s": 1.0
+      },
+      {
+        "x": -0.4,
+        "y": 0.0,
+        "z": 0.8,
+        "yaw_deg": 0.0,
+        "hold_s": 1.0
+      },
+      {
+        "x": 0.0,
+        "y": 0.4,
+        "z": 0.8,
+        "yaw_deg": 0.0,
+        "hold_s": 1.0
+      },
+      {
+        "x": 0.0,
+        "y": -0.4,
+        "z": 0.8,
+        "yaw_deg": 0.0,
+        "hold_s": 1.0
+      },
+      {
+        "x": 0.35,
+        "y": -0.35,
+        "z": 0.8,
+        "yaw_deg": 0.0,
+        "hold_s": 1.0
+      },
+      {
+        "x": 0.35,
+        "y": 0.35,
+        "z": 0.8,
+        "yaw_deg": 0.0,
+        "hold_s": 1.0
+      },
+      {
+        "x": -0.35,
+        "y": 0.35,
+        "z": 0.8,
+        "yaw_deg": 0.0,
+        "hold_s": 1.0
+      },
+      {
+        "x": -0.35,
+        "y": -0.35,
+        "z": 0.8,
+        "yaw_deg": 0.0,
+        "hold_s": 1.0
+      },
+      {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.8,
+        "yaw_deg": 0.0,
+        "hold_s": 2.0
+      }
+    ]
+  },
+  "adapter": {
+    "enabled": true,
+    "minimum_position_sigma_m": 0.2
+  }
+}

@@ -1,0 +1,104 @@
+{
+  "result": "FAILED",
+  "error": "SAFETY_ABORT:VELOCITY_STALE_OR_TRANSFORM_MISSING",
+  "events": [
+    {
+      "time": 1791549263.505168,
+      "event": "IDENTITY",
+      "stage": "PREFLIGHT",
+      "identity": {
+        "sitl_pid": 1083704,
+        "sitl_created": 1791546309.69,
+        "proxy_pid": 1083706,
+        "mavros_pid": 1083814,
+        "master": "http://127.0.0.1:11321",
+        "params": {
+          "SIM_SPEEDUP": 1.0,
+          "GPS_TYPE": 0,
+          "EK3_SRC1_POSXY": 6,
+          "EK3_SRC1_VELXY": 0,
+          "EK3_SRC1_POSZ": 1,
+          "ARMING_CHECK": 1,
+          "LOG_DISARMED": 1,
+          "LOG_BACKEND_TYPE": 1
+        },
+        "armed": false,
+        "mode": "STABILIZE"
+      }
+    },
+    {
+      "time": 1791549265.6107154,
+      "event": "MODE",
+      "stage": "PREFLIGHT",
+      "mode": "GUIDED"
+    },
+    {
+      "time": 1791549265.6604755,
+      "event": "ARM_RESPONSE",
+      "stage": "PREFLIGHT",
+      "success": true,
+      "result": 0
+    },
+    {
+      "time": 1791549265.8594115,
+      "event": "TAKEOFF_RESPONSE",
+      "stage": "TAKEOFF",
+      "success": true,
+      "result": 0
+    },
+    {
+      "time": 1791549270.3169684,
+      "event": "HOVER_REACHED",
+      "stage": "HOVER",
+      "truth_z": 0.6828137532293137
+    },
+    {
+      "time": 1791549273.323063,
+      "event": "MISSION_START",
+      "stage": "MISSION",
+      "success": true,
+      "message": "Mission started: no auto arm / no auto takeoff"
+    },
+    {
+      "time": 1791549286.6932268,
+      "event": "FAILURE",
+      "stage": "MISSION",
+      "error": "SAFETY_ABORT:VELOCITY_STALE_OR_TRANSFORM_MISSING"
+    },
+    {
+      "time": 1791549286.7988167,
+      "event": "MODE",
+      "stage": "LAND",
+      "mode": "LAND"
+    },
+    {
+      "time": 1791549290.8548076,
+      "event": "LANDED_DISARMED",
+      "stage": "LAND",
+      "truth_z": -0.0002796266654485624
+    },
+    {
+      "time": 1791549290.9605305,
+      "event": "MODE",
+      "stage": "LAND",
+      "mode": "STABILIZE"
+    },
+    {
+      "time": 1791549290.9636211,
+      "event": "RESET_REQUIRES_NEW_OPERATOR_ACK",
+      "stage": "LAND"
+    },
+    {
+      "time": 1791549291.0190818,
+      "event": "MODEL_RESTORED_ON_GROUND",
+      "stage": "RESTORE"
+    },
+    {
+      "time": 1791549291.0194232,
+      "event": "RESULT",
+      "stage": "RESTORE",
+      "result": "FAILED",
+      "error": "SAFETY_ABORT:VELOCITY_STALE_OR_TRANSFORM_MISSING"
+    }
+  ]
+}

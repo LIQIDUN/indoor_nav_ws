@@ -1,0 +1,108 @@
+{
+  "mission_duration_s": 53.128493547439575,
+  "waypoint_observations": [
+    {
+      "index": 1,
+      "target": [
+        0.0,
+        0.0,
+        0.8
+      ],
+      "command_reached_s": 0.4710698127746582,
+      "truth_entered_tolerance_s": 0.504622220993042
+    },
+    {
+      "index": 2,
+      "target": [
+        0.4,
+        0.0,
+        0.8
+      ],
+      "command_reached_s": 5.771097183227539,
+      "truth_entered_tolerance_s": 6.356057643890381
+    },
+    {
+      "index": 3,
+      "target": [
+        -0.4,
+        0.0,
+        0.8
+      ],
+      "command_reached_s": 12.071077585220337,
+      "truth_entered_tolerance_s": 12.512584447860718
+    },
+    {
+      "index": 4,
+      "target": [
+        0.0,
+        0.4,
+        0.8
+      ],
+      "command_reached_s": 17.171064376831055,
+      "truth_entered_tolerance_s": 17.73261284828186
+    },
+    {
+      "index": 5,
+      "target": [
+        0.0,
+        -0.4,
+        0.8
+      ],
+      "command_reached_s": 23.471057891845703,
+      "truth_entered_tolerance_s": 23.89013671875
+    },
+    {
+      "index": 6,
+      "target": [
+        0.35,
+        -0.35,
+        0.8
+      ],
+      "command_reached_s": 27.47107195854187,
+      "truth_entered_tolerance_s": 28.065261840820312
+    },
+    {
+      "index": 7,
+      "target": [
+        0.35,
+        0.35,
+        0.8
+      ],
+      "command_reached_s": 33.37109375,
+      "truth_entered_tolerance_s": 33.94849753379822
+    },
+    {
+      "index": 8,
+      "target": [
+        -0.35,
+        0.35,
+        0.8
+      ],
+      "command_reached_s": 39.2710747718811,
+      "truth_entered_tolerance_s": 39.69680070877075
+    },
+    {
+      "index": 9,
+      "target": [
+        -0.35,
+        -0.35,
+        0.8
+      ],
+      "command_reached_s": 45.02106976509094,
+      "truth_entered_tolerance_s": 45.44626069068909
+    },
+    {
+      "index": 10,
+      "target": [
+        0.0,
+        0.0,
+        0.8
+      ],
+      "command_reached_s": 49.77110052108765,
+      "truth_entered_tolerance_s": 50.35455536842346
+    }
+  ],
+  "note": "Command target matches and truth entering tolerance do not prove completion of the required stable/hold interval.",
+  "truth_command_tracking_xy_rms_m": 0.1432024666858184,
+  "truth_command_tracking_xy_max_m": 0.24142991830511878
+}

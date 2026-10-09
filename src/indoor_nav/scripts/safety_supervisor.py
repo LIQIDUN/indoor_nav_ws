@@ -6,6 +6,7 @@ required, and the human must be able to switch ALT_HOLD/STABILIZE directly.
 """
 import math
 import json
+import threading
 import rospy
 from geometry_msgs.msg import PoseStamped, TransformStamped, TwistStamped, PointStamped
 from nav_msgs.msg import Odometry
@@ -59,6 +60,9 @@ class SafetySupervisor:
         self.velocity_frame = rospy.get_param('/mavros/local_position/frame_id', 'map')
         self.velocity_body_frame = rospy.get_param(
             '/mavros/local_position/tf/child_frame_id', 'base_link')
+        self.velocity_lock = threading.RLock()
+        self.velocity_pending = None
+        self.velocity_future_hold_limit_s = .020
         self.velocity_source_error = None
         self.velocity = None
         self.velocity_stamp = 0.
@@ -137,20 +141,53 @@ class SafetySupervisor:
         self.z_offset = msg.data
 
     def odometry_velocity_cb(self, msg):
-        """Undo MAVROS' paired ENU-to-FLU encoding; retain measurement stamp."""
+        """Undo paired FLU encoding; never consume a future measurement."""
+        received = rospy.get_time()
         try:
             xyz = paired_odometry_velocity(msg, self.velocity_frame,
                                            self.velocity_body_frame)
         except ValueError as exc:
-            self.velocity_source_error = str(exc)
-            self.velocity = None  # Invalid new data must not leave old data usable.
+            with self.velocity_lock:
+                self.velocity_source_error = str(exc)
+                self.velocity = None
+                self.velocity_pending = None
             return
         velocity = TwistStamped()
         velocity.header.stamp = msg.header.stamp
         velocity.header.frame_id = msg.header.frame_id
         velocity.twist.linear.x, velocity.twist.linear.y, velocity.twist.linear.z = xyz
-        self.velocity_source_error = None
-        self.velocity_cb(velocity)
+        future = msg.header.stamp.to_sec()-received
+        with self.velocity_lock:
+            self.velocity_source_error = None
+            if future > 0:
+                if future <= self.velocity_future_hold_limit_s:
+                    # Keep the last genuinely fresh sample until this stamp
+                    # matures, exactly as the estimator's IMU pending path.
+                    self.velocity_pending = (velocity, received)
+                else:
+                    self.velocity = None
+                    self.velocity_pending = None
+                    self.velocity_source_error = 'FUTURE_VELOCITY_HEADER'
+                return
+            self.velocity_pending = None
+            self.velocity = velocity
+            self.velocity_stamp = received
+
+    def release_pending_velocity(self, now):
+        if getattr(self, 'velocity_pending', None) is None:
+            return
+        with self.velocity_lock:
+            if self.velocity_pending is None:
+                return
+            velocity, received = self.velocity_pending
+            age = now-velocity.header.stamp.to_sec()
+            if not 0 <= now-received <= .30:
+                self.velocity_pending = None
+                self.velocity_source_error = 'PENDING_VELOCITY_EXPIRED'
+            elif 0 <= age <= .30:
+                self.velocity = velocity
+                self.velocity_stamp = received  # Original receipt, never refreshed.
+                self.velocity_pending = None
 
     def velocity_cb(self, msg):
         self.velocity = msg
@@ -245,11 +282,13 @@ class SafetySupervisor:
 
     def freeze_check(self, now):
         """SITL requires independent truth; never silently fall back to EKF."""
+        self.release_pending_velocity(now)
         f = self.cfg.get('freeze_detection', {})
         if not f.get('enabled', False):
             self.freeze_detector.reset('DISABLED')
             self.freeze_snapshot = dict(self.freeze_detector.snapshot)
             return False
+        pending_velocity = self.velocity_pending
         context = {'now_s': now, 'world_receipt_age_s': now-self.world_timestamp,
                    'world_header_age_s': self.message_age(self.world, now) if self.world else None,
                    'velocity_receipt_age_s': now-self.velocity_stamp,
@@ -259,6 +298,9 @@ class SafetySupervisor:
                    'velocity_frame': self.velocity.header.frame_id if self.velocity else None,
                    'velocity_source': '/mavros/local_position/odom',
                    'velocity_source_error': self.velocity_source_error,
+                   'velocity_pending_header_s': (pending_velocity[0].header.stamp.to_sec()
+                                                  if pending_velocity else None),
+                   'velocity_future_hold_limit_s': self.velocity_future_hold_limit_s,
                    'uwb_age_s': self.localization.uwb_age_s if self.localization else None,
                    'range_age_s': self.localization.laser_age_s if self.localization else None,
                    'fc_connected': self.fc.connected, 'fc_age_s': now-self.fc_timestamp,
@@ -409,9 +451,12 @@ class SafetySupervisor:
             rospy.logerr('LAND mode request failed: %s; pilot RC override required', ex)
 
     def tick(self, _event):
-        now = rospy.get_time()
-        self.freeze_check(now)
-        ok, reason = self.checks(now)
+        # Sample time and velocity under one lock: a concurrently arriving
+        # message must not be compared with an earlier watchdog epoch.
+        with self.velocity_lock:
+            now = rospy.get_time()
+            self.freeze_check(now)
+            ok, reason = self.checks(now)
         guided = self.fc.armed and self.fc.mode == 'GUIDED'
         active = self.mission_state in ('RUNNING', 'COMPLETE')
         # RC direct override always wins; never force LAND after leaving GUIDED.

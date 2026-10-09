@@ -1,0 +1,38 @@
+{
+  "mission_duration_s": 13.370163917541504,
+  "waypoint_observations": [
+    {
+      "index": 1,
+      "target": [
+        0.0,
+        0.0,
+        0.8
+      ],
+      "command_reached_s": 0.49145078659057617,
+      "truth_entered_tolerance_s": 0.5258104801177979
+    },
+    {
+      "index": 2,
+      "target": [
+        0.4,
+        0.0,
+        0.8
+      ],
+      "command_reached_s": 5.791529655456543,
+      "truth_entered_tolerance_s": 6.3800013065338135
+    },
+    {
+      "index": 3,
+      "target": [
+        -0.4,
+        0.0,
+        0.8
+      ],
+      "command_reached_s": 12.241549968719482,
+      "truth_entered_tolerance_s": 12.704445123672485
+    }
+  ],
+  "note": "Command target matches and truth entering tolerance do not prove completion of the required stable/hold interval.",
+  "truth_command_tracking_xy_rms_m": 0.13359768790184517,
+  "truth_command_tracking_xy_max_m": 0.23748337483101403
+}

@@ -1,0 +1,24 @@
+{
+  "identity": {
+    "sitl_pid": 1083704,
+    "sitl_created": 1791546309.69,
+    "proxy_pid": 1083706,
+    "mavros_pid": 1083814,
+    "master": "http://127.0.0.1:11321",
+    "params": {
+      "SIM_SPEEDUP": 1.0,
+      "GPS_TYPE": 0,
+      "EK3_SRC1_POSXY": 6,
+      "EK3_SRC1_VELXY": 0,
+      "EK3_SRC1_POSZ": 1,
+      "ARMING_CHECK": 1,
+      "LOG_DISARMED": 1,
+      "LOG_BACKEND_TYPE": 1
+    },
+    "armed": false,
+    "mode": "STABILIZE"
+  },
+  "approval": "User explicitly approved one additional same-trajectory flight and official ACK after bounded velocity pending fix",
+  "ack_message": "Operator acknowledged; next check: PARAM_MISMATCH:FC_PARAM_CHECK_PENDING. Does NOT arm or start flight.",
+  "safety_reason": "READY"
+}

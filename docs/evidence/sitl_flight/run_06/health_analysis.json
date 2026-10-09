@@ -1,0 +1,13 @@
+{
+  "localization_reasons": {
+    "OK": 2035
+  },
+  "pending_velocity_observations": 3,
+  "min_consumed_velocity_age_s": 0.0004050731658935547,
+  "max_consumed_velocity_age_s": 0.0796213150024414,
+  "ekf_flags": {
+    "831": 1693
+  },
+  "adapter_enabled": true,
+  "world_publish_enabled": true
+}

@@ -1,0 +1,27 @@
+{
+  "/mavros/state": {
+    "count": 338,
+    "hz": 5.048515324684691,
+    "max_gap_s": 0.20563912391662598
+  },
+  "/mavros/imu/data": {
+    "count": 1671,
+    "hz": 24.987175629271437,
+    "max_gap_s": 0.04609107971191406
+  },
+  "/mavros/local_position/odom": {
+    "count": 1671,
+    "hz": 24.987232587937672,
+    "max_gap_s": 0.04757547378540039
+  },
+  "/mavros/odometry/out": {
+    "count": 1983,
+    "hz": 29.67058362179291,
+    "max_gap_s": 0.06771302223205566
+  },
+  "/indoor_nav/world_pose": {
+    "count": 2005,
+    "hz": 29.99993256481276,
+    "max_gap_s": 0.03704071044921875
+  }
+}
