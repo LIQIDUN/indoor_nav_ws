@@ -1,0 +1,13 @@
+header: 
+  seq: 1184
+  stamp: 
+    secs: 1791552528
+    nsecs: 670787789
+  frame_id: ''
+connected: True
+armed: False
+guided: False
+manual_input: True
+mode: "STABILIZE"
+system_status: 3
+---

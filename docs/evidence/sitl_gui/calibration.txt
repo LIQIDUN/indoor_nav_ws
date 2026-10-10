@@ -1,0 +1,2 @@
+success: True
+message: "CALIBRATED and LOCKED; check +X/+Y hand motion before flight"

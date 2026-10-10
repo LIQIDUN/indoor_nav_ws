@@ -9,6 +9,7 @@ WS_ROOT="$(cd -- "$TOOLS_DIR/.." && pwd)"
 source "$TOOLS_DIR/sitl.env"
 RUN_DIR="$WS_ROOT/.sitl_runtime"
 mkdir -p "$RUN_DIR"
+GUI_DIR="$RUN_DIR/gui_instance"
 
 fail() { echo "[ERROR] $*" >&2; exit 1; }
 info() { echo "[indoor SITL] $*"; }
@@ -19,10 +20,13 @@ q() { printf '%q' "$1"; }
 [[ -f "$WORLD_FILE" ]] || fail "未找到 Gazebo world：$WORLD_FILE"
 [[ -f "$WS_ROOT/src/indoor_nav/launch/indoor_nav_sitl.launch" ]] || fail '未找到 indoor_nav_sitl.launch'
 [[ "${SITL_MODEL:-gazebo}" == gazebo ]] || fail 'Gazebo11 Classic 必须使用 SITL_MODEL=gazebo，而不是 JSON'
-# SITL telemetry only: runtime SR rates change; no PARAM_SET or EKF changes.
+# MAVProxy owns telemetry stream rates; this section does not change EKF parameters.
 [[ "${SITL_MAVLINK_STREAMRATE:-25}" =~ ^[0-9]+$ ]] || fail 'SITL_MAVLINK_STREAMRATE must be 1..50 Hz'
 (( SITL_MAVLINK_STREAMRATE >= 1 && SITL_MAVLINK_STREAMRATE <= 50 )) || fail 'SITL_MAVLINK_STREAMRATE must be 1..50 Hz'
 if (( SITL_MAVLINK_STREAMRATE < 20 )); then echo "[WARN] Telemetry below 20Hz: diagnostic rollback only; not flight acceptance." >&2; fi
+
+[[ "$SITL_COVARIANCE_ADAPTER" == true || "$SITL_COVARIANCE_ADAPTER" == false ]] || fail "Invalid SITL_COVARIANCE_ADAPTER"
+[[ -f "$SITL_MISSION_FILE" ]] || fail "Missing mission: $SITL_MISSION_FILE"
 
 [[ -n "${DISPLAY:-}${WAYLAND_DISPLAY:-}" ]] || fail '未检测到图形桌面；本脚本使用 Terminator 独立窗口'
 command -v terminator >/dev/null || fail '未安装 terminator：sudo apt install terminator'
@@ -31,6 +35,8 @@ source /opt/ros/noetic/setup.bash
 source "$WS_ROOT/devel/setup.bash"
 set -u
 export ROS_MASTER_URI=http://127.0.0.1:11311
+export GAZEBO_MASTER_URI=http://127.0.0.1:11345
+unset ROS_IP ROS_HOSTNAME
 
 # 和参考脚本一样：启动前清理本项目旧实例；不执行 pkill -9 -f ros。
 if [[ -f "$RUN_DIR/session.running" ]] || compgen -G "$RUN_DIR/*.terminal.pid" >/dev/null; then
@@ -40,6 +46,35 @@ fi
 if timeout 2 bash -c 'echo > /dev/tcp/127.0.0.1/11311' >/dev/null 2>&1; then
   fail '11311 上已有 ROS Master（可能来自其他项目）；为避免误伤，先手动确认并关闭它'
 fi
+
+# Fail before creating terminals if another SITL/Gazebo instance owns shared ports.
+python3 - "$MAVROS_UDP_PORT" <<'PYPORT'
+import socket, sys
+for kind, ports in ((socket.SOCK_STREAM, (11345, 5760)),
+                    (socket.SOCK_DGRAM, (9002, 9003, int(sys.argv[1])))):
+    for port in ports:
+        with socket.socket(socket.AF_INET, kind) as sock:
+            sock.bind(('0.0.0.0', port))
+PYPORT
+mkdir -p "$GUI_DIR"
+# Never edit external world or EEPROM. Cold starts use a fresh copy of the same seed as run_06.
+python3 - "$WORLD_FILE" "$GUI_DIR/flight.world" "$SITL_PHYSICS_STEP_S" <<'PYWORLD'
+import sys
+import xml.etree.ElementTree as ET
+root = ET.parse(sys.argv[1])
+steps = root.findall('.//physics/max_step_size')
+if len(steps) != 1:
+    raise SystemExit('Expected exactly one Gazebo physics/max_step_size')
+steps[0].text = sys.argv[3]
+root.write(sys.argv[2], encoding='utf-8', xml_declaration=True)
+PYWORLD
+cp "$AP_ROOT/Tools/autotest/eeprom.bin" "$GUI_DIR/eeprom.bin"
+WORLD_FILE="$GUI_DIR/flight.world"
+# Record early so normal stop also works after a partial startup failure.
+printf '%s\n' "$AP_ROOT" > "$RUN_DIR/session.ap_root"
+printf '%s\n' "$WORLD_FILE" > "$RUN_DIR/session.world_file"
+printf '%s\n' "$MAVROS_UDP_PORT" > "$RUN_DIR/session.mavros_port"
+date '+%F %T' > "$RUN_DIR/session.running"
 
 # 只使用原生 shell + 原始命令；没有 tmux/window_component/sitl_component 包装层。
 # 命令结束时保留交互式 bash，方便直接查看错误信息。
@@ -61,8 +96,8 @@ wait_for() {
 }
 
 # 所有路径与参数都通过 shell 转义，以便目录中有空格时也能工作。
-ROS_ENV="source /opt/ros/noetic/setup.bash && source $(q "$WS_ROOT/devel/setup.bash") && export ROS_MASTER_URI=http://127.0.0.1:11311 && unset ROS_IP ROS_HOSTNAME"
-SITL_OPTIONS="--mavproxy-args=$(q "--streamrate=$SITL_MAVLINK_STREAMRATE")"
+ROS_ENV="source /opt/ros/noetic/setup.bash && source $(q "$WS_ROOT/devel/setup.bash") && export ROS_MASTER_URI=http://127.0.0.1:11311 && export GAZEBO_MASTER_URI=http://127.0.0.1:11345 && unset ROS_IP ROS_HOSTNAME"
+SITL_OPTIONS="--use-dir=$(q "$GUI_DIR") --custom-location=$(q "$SITL_HOME") --mavproxy-args=$(q "--streamrate=$SITL_MAVLINK_STREAMRATE")"
 [[ "${SITL_CONSOLE:-false}" == true ]] && SITL_OPTIONS+=' --console'
 [[ "${SITL_MAP:-false}" == true ]] && SITL_OPTIONS+=' --map'
 
@@ -85,7 +120,7 @@ wait_for 'Gazebo /gazebo/model_states' 90 "timeout 2 rostopic list | grep -qx /g
 
 # 4. MAVROS，使用原生 roslaunch 窗口
 open_terminal mavros '740x430+850+440' 'MAVROS' \
-  "$ROS_ENV && echo '[RUN] roslaunch mavros apm.launch' && roslaunch mavros apm.launch $(q "fcu_url:=udp://:$MAVROS_UDP_PORT@") gcs_url:="
+  "$ROS_ENV && echo '[RUN] roslaunch mavros apm.launch' && roslaunch mavros apm.launch $(q "fcu_url:=udp://127.0.0.1:$MAVROS_UDP_PORT@") gcs_url:="
 # 输出等待情况；不能把话题存在误当成 MAVROS 已经连接
 mavros_ok=0
 for ((i=1; i<=45; i++)); do
@@ -102,7 +137,7 @@ fi
 
 # 5. indoor_nav：保持当前安全配置，不启动 ARM、不启动 Mission
 open_terminal indoor '800x430+1600+0' 'indoor_nav' \
-  "$ROS_ENV && echo '[RUN] roslaunch indoor_nav indoor_nav_sitl.launch' && roslaunch indoor_nav indoor_nav_sitl.launch $(q "external_nav_enabled:=$EXTERNAL_NAV_ENABLED") $(q "gazebo_model_name:=$GAZEBO_MODEL_NAME") $(q "uwb_noise_std_xy_m:=$UWB_NOISE_STD_XY_M") $(q "uwb_delay_ms:=$UWB_DELAY_MS")"
+  "$ROS_ENV && echo '[RUN] roslaunch indoor_nav indoor_nav_sitl.launch' && roslaunch indoor_nav indoor_nav_sitl.launch $(q "external_nav_enabled:=$EXTERNAL_NAV_ENABLED") $(q "sitl_covariance_adapter:=$SITL_COVARIANCE_ADAPTER") $(q "mission_file:=$SITL_MISSION_FILE") $(q "gazebo_model_name:=$GAZEBO_MODEL_NAME") $(q "uwb_noise_std_xy_m:=$UWB_NOISE_STD_XY_M") $(q "uwb_delay_ms:=$UWB_DELAY_MS")"
 
 # 6. QGroundControl：默认启动；允许 sitl.env 中 START_QGC=0 关闭。
 # 优先使用显式 QGC_APP，随后寻找 PATH 或常见 AppImage 安装位置。
@@ -128,10 +163,10 @@ if [[ "${START_QGC:-1}" == 1 ]]; then
   fi
 fi
 
-printf '%s\n' "$AP_ROOT" > "$RUN_DIR/session.ap_root"
-printf '%s\n' "$WORLD_FILE" > "$RUN_DIR/session.world_file"
-printf '%s\n' "$MAVROS_UDP_PORT" > "$RUN_DIR/session.mavros_port"
-date '+%F %T' > "$RUN_DIR/session.running"
+info '准备SITL心跳、只读EKF检查及origin回读；不会校准、ACK、解锁或起飞。'
+if ! timeout 120 python3 "$TOOLS_DIR/sitl_gui_prepare.py" --ap-root "$AP_ROOT" --home="$SITL_HOME" --port "$MAVROS_UDP_PORT"; then
+  fail 'SITL准备失败：不要飞行。查看 .sitl_runtime/gui_instance/prepare.json 和组件终端；可用原stop脚本关闭。'
+fi
 info '全部组件已发起启动。各自终端可直接查看原始 ROS/SITL/Gazebo 日志。'
 info "ExternalNav=$EXTERNAL_NAV_ENABLED；不会自动 ARM 或起飞。"
 info '关闭：./tools/stop_indoor_sitl.sh'

@@ -1,0 +1,94 @@
+-- Logs begin at Mon 2026-08-24 05:07:47 CST, end at Fri 2026-10-09 21:28:57 CST. --
+Oct 09 21:23:21 liqidun-MS-Challenger-B650M systemd[4185]: Started /home/liqidun/github/indoor_nav_ws/tools/start_indoor_sitl.sh.
+Oct 09 21:23:21 liqidun-MS-Challenger-B650M start_indoor_sitl.sh[1201807]: [indoor SITL] 发现上次会话，先清理旧进程...
+Oct 09 21:23:21 liqidun-MS-Challenger-B650M start_indoor_sitl.sh[1201849]: [indoor SITL] 准备关闭 indoor_nav、MAVROS、Gazebo、ArduPilot SITL、ROS Master...
+Oct 09 21:23:21 liqidun-MS-Challenger-B650M start_indoor_sitl.sh[1201860]: /home/liqidun/github/indoor_nav_ws/tools/stop_indoor_sitl.sh: line 14: /proc/1200499/cmdline: No such file or directory
+Oct 09 21:23:21 liqidun-MS-Challenger-B650M start_indoor_sitl.sh[1201864]: /home/liqidun/github/indoor_nav_ws/tools/stop_indoor_sitl.sh: line 14: /proc/1200458/cmdline: No such file or directory
+Oct 09 21:23:21 liqidun-MS-Challenger-B650M start_indoor_sitl.sh[1201872]: /home/liqidun/github/indoor_nav_ws/tools/stop_indoor_sitl.sh: line 14: /proc/1200268/cmdline: No such file or directory
+Oct 09 21:23:21 liqidun-MS-Challenger-B650M start_indoor_sitl.sh[1201880]: /home/liqidun/github/indoor_nav_ws/tools/stop_indoor_sitl.sh: line 14: /proc/1199927/cmdline: No such file or directory
+Oct 09 21:23:21 liqidun-MS-Challenger-B650M start_indoor_sitl.sh[1201888]: /home/liqidun/github/indoor_nav_ws/tools/stop_indoor_sitl.sh: line 14: /proc/1199659/cmdline: No such file or directory
+Oct 09 21:23:21 liqidun-MS-Challenger-B650M start_indoor_sitl.sh[1201892]: /home/liqidun/github/indoor_nav_ws/tools/stop_indoor_sitl.sh: line 14: /proc/1199523/cmdline: No such file or directory
+Oct 09 21:23:21 liqidun-MS-Challenger-B650M start_indoor_sitl.sh[1201896]: /home/liqidun/github/indoor_nav_ws/tools/stop_indoor_sitl.sh: line 14: /proc/1199496/cmdline: No such file or directory
+Oct 09 21:23:21 liqidun-MS-Challenger-B650M start_indoor_sitl.sh[1201900]: /home/liqidun/github/indoor_nav_ws/tools/stop_indoor_sitl.sh: line 14: /proc/1200500/cmdline: No such file or directory
+Oct 09 21:23:21 liqidun-MS-Challenger-B650M start_indoor_sitl.sh[1201904]: /home/liqidun/github/indoor_nav_ws/tools/stop_indoor_sitl.sh: line 14: /proc/1200462/cmdline: No such file or directory
+Oct 09 21:23:27 liqidun-MS-Challenger-B650M start_indoor_sitl.sh[1201849]: [indoor SITL] 关闭流程结束。检查残留进程与 UDP 端口：
+Oct 09 21:23:27 liqidun-MS-Challenger-B650M start_indoor_sitl.sh[1201849]: [indoor SITL] 若仅有残留进程且确定不运行其他 ROS/Gazebo 项目，可执行：./tools/stop_indoor_sitl.sh --force
+Oct 09 21:23:27 liqidun-MS-Challenger-B650M start_indoor_sitl.sh[1201807]: [indoor SITL] 启动 ROS Master：INDOOR-UWB ROS Master
+Oct 09 21:23:27 liqidun-MS-Challenger-B650M terminator[1202056]: Binding '<Control><Alt>a' failed!
+Oct 09 21:23:27 liqidun-MS-Challenger-B650M terminator[1202056]: gtk_window_parse_geometry() called on a window with no visible children; the window should be set up before gtk_window_parse_geometry() is called.
+Oct 09 21:23:29 liqidun-MS-Challenger-B650M start_indoor_sitl.sh[1201807]: [indoor SITL] ROS Master 已就绪
+Oct 09 21:23:29 liqidun-MS-Challenger-B650M start_indoor_sitl.sh[1201807]: [indoor SITL] 启动 ArduPilot SITL / MAVProxy：INDOOR-UWB ArduPilot SITL / MAVProxy
+Oct 09 21:23:29 liqidun-MS-Challenger-B650M terminator[1202224]: Binding '<Control><Alt>a' failed!
+Oct 09 21:23:29 liqidun-MS-Challenger-B650M terminator[1202224]: gtk_window_parse_geometry() called on a window with no visible children; the window should be set up before gtk_window_parse_geometry() is called.
+Oct 09 21:23:31 liqidun-MS-Challenger-B650M start_indoor_sitl.sh[1201807]: [indoor SITL] ArduPilot UDP 9003 已就绪
+Oct 09 21:23:31 liqidun-MS-Challenger-B650M start_indoor_sitl.sh[1201807]: [indoor SITL] 启动 Gazebo11：INDOOR-UWB Gazebo11
+Oct 09 21:23:31 liqidun-MS-Challenger-B650M terminator[1202494]: Binding '<Control><Alt>a' failed!
+Oct 09 21:23:31 liqidun-MS-Challenger-B650M terminator[1202494]: gtk_window_parse_geometry() called on a window with no visible children; the window should be set up before gtk_window_parse_geometry() is called.
+Oct 09 21:23:34 liqidun-MS-Challenger-B650M start_indoor_sitl.sh[1201807]: [indoor SITL] Gazebo /gazebo/model_states 已就绪
+Oct 09 21:23:34 liqidun-MS-Challenger-B650M start_indoor_sitl.sh[1201807]: [indoor SITL] 启动 MAVROS：INDOOR-UWB MAVROS
+Oct 09 21:23:34 liqidun-MS-Challenger-B650M terminator[1202833]: Binding '<Control><Alt>a' failed!
+Oct 09 21:23:34 liqidun-MS-Challenger-B650M terminator[1202833]: gtk_window_parse_geometry() called on a window with no visible children; the window should be set up before gtk_window_parse_geometry() is called.
+Oct 09 21:23:37 liqidun-MS-Challenger-B650M start_indoor_sitl.sh[1201807]: [indoor SITL] MAVROS connected=True
+Oct 09 21:23:37 liqidun-MS-Challenger-B650M start_indoor_sitl.sh[1201807]: [indoor SITL] 启动 indoor_nav：INDOOR-UWB indoor_nav
+Oct 09 21:23:37 liqidun-MS-Challenger-B650M start_indoor_sitl.sh[1201807]: [indoor SITL] 启动 QGroundControl：INDOOR-UWB QGroundControl
+Oct 09 21:23:37 liqidun-MS-Challenger-B650M start_indoor_sitl.sh[1201807]: [indoor SITL] 准备SITL心跳、只读EKF检查及origin回读；不会校准、ACK、解锁或起飞。
+Oct 09 21:23:37 liqidun-MS-Challenger-B650M terminator[1203027]: Binding '<Control><Alt>a' failed!
+Oct 09 21:23:37 liqidun-MS-Challenger-B650M terminator[1203027]: gtk_window_parse_geometry() called on a window with no visible children; the window should be set up before gtk_window_parse_geometry() is called.
+Oct 09 21:23:37 liqidun-MS-Challenger-B650M terminator[1203031]: Binding '<Control><Alt>a' failed!
+Oct 09 21:23:37 liqidun-MS-Challenger-B650M terminator[1203031]: gtk_window_parse_geometry() called on a window with no visible children; the window should be set up before gtk_window_parse_geometry() is called.
+Oct 09 21:23:38 liqidun-MS-Challenger-B650M start_indoor_sitl.sh[1203035]: {"event": "IDENTITY", "wall_s": 1791552218.7477582, "pin": [1202473, 1791552211.19, 1202940, 1202468, 1791552211.16]}
+Oct 09 21:23:47 liqidun-MS-Challenger-B650M start_indoor_sitl.sh[1203035]: {"event": "EKF_PARAMETERS", "wall_s": 1791552227.4307768, "values": {"GPS_TYPE": 0.0, "SIM_SPEEDUP": 1.0, "AHRS_EKF_TYPE": 3.0, "EK3_ENABLE": 1.0, "VISO_TYPE": 3.0, "EK3_SRC1_POSXY": 6.0, "VISO_POS_M_NSE": 0.20000000298023224, "VISO_POS_X": 0.0, "VISO_POS_Y": 0.0, "VISO_POS_Z": 0.0, "EK3_SRC1_VELXY": 0.0, "EK3_SRC1_VELZ": 0.0, "EK3_SRC1_POSZ": 1.0, "EK3_SRC1_YAW": 1.0, "EK3_SRC2_VELXY": 0.0, "EK3_SRC2_VELZ": 0.0, "EK3_SRC2_POSZ": 1.0, "EK3_SRC2_YAW": 0.0, "EK3_SRC3_VELXY": 0.0, "EK3_SRC3_VELZ": 0.0, "EK3_SRC3_POSZ": 1.0, "EK3_SRC3_YAW": 0.0}}
+Oct 09 21:23:47 liqidun-MS-Challenger-B650M start_indoor_sitl.sh[1203035]: {"event": "FAILED", "wall_s": 1791552227.5497434, "reason": "event() got multiple values for argument 'name'"}
+Oct 09 21:23:48 liqidun-MS-Challenger-B650M start_indoor_sitl.sh[1203035]: SITL PREPARATION FAILED: event() got multiple values for argument 'name'
+Oct 09 21:23:48 liqidun-MS-Challenger-B650M start_indoor_sitl.sh[1201807]: [ERROR] SITL准备失败：不要飞行。查看 .sitl_runtime/gui_instance/prepare.json 和组件终端；可用原stop脚本关闭。
+Oct 09 21:23:48 liqidun-MS-Challenger-B650M systemd[4185]: indoor-nav-gui-validation.service: Main process exited, code=exited, status=1/FAILURE
+Oct 09 21:23:48 liqidun-MS-Challenger-B650M systemd[4185]: indoor-nav-gui-validation.service: Failed with result 'exit-code'.
+Oct 09 21:24:27 liqidun-MS-Challenger-B650M systemd[4185]: Started /home/liqidun/github/indoor_nav_ws/tools/start_indoor_sitl.sh.
+Oct 09 21:24:27 liqidun-MS-Challenger-B650M start_indoor_sitl.sh[1204235]: [indoor SITL] 发现上次会话，先清理旧进程...
+Oct 09 21:24:27 liqidun-MS-Challenger-B650M start_indoor_sitl.sh[1204278]: [indoor SITL] 准备关闭 indoor_nav、MAVROS、Gazebo、ArduPilot SITL、ROS Master...
+Oct 09 21:24:27 liqidun-MS-Challenger-B650M start_indoor_sitl.sh[1204301]: /home/liqidun/github/indoor_nav_ws/tools/stop_indoor_sitl.sh: line 14: /proc/1202833/cmdline: No such file or directory
+Oct 09 21:24:27 liqidun-MS-Challenger-B650M start_indoor_sitl.sh[1204305]: /home/liqidun/github/indoor_nav_ws/tools/stop_indoor_sitl.sh: line 14: /proc/1202521/cmdline: No such file or directory
+Oct 09 21:24:27 liqidun-MS-Challenger-B650M start_indoor_sitl.sh[1204309]: /home/liqidun/github/indoor_nav_ws/tools/stop_indoor_sitl.sh: line 14: /proc/1202494/cmdline: No such file or directory
+Oct 09 21:24:27 liqidun-MS-Challenger-B650M start_indoor_sitl.sh[1204313]: /home/liqidun/github/indoor_nav_ws/tools/stop_indoor_sitl.sh: line 14: /proc/1202235/cmdline: No such file or directory
+Oct 09 21:24:27 liqidun-MS-Challenger-B650M start_indoor_sitl.sh[1204317]: /home/liqidun/github/indoor_nav_ws/tools/stop_indoor_sitl.sh: line 14: /proc/1202224/cmdline: No such file or directory
+Oct 09 21:24:27 liqidun-MS-Challenger-B650M start_indoor_sitl.sh[1204321]: /home/liqidun/github/indoor_nav_ws/tools/stop_indoor_sitl.sh: line 14: /proc/1202079/cmdline: No such file or directory
+Oct 09 21:24:27 liqidun-MS-Challenger-B650M start_indoor_sitl.sh[1204325]: /home/liqidun/github/indoor_nav_ws/tools/stop_indoor_sitl.sh: line 14: /proc/1202056/cmdline: No such file or directory
+Oct 09 21:24:27 liqidun-MS-Challenger-B650M start_indoor_sitl.sh[1204329]: /home/liqidun/github/indoor_nav_ws/tools/stop_indoor_sitl.sh: line 14: /proc/1203064/cmdline: No such file or directory
+Oct 09 21:24:27 liqidun-MS-Challenger-B650M start_indoor_sitl.sh[1204333]: /home/liqidun/github/indoor_nav_ws/tools/stop_indoor_sitl.sh: line 14: /proc/1203031/cmdline: No such file or directory
+Oct 09 21:24:34 liqidun-MS-Challenger-B650M start_indoor_sitl.sh[1204278]: [indoor SITL] 关闭流程结束。检查残留进程与 UDP 端口：
+Oct 09 21:24:34 liqidun-MS-Challenger-B650M start_indoor_sitl.sh[1204278]: [indoor SITL] 若仅有残留进程且确定不运行其他 ROS/Gazebo 项目，可执行：./tools/stop_indoor_sitl.sh --force
+Oct 09 21:24:34 liqidun-MS-Challenger-B650M start_indoor_sitl.sh[1204235]: [indoor SITL] 启动 ROS Master：INDOOR-UWB ROS Master
+Oct 09 21:24:34 liqidun-MS-Challenger-B650M terminator[1204497]: Binding '<Control><Alt>a' failed!
+Oct 09 21:24:34 liqidun-MS-Challenger-B650M terminator[1204497]: gtk_window_parse_geometry() called on a window with no visible children; the window should be set up before gtk_window_parse_geometry() is called.
+Oct 09 21:24:35 liqidun-MS-Challenger-B650M start_indoor_sitl.sh[1204235]: [indoor SITL] ROS Master 已就绪
+Oct 09 21:24:35 liqidun-MS-Challenger-B650M start_indoor_sitl.sh[1204235]: [indoor SITL] 启动 ArduPilot SITL / MAVProxy：INDOOR-UWB ArduPilot SITL / MAVProxy
+Oct 09 21:24:35 liqidun-MS-Challenger-B650M terminator[1204641]: Binding '<Control><Alt>a' failed!
+Oct 09 21:24:35 liqidun-MS-Challenger-B650M terminator[1204641]: gtk_window_parse_geometry() called on a window with no visible children; the window should be set up before gtk_window_parse_geometry() is called.
+Oct 09 21:24:37 liqidun-MS-Challenger-B650M start_indoor_sitl.sh[1204235]: [indoor SITL] ArduPilot UDP 9003 已就绪
+Oct 09 21:24:37 liqidun-MS-Challenger-B650M start_indoor_sitl.sh[1204235]: [indoor SITL] 启动 Gazebo11：INDOOR-UWB Gazebo11
+Oct 09 21:24:37 liqidun-MS-Challenger-B650M terminator[1204909]: Binding '<Control><Alt>a' failed!
+Oct 09 21:24:37 liqidun-MS-Challenger-B650M terminator[1204909]: gtk_window_parse_geometry() called on a window with no visible children; the window should be set up before gtk_window_parse_geometry() is called.
+Oct 09 21:24:40 liqidun-MS-Challenger-B650M start_indoor_sitl.sh[1204235]: [indoor SITL] Gazebo /gazebo/model_states 已就绪
+Oct 09 21:24:40 liqidun-MS-Challenger-B650M start_indoor_sitl.sh[1204235]: [indoor SITL] 启动 MAVROS：INDOOR-UWB MAVROS
+Oct 09 21:24:40 liqidun-MS-Challenger-B650M terminator[1205252]: Binding '<Control><Alt>a' failed!
+Oct 09 21:24:40 liqidun-MS-Challenger-B650M terminator[1205252]: gtk_window_parse_geometry() called on a window with no visible children; the window should be set up before gtk_window_parse_geometry() is called.
+Oct 09 21:24:44 liqidun-MS-Challenger-B650M start_indoor_sitl.sh[1204235]: [indoor SITL] MAVROS connected=True
+Oct 09 21:24:44 liqidun-MS-Challenger-B650M start_indoor_sitl.sh[1204235]: [indoor SITL] 启动 indoor_nav：INDOOR-UWB indoor_nav
+Oct 09 21:24:44 liqidun-MS-Challenger-B650M start_indoor_sitl.sh[1204235]: [indoor SITL] 启动 QGroundControl：INDOOR-UWB QGroundControl
+Oct 09 21:24:44 liqidun-MS-Challenger-B650M start_indoor_sitl.sh[1204235]: [indoor SITL] 准备SITL心跳、只读EKF检查及origin回读；不会校准、ACK、解锁或起飞。
+Oct 09 21:24:44 liqidun-MS-Challenger-B650M terminator[1205453]: Binding '<Control><Alt>a' failed!
+Oct 09 21:24:44 liqidun-MS-Challenger-B650M terminator[1205453]: gtk_window_parse_geometry() called on a window with no visible children; the window should be set up before gtk_window_parse_geometry() is called.
+Oct 09 21:24:44 liqidun-MS-Challenger-B650M terminator[1205449]: Binding '<Control><Alt>a' failed!
+Oct 09 21:24:44 liqidun-MS-Challenger-B650M terminator[1205449]: gtk_window_parse_geometry() called on a window with no visible children; the window should be set up before gtk_window_parse_geometry() is called.
+Oct 09 21:24:45 liqidun-MS-Challenger-B650M start_indoor_sitl.sh[1205458]: {"event": "IDENTITY", "wall_s": 1791552285.1115286, "pin": [1204895, 1791552277.61, 1205359, 1204887, 1791552277.58]}
+Oct 09 21:24:54 liqidun-MS-Challenger-B650M start_indoor_sitl.sh[1205458]: {"event": "EKF_PARAMETERS", "wall_s": 1791552294.345733, "values": {"GPS_TYPE": 0.0, "SIM_SPEEDUP": 1.0, "AHRS_EKF_TYPE": 3.0, "EK3_ENABLE": 1.0, "VISO_TYPE": 3.0, "EK3_SRC1_POSXY": 6.0, "VISO_POS_M_NSE": 0.20000000298023224, "VISO_POS_X": 0.0, "VISO_POS_Y": 0.0, "VISO_POS_Z": 0.0, "EK3_SRC1_VELXY": 0.0, "EK3_SRC1_VELZ": 0.0, "EK3_SRC1_POSZ": 1.0, "EK3_SRC1_YAW": 1.0, "EK3_SRC2_VELXY": 0.0, "EK3_SRC2_VELZ": 0.0, "EK3_SRC2_POSZ": 1.0, "EK3_SRC2_YAW": 0.0, "EK3_SRC3_VELXY": 0.0, "EK3_SRC3_VELZ": 0.0, "EK3_SRC3_POSZ": 1.0, "EK3_SRC3_YAW": 0.0}}
+Oct 09 21:24:54 liqidun-MS-Challenger-B650M start_indoor_sitl.sh[1205458]: {"event": "SITL_PARAMETER", "wall_s": 1791552294.4394553, "name": "ARMING_CHECK", "before": 0.0, "after": 1}
+Oct 09 21:24:54 liqidun-MS-Challenger-B650M start_indoor_sitl.sh[1205458]: {"event": "SITL_PARAMETER", "wall_s": 1791552294.5150461, "name": "LOG_DISARMED", "before": 0.0, "after": 1}
+Oct 09 21:24:54 liqidun-MS-Challenger-B650M start_indoor_sitl.sh[1205458]: {"event": "HEARTBEAT_REQUEST", "wall_s": 1791552294.588396, "rate_hz": 5.0}
+Oct 09 21:24:56 liqidun-MS-Challenger-B650M start_indoor_sitl.sh[1205458]: {"event": "ORIGIN_ACCEPTED", "wall_s": 1791552296.4381669, "lat": -35.363261, "lon": 149.16523, "alt": 583.9986291906523}
+Oct 09 21:24:56 liqidun-MS-Challenger-B650M start_indoor_sitl.sh[1205458]: SITL PREPARED. Manually calibrate, verify origin, then safety/acknowledge. No ARM.
+Oct 09 21:24:57 liqidun-MS-Challenger-B650M start_indoor_sitl.sh[1204235]: [indoor SITL] 全部组件已发起启动。各自终端可直接查看原始 ROS/SITL/Gazebo 日志。
+Oct 09 21:24:57 liqidun-MS-Challenger-B650M start_indoor_sitl.sh[1204235]: [indoor SITL] ExternalNav=true；不会自动 ARM 或起飞。
+Oct 09 21:24:57 liqidun-MS-Challenger-B650M start_indoor_sitl.sh[1204235]: [indoor SITL] 关闭：./tools/stop_indoor_sitl.sh
+Oct 09 21:28:57 liqidun-MS-Challenger-B650M systemd[4185]: indoor-nav-gui-validation.service: Succeeded.
+Oct 09 21:28:57 liqidun-MS-Challenger-B650M systemd[4185]: Stopped /home/liqidun/github/indoor_nav_ws/tools/start_indoor_sitl.sh.
