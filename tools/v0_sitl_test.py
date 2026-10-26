@@ -82,6 +82,7 @@ class FlightTest:
         self.graph = []
         self.watchdog = {}
         self.armed_by_test = False
+        self.suspended_proxy = None
         self.truth_origin = self.yaw_delta = None
         self.max_rss = 0
         self.cpu_samples = []
@@ -190,7 +191,7 @@ class FlightTest:
         mission_path = self.directory / 'mission.yaml'
         mission_path.write_text(yaml.safe_dump(config, sort_keys=False))
         bag_topics = ['/mavros/state', '/mavros/local_position/pose', '/mavros/local_position/velocity_local',
-                      '/mavros/global_position/raw/fix', '/mavros/estimator_status', '/mavlink/from', '/gazebo/model_states',
+                      '/mavros/global_position/raw/fix', '/mavros/global_position/gp_origin', '/mavros/estimator_status', '/mavlink/from', '/gazebo/model_states',
                       '/mavros/setpoint_position/local', '/mavros/setpoint_raw/target_local',
                       '/v0_nav/status', '/v0_nav/event', '/v0_nav/target_pose', '/v0_nav/origin_pose',
                       '/v0_nav/heartbeat', '/v0_nav/watchdog', '/sound_sensor/audio_raw', '/motor_mic/audio_raw', '/vibration_data']
@@ -239,6 +240,8 @@ class FlightTest:
             raise RuntimeError('double start accepted')
         if self.args.case == 'f3':
             return self.active_parallel_faults(verified)
+        if self.args.case == 'link_fault':
+            return self.link_fault(verified)
         self.wait(lambda: self.status.get('state') == 'FINISH_HOLD', 110, 'mission complete')
         self.sample()
         if not self.state.armed or self.state.mode != 'GUIDED':
@@ -271,9 +274,6 @@ class FlightTest:
         self.mode('LAND')
         self.wait(lambda: not self.state.armed, 35, 'disarm')
         self.armed_by_test = False
-        parallel = None
-        if self.args.case == 'f3':
-            parallel = self.parallel_faults()
         return {'result': 'PASS', 'case': self.args.case, 'identity': verified,
                 'waypoints': len(config['waypoints']), 'arrival_truth_errors': errors,
                 'max_fcu_speed_xy_mps': max_speed, 'max_truth_speed_xy_mps': max_truth_speed,
@@ -281,26 +281,8 @@ class FlightTest:
                 'max_setpoint_gap_s': max(row['status']['max_publish_gap_s'] for row in active),
                 'mode_exit_latched': takeover, 'graph': self.graph,
                 'max_navigation_tree_rss_bytes': self.max_rss,
-                'system_cpu_percent_max': max(self.cpu_samples), 'parallel': parallel,
+                'system_cpu_percent_max': max(self.cpu_samples),
                 'evidence': str(self.directory)}
-
-    def parallel_faults(self):
-        self.navigation.send_signal(signal.SIGINT)
-        self.navigation.wait(timeout=12)
-        before = (self.directory / 'flight.bag.active').stat().st_size
-        time.sleep(2)
-        after = (self.directory / 'flight.bag.active').stat().st_size
-        if self.mock.poll() is not None or self.bag.poll() is not None or after <= before:
-            raise RuntimeError('acquisition did not survive navigation shutdown')
-        self.mock.send_signal(signal.SIGINT)
-        self.mock.wait(timeout=5)
-        if not self.state.connected or self.bag.poll() is not None:
-            raise RuntimeError('audio shutdown affected MAVROS/recording')
-        return {'navigation_shutdown_acquisition_survived': True,
-                'audio_shutdown_mavros_survived': True, 'bag_growth_after_navigation_bytes': after-before,
-                'load_kind': 'synthetic UInt8MultiArray PCM-sized blocks, not physical microphones',
-                'kill_during_active_mission': 'NOT_TESTED_IN_THIS_CASE',
-                'real_auto_bag_recorder': 'UNAVAILABLE'}
 
     def active_parallel_faults(self, verified):
         self.wait(lambda: self.status.get('state') == 'EXEC_WAYPOINT', 10, 'execution before audio fault')
@@ -345,7 +327,35 @@ class FlightTest:
                 'load_kind': 'synthetic PCM-sized UInt8MultiArray with sequence prefix; not physical PCM/ESC',
                 'real_auto_bag_recorder': 'UNAVAILABLE', 'evidence': str(self.directory)}
 
+    def link_fault(self, verified):
+        self.wait(lambda: self.status.get('state') == 'EXEC_WAYPOINT', 10, 'execution before link fault')
+        verified = identity()
+        self.suspended_proxy = psutil.Process(verified['proxy_pid'])
+        began = time.monotonic()
+        self.suspended_proxy.suspend()
+        self.wait(lambda: self.status.get('state') == 'ABORT_LATCHED', 2, 'abort')
+        elapsed = time.monotonic() - began
+        abort = dict(self.status)
+        time.sleep(1.)
+        self.suspended_proxy.resume()
+        self.suspended_proxy = None
+        for attempt in range(20):
+            self.sample()
+            time.sleep(.1)
+        if self.status.get('state') != 'ABORT_LATCHED' or rospy.ServiceProxy('/v0_nav/start', Trigger)().success:
+            raise RuntimeError('link recovery resumed mission')
+        self.mode('LAND')
+        self.wait(lambda: not self.state.armed, 35, 'disarm')
+        self.armed_by_test = False
+        return {'result': 'PASS', 'case': 'link_fault', 'identity': verified,
+                'fault': 'SITL-only MAVProxy SIGSTOP/SIGCONT; FCU/ROS data path halted, not real USB unplug',
+                'abort_latency_s': elapsed, 'abort': abort, 'recovery_did_not_resume': True,
+                'mode_before_test_cleanup': 'GUIDED', 'evidence': str(self.directory)}
+
     def cleanup(self):
+        if self.suspended_proxy:
+            self.suspended_proxy.resume()
+            self.suspended_proxy = None
         if self.armed_by_test:
             try:
                 identity()
@@ -370,7 +380,7 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument('--sitl', action='store_true', required=True)
     parser.add_argument('--execute', action='store_true', required=True)
-    parser.add_argument('--case', choices=('single', 'multi', 'f3'), default='single')
+    parser.add_argument('--case', choices=('single', 'multi', 'f3', 'link_fault'), default='single')
     args = parser.parse_args()
     rospy.init_node('v0_sitl_test', anonymous=True)
     identity()

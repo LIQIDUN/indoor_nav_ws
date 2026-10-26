@@ -226,6 +226,16 @@ class Health:
         self.history = deque()
         self.velocity_history = deque()
         self.fault = ''
+        self.ekf_origin = None
+
+    def update_ekf_origin(self, origin):
+        if len(origin) != 3 or not all(finite_number(value) for value in origin):
+            self.fault = 'INVALID_EKF_ORIGIN'
+            return
+        if self.ekf_origin is not None and any(abs(actual - previous) > tolerance for actual, previous, tolerance in
+                                                zip(origin, self.ekf_origin, (1e-8, 1e-8, .001))):
+            self.fault = 'EKF_ORIGIN_CHANGED'
+        self.ekf_origin = tuple(origin)
 
     def update_pose(self, position, quaternion, stamp, now, ros_now, frame):
         try:

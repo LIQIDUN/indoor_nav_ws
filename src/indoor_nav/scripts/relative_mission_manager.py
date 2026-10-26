@@ -11,6 +11,7 @@ import time
 
 import rospy
 from geometry_msgs.msg import PoseStamped, TwistStamped
+from geographic_msgs.msg import GeoPointStamped
 from mavros_msgs.msg import EstimatorStatus, Mavlink, State
 from mavros_msgs.srv import ParamGet, VehicleInfoGet
 from sensor_msgs.msg import NavSatFix
@@ -79,6 +80,7 @@ class RelativeMissionManager:
         rospy.Subscriber('/mavros/local_position/velocity_local', TwistStamped, self.velocity_cb, queue_size=1)
         rospy.Subscriber('/mavros/global_position/raw/fix', NavSatFix, self.gps_cb, queue_size=1)
         rospy.Subscriber('/mavros/estimator_status', EstimatorStatus, self.ekf_cb, queue_size=1)
+        rospy.Subscriber('/mavros/global_position/gp_origin', GeoPointStamped, self.origin_cb, queue_size=1)
         rospy.Subscriber('/mavlink/from', Mavlink, self.ekf_report_cb, queue_size=100)
         rospy.Subscriber('/v0_nav/upstream_healthy', Bool, self.upstream_cb, queue_size=1)
         rospy.Subscriber('/v0_nav/watchdog', String, self.watchdog_cb, queue_size=1)
@@ -146,6 +148,10 @@ class RelativeMissionManager:
         with self.lock:
             self.health.upstream_time, self.health.upstream_ok = time.monotonic(), message.data
 
+    def origin_cb(self, message):
+        with self.lock:
+            self.health.update_ekf_origin((message.position.latitude, message.position.longitude, message.position.altitude))
+
     def ekf_report_cb(self, message):
         if message.msgid != 193 or (message.sysid, message.compid) != (1, 1) or message.framing_status != Mavlink.FRAMING_OK:
             return
@@ -210,6 +216,8 @@ class RelativeMissionManager:
             return self.watchdog_fault
         if self.limit_error or self.limit_time is None or now - self.limit_time > 5.:
             return self.limit_error or 'FCU_LIMIT_SNAPSHOT_STALE'
+        if self.health.ekf_origin is None:
+            return 'EKF_ORIGIN_NOT_OBSERVED'
         return ''
 
     def pose_message(self, target):

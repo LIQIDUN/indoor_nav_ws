@@ -150,6 +150,13 @@ class NavigationHealth(unittest.TestCase):
         self.assertEqual(self.health.reason(3., 103.), '')
         self.assertTrue(self.health.stable_hover(3.))
 
+    def test_ekf_origin_change_latches_even_without_pose_jump(self):
+        self.health.update_ekf_origin((30., 110., 200.))
+        self.health.update_ekf_origin((30., 110., 200.))
+        self.assertEqual(self.health.fault, '')
+        self.health.update_ekf_origin((30.00001, 110., 200.))
+        self.assertEqual(self.health.reason(3., 103.), 'EKF_ORIGIN_CHANGED')
+
     def test_stale_pose_and_duplicate_stamp(self):
         self.health.update_pose((10., 20., 1.), (0, 0, 0, 1), 103., 3.3, 103.3, 'map')
         self.assertEqual(self.health.pose_time, 3.)
