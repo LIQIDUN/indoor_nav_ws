@@ -1,0 +1,29 @@
+schema_version: 1
+mission_id: acoustic_relative_v0_001
+navigation: {vehicle: ArduCopter, source: fc_ekf_fake_gps}
+reference: {origin: pose_at_mission_start, heading: yaw_at_mission_start, axes: forward_right_up}
+start_policy:
+  require_operator_start: true
+  require_manual_takeoff: true
+  require_stable_hover: true
+  require_guided_mode: true
+  auto_arm: false
+  auto_takeoff: false
+  auto_land: false
+control: {dry_run_default: true, setpoint_rate_hz: 10.0, yaw_policy: hold_initial_yaw}
+motion: {speed_xy_mps: 0.20, max_speed_xy_mps: 0.30, speed_enforcement: verify_fcu_limit}
+arrival: {xy_tolerance_m: 0.12, z_tolerance_m: 0.08, stable_time_s: 1.5, max_waypoint_time_s: 15.0}
+safety:
+  max_offset_xy_m: 0.80
+  max_offset_z_m: 0.20
+  pose_timeout_s: 0.35
+  abort_on_mode_change: true
+  abort_on_localization_loss: true
+  prevent_auto_resume: true
+waypoints:
+  - {id: initial_hold, x: 0.0, y: 0.0, z: 0.0, hold_s: 3.0}
+  - {id: forward, x: 0.3, y: 0.0, z: 0.0, hold_s: 4.0}
+  - {id: right, x: 0.3, y: 0.3, z: 0.0, hold_s: 4.0}
+  - {id: backward, x: 0.0, y: 0.3, z: 0.0, hold_s: 4.0}
+  - {id: return, x: 0.0, y: 0.0, z: 0.0, hold_s: 5.0}
+finish: {action: hold_and_wait_pilot}
