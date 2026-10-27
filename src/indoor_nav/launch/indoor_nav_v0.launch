@@ -3,11 +3,19 @@
   <arg name="enable_control" default="false"/>
   <arg name="dry_run" default="true"/>
   <arg name="evidence_dir" default="$(env HOME)/.ros/v0_nav"/>
+  <arg name="pose_topic" default="/mavros/local_position/pose"/>
   <node pkg="indoor_nav" type="relative_mission_manager.py" name="v0_nav_manager" output="screen">
+    <remap from="/mavros/local_position/pose" to="$(arg pose_topic)"/>
     <param name="mission_file" value="$(arg mission_file)"/>
     <param name="enable_control" value="$(arg enable_control)"/>
     <param name="dry_run" value="$(arg dry_run)"/>
     <param name="evidence_dir" value="$(arg evidence_dir)"/>
   </node>
-  <node pkg="indoor_nav" type="v0_nav_health.py" name="v0_nav_watchdog" output="screen"/>
+  <node pkg="indoor_nav" type="v0_nav_health.py" name="v0_nav_watchdog" output="screen">
+    <remap from="/mavros/local_position/pose" to="$(arg pose_topic)"/>
+    <param name="mission_file" value="$(arg mission_file)"/>
+    <param name="enable_control" value="$(arg enable_control)"/>
+    <param name="dry_run" value="$(arg dry_run)"/>
+    <param name="evidence_dir" value="$(arg evidence_dir)"/>
+  </node>
 </launch>

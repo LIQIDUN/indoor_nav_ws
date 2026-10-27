@@ -84,11 +84,17 @@ def validate_config(config):
         if any(type(config[section][key]) is not type(value) or config[section][key] != value
                for key, value in values.items()):
             raise ConfigError('unsupported policy: ' + section)
-    fields(config['navigation'], ('vehicle', 'source'))
+    fields(config['navigation'], ('vehicle', 'source'), ('require_upstream_health',))
+    config['navigation'].setdefault('require_upstream_health', False)
+    if type(config['navigation']['require_upstream_health']) is not bool:
+        raise ConfigError('require_upstream_health must be boolean')
     if config['navigation']['vehicle'] != 'ArduCopter' or config['navigation']['source'] not in (
-            'fc_ekf_fake_gps', 'fc_ekf_sitl_gps'):
+            'fc_ekf_gps', 'fc_ekf_fake_gps', 'fc_ekf_sitl_gps'):
         raise ConfigError('unsupported navigation source')
-    fields(config['control'], ('dry_run_default', 'setpoint_rate_hz', 'yaw_policy'))
+    fields(config['control'], ('dry_run_default', 'setpoint_rate_hz', 'yaw_policy'), ('exit_action',))
+    config['control'].setdefault('exit_action', 'manual_takeover')
+    if config['control']['exit_action'] not in ('manual_takeover', 'brake_if_position_healthy'):
+        raise ConfigError('unsupported exit_action')
     if config['control']['dry_run_default'] is not True or config['control']['yaw_policy'] != 'hold_initial_yaw':
         raise ConfigError('V0 requires safe defaults and initial yaw')
     bounded(config['control'], 'setpoint_rate_hz', 5, 10)
@@ -210,6 +216,7 @@ class Health:
     def __init__(self, config):
         self.cfg = config['safety']
         self.source = config['navigation']['source']
+        self.require_upstream = config['navigation']['require_upstream_health']
         self.pose = None
         self.pose_time = None
         self.pose_stamp = None
@@ -295,7 +302,7 @@ class Health:
             return 'POSE_HEADER_STALE'
         if not self.gps_ok or not self.ekf_ok:
             return 'GPS_EKF_UNHEALTHY'
-        if self.source == 'fc_ekf_fake_gps' and (not self.upstream_ok or self.upstream_time is None or now - self.upstream_time > self.cfg['upstream_timeout_s']):
+        if self.require_upstream and (not self.upstream_ok or self.upstream_time is None or now - self.upstream_time > self.cfg['upstream_timeout_s']):
             return 'UPSTREAM_UNVERIFIED_OR_STALE'
         if self.history and now - self.history[0][0] >= self.cfg['freeze_window_s']:
             window = [sample for sample in self.history if now - sample[0] <= self.cfg['freeze_window_s'] + .1]
@@ -315,6 +322,40 @@ class Health:
                 all(math.sqrt(sum(value * value for value in sample[1])) <= self.cfg['hover_speed_mps'] for sample in velocities) and
                 all(math.dist(sample[1], self.pose[0]) <= self.cfg['hover_radius_m'] and
                     abs(wrap_pi(sample[2] - self.pose[1])) <= self.cfg['hover_yaw_rad'] for sample in recent))
+
+
+class ControlLease:
+    def __init__(self):
+        self.owner = None
+        self.revoked = False
+        self.reason = ''
+        self.observed_idle = False
+
+    def step(self, state, mission_id, armed, mode, fault, can_brake):
+        if state == 'IDLE' and not armed:
+            self.owner, self.revoked, self.reason = None, False, ''
+            self.observed_idle = True
+        if self.revoked:
+            return False, False
+        active = state in Mission.ACTIVE
+        if self.owner is None:
+            if not active:
+                return False, False
+            if not self.observed_idle:
+                self.revoked, self.reason = True, 'GATE_RESTART_DURING_MISSION'
+                return False, False
+            if fault or not armed or mode != 'GUIDED':
+                return False, False
+            self.owner = mission_id
+        reason = fault or ('MISSION_ID_CHANGED' if mission_id != self.owner else '')
+        if not armed or mode != 'GUIDED':
+            reason = 'MANUAL_MODE_EXIT_OR_DISARM'
+        elif not active:
+            reason = reason or 'MANAGER_REVOKED'
+        if reason:
+            self.revoked, self.reason = True, reason
+            return False, bool(can_brake and armed and mode == 'GUIDED')
+        return True, False
 
 
 class Mission:

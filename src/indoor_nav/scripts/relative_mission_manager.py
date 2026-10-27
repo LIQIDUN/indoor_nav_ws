@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""V0 only: one MAVROS position publisher, no arming, mode or parameter writes."""
+"""V0 mission intents only; the health gate owns all FCU motion commands."""
 import hashlib
 import json
 import math
@@ -73,8 +73,6 @@ class RelativeMissionManager:
         self.origin_pub = rospy.Publisher('/v0_nav/origin_pose', PoseStamped, queue_size=1, latch=True)
         self.target_pub = rospy.Publisher('/v0_nav/target_pose', PoseStamped, queue_size=2)
         self.heartbeat_pub = rospy.Publisher('/v0_nav/heartbeat', Header, queue_size=1)
-        self.command_pub = (rospy.Publisher('/mavros/setpoint_position/local', PoseStamped, queue_size=1)
-                            if self.control else None)
         rospy.Subscriber('/mavros/state', State, self.state_cb, queue_size=5)
         rospy.Subscriber('/mavros/local_position/pose', PoseStamped, self.pose_cb, queue_size=1)
         rospy.Subscriber('/mavros/local_position/velocity_local', TwistStamped, self.velocity_cb, queue_size=1)
@@ -241,8 +239,9 @@ class RelativeMissionManager:
     def abort(self, _request):
         with self.lock:
             self.mission.abort(time.monotonic(), 'OPERATOR_ABORT_NO_FCU_MODE_CHANGE')
-            self.record('OPERATOR_ABORT', warning='stopping output does not cancel FCU last target; RC takeover required')
-            return TriggerResponse(True, 'ABORT_LATCHED; RC TAKEOVER; no landing/mode command sent')
+            self.record('OPERATOR_ABORT', exit_action=self.config['control']['exit_action'],
+                        warning='FCU response must be observed; stop publishing alone is not braking')
+            return TriggerResponse(True, 'ABORT_LATCHED; observe gate exit action and FCU mode; RC takeover required')
 
     def stop(self, _request):
         with self.lock:
@@ -275,11 +274,9 @@ class RelativeMissionManager:
                 if self.mission.target is not None and self.mission.state in Mission.ACTIVE:
                     message = self.pose_message(self.mission.target)
                     self.target_pub.publish(message)
-                    if self.command_pub is not None:
-                        self.command_pub.publish(message)
-                        if self.previous_publish is not None:
-                            self.max_publish_gap = max(self.max_publish_gap, now - self.previous_publish)
-                        self.previous_publish = now
+                    if self.previous_publish is not None:
+                        self.max_publish_gap = max(self.max_publish_gap, now - self.previous_publish)
+                    self.previous_publish = now
                 if self.health.pose_time is not None:
                     self.max_pose_age = max(self.max_pose_age, now - self.health.pose_time)
                 self.heartbeat_pub.publish(Header(seq=self.sequence, stamp=rospy.Time.now(), frame_id='v0_nav'))
@@ -287,6 +284,9 @@ class RelativeMissionManager:
                           'wp': self.mission.index, 'reason': self.mission.reason,
                           'health': self.health.reason(now, ros_now), 'gate': self.external_reason(now),
                           'control_enabled': self.control, 'evidence_dir': str(self.directory),
+                          'yaml_sha256': self.provenance['yaml_sha256'],
+                          'firmware': self.snapshot.get('firmware'),
+                          'limit_age_s': None if self.limit_time is None else now - self.limit_time,
                           'pose_age_s': None if self.health.pose_time is None else now - self.health.pose_time,
                           'max_publish_gap_s': self.max_publish_gap}
                 status['ekf_report'] = self.ekf_report

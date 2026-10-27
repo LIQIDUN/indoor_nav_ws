@@ -10,7 +10,7 @@ import yaml
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / 'src/indoor_nav/src'))
-from indoor_nav.v0 import (ConfigError, Health, Mission, decode_ekf_report, load_config, normalized_quaternion,
+from indoor_nav.v0 import (ConfigError, ControlLease, Health, Mission, decode_ekf_report, load_config, normalized_quaternion,
                            quaternion_yaw, relative_target, validate_config,
                            verify_fcu_limits, wrap_pi, yaw_quaternion)
 
@@ -100,11 +100,15 @@ class Schema(unittest.TestCase):
         for filename in ('relative_mission_manager.py', 'v0_nav_health.py'):
             text = (ROOT / 'src/indoor_nav/scripts' / filename).read_text()
             for forbidden in ('pymavlink', 'mavutil', 'serial.Serial', 'CommandBool', 'CommandTOL',
-                              '/cmd/arming', '/cmd/takeoff', '/cmd/land', 'SetMode', 'ParamSet', 'rosbag',
+                              '/cmd/arming', '/cmd/takeoff', '/cmd/land', 'ParamSet', 'rosbag',
                               'world_lab', '/odometry/out'):
                 self.assertNotIn(forbidden, text)
-        watchdog = (ROOT / 'src/indoor_nav/scripts/v0_nav_health.py').read_text()
-        self.assertNotIn('PoseStamped', watchdog)
+        manager = (ROOT / 'src/indoor_nav/scripts/relative_mission_manager.py').read_text()
+        self.assertNotIn('SetMode', manager)
+        self.assertNotIn('self.command_pub', manager)
+        gate = (ROOT / 'src/indoor_nav/scripts/v0_nav_health.py').read_text()
+        self.assertEqual(gate.count("SetMode)(0, 'BRAKE')"), 1)
+        self.assertNotIn("SetMode)(0, 'GUIDED')", gate)
 
 
 class FcuLimits(unittest.TestCase):
@@ -181,11 +185,14 @@ class NavigationHealth(unittest.TestCase):
             feed(self.health, index / 10, velocity=(.15, 0, 0))
         self.assertEqual(self.health.reason(4.9, 104.9), 'POSE_VELOCITY_FREEZE_INCONSISTENCY')
 
-    def test_upstream_required_for_fake_gps(self):
+    def test_upstream_is_explicit_not_required_by_gps_source_name(self):
         self.health.source = 'fc_ekf_fake_gps'
+        self.assertEqual(self.health.reason(3., 103.), '')
+        self.health.require_upstream = True
         self.assertEqual(self.health.reason(3., 103.), 'UPSTREAM_UNVERIFIED_OR_STALE')
         self.health.upstream_time, self.health.upstream_ok = 3., True
         self.assertEqual(self.health.reason(3., 103.), '')
+
 
     def test_mavros_1201_velocity_local_enu_with_child_label(self):
         self.health.update_velocity((.05, .02, .01), 103.1, 3.1, 103.1, 'base_link')
@@ -194,6 +201,43 @@ class NavigationHealth(unittest.TestCase):
         self.health.update_velocity((0, 0, 0), 103.2, 3.2, 103.2, 'unknown')
         self.assertEqual(self.health.fault, 'VELOCITY_FRAME_OR_STAMP')
 
+
+class Leases(unittest.TestCase):
+    def setUp(self):
+        self.lease = ControlLease()
+        self.lease.step('IDLE', 'test', False, 'STABILIZE', '', False)
+        self.assertEqual(self.lease.step('HOLD_INITIAL', 'test', True, 'GUIDED', '', True), (True, False))
+
+    def test_healthy_program_loss_requests_one_guarded_exit(self):
+        self.assertEqual(self.lease.step('EXEC_WAYPOINT', 'test', True, 'GUIDED', 'MISSION_HEARTBEAT_TIMEOUT', True), (False, True))
+        self.assertEqual(self.lease.step('EXEC_WAYPOINT', 'test', True, 'GUIDED', '', True), (False, False))
+
+    def test_position_or_link_loss_never_blindly_brakes(self):
+        for reason in ('POSE_STALE', 'DISCONNECTED', 'GPS_EKF_UNHEALTHY'):
+            with self.subTest(reason=reason):
+                lease = ControlLease()
+                lease.step('IDLE', 'test', False, 'STABILIZE', '', False)
+                lease.step('HOLD_INITIAL', 'test', True, 'GUIDED', '', True)
+                self.assertEqual(lease.step('EXEC_WAYPOINT', 'test', True, 'GUIDED', reason, False), (False, False))
+                self.assertTrue(lease.revoked)
+
+    def test_manual_mode_exit_is_never_overridden(self):
+        self.assertEqual(self.lease.step('EXEC_WAYPOINT', 'test', True, 'ALT_HOLD', '', True), (False, False))
+        self.assertEqual(self.lease.step('EXEC_WAYPOINT', 'test', True, 'GUIDED', '', True), (False, False))
+
+    def test_restart_cannot_acquire_live_mission(self):
+        lease = ControlLease()
+        self.assertEqual(lease.step('EXEC_WAYPOINT', 'test', True, 'GUIDED', '', True), (False, False))
+        self.assertEqual(lease.reason, 'GATE_RESTART_DURING_MISSION')
+
+    def test_abort_stop_id_change_and_explicit_reset(self):
+        for state, mission_id in (('ABORT_LATCHED', 'test'), ('STOPPED', 'test'), ('EXEC_WAYPOINT', 'other')):
+            self.setUp()
+            self.assertEqual(self.lease.step(state, mission_id, True, 'GUIDED', '', True), (False, True))
+            self.lease.step('IDLE', 'test', True, 'GUIDED', '', True)
+            self.assertTrue(self.lease.revoked)
+            self.lease.step('IDLE', 'test', False, 'STABILIZE', '', False)
+            self.assertFalse(self.lease.revoked)
 
 class StateMachine(unittest.TestCase):
     def setUp(self):
