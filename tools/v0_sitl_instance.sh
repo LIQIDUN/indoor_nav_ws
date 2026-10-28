@@ -13,7 +13,11 @@ source "$WS/devel/setup.bash"
 export ROS_MASTER_URI=http://127.0.0.1:11421
 export ROS_IP=127.0.0.1
 export GAZEBO_MASTER_URI=http://127.0.0.1:11455
-unset DISPLAY ROS_HOSTNAME
+GUI="${V0_SITL_GUI:-false}"
+[[ "$GUI" == true || "$GUI" == false ]] || { echo 'V0_SITL_GUI must be true or false'; exit 2; }
+unset ROS_HOSTNAME
+if [[ "$GUI" == false ]]; then unset DISPLAY; fi
+if [[ "$GUI" == true && -z "${DISPLAY:-}" ]]; then echo 'GUI requested but DISPLAY is unset'; exit 2; fi
 python3 - <<'PY'
 import socket
 for kind, ports in ((socket.SOCK_STREAM, (11421,11455,5760)), (socket.SOCK_DGRAM,(9002,9003,14672))):
@@ -35,6 +39,7 @@ fi
 sha256sum "$AP/build/sitl/bin/arducopter" "$AP/Tools/autotest/default_params/copter.parm" \
  "$AP/Tools/autotest/default_params/gazebo-iris.parm" "$WS/src/indoor_nav/config/v0_sitl_gps.parm" "$RUNTIME/flight.world" > "$RUNTIME/inputs.sha256"
 git -C "$AP" rev-parse HEAD > "$RUNTIME/ardupilot_commit.txt"
+printf 'gui=%s\nDISPLAY=%s\n' "$GUI" "${DISPLAY:-}" > "$RUNTIME/gui.txt"
 export GAZEBO_MODEL_PATH="$GZ/models:$GZ/models_gazebo:$AP/Tools/autotest/models:${GAZEBO_MODEL_PATH:-}"
 export GAZEBO_RESOURCE_PATH="$GZ/worlds:${GAZEBO_RESOURCE_PATH:-}"
 export GAZEBO_PLUGIN_PATH="$GZ/build:${GAZEBO_PLUGIN_PATH:-}"
@@ -65,7 +70,7 @@ rosparam set /v0_sitl/profile "$PROFILE"
 echo "$!" > arducopter.pid
 sitl_pid="$!"
 roslaunch gazebo_ros empty_world.launch world_name:="$RUNTIME/flight.world" \
- paused:=false gui:=false use_sim_time:=false verbose:=true > gazebo.log 2>&1 & children+=("$!")
+ paused:=false gui:="$GUI" use_sim_time:=false verbose:=true > gazebo.log 2>&1 & children+=("$!")
 gazebo_pid="$!"
 mavproxy.py --master=tcp:127.0.0.1:5760 --out=127.0.0.1:14672 --streamrate=25 \
  --source-system=245 --source-component=190 --daemon > mavproxy.log 2>&1 & children+=("$!")

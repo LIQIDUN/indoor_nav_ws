@@ -31,6 +31,19 @@ ROOT = Path(__file__).resolve().parents[1]
 MASTER = 'http://127.0.0.1:11421'
 
 
+def test_waypoints(case):
+    if case in ('single', 'yaw', 'distance_short', 'distance_long', 'finish_stop'):
+        distance = .15 if case == 'distance_short' else .5 if case == 'distance_long' else .25
+        return [dict(id='forward', x=distance, y=0., z=0., hold_s=1.)]
+    if case == 'altitude':
+        return [dict(id='up', x=0., y=0., z=.1, hold_s=1.),
+                dict(id='return', x=0., y=0., z=0., hold_s=1.)]
+    return [dict(id='forward', x=.25, y=0., z=0., hold_s=1.),
+            dict(id='right', x=.25, y=.25, z=0., hold_s=1.),
+            dict(id='back', x=0., y=.25, z=.1, hold_s=1.),
+            dict(id='return', x=0., y=0., z=0., hold_s=1.)]
+
+
 def identity():
     if os.environ.get('ROS_MASTER_URI') != MASTER or not rospy.get_param('/v0_sitl/isolated', False):
         raise RuntimeError('not the isolated V0 ROS master')
@@ -107,10 +120,12 @@ class FlightTest:
         self.pose_fault = False
         self.pose_forwarder = rospy.Publisher('/v0_sitl/pose_fault', PoseStamped, queue_size=1) if args.case == 'pose_loss' else None
         self.process = psutil.Process()
-        rospy.Subscriber('/mavros/state', State, lambda message: setattr(self, 'state', message), queue_size=10)
+        self.receptions = []
+        self.last_receptions = {}
+        rospy.Subscriber('/mavros/state', State, lambda message: self.receive('state', message), queue_size=10)
         rospy.Subscriber('/mavros/local_position/pose', PoseStamped, self.pose_cb, queue_size=1)
         rospy.Subscriber('/mavros/home_position/home', HomePosition, lambda message: setattr(self, 'home', message), queue_size=1)
-        rospy.Subscriber('/mavros/local_position/velocity_local', TwistStamped, lambda message: setattr(self, 'velocity', message), queue_size=1)
+        rospy.Subscriber('/mavros/local_position/velocity_local', TwistStamped, lambda message: self.receive('velocity', message), queue_size=1)
         rospy.Subscriber('/gazebo/model_states', ModelStates, self.truth_cb, queue_size=1)
         rospy.Subscriber('/v0_nav/status', String, lambda message: setattr(self, 'status', json.loads(message.data)), queue_size=10)
         rospy.Subscriber('/v0_nav/event', String, self.event_cb, queue_size=100)
@@ -119,8 +134,18 @@ class FlightTest:
         rospy.Subscriber('/v0_nav/origin_pose', PoseStamped, lambda message: setattr(self, 'origin', message), queue_size=1)
         rospy.Subscriber('/mavros/setpoint_raw/target_local', PositionTarget, lambda message: setattr(self, 'echo', message), queue_size=1)
 
+    def receive(self, stream, message):
+        mono, ros_now = time.monotonic(), rospy.get_time()
+        with self.lock:
+            previous = self.last_receptions.get(stream)
+            self.receptions.append(dict(stream=stream, ros_rx_s=ros_now, mono_rx_s=mono,
+                                        header_s=message.header.stamp.to_sec(), frame=message.header.frame_id,
+                                        interval_s=mono-previous if previous is not None else None))
+            self.last_receptions[stream] = mono
+            setattr(self, stream, message)
+
     def pose_cb(self, message):
-        self.pose = message
+        self.receive('pose', message)
         if self.pose_forwarder is not None and not self.pose_fault:
             self.pose_forwarder.publish(message)
 
@@ -222,18 +247,7 @@ class FlightTest:
         config['navigation']['source'] = 'fc_ekf_sitl_gps'
         config['control']['exit_action'] = 'brake_if_position_healthy'
         config['mission_id'] = self.directory.name
-        if self.args.case in ('single', 'yaw', 'distance_short', 'distance_long', 'finish_stop'):
-            config['waypoints'] = [dict(id='forward', x=.25, y=0., z=0., hold_s=1.)]
-        if self.args.case in ('distance_short', 'distance_long'):
-            config['waypoints'][0]['x'] = .15 if self.args.case == 'distance_short' else .5
-        else:
-            config['waypoints'] = [dict(id='forward', x=.25, y=0., z=0., hold_s=1.),
-                                   dict(id='right', x=.25, y=.25, z=0., hold_s=1.),
-                                   dict(id='back', x=0., y=.25, z=.1, hold_s=1.),
-                                   dict(id='return', x=0., y=0., z=0., hold_s=1.)]
-        if self.args.case == 'altitude':
-            config['waypoints'] = [dict(id='up', x=0., y=0., z=.1, hold_s=1.),
-                                   dict(id='return', x=0., y=0., z=0., hold_s=1.)]
+        config['waypoints'] = test_waypoints(self.args.case)
         mission_path = self.directory / 'mission.yaml'
         mission_path.write_text(yaml.safe_dump(config, sort_keys=False))
         self.inputs['mission_yaml_sha256'] = hashlib.sha256(mission_path.read_bytes()).hexdigest()
@@ -596,6 +610,8 @@ class FlightTest:
         cleanup.update(processes_exited=all(process is None or process.poll() is not None for process in
                                             (self.navigation, self.mock, self.bag, self.replacement_mavros, self.auto_recorder)))
         (self.directory / 'cleanup.json').write_text(json.dumps(cleanup, indent=2))
+        with self.lock:
+            (self.directory / 'receptions.jsonl').write_text(''.join(json.dumps(row) + '\n' for row in self.receptions))
         self.samples.close()
         self.event_file.close()
 
