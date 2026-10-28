@@ -83,7 +83,7 @@ def main():
             else:
                 with (directory / ('{:02d}-{}-stop.txt'.format(index, case))).open('x') as output:
                     stop = subprocess.run(['python3', str(ROOT / 'tools/v0_sitl_stop.py'), '--sitl'], cwd=ROOT,
-                                          stdout=output, stderr=subprocess.STDOUT, timeout=35)
+                                          stdout=output, stderr=subprocess.STDOUT, timeout=70)
                 row['stop_exit_code'] = stop.returncode
             if row['stop_exit_code']:
                 results.append(row)

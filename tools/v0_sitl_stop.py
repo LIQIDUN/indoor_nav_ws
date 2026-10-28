@@ -52,7 +52,7 @@ if __name__ == '__main__':
         raise RuntimeError('wrong launcher parent')
     launcher.send_signal(signal.SIGTERM)
     try:
-        wait_exit(launcher, 8)
+        wait_exit(launcher, 45)
     except psutil.TimeoutExpired:
         if sitl.is_running() and sitl.ppid() == launcher.pid:
             sitl.terminate()

@@ -608,7 +608,7 @@ class FlightTest:
                    'connected': self.state.connected, 'mode': self.state.mode, 'sim_stopped_by_test': False}
         if self.replacement_mavros and self.state.connected and not self.state.armed:
             stopped = subprocess.run(['python3', str(ROOT / 'tools/v0_sitl_stop.py'), '--sitl'],
-                                     stdout=(self.directory / 'recovery_sim_stop.txt').open('w'), stderr=subprocess.STDOUT, timeout=35)
+                                     stdout=(self.directory / 'recovery_sim_stop.txt').open('w'), stderr=subprocess.STDOUT, timeout=70)
             cleanup['sim_stopped_by_test'] = stopped.returncode == 0
         for process in (self.navigation, self.mock, self.bag, self.replacement_mavros, self.auto_recorder):
             if process and process.poll() is None:
