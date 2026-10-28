@@ -199,6 +199,17 @@ class Watchdog:
                 self.exit_result['error'] = str(error)
         self.record('LEASE_REVOKED', **self.exit_result, warning='mode_sent is not confirmed braking; observe FCU and RC takeover')
 
+    def brake_eligible(self, now, ros_now, reason):
+        if reason not in ('', 'MISSION_HEARTBEAT_TIMEOUT', 'MISSION_STATUS_TIMEOUT',
+                          'TARGET_OR_ORIGIN_STALE', 'TARGET_HEADER_STALE'):
+            return False
+        if self.health.reason(now, ros_now) or self.health.ekf_origin is None:
+            return False
+        age = self.status.get('limit_age_s')
+        return (self.status.get('firmware') == [4, 5, 7] and type(age) in (int, float)
+                and math.isfinite(age) and age >= 0 and self.status_time is not None
+                and now-self.status_time+age < 5.)
+
     def run(self):
         period = 1. / self.config['control']['setpoint_rate_hz']
         while not rospy.is_shutdown() and not self.closed.is_set():
@@ -206,10 +217,7 @@ class Watchdog:
             with self.lock:
                 now, ros_now = time.monotonic(), rospy.get_time()
                 reason = self.fault(now, ros_now)
-                position_ok = not self.health.reason(now, ros_now) and self.health.ekf_origin is not None
-                limits_ok = (self.status.get('firmware') == [4, 5, 7] and self.status.get('limit_age_s') is not None
-                             and self.status_time is not None and now-self.status_time+self.status['limit_age_s'] < 5.)
-                can_brake = position_ok and limits_ok and reason not in ('GATE_CLOCK_OR_CYCLE_TIMEOUT', 'MANAGER_GATE_CONFIG_MISMATCH', 'OTHER_POSITION_PUBLISHER', 'OTHER_CONTROL_PUBLISHER', 'DUPLICATE_MANAGER')
+                can_brake = self.brake_eligible(now, ros_now, reason)
                 previously_revoked = self.lease.revoked
                 forward, brake = self.lease.step(self.status.get('state'), self.status.get('mission_id'),
                                                 self.health.state[1], self.health.state[2], reason, can_brake)

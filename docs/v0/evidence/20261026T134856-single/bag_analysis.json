@@ -1,0 +1,166 @@
+{
+  "bag_readable": true,
+  "topics": {
+    "/gazebo/model_states": {
+      "messages": 25069,
+      "max_gap_s": 0.006386995315551758,
+      "rate_hz": 999.9952414662832
+    },
+    "/mavros/state": {
+      "messages": 30,
+      "max_gap_s": 1.0037095546722412,
+      "rate_hz": 1.203906758812151
+    },
+    "/mavlink/from": {
+      "messages": 17979,
+      "max_gap_s": 0.04328441619873047,
+      "rate_hz": 718.3272735267833
+    },
+    "/mavros/global_position/raw/fix": {
+      "messages": 626,
+      "max_gap_s": 0.04811668395996094,
+      "rate_hz": 24.97525140311916
+    },
+    "/mavros/local_position/pose": {
+      "messages": 626,
+      "max_gap_s": 0.048387765884399414,
+      "rate_hz": 24.975288760818042
+    },
+    "/mavros/local_position/velocity_local": {
+      "messages": 626,
+      "max_gap_s": 0.04839158058166504,
+      "rate_hz": 24.97526829735131
+    },
+    "/v0_nav/watchdog": {
+      "messages": 239,
+      "max_gap_s": 0.10067009925842285,
+      "rate_hz": 9.999405211077395
+    },
+    "/v0_nav/status": {
+      "messages": 240,
+      "max_gap_s": 0.10048866271972656,
+      "rate_hz": 10.032628464609962
+    },
+    "/v0_nav/heartbeat": {
+      "messages": 238,
+      "max_gap_s": 0.10044670104980469,
+      "rate_hz": 9.992728976907152
+    },
+    "/v0_nav/event": {
+      "messages": 11,
+      "max_gap_s": 5.66722846031189,
+      "rate_hz": 0.8334389131567933
+    },
+    "/v0_nav/origin_pose": {
+      "messages": 1,
+      "max_gap_s": 0,
+      "rate_hz": 0
+    },
+    "/mavros/setpoint_position/local": {
+      "messages": 63,
+      "max_gap_s": 0.10048651695251465,
+      "rate_hz": 9.993103234138653
+    },
+    "/v0_nav/target_pose": {
+      "messages": 63,
+      "max_gap_s": 0.10030102729797363,
+      "rate_hz": 9.993090177616697
+    }
+  },
+  "pose_header_age_s": {
+    "count": 35,
+    "max": 0.04122757911682129,
+    "p99": 0.04122757911682129,
+    "rms": 0.02577340940280233
+  },
+  "waypoint_tracking": {
+    "0": {
+      "sample_count": 33,
+      "fcu_target_xy_error_m": {
+        "count": 33,
+        "max": 0.27161299620448975,
+        "p99": 0.27161299620448975,
+        "rms": 0.12691125896916963
+      },
+      "truth_target_xy_error_m": {
+        "count": 33,
+        "max": 0.2769423291318903,
+        "p99": 0.2769423291318903,
+        "rms": 0.12794882818733272
+      }
+    },
+    "1": {
+      "sample_count": 2,
+      "fcu_target_xy_error_m": {
+        "count": 2,
+        "max": 0.03020875532758198,
+        "p99": 0.03020875532758198,
+        "rms": 0.029444962001486635
+      },
+      "truth_target_xy_error_m": {
+        "count": 2,
+        "max": 0.03499229485826904,
+        "p99": 0.03499229485826904,
+        "rms": 0.03413172500081199
+      }
+    }
+  },
+  "state_events": [
+    {
+      "state": "WAIT_FOR_READY",
+      "wp": 0,
+      "ros_s": 1792993749.5608263,
+      "mono_delta_s": 12.037506127962843,
+      "reason": ""
+    },
+    {
+      "state": "CAPTURE_ORIGIN",
+      "wp": 0,
+      "ros_s": 1792993749.5609205,
+      "mono_delta_s": 12.037600299809128,
+      "reason": ""
+    },
+    {
+      "state": "HOLD_INITIAL",
+      "wp": 0,
+      "ros_s": 1792993749.5609992,
+      "mono_delta_s": 12.037677679909393,
+      "reason": ""
+    },
+    {
+      "state": "EXEC_WAYPOINT",
+      "wp": 0,
+      "ros_s": 1792993751.5622494,
+      "mono_delta_s": 14.038928580004722,
+      "reason": ""
+    },
+    {
+      "state": "DWELL",
+      "wp": 0,
+      "ros_s": 1792993754.1641147,
+      "mono_delta_s": 16.640794094884768,
+      "reason": "ARRIVED_STABLE"
+    },
+    {
+      "state": "DWELL_COMPLETE",
+      "wp": 0,
+      "ros_s": 1792993755.164847,
+      "mono_delta_s": 17.641526344930753,
+      "reason": ""
+    },
+    {
+      "state": "FINISH_HOLD",
+      "wp": 1,
+      "ros_s": 1792993755.1649477,
+      "mono_delta_s": 17.64162708981894,
+      "reason": ""
+    },
+    {
+      "state": "ABORT_LATCHED",
+      "wp": 1,
+      "ros_s": 1792993755.8653002,
+      "mono_delta_s": 18.341977619798854,
+      "reason": "FCU_STATE_CHANGED"
+    }
+  ]
+}

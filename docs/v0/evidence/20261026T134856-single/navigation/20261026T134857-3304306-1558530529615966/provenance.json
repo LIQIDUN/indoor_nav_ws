@@ -1,0 +1,16 @@
+{
+  "yaml_path": "/home/liqidun/github/indoor_nav_ws/docs/v0/evidence/20261026T134856-single/mission.yaml",
+  "yaml_sha256": "e103dccc5945b3da3025ae80ab741115819cd478e23371ec4f8b7cd00f73042b",
+  "git_commit": "92f6e724d4ee9ba8c2a348d4ace108e561a4ef30",
+  "git_dirty": true,
+  "navigation_source": "fc_ekf_sitl_gps",
+  "control_enabled": true,
+  "setpoint_topic": "/mavros/setpoint_position/local",
+  "pid": 3304306,
+  "ros_master": "http://127.0.0.1:11421",
+  "code_sha256": {
+    "src/indoor_nav/src/indoor_nav/v0.py": "459a780d7bae3615f51b6c6575f849918217e70ca2c4d391bbe9479b1b03a854",
+    "src/indoor_nav/scripts/relative_mission_manager.py": "d3478bcfea9d0ca24fcfcd3cd9250e8e6f79fb311dd73a63a57cad1e15acf150",
+    "src/indoor_nav/scripts/v0_nav_health.py": "58c55369b43cdfdfad9e7b3da1525e36826cacb5300a223e4074aeafcd12501b"
+  }
+}

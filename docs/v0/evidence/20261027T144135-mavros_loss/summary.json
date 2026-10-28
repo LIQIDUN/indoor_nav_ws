@@ -1,0 +1,16 @@
+{
+  "result": "FAIL",
+  "case": "mavros_loss",
+  "error": "start refused: POSE_STAMP_REWIND",
+  "evidence": "/home/liqidun/github/indoor_nav_ws/docs/v0/evidence/20261027T144135-mavros_loss",
+  "cleanup": {
+    "armed_before": false,
+    "armed_after": false,
+    "connected": true,
+    "mode": "LAND",
+    "sim_stopped_by_test": false,
+    "processes_exited": true
+  },
+  "start_wall_s": 1793083295.4138455,
+  "end_wall_s": 1793083350.291302
+}

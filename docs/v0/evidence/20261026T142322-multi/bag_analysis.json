@@ -1,0 +1,274 @@
+{
+  "bag_readable": true,
+  "topics": {
+    "/mavros/state": {
+      "messages": 46,
+      "max_gap_s": 1.0046401023864746,
+      "rate_hz": 1.1138150429868516
+    },
+    "/gazebo/model_states": {
+      "messages": 41338,
+      "max_gap_s": 0.016820669174194336,
+      "rate_hz": 999.9426462981356
+    },
+    "/mavlink/from": {
+      "messages": 29817,
+      "max_gap_s": 0.04273533821105957,
+      "rate_hz": 721.5852160106708
+    },
+    "/mavros/global_position/raw/fix": {
+      "messages": 1033,
+      "max_gap_s": 0.0486910343170166,
+      "rate_hz": 24.98629182772142
+    },
+    "/mavros/local_position/pose": {
+      "messages": 1033,
+      "max_gap_s": 0.04877734184265137,
+      "rate_hz": 24.98621379802397
+    },
+    "/mavros/local_position/velocity_local": {
+      "messages": 1033,
+      "max_gap_s": 0.04897618293762207,
+      "rate_hz": 24.986219711532957
+    },
+    "/v0_nav/watchdog": {
+      "messages": 402,
+      "max_gap_s": 0.1008913516998291,
+      "rate_hz": 9.995678429888283
+    },
+    "/v0_nav/status": {
+      "messages": 402,
+      "max_gap_s": 0.10082244873046875,
+      "rate_hz": 9.998485908623062
+    },
+    "/v0_nav/heartbeat": {
+      "messages": 400,
+      "max_gap_s": 0.10058379173278809,
+      "rate_hz": 9.992414343716513
+    },
+    "/v0_nav/origin_pose": {
+      "messages": 1,
+      "max_gap_s": 0,
+      "rate_hz": 0
+    },
+    "/v0_nav/event": {
+      "messages": 20,
+      "max_gap_s": 5.5990424156188965,
+      "rate_hz": 0.8535492505256992
+    },
+    "/mavros/setpoint_position/local": {
+      "messages": 166,
+      "max_gap_s": 0.10064840316772461,
+      "rate_hz": 9.992328522435766
+    },
+    "/v0_nav/target_pose": {
+      "messages": 166,
+      "max_gap_s": 0.1007547378540039,
+      "rate_hz": 9.992521276877762
+    }
+  },
+  "pose_header_age_s": {
+    "count": 129,
+    "max": 0.044156551361083984,
+    "p99": 0.040784597396850586,
+    "rms": 0.024934697924617943
+  },
+  "waypoint_tracking": {
+    "0": {
+      "sample_count": 31,
+      "fcu_target_xy_error_m": {
+        "count": 31,
+        "max": 0.22639824467814867,
+        "p99": 0.22639824467814867,
+        "rms": 0.11123059522591666
+      },
+      "truth_target_xy_error_m": {
+        "count": 31,
+        "max": 0.23170511854919695,
+        "p99": 0.23170511854919695,
+        "rms": 0.11371273352207073
+      }
+    },
+    "1": {
+      "sample_count": 33,
+      "fcu_target_xy_error_m": {
+        "count": 33,
+        "max": 0.27986095083585505,
+        "p99": 0.27986095083585505,
+        "rms": 0.1308895016320365
+      },
+      "truth_target_xy_error_m": {
+        "count": 33,
+        "max": 0.27917868400307666,
+        "p99": 0.27917868400307666,
+        "rms": 0.12578569168359177
+      }
+    },
+    "2": {
+      "sample_count": 32,
+      "fcu_target_xy_error_m": {
+        "count": 32,
+        "max": 0.26417971600893414,
+        "p99": 0.26417971600893414,
+        "rms": 0.12169883503037411
+      },
+      "truth_target_xy_error_m": {
+        "count": 32,
+        "max": 0.24707620567689453,
+        "p99": 0.24707620567689453,
+        "rms": 0.11258293735572943
+      }
+    },
+    "3": {
+      "sample_count": 31,
+      "fcu_target_xy_error_m": {
+        "count": 31,
+        "max": 0.2249004353428119,
+        "p99": 0.2249004353428119,
+        "rms": 0.10834084065726628
+      },
+      "truth_target_xy_error_m": {
+        "count": 31,
+        "max": 0.21915959809770466,
+        "p99": 0.21915959809770466,
+        "rms": 0.10617811584891551
+      }
+    },
+    "4": {
+      "sample_count": 2,
+      "fcu_target_xy_error_m": {
+        "count": 2,
+        "max": 0.031514889402935176,
+        "p99": 0.031514889402935176,
+        "rms": 0.031213816756844134
+      },
+      "truth_target_xy_error_m": {
+        "count": 2,
+        "max": 0.03494890276392139,
+        "p99": 0.03494890276392139,
+        "rms": 0.03349882434212783
+      }
+    }
+  },
+  "state_events": [
+    {
+      "state": "WAIT_FOR_READY",
+      "wp": 0,
+      "ros_s": 1792995821.786991,
+      "mono_delta_s": 18.138138205045834,
+      "reason": ""
+    },
+    {
+      "state": "CAPTURE_ORIGIN",
+      "wp": 0,
+      "ros_s": 1792995821.7870908,
+      "mono_delta_s": 18.138236375059932,
+      "reason": ""
+    },
+    {
+      "state": "HOLD_INITIAL",
+      "wp": 0,
+      "ros_s": 1792995821.7871366,
+      "mono_delta_s": 18.138281973078847,
+      "reason": ""
+    },
+    {
+      "state": "EXEC_WAYPOINT",
+      "wp": 0,
+      "ros_s": 1792995823.788553,
+      "mono_delta_s": 20.139699862105772,
+      "reason": ""
+    },
+    {
+      "state": "DWELL",
+      "wp": 0,
+      "ros_s": 1792995826.190445,
+      "mono_delta_s": 22.541593755129725,
+      "reason": "ARRIVED_STABLE"
+    },
+    {
+      "state": "DWELL_COMPLETE",
+      "wp": 0,
+      "ros_s": 1792995827.1911721,
+      "mono_delta_s": 23.54231951897964,
+      "reason": ""
+    },
+    {
+      "state": "EXEC_WAYPOINT",
+      "wp": 1,
+      "ros_s": 1792995827.1913009,
+      "mono_delta_s": 23.542446876177564,
+      "reason": ""
+    },
+    {
+      "state": "DWELL",
+      "wp": 1,
+      "ros_s": 1792995829.7932286,
+      "mono_delta_s": 26.14437988307327,
+      "reason": "ARRIVED_STABLE"
+    },
+    {
+      "state": "DWELL_COMPLETE",
+      "wp": 1,
+      "ros_s": 1792995830.7940059,
+      "mono_delta_s": 27.14515330013819,
+      "reason": ""
+    },
+    {
+      "state": "EXEC_WAYPOINT",
+      "wp": 2,
+      "ros_s": 1792995830.7941346,
+      "mono_delta_s": 27.14528341102414,
+      "reason": ""
+    },
+    {
+      "state": "DWELL",
+      "wp": 2,
+      "ros_s": 1792995833.39594,
+      "mono_delta_s": 29.74708881205879,
+      "reason": "ARRIVED_STABLE"
+    },
+    {
+      "state": "DWELL_COMPLETE",
+      "wp": 2,
+      "ros_s": 1792995834.3966966,
+      "mono_delta_s": 30.7478418701794,
+      "reason": ""
+    },
+    {
+      "state": "EXEC_WAYPOINT",
+      "wp": 3,
+      "ros_s": 1792995834.3968034,
+      "mono_delta_s": 30.74794855620712,
+      "reason": ""
+    },
+    {
+      "state": "DWELL",
+      "wp": 3,
+      "ros_s": 1792995836.7984774,
+      "mono_delta_s": 33.14962432812899,
+      "reason": "ARRIVED_STABLE"
+    },
+    {
+      "state": "DWELL_COMPLETE",
+      "wp": 3,
+      "ros_s": 1792995837.7992196,
+      "mono_delta_s": 34.15036861808039,
+      "reason": ""
+    },
+    {
+      "state": "FINISH_HOLD",
+      "wp": 4,
+      "ros_s": 1792995837.79934,
+      "mono_delta_s": 34.15048863017,
+      "reason": ""
+    },
+    {
+      "state": "ABORT_LATCHED",
+      "wp": 4,
+      "ros_s": 1792995838.3996234,
+      "mono_delta_s": 34.75076874811202,
+      "reason": "FCU_STATE_CHANGED"
+    }
+  ]
+}

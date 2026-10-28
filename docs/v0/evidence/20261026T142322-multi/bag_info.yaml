@@ -1,0 +1,67 @@
+path: docs/v0/evidence/20261026T142322-multi/flight.bag
+version: 2.0
+duration: 41.340282
+start: 1792995803.495752
+end: 1792995844.836034
+size: 16980579
+messages: 75857
+indexed: True
+compression: none
+types:
+    - type: gazebo_msgs/ModelStates
+      md5: 48c080191eb15c41858319b4d8a609c2
+    - type: geometry_msgs/PoseStamped
+      md5: d3812c3cbc69362b77dc0b19b345f8f5
+    - type: geometry_msgs/TwistStamped
+      md5: 98d34b0043a2093cf9d9345ab6eef12e
+    - type: mavros_msgs/Mavlink
+      md5: 41093e1fd0f3eea1da2aa33a177e5ba6
+    - type: mavros_msgs/State
+      md5: 65cd0a9fff993b062b91e354554ec7e9
+    - type: sensor_msgs/NavSatFix
+      md5: 2d3a8cd499b9b4a0249fb98fd05cfa48
+    - type: std_msgs/Header
+      md5: 2176decaecbce78abc3b96ef049fabed
+    - type: std_msgs/String
+      md5: 992ce8a1687cec8c8bd883ec73ca41d1
+topics:
+    - topic: /gazebo/model_states
+      type: gazebo_msgs/ModelStates
+      messages: 41338
+    - topic: /mavlink/from
+      type: mavros_msgs/Mavlink
+      messages: 29817
+    - topic: /mavros/global_position/raw/fix
+      type: sensor_msgs/NavSatFix
+      messages: 1033
+    - topic: /mavros/local_position/pose
+      type: geometry_msgs/PoseStamped
+      messages: 1033
+    - topic: /mavros/local_position/velocity_local
+      type: geometry_msgs/TwistStamped
+      messages: 1033
+    - topic: /mavros/setpoint_position/local
+      type: geometry_msgs/PoseStamped
+      messages: 166
+    - topic: /mavros/state
+      type: mavros_msgs/State
+      messages: 46
+    - topic: /v0_nav/event
+      type: std_msgs/String
+      messages: 20
+    - topic: /v0_nav/heartbeat
+      type: std_msgs/Header
+      messages: 400
+    - topic: /v0_nav/origin_pose
+      type: geometry_msgs/PoseStamped
+      messages: 1
+    - topic: /v0_nav/status
+      type: std_msgs/String
+      messages: 402
+    - topic: /v0_nav/target_pose
+      type: geometry_msgs/PoseStamped
+      messages: 166
+    - topic: /v0_nav/watchdog
+      type: std_msgs/String
+      messages: 402
+

@@ -1,0 +1,20 @@
+Setting SIM_SPEEDUP=1.000000
+Starting SITL Gazebo
+Home: -35.363261 149.165230 alt=584.000000m hdg=0.000000
+Bind 127.0.0.1:9003 for SITL in
+Setting Gazebo interface to 127.0.0.1:9002 
+Starting sketch 'ArduCopter'
+Starting SITL input
+Using Irlock at port : 9005
+bind port 5760 for SERIAL0
+SERIAL0 on TCP port 5760
+Waiting for connection ....
+Connection on serial port 5760
+Loaded defaults from /home/liqidun/github/ardupilot/Tools/autotest/default_params/copter.parm,/home/liqidun/github/ardupilot/Tools/autotest/default_params/gazebo-iris.parm
+bind port 5762 for SERIAL1
+SERIAL1 on TCP port 5762
+bind port 5763 for SERIAL2
+SERIAL2 on TCP port 5763
+validate_structures:513: Validating structures
+Loaded defaults from /home/liqidun/github/ardupilot/Tools/autotest/default_params/copter.parm,/home/liqidun/github/ardupilot/Tools/autotest/default_params/gazebo-iris.parm
+Exitting

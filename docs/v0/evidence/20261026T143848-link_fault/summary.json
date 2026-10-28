@@ -1,0 +1,40 @@
+{
+  "result": "PASS",
+  "case": "link_fault",
+  "identity": {
+    "runtime": "/home/liqidun/github/indoor_nav_ws/.sitl_runtime/v0/20261026T133036-3287852",
+    "sitl_pid": 3287979,
+    "proxy_pid": 3287981,
+    "mavros_pid": 3288055
+  },
+  "fault": "SITL-only MAVProxy SIGSTOP/SIGCONT; FCU/ROS data path halted, not real USB unplug",
+  "abort_latency_s": 0.4420205960050225,
+  "abort": {
+    "state": "ABORT_LATCHED",
+    "mission_id": "20261026T143848-link_fault",
+    "wp": 0,
+    "reason": "POSE_STALE",
+    "health": "POSE_STALE",
+    "gate": "",
+    "control_enabled": true,
+    "evidence_dir": "/home/liqidun/github/indoor_nav_ws/docs/v0/evidence/20261026T143848-link_fault/navigation/20261026T143849-3344514-1561522375363669",
+    "pose_age_s": 0.38883790001273155,
+    "max_publish_gap_s": 0.10008252714760602,
+    "ekf_report": {
+      "flags": 831,
+      "ratios": [
+        0.010233636014163494,
+        0.003614462912082672,
+        0.0001124216360040009,
+        0.01410498283803463,
+        0.0
+      ],
+      "healthy": true
+    }
+  },
+  "recovery_did_not_resume": true,
+  "mode_before_test_cleanup": "GUIDED",
+  "evidence": "/home/liqidun/github/indoor_nav_ws/docs/v0/evidence/20261026T143848-link_fault",
+  "start_wall_s": 1792996728.6049988,
+  "end_wall_s": 1792996753.7392058
+}

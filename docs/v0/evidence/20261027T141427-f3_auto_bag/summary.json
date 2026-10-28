@@ -1,0 +1,16 @@
+{
+  "result": "FAIL",
+  "case": "f3_auto_bag",
+  "error": "[Errno 2] No such file or directory: '/home/liqidun/github/indoor_nav_ws/docs/v0/evidence/20261027T141427-f3_auto_bag/after_recorder.bag.active'",
+  "evidence": "/home/liqidun/github/indoor_nav_ws/docs/v0/evidence/20261027T141427-f3_auto_bag",
+  "cleanup": {
+    "armed_before": false,
+    "armed_after": false,
+    "connected": true,
+    "mode": "LAND",
+    "sim_stopped_by_test": false,
+    "processes_exited": true
+  },
+  "start_wall_s": 1793081667.494568,
+  "end_wall_s": 1793081731.6260688
+}

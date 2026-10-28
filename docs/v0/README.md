@@ -1,8 +1,14 @@
 # ArduCopter V0 相对航点
 
-**默认只读；不具备真机自动航点放行资格。F2 接口尚未确认。**
+**默认只读；已获本地开发/隔离SITL恢复授权，未获任何真机操作授权。**
 
-这是 `indoor_nav` 包的增量模式，不取代旧 ExternalNav。唯一业务控制出口为 manager 的 `/mavros/setpoint_position/local`。watchdog 仅观测、报告和撤销 manager 的输出许可，**不能在 manager 死亡时刹停飞机**。不请求模式、不 ARM/起降、不写 FC 参数、不管理 rosbag/音频进程。
+2026-10-26范围修订见 `DEVELOPMENT_PLAN_REVISION_20261026.md`：用户确认UWB经飞控GPS接口提供定位；F2专项模拟及协议调查已取消。恢复后的实现、原始失败、故障矩阵和放行边界见 `RESUME_REPORT_20261027.md`，不能以旧暂停报告代替当前结果。没有操作真机。
+
+这是 `indoor_nav` 包的增量模式，不取代旧 ExternalNav。manager只发布任务意图 `/v0_nav/target_pose`；现有 `v0_nav_health.py` 作为gate，是唯一 `/mavros/setpoint_position/local` 发布者及可选BRAKE模式请求出口。gate独立观察定位、EKF、任务租约、时间和ROS图，失效后锁存；不是第二个无协调控制发布者。生产节点不 ARM/起降、不写FC参数、不管理rosbag/音频进程。
+
+默认 `control.exit_action: manual_takeover` 不自动切模式。显式 `brake_if_position_healthy` 仅在任务曾获gate所有权、仍ARM/GUIDED、独立定位/GPS/EKF及4.5.7参数快照新鲜时单次请求BRAKE；定位失效、MAVROS断连、人工切模式、gate自身退出不保证刹停。测试程序显式使用此策略；真机是否启用须R0人工核查后另行批准。SetMode返回不等于实际停稳。
+
+控制节点在DISARM时启动，让gate先观察IDLE/DISARM；其后由飞手人工起飞/悬停再start。gate不支持半空重启自动接管，断链或中止后必须落地、显式reset并重新授权。独立健康检查仍消费同一个FC EKF，不是第二套定位源。
 
 ## 构建、回归、只读检查
 
@@ -33,9 +39,22 @@ roslaunch indoor_nav indoor_nav_v0.launch enable_control:=false dry_run:=true
 python3 tools/test_v0_relative_waypoints.py --ros-smoke
 ```
 
-启用控制需同时 `enable_control:=true dry_run:=false`；**两把开关**，不提供绕过健康检查。此命令不等于准许实飞；先完成 SOP 所有放行门槛。默认 Fake GPS 配置还要求真实上游健康接口。导航只读时不创建 MAVROS 控制 publisher；target_pose 仅为预览，不等于 FC 执行。
+启用控制需同时 `enable_control:=true dry_run:=false`；**两把开关同时约束manager和gate**。此命令不等于准许实飞；先完成SOP对应门槛。默认 `navigation.source: fc_ekf_gps`，GPS/EKF反馈与真实来源一致，不要求自定义adapter；`require_upstream_health: true` 是可选增强项，未启用时不订阅健康值作为强制前提，不能常量true伪造验证。只读时gate不创建MAVROS控制publisher或请求模式；target_pose是意图/预览，不是FC执行回执。
 
 ## F1 隔离仿真（自动 ARM/起飞只在专用测试程序中）
+
+推荐使用冷启动批测工具，每例新建runtime/EEPROM、核验路由、落地后安全停止；一次runtime只允许一个飞行案例。原高度>0.85m、速度范数<0.06m/s、35s准备门槛未放宽：
+
+```bash
+source /opt/ros/noetic/setup.bash
+source ~/github/indoor_nav_ws/devel/setup.bash
+export ROS_MASTER_URI=http://127.0.0.1:11421 ROS_IP=127.0.0.1
+python3 tools/v0_sitl_suite.py --sitl --execute --cases single multi yaw altitude
+python3 tools/v0_sitl_suite.py --sitl --execute --cases abort manager_kill manager_exit manager_pause pose_loss mavros_loss mode_exit gate_pause gate_kill concurrent publisher_conflict
+python3 tools/v0_sitl_suite.py --sitl --execute --cases f3 f3_auto_bag distance_short distance_long finish_stop
+```
+
+`f3_auto_bag` 只读运行本机 `onboard_ros_sensor` 的自动recorder源码并把输出定向到本轮证据，传感器仍为mock；没有启动其硬件launch。手工启动方式如下，**同一实例不要连续运行两个飞行案例**：
 
 关闭其它占 TCP5760、UDP9002/9003 的仿真；不要杀不属于本次任务的进程。第一个终端：
 
@@ -52,9 +71,28 @@ export ROS_MASTER_URI=http://127.0.0.1:11421 ROS_IP=127.0.0.1
 python3 tools/v0_sitl_test.py --sitl --execute --case single
 python3 tools/v0_sitl_test.py --sitl --execute --case multi
 python3 tools/v0_sitl_test.py --sitl --execute --case f3
+python3 tools/v0_sitl_test.py --sitl --execute --case link_fault
+# 测试已降落DISARM后，验证PID/实例后关闭本轮仿真：
+python3 tools/v0_sitl_stop.py --sitl
 ```
 
-测试必须核验运行目录、SITL 可执行文件/PID、MAVProxy 唯一路由和 loopback socket、MAVROS arming 服务归属和 SIM 参数；不匹配直接拒绝。`multi` 起飞后先用仿真专用 yaw 命令改变初始航向，再冻结任务轴，含正 Z 点。F1 使用 **SITL 默认 GPS→EKF3**；不是 UWB/Fake GPS。F2 **没有验收命令**：接口未知，参见缺口文档，禁止用 F1 命令改名冒充。
+建议**每个case使用一次冷启动仿真**：一个case完成并DISARM后执行stop，再由第一终端重启。连续复用同一EEPROM/运行实例可能保留高度/起飞状态；本轮有一次第二次起飞真值仅约0.83m，未达测试准备门槛而超时，任务未start。不要降低门槛掩盖它；保留失败，冷启动后再测。
+
+测试必须核验运行目录、SITL 可执行文件/PID、MAVProxy 唯一路由和 loopback socket、MAVROS arming 服务归属和 SIM 参数；不匹配直接拒绝。`multi` 起飞后先用仿真专用 yaw 命令改变初始航向，再冻结任务轴，含正 Z 点。F1 使用 **SITL 默认 GPS→EKF3**，即修订后的仿真定位路径。F2专项及底层协议调查已取消，无需开发等价注入；真实UWB定位质量/方向/EKF状态在R0核查。以下命令仅供用户明确恢复后使用。
+
+F0动态回归另起全新runtime，不覆盖旧EEPROM，且不得与F1同时运行：
+
+```bash
+./tools/v0_sitl_instance.sh --sitl --f0-externalnav
+# 另一shell同样 export ROS_MASTER_URI=http://127.0.0.1:11421 ROS_IP=127.0.0.1
+python3 tools/set_ekf_origin_once.py --lat=-35.363261 --lon=149.165230 --alt=584
+rosservice call /mavros/cmd/command '{broadcast: false, command: 512, confirmation: 0, param1: 49.0, param2: 0.0, param3: 0.0, param4: 0.0, param5: 0.0, param6: 0.0, param7: 0.0}'
+rostopic echo -n 1 /mavros/global_position/gp_origin
+rosservice call /indoor_nav/calibrate '{}'
+./tools/indoor_nav_sitl_smoke_test.sh
+# 不ACK、不ARM、不起飞；这只是最小旧链路回归，不是重飞run_06
+# 此固定经纬度原点设置仅用于F0，绝不复制到真实飞机；不是GPS注入
+```
 
 ## 配置契约
 
@@ -64,20 +102,24 @@ python3 tools/v0_sitl_test.py --sitl --execute --case f3
 
 全部安全缺省值见 `indoor_nav/v0.py:SAFETY_DEFAULTS`，可在 `safety` 内显式覆盖：state/GPS/EKF新鲜度、速度/pose新鲜度、跳点、持续超速、悬停窗口/范围/角度、initial hold、ROS/墙钟偏差、周期/watchdog期限、冻结一致性。限制不是物理防护。软件 fence 检查所有目标和飞行当前位置。小于检测门槛的原点变化仍可能漏检。
 
+必须先观测 `/mavros/global_position/gp_origin`，任何后续原点变化锁存中止（包括pose未跳变时）。该通知不覆盖所有EKF内部reset；仍需上游真实reset证据。Copter4.5.7实际通过既有 `/mavlink/from` 的 `mavros_msgs/Mavlink`、msg193 EKF_STATUS_REPORT提供健康；生产仅接收CRC有效、sysid/compid=1/1的固定消息，使用标准库struct解码并检查flags/ratios，不引入pymavlink或新连接。通用msg230的estimator_status可能完全不出数，不能臆造健康值。
+
 `speed_xy_mps` 是**对人工预设 FCU 限速的上界要求**，不是插值速度控制：Copter4.5.7 必须 `20 <= WPNAV_SPEED <= 100*speed_xy_mps`。速度/垂直/加速度/Guided选项/源参数定期只读复核；缺失、过期、未知固件拒绝开始/撤销任务。UP/DN默认≤20cm/s，ACCEL默认≤100cm/s²，GUID_OPTIONS=0，EKF3/源GPS必须匹配。实际速度持续超限中止；短尖峰不立即 freeze。真机不自动改参数，未知新固件需新增审计和实测 profile。
+
+实测WPNAV_SPEED=20cm/s时位置修正仍有约0.266m/s短时峰值，因此**0.20不是实际速度的严格瞬时上限**；本轮验证的是FC参数生效及0.30m/s实测监测门槛。若实验要求任何时刻≤0.20m/s，当前V0不满足，不能仅修改YAML宣称实现。
 
 ## 服务与状态
 
 ```bash
 rosservice call /v0_nav/start '{}'  # 飞手人工悬停、GUIDED、健康与限速检查后显式授权
 rosservice call /v0_nav/abort '{}'  # 锁存、停止输出；不保证取消飞控最后目标！飞手接管
-rosservice call /v0_nav/stop '{}'   # 仅 FINISH_HOLD→STOPPED，不切模式
+rosservice call /v0_nav/stop '{}'   # 仅 FINISH_HOLD→STOPPED；gate依exit_action处理
 rosservice call /v0_nav/reset '{}'  # 仅连接正常、DISARM、非活动状态；仍须再次显式 start
 ```
 
 状态：`IDLE→WAIT_FOR_READY→CAPTURE_ORIGIN→HOLD_INITIAL→EXEC_WAYPOINT→DWELL→FINISH_HOLD`；完成持续发最后目标直至人工切走模式/stop。异常 `ABORT_LATCHED`，无自动续飞，无自动抢回 GUIDED。初始先发布冻结当前点并 hold，只有飞手预先进入 GUIDED且持续回读正确才推进；不实现程序切 GUIDED。双 start 拒绝。到达须 XY/Z 同时连续满足 stable_time_s，DWELL 离开容差则重新稳定，超时取消全部后续点。
 
-定位坏时绝不把“当前位置保持”称为安全；本实现统一停发并明确 RC/FCU 责任。位置 setpoint 停发后 FCU 可能继续追踪旧目标。没有默认 RTL/LAND，真正备用模式必须现场验证。
+定位坏时绝不把“当前位置保持”称为安全；此时停发且不盲目切BRAKE/Loiter，依赖RC/FCU预验证应急。定位健康的任务程序故障可在显式策略下由唯一gate单次请求BRAKE，须观察mode和速度确认效果。没有默认RTL/LAND；gate进程自身死亡或完全断连不能由伴随计算机保证处置。
 
 ## ROS 接口与证据
 
@@ -88,10 +130,10 @@ rosservice call /v0_nav/reset '{}'  # 仅连接正常、DISARM、非活动状态
 | `/v0_nav/origin_pose` | geometry_msgs/PoseStamped | latched，冻结 P0/yaw0，map |
 | `/v0_nav/target_pose` | geometry_msgs/PoseStamped | 预览目标，dry_run也可有，不代表飞控回执 |
 | `/v0_nav/heartbeat` | std_msgs/Header | 10Hz活性，非控制 |
-| `/v0_nav/watchdog` | std_msgs/String | healthy/reason，墙钟心跳和ROS图独占检查 |
-| `/v0_nav/upstream_healthy` | std_msgs/Bool | 外部真实adapter提供，Fake GPS模式必需；不能用常量true替代证据 |
+| `/v0_nav/watchdog` | std_msgs/String | healthy/reason/owner/revoked/exit_result/mode/实际目标最大发布间隔；gate状态，不是刹停认证 |
+| `/v0_nav/upstream_healthy` | std_msgs/Bool | 仅require_upstream_health=true时强制检查；默认普通GPS不要求此自定义信号 |
 
-订阅 State、map PoseStamped、指定 `velocity_local` TwistStamped、raw/fix NavSatFix、EstimatorStatus。读取 ParamGet/VehicleInfoGet。GPS fix本身不能证明 UWB 链健康，仍要求上游。冻结检测仅在窗口位置近乎不变**且速度持续显著非零**时触发；不能识别所有同源共同冻结。
+订阅State、map PoseStamped、指定velocity_local TwistStamped、raw/fix NavSatFix、gp_origin及既有MAVROS的msg193转发。manager读取ParamGet/VehicleInfoGet并记录固件/参数；gate独立检查关键导航反馈。GPS fix本身不能证明真实UWB链所有质量属性，须R0现场检查；不再开发专项adapter。冻结检测不能识别所有同源共同冻结。
 
 每次实例创建独立证据目录：原始YAML、绝对路径和SHA256、Git/dirty、源类型、固件版本/FC参数、wall/ROS/monotonic事件。默认 `~/.ros/v0_nav`，可 `evidence_dir:=...`。任务节点只持久化稀疏事件，遥测由已有采集系统录制；测试驱动另存实际位姿/真值/目标/速度/模式/echo/bag。ROS时间用于对齐，monotonic用于期限；主循环用墙钟等待，暂停 `/clock` 不会让 watchdog 静止。
 
@@ -114,7 +156,35 @@ rostopic type /mavros/local_position/velocity_local
 lsof /dev/ttyACM0                      # 实机：唯一串口占用者应为现有 MAVROS
 rosbag info --yaml <本轮证据目录>/flight.bag
 rosbag check <本轮证据目录>/flight.bag
+python3 tools/v0_analyze_bag.py <本轮证据目录>
 # 仅在没有实机/导航订阅的隔离离线 Master 回放；不要向实机 Master rosbag play 控制话题
 ```
 
 细分实测与未完成项见 `SITL_REPORT.md`、安全责任见 `SAFETY_AND_LIMITATIONS.md`。
+
+## 变更清单
+
+| 文件（相对工作区） | 原因 |
+|---|---|
+| `src/indoor_nav/src/indoor_nav/v0.py` | 独立schema/坐标/健康/状态机，避免改旧ExternalNav |
+| `src/indoor_nav/scripts/relative_mission_manager.py` | 任务意图、只读FC核验、服务/事件/证据，不直发FC目标 |
+| `src/indoor_nav/scripts/v0_nav_health.py` | 唯一受控FC出口、独立健康/租约与可选健康BRAKE退出 |
+| `src/indoor_nav/config/mission_v0.yaml` | 用户可编辑任务及全部可配置健康限制；保留样例兼容默认值 |
+| `src/indoor_nav/config/v0_sitl_gps.parm` | 独立默认GPS/EKF3、保守速度参数，仅SITL |
+| `src/indoor_nav/launch/indoor_nav_v0.launch` | 默认只读、仅导航节点，不包含MAVROS/传感器 |
+| `src/indoor_nav/CMakeLists.txt` | 仅增加两个Python节点安装 |
+| `src/indoor_nav/package.xml` | 明确新增使用的geographic_msgs运行依赖 |
+| `tests/test_v0.py`、`tests/test_v0_gate_ros.py` | 坐标/schema/状态机/租约/ROS gate检查与模式限制 |
+| `tools/test_v0_relative_waypoints.py` | 离线/ROS只读smoke |
+| `tools/v0_sitl_instance.sh` | 新runtime/独占端口的GPS或旧ExternalNav回归启动 |
+| `tools/v0_sitl_test.py` | 多重身份门禁的仿真专用飞行、模式/链路/并行故障测试 |
+| `tools/v0_sitl_stop.py` | 只停止已验证且DISARM的本轮模拟器及启动器 |
+| `tools/v0_sitl_suite.py` | 每案例独立冷启动、机器可读退出/端口清理索引 |
+| `tools/v0_dataflash_altitude.py` | 标准库离线读取高度/home证据，无飞控连接 |
+| `tools/v0_archive_evidence.py` | 离线生成矩阵/索引/manifest，保留原始FAIL |
+| `tools/v0_mock_acquisition.py` | 合成PCM大小+序号负载，不改真实采集驱动 |
+| `tools/v0_analyze_bag.py` | 离线逐条读包、消息/序号/时间/误差统计，不回放控制 |
+| `docs/v0/{README,00_REPO_AUDIT,SITL_REPORT,REAL_AIRCRAFT_SOP,SAFETY_AND_LIMITATIONS,FAKE_GPS_INTERFACE_GAP}.md` | 运行/审计/实测/真机门槛/限制/接口缺口 |
+| `docs/v0/evidence/` | 全部PASS/FAIL、参数/YAML/源码hash、日志和manifest；大二进制按原gitignore留本地 |
+
+未改旧mission/supervisor/estimator、旧launch/config、声学工作区、历史证据。完整已提交路径可用 `git diff --name-only 92f6e72 HEAD`；每个证据文件列于manifest。

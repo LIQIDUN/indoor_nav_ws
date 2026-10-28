@@ -1,0 +1,189 @@
+{
+  "result": "PASS",
+  "case": "pose_loss",
+  "identity": {
+    "runtime": "/home/liqidun/github/indoor_nav_ws/.sitl_runtime/v0/20261027T133731-193015",
+    "sitl_pid": 193141,
+    "proxy_pid": 193143,
+    "mavros_pid": 193215
+  },
+  "before": {
+    "wall_s": 1793079510.8830822,
+    "ros_s": 1793079510.8830867,
+    "mono_s": 1644303.877073494,
+    "mode": "GUIDED",
+    "armed": true,
+    "status": {
+      "state": "EXEC_WAYPOINT",
+      "mission_id": "20261027T133739-pose_loss",
+      "wp": 0,
+      "reason": "",
+      "health": "",
+      "gate": "",
+      "control_enabled": true,
+      "evidence_dir": "/home/liqidun/github/indoor_nav_ws/docs/v0/evidence/20261027T133739-pose_loss/navigation/20261027T133816-194003-1644289030857461",
+      "yaml_sha256": "8d34841c63fc56abd4b2669e6da8a6c3e46df3148cd8902dbd342b68e0092330",
+      "firmware": [
+        4,
+        5,
+        7
+      ],
+      "limit_age_s": 0.7049675488378853,
+      "pose_age_s": 0.03168462682515383,
+      "max_publish_gap_s": 0.10008494718931615,
+      "ekf_report": {
+        "flags": 831,
+        "ratios": [
+          0.008844314143061638,
+          0.007085232064127922,
+          5.5766166042303666e-05,
+          0.02274339832365513,
+          0.0
+        ],
+        "healthy": true
+      }
+    },
+    "phase": "execution before fault",
+    "watchdog": {
+      "healthy": true,
+      "reason": "",
+      "owner": "20261027T133739-pose_loss",
+      "revoked": false,
+      "exit_result": null,
+      "mode": "GUIDED",
+      "max_publish_gap_s": 0.1001023871358484
+    },
+    "home_altitude_m": 603.4186290627697,
+    "pose": [
+      -0.03677671030163765,
+      0.07455755770206451,
+      0.977483332157135
+    ],
+    "yaw": 1.5335560450938086,
+    "pose_age_s": 0.016295433044433594,
+    "velocity": [
+      0.026861965656280518,
+      0.15856046974658966,
+      0.0006143751670606434
+    ],
+    "truth": [
+      0.07961547154278631,
+      0.05460557741148089,
+      0.9581718220416069
+    ],
+    "truth_velocity": [
+      0.18152195126549775,
+      -0.0052827215342675605,
+      -0.00014730025115764145
+    ],
+    "truth_yaw": -0.00953854984761132,
+    "target": [
+      -0.013844672649234306,
+      0.2683242515387992,
+      0.9785613417625427
+    ],
+    "expected_truth": [
+      0.2897276689703532,
+      0.04271061814535991,
+      0.9592153390381539
+    ]
+  },
+  "after": {
+    "wall_s": 1793079511.3256562,
+    "ros_s": 1793079511.3256598,
+    "mono_s": 1644304.319643664,
+    "mode": "GUIDED",
+    "armed": true,
+    "status": {
+      "state": "ABORT_LATCHED",
+      "mission_id": "20261027T133739-pose_loss",
+      "wp": 0,
+      "reason": "POSE_STALE",
+      "health": "POSE_STALE",
+      "gate": "POSE_STALE",
+      "control_enabled": true,
+      "evidence_dir": "/home/liqidun/github/indoor_nav_ws/docs/v0/evidence/20261027T133739-pose_loss/navigation/20261027T133816-194003-1644289030857461",
+      "yaml_sha256": "8d34841c63fc56abd4b2669e6da8a6c3e46df3148cd8902dbd342b68e0092330",
+      "firmware": [
+        4,
+        5,
+        7
+      ],
+      "limit_age_s": 1.1052586450241506,
+      "pose_age_s": 0.3909446489997208,
+      "max_publish_gap_s": 0.10008494718931615,
+      "ekf_report": {
+        "flags": 831,
+        "ratios": [
+          0.008242988027632236,
+          0.004902496002614498,
+          6.208840932231396e-05,
+          0.022464638575911522,
+          0.0
+        ],
+        "healthy": true
+      }
+    },
+    "phase": "fault latched",
+    "watchdog": {
+      "healthy": false,
+      "reason": "POSE_STALE",
+      "owner": "20261027T133739-pose_loss",
+      "revoked": true,
+      "exit_result": {
+        "reason": "POSE_STALE",
+        "requested": false,
+        "mode_sent": false
+      },
+      "mode": "GUIDED",
+      "max_publish_gap_s": 0.1001023871358484
+    },
+    "home_altitude_m": 603.4186290627697,
+    "pose": [
+      -0.03391525149345398,
+      0.16636881232261658,
+      0.9776425361633301
+    ],
+    "yaw": 1.5335128317263467,
+    "pose_age_s": 0.01857590675354004,
+    "velocity": [
+      0.027504978701472282,
+      0.20758312940597534,
+      0.0011929303873330355
+    ],
+    "truth": [
+      0.18669546179388954,
+      0.05209257234307244,
+      0.9581032792480231
+    ],
+    "truth_velocity": [
+      0.22607243992159995,
+      -0.0058669989057691585,
+      0.0005190723130437322
+    ],
+    "truth_yaw": -0.009877078598281536,
+    "target": [
+      -0.013844672649234306,
+      0.2683242515387992,
+      0.9785613417625427
+    ],
+    "expected_truth": [
+      0.2897276689703532,
+      0.04271061814535991,
+      0.9592153390381539
+    ]
+  },
+  "fault_to_observed_response_s": 0.44252874003723264,
+  "guarded_brake_expected": false,
+  "responses": [],
+  "recovery_did_not_resume": true,
+  "evidence": "/home/liqidun/github/indoor_nav_ws/docs/v0/evidence/20261027T133739-pose_loss",
+  "cleanup": {
+    "armed_before": false,
+    "armed_after": false,
+    "mode": "LAND",
+    "processes_exited": true
+  },
+  "start_wall_s": 1793079459.7031262,
+  "end_wall_s": 1793079519.1943069
+}

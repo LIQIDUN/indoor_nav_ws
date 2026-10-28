@@ -1,0 +1,135 @@
+{
+  "bag_readable": true,
+  "topics": {
+    "/mavros/global_position/gp_origin": {
+      "messages": 2,
+      "max_gap_s": 0.587111234664917,
+      "rate_hz": 1.7032547513261804
+    },
+    "/mavros/state": {
+      "messages": 27,
+      "max_gap_s": 1.6136553287506104,
+      "rate_hz": 1.1204479181798999
+    },
+    "/gazebo/model_states": {
+      "messages": 24181,
+      "max_gap_s": 0.014997243881225586,
+      "rate_hz": 999.9422693570956
+    },
+    "/mavlink/from": {
+      "messages": 17336,
+      "max_gap_s": 1.471313714981079,
+      "rate_hz": 717.7588463871349
+    },
+    "/mavros/global_position/raw/fix": {
+      "messages": 604,
+      "max_gap_s": 1.4770467281341553,
+      "rate_hz": 24.991936817872922
+    },
+    "/mavros/local_position/velocity_local": {
+      "messages": 604,
+      "max_gap_s": 1.4767429828643799,
+      "rate_hz": 24.992215389289232
+    },
+    "/mavros/local_position/pose": {
+      "messages": 604,
+      "max_gap_s": 1.4767231941223145,
+      "rate_hz": 24.992239591709033
+    },
+    "/v0_nav/watchdog": {
+      "messages": 229,
+      "max_gap_s": 0.10056447982788086,
+      "rate_hz": 9.984096691109103
+    },
+    "/v0_nav/status": {
+      "messages": 230,
+      "max_gap_s": 0.10576987266540527,
+      "rate_hz": 10.017395158329382
+    },
+    "/v0_nav/heartbeat": {
+      "messages": 228,
+      "max_gap_s": 0.1057889461517334,
+      "rate_hz": 9.992868580586912
+    },
+    "/v0_nav/event": {
+      "messages": 9,
+      "max_gap_s": 5.363816261291504,
+      "rate_hz": 0.7192921625152342
+    },
+    "/v0_nav/origin_pose": {
+      "messages": 1,
+      "max_gap_s": 0,
+      "rate_hz": 0
+    },
+    "/mavros/setpoint_position/local": {
+      "messages": 24,
+      "max_gap_s": 0.10027503967285156,
+      "rate_hz": 9.99248220222646
+    },
+    "/v0_nav/target_pose": {
+      "messages": 24,
+      "max_gap_s": 0.10031414031982422,
+      "rate_hz": 9.992300037713635
+    }
+  },
+  "pose_header_age_s": {
+    "count": 4,
+    "max": 0.365309476852417,
+    "p99": 0.365309476852417,
+    "rms": 0.23387962956286104
+  },
+  "waypoint_tracking": {
+    "0": {
+      "sample_count": 4,
+      "fcu_target_xy_error_m": {
+        "count": 4,
+        "max": 0.27035048312818766,
+        "p99": 0.27035048312818766,
+        "rms": 0.27035048312818766
+      },
+      "truth_target_xy_error_m": {
+        "count": 4,
+        "max": 0.2813821540545958,
+        "p99": 0.2813821540545958,
+        "rms": 0.27801365523088933
+      }
+    }
+  },
+  "state_events": [
+    {
+      "state": "WAIT_FOR_READY",
+      "wp": 0,
+      "ros_s": 1792996741.4021559,
+      "mono_delta_s": 12.034986659884453,
+      "reason": ""
+    },
+    {
+      "state": "CAPTURE_ORIGIN",
+      "wp": 0,
+      "ros_s": 1792996741.4022346,
+      "mono_delta_s": 12.035065482836217,
+      "reason": ""
+    },
+    {
+      "state": "HOLD_INITIAL",
+      "wp": 0,
+      "ros_s": 1792996741.40228,
+      "mono_delta_s": 12.035111001925543,
+      "reason": ""
+    },
+    {
+      "state": "EXEC_WAYPOINT",
+      "wp": 0,
+      "ros_s": 1792996743.4036305,
+      "mono_delta_s": 14.036463238997385,
+      "reason": ""
+    },
+    {
+      "state": "ABORT_LATCHED",
+      "wp": 0,
+      "ros_s": 1792996743.8039095,
+      "mono_delta_s": 14.436740785837173,
+      "reason": "POSE_STALE"
+    }
+  ]
+}

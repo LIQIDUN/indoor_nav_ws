@@ -1,0 +1,8 @@
+{
+  "result": "FAIL",
+  "case": "single",
+  "error": "start refused: VELOCITY_FRAME_OR_STAMP",
+  "evidence": "/home/liqidun/github/indoor_nav_ws/docs/v0/evidence/20261026T133336-single",
+  "start_wall_s": 1792992816.2536073,
+  "end_wall_s": 1792992836.0803654
+}

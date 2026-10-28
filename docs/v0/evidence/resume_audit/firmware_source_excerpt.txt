@@ -1,0 +1,100 @@
+2a3dc4b7bf2507120f7378a7b2fde73185e0c325
+bool ModeGuided::do_user_takeoff_start(float takeoff_alt_cm)
+{
+    // calculate target altitude and frame (either alt-above-ekf-origin or alt-above-terrain)
+    int32_t alt_target_cm;
+    bool alt_target_terrain = false;
+    if (wp_nav->rangefinder_used_and_healthy() &&
+        wp_nav->get_terrain_source() == AC_WPNav::TerrainSource::TERRAIN_FROM_RANGEFINDER &&
+        takeoff_alt_cm < copter.rangefinder.max_distance_cm_orient(ROTATION_PITCH_270)) {
+        // can't takeoff downwards
+        if (takeoff_alt_cm <= copter.rangefinder_state.alt_cm) {
+            return false;
+        }
+        // provide target altitude as alt-above-terrain
+        alt_target_cm = takeoff_alt_cm;
+        alt_target_terrain = true;
+    } else {
+        // interpret altitude as alt-above-home
+        Location target_loc = copter.current_loc;
+        target_loc.set_alt_cm(takeoff_alt_cm, Location::AltFrame::ABOVE_HOME);
+
+        // provide target altitude as alt-above-ekf-origin
+        if (!target_loc.get_alt_cm(Location::AltFrame::ABOVE_ORIGIN, alt_target_cm)) {
+            // this should never happen but we reject the command just in case
+            return false;
+        }
+    }
+
+void ModeGuided::pos_control_run()
+{
+    // if not armed set throttle to zero and exit immediately
+    if (is_disarmed_or_landed()) {
+        // do not spool down tradheli when on the ground with motor interlock enabled
+        make_safe_ground_handling(copter.is_tradheli() && motors->get_interlock());
+        return;
+    }
+
+    // calculate terrain adjustments
+    float terr_offset = 0.0f;
+    if (guided_pos_terrain_alt && !wp_nav->get_terrain_offset(terr_offset)) {
+        // failure to set destination can only be because of missing terrain data
+        copter.failsafe_terrain_on_event();
+        return;
+    }
+
+    // set motors to full range
+    motors->set_desired_spool_state(AP_Motors::DesiredSpoolState::THROTTLE_UNLIMITED);
+
+    // send position and velocity targets to position controller
+    guided_accel_target_cmss.zero();
+    guided_vel_target_cms.zero();
+
+    // stop rotating if no updates received within timeout_ms
+    if (millis() - update_time_ms > get_timeout_ms()) {
+        if ((auto_yaw.mode() == AutoYaw::Mode::RATE) || (auto_yaw.mode() == AutoYaw::Mode::ANGLE_RATE)) {
+            auto_yaw.set_mode(AutoYaw::Mode::HOLD);
+        }
+    }
+
+    float pos_offset_z_buffer = 0.0; // Vertical buffer size in m
+    if (guided_pos_terrain_alt) {
+
+// brake_init - initialise brake controller
+bool ModeBrake::init(bool ignore_checks)
+{
+    // initialise pos controller speed and acceleration
+    pos_control->set_max_speed_accel_xy(inertial_nav.get_velocity_neu_cms().length(), BRAKE_MODE_DECEL_RATE);
+    pos_control->set_correction_speed_accel_xy(inertial_nav.get_velocity_neu_cms().length(), BRAKE_MODE_DECEL_RATE);
+
+    // initialise position controller
+    pos_control->init_xy_controller();
+
+    // set vertical speed and acceleration limits
+    pos_control->set_max_speed_accel_z(BRAKE_MODE_SPEED_Z, BRAKE_MODE_SPEED_Z, BRAKE_MODE_DECEL_RATE);
+    pos_control->set_correction_speed_accel_z(BRAKE_MODE_SPEED_Z, BRAKE_MODE_SPEED_Z, BRAKE_MODE_DECEL_RATE);
+
+    // initialise the vertical position controller
+    if (!pos_control->is_active_z()) {
+        pos_control->init_z_controller();
+    }
+
+    _timeout_ms = 0;
+
+    return true;
+}
+
+// brake_run - runs the brake controller
+class ModeBrake : public Mode {
+
+public:
+    // inherit constructor
+    using Mode::Mode;
+    Number mode_number() const override { return Number::BRAKE; }
+
+    bool init(bool ignore_checks) override;
+    void run() override;
+
+    bool requires_GPS() const override { return true; }
+    bool has_manual_throttle() const override { return false; }
+    bool allows_arming(AP_Arming::Method method) const override { return false; };

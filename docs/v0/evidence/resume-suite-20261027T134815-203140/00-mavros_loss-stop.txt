@@ -1,0 +1,6 @@
+Traceback (most recent call last):
+  File "/home/liqidun/github/indoor_nav_ws/tools/v0_sitl_stop.py", line 36, in <module>
+    state = rospy.wait_for_message('/mavros/state', State, timeout=5)
+  File "/opt/ros/noetic/lib/python3/dist-packages/rospy/client.py", line 420, in wait_for_message
+    raise rospy.exceptions.ROSException("timeout exceeded while waiting for message on topic %s"%resolve_name)
+rospy.exceptions.ROSException: timeout exceeded while waiting for message on topic /mavros/state

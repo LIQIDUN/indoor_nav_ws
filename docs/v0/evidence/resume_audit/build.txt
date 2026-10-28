@@ -1,0 +1,104 @@
+-- Using CATKIN_DEVEL_PREFIX: /home/liqidun/github/indoor_nav_ws/devel
+-- Using CMAKE_PREFIX_PATH: /home/liqidun/github/indoor_nav_ws/devel;/opt/ros/noetic
+-- This workspace overlays: /home/liqidun/github/indoor_nav_ws/devel;/opt/ros/noetic
+-- Found PythonInterp: /usr/bin/python3 (found suitable version "3.8.10", minimum required is "3") 
+-- Using PYTHON_EXECUTABLE: /usr/bin/python3
+-- Using Debian Python package layout
+-- Using empy: /home/liqidun/.local/lib/python3.8/site-packages/em.py
+-- Using CATKIN_ENABLE_TESTING: ON
+-- Call enable_testing()
+-- Using CATKIN_TEST_RESULTS_DIR: /home/liqidun/github/indoor_nav_ws/build/test_results
+-- Forcing gtest/gmock from source, though one was otherwise available.
+-- Found gtest sources under '/usr/src/googletest': gtests will be built
+-- Found gmock sources under '/usr/src/googletest': gmock will be built
+-- Found PythonInterp: /usr/bin/python3 (found version "3.8.10") 
+-- Using Python nosetests: /usr/bin/nosetests3
+-- catkin 0.8.12
+-- BUILD_SHARED_LIBS is on
+-- BUILD_SHARED_LIBS is on
+-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-- ~~  traversing 2 packages in topological order:
+-- ~~  - nlink_parser
+-- ~~  - indoor_nav
+-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-- +++ processing catkin package: 'nlink_parser'
+-- ==> add_subdirectory(nlink_parser)
+-- Using these message generators: gencpp;geneus;genlisp;gennodejs;genpy
+-- nlink_parser: 25 messages, 0 services
+-- +++ processing catkin package: 'indoor_nav'
+-- ==> add_subdirectory(indoor_nav)
+-- Using these message generators: gencpp;geneus;genlisp;gennodejs;genpy
+-- indoor_nav: 2 messages, 0 services
+-- Installing devel-space wrapper /home/liqidun/github/indoor_nav_ws/src/indoor_nav/scripts/world_estimator.py to /home/liqidun/github/indoor_nav_ws/devel/lib/indoor_nav
+-- Installing devel-space wrapper /home/liqidun/github/indoor_nav_ws/src/indoor_nav/scripts/mock_uwb_node.py to /home/liqidun/github/indoor_nav_ws/devel/lib/indoor_nav
+-- Installing devel-space wrapper /home/liqidun/github/indoor_nav_ws/src/indoor_nav/scripts/mission_manager.py to /home/liqidun/github/indoor_nav_ws/devel/lib/indoor_nav
+-- Installing devel-space wrapper /home/liqidun/github/indoor_nav_ws/src/indoor_nav/scripts/safety_supervisor.py to /home/liqidun/github/indoor_nav_ws/devel/lib/indoor_nav
+-- Installing devel-space wrapper /home/liqidun/github/indoor_nav_ws/src/indoor_nav/scripts/relative_mission_manager.py to /home/liqidun/github/indoor_nav_ws/devel/lib/indoor_nav
+-- Installing devel-space wrapper /home/liqidun/github/indoor_nav_ws/src/indoor_nav/scripts/v0_nav_health.py to /home/liqidun/github/indoor_nav_ws/devel/lib/indoor_nav
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /home/liqidun/github/indoor_nav_ws/build
+[  2%] Built target serial
+[  2%] Built target _nlink_parser_generate_messages_check_deps_LinktrackNode5
+[  2%] Built target _nlink_parser_generate_messages_check_deps_LinktrackAoaNode0
+[  2%] Built target _nlink_parser_generate_messages_check_deps_LinktrackTagframe0
+[  2%] Built target _nlink_parser_generate_messages_check_deps_LinktrackNodeframe3
+[  2%] Built target _nlink_parser_generate_messages_check_deps_LinktrackNode1
+[  2%] Built target _nlink_parser_generate_messages_check_deps_TofsenseCascade
+[  2%] Built target _nlink_parser_generate_messages_check_deps_LinktrackNode0
+[  2%] Built target _nlink_parser_generate_messages_check_deps_IotFrame0Node
+[  2%] Built target _nlink_parser_generate_messages_check_deps_TofsenseMFrame0
+[  2%] Built target _nlink_parser_generate_messages_check_deps_LinktrackNodeframe5
+[  2%] Built target std_msgs_generate_messages_cpp
+[  2%] Built target _nlink_parser_generate_messages_check_deps_TofsenseFrame0
+[  2%] Built target _nlink_parser_generate_messages_check_deps_LinktrackNode2
+[  2%] Built target _nlink_parser_generate_messages_check_deps_LinktrackAnchorframe0
+[  2%] Built target _nlink_parser_generate_messages_check_deps_LinktrackNodeframe2
+[  2%] Built target _nlink_parser_generate_messages_check_deps_LinktrackTag
+[  2%] Built target _nlink_parser_generate_messages_check_deps_LinktrackAoaNodeframe0
+[  2%] Built target _nlink_parser_generate_messages_check_deps_LinktrackNode4Anchor
+[  2%] Built target _nlink_parser_generate_messages_check_deps_LinktrackNodeframe0
+[  2%] Built target _nlink_parser_generate_messages_check_deps_LinktrackNodeframe4
+[  2%] Built target _nlink_parser_generate_messages_check_deps_LinktrackNodeframe1
+[  2%] Built target _nlink_parser_generate_messages_check_deps_LinktrackNode4Tag
+[  2%] Built target _nlink_parser_generate_messages_check_deps_LinktrackNode6
+[  2%] Built target _nlink_parser_generate_messages_check_deps_LinktrackNodeframe6
+[  2%] Built target _nlink_parser_generate_messages_check_deps_TofsenseMFrame0Pixel
+[ 13%] Built target nutils
+[ 13%] Built target _nlink_parser_generate_messages_check_deps_IotFrame0
+[ 13%] Built target std_msgs_generate_messages_nodejs
+[ 13%] Built target std_msgs_generate_messages_py
+[ 13%] Built target std_msgs_generate_messages_eus
+[ 13%] Built target std_msgs_generate_messages_lisp
+[ 14%] Built target serial_example
+[ 14%] Built target _indoor_nav_generate_messages_check_deps_LocalizationStatus
+[ 14%] Built target _indoor_nav_generate_messages_check_deps_SafetyStatus
+[ 27%] Built target nlink_parser_generate_messages_cpp
+[ 40%] Built target nlink_parser_generate_messages_nodejs
+[ 54%] Built target nlink_parser_generate_messages_py
+[ 69%] Built target nlink_parser_generate_messages_eus
+[ 82%] Built target nlink_parser_generate_messages_lisp
+[ 84%] Built target iot
+[ 85%] Built target linktrack_rviz_converter
+[ 87%] Built target tofsensem
+[ 90%] Built target linktrack_aoa
+[ 91%] Built target tofsense
+[ 92%] Built target indoor_nav_generate_messages_nodejs
+[ 93%] Built target indoor_nav_generate_messages_py
+[ 95%] Built target indoor_nav_generate_messages_eus
+[ 96%] Built target indoor_nav_generate_messages_cpp
+[ 97%] Built target indoor_nav_generate_messages_lisp
+[100%] Built target linktrack
+[100%] Built target nlink_parser_generate_messages
+[100%] Built target indoor_nav_generate_messages
+Base path: /home/liqidun/github/indoor_nav_ws
+Source space: /home/liqidun/github/indoor_nav_ws/src
+Build space: /home/liqidun/github/indoor_nav_ws/build
+Devel space: /home/liqidun/github/indoor_nav_ws/devel
+Install space: /home/liqidun/github/indoor_nav_ws/install
+####
+#### Running command: "make cmake_check_build_system" in "/home/liqidun/github/indoor_nav_ws/build"
+####
+####
+#### Running command: "make -j2" in "/home/liqidun/github/indoor_nav_ws/build"
+####

@@ -1,0 +1,11 @@
+header: 
+  seq: 5
+  stamp: 
+    secs: 1792995804
+    nsecs:   4494553
+  frame_id: "earth"
+position: 
+  latitude: -35.363261
+  longitude: 149.1652299
+  altitude: 603.4386290627697
+---

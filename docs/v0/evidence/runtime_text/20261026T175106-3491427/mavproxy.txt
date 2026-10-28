@@ -1,0 +1,75 @@
+Connect tcp:127.0.0.1:5760 source_system=245
+Log Directory: 
+Telemetry log: mav.tlog
+Waiting for heartbeat from tcp:127.0.0.1:5760
+AP: Calibrating barometer
+AP: ArduCopter V4.5.7 (2a3dc4b7)
+AP: a887c46f926f4e748eb27eb2db56f23a
+AP: Frame: QUAD/X
+Detected vehicle 1:1 on link 0
+online system 1
+STABILIZE> Mode STABILIZE
+AP: ArduCopter V4.5.7 (2a3dc4b7)
+AP: a887c46f926f4e748eb27eb2db56f23a
+AP: Frame: QUAD/X
+AP: Barometer 1 calibration complete
+AP: Barometer 2 calibration complete
+Init Gyro*Received 1434 parameters (ftp)
+Saved 1434 parameters to mav.parm
+Got COMMAND_ACK: REQUEST_AUTOPILOT_CAPABILITIES: ACCEPTED
+*
+AP: ArduPilot Ready
+AP: AHRS: DCM active
+AP: RC7: SaveWaypoint LOW
+AP: RC8: PrecisionLoiter MIDDLE
+AP: EKF3 IMU0 initialised
+AP: EKF3 IMU1 initialised
+AP: AHRS: EKF3 active
+AP: EKF3 IMU0 tilt alignment complete
+AP: EKF3 IMU1 tilt alignment complete
+AP: EKF3 IMU0 MAG0 initial yaw alignment complete
+AP: EKF3 IMU1 MAG0 initial yaw alignment complete
+AP: ArduCopter V4.5.7 (2a3dc4b7)
+AP: a887c46f926f4e748eb27eb2db56f23a
+AP: Frame: QUAD/X
+fence present
+Flight battery 100 percent
+Flight battery 100 percent
+AP: VisOdom: yaw shifted 0 to 347 deg
+AP: EKF3 IMU0 is using external nav data
+AP: EKF3 IMU0 initial pos NED = -0.0,0.0,0.0 (m)
+AP: EKF3 IMU0 initial vel NED = 0.0,0.0,0.0 (m/s)
+AP: EKF3 IMU1 is using external nav data
+AP: EKF3 IMU1 initial pos NED = -0.0,0.0,0.0 (m)
+AP: EKF3 IMU1 initial vel NED = 0.0,0.0,0.0 (m/s)
+Flight battery 100 percent
+Flight battery 100 percent
+EOF on TCP socket
+Attempting reconnect
+[Errno 111] Connection refused sleeping
+[Errno 111] Connection refused sleeping
+Unloading module link
+Unloading module log
+Unloading module signing
+Unloading module wp
+Unloading module rally
+Unloading module fence
+Unloading module ftp
+Unloading module param
+Unloading module relay
+Unloading module tuneopt
+Unloading module arm
+Unloading module mode
+Unloading module calibration
+Unloading module rc
+Unloading module auxopt
+Unloading module misc
+Unloading module cmdlong
+Unloading module battery
+Unloading module terrain
+Unloading module output
+Unloading module adsb
+Unloading module layout
+Exception in thread log_writer:
+Traceback (most recent call last):
+  File "/usr/lib/python3.8/threading.py", line 932, in _bootstrap_inner

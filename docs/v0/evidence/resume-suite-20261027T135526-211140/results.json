@@ -1,0 +1,222 @@
+[
+  {
+    "case": "single",
+    "test_exit_code": 0,
+    "runtime": "/home/liqidun/github/indoor_nav_ws/.sitl_runtime/v0/20261027T135526-211141",
+    "summaries": [
+      "docs/v0/evidence/20261027T135535-single/summary.json"
+    ],
+    "launcher_pid": 211141,
+    "stop_exit_code": 0,
+    "ports_released": true
+  },
+  {
+    "case": "multi",
+    "test_exit_code": 0,
+    "runtime": "/home/liqidun/github/indoor_nav_ws/.sitl_runtime/v0/20261027T135754-213928",
+    "summaries": [
+      "docs/v0/evidence/20261027T135802-multi/summary.json"
+    ],
+    "launcher_pid": 213928,
+    "stop_exit_code": 0,
+    "ports_released": true
+  },
+  {
+    "case": "yaw",
+    "test_exit_code": 0,
+    "runtime": "/home/liqidun/github/indoor_nav_ws/.sitl_runtime/v0/20261027T140027-216899",
+    "summaries": [
+      "docs/v0/evidence/20261027T140035-yaw/summary.json"
+    ],
+    "launcher_pid": 216899,
+    "stop_exit_code": 0,
+    "ports_released": true
+  },
+  {
+    "case": "altitude",
+    "test_exit_code": 0,
+    "runtime": "/home/liqidun/github/indoor_nav_ws/.sitl_runtime/v0/20261027T140301-220201",
+    "summaries": [
+      "docs/v0/evidence/20261027T140309-altitude/summary.json"
+    ],
+    "launcher_pid": 220201,
+    "stop_exit_code": 0,
+    "ports_released": true
+  },
+  {
+    "case": "mode_exit",
+    "test_exit_code": 0,
+    "runtime": "/home/liqidun/github/indoor_nav_ws/.sitl_runtime/v0/20261027T140520-222902",
+    "summaries": [
+      "docs/v0/evidence/20261027T140528-mode_exit/summary.json"
+    ],
+    "launcher_pid": 222902,
+    "stop_exit_code": 0,
+    "ports_released": true
+  },
+  {
+    "case": "gate_pause",
+    "test_exit_code": 0,
+    "runtime": "/home/liqidun/github/indoor_nav_ws/.sitl_runtime/v0/20261027T140735-226711",
+    "summaries": [
+      "docs/v0/evidence/20261027T140743-gate_pause/summary.json"
+    ],
+    "launcher_pid": 226711,
+    "stop_exit_code": 0,
+    "ports_released": true
+  },
+  {
+    "case": "manager_pause",
+    "test_exit_code": 0,
+    "runtime": "/home/liqidun/github/indoor_nav_ws/.sitl_runtime/v0/20261027T140948-229318",
+    "summaries": [
+      "docs/v0/evidence/20261027T140956-manager_pause/summary.json"
+    ],
+    "launcher_pid": 229318,
+    "stop_exit_code": 0,
+    "ports_released": true
+  },
+  {
+    "case": "concurrent",
+    "test_exit_code": 0,
+    "runtime": "/home/liqidun/github/indoor_nav_ws/.sitl_runtime/v0/20261027T141203-231991",
+    "summaries": [
+      "docs/v0/evidence/20261027T141212-concurrent/summary.json"
+    ],
+    "launcher_pid": 231991,
+    "stop_exit_code": 0,
+    "ports_released": true
+  },
+  {
+    "case": "f3_auto_bag",
+    "test_exit_code": 1,
+    "runtime": "/home/liqidun/github/indoor_nav_ws/.sitl_runtime/v0/20261027T141419-235035",
+    "summaries": [
+      "docs/v0/evidence/20261027T141427-f3_auto_bag/summary.json"
+    ],
+    "launcher_pid": 235035,
+    "stop_exit_code": 0,
+    "ports_released": true
+  },
+  {
+    "case": "distance_short",
+    "test_exit_code": 0,
+    "runtime": "/home/liqidun/github/indoor_nav_ws/.sitl_runtime/v0/20261027T141638-237961",
+    "summaries": [
+      "docs/v0/evidence/20261027T141646-distance_short/summary.json"
+    ],
+    "launcher_pid": 237961,
+    "stop_exit_code": 0,
+    "ports_released": true
+  },
+  {
+    "case": "distance_long",
+    "test_exit_code": 0,
+    "runtime": "/home/liqidun/github/indoor_nav_ws/.sitl_runtime/v0/20261027T141853-240603",
+    "summaries": [
+      "docs/v0/evidence/20261027T141901-distance_long/summary.json"
+    ],
+    "launcher_pid": 240603,
+    "stop_exit_code": 0,
+    "ports_released": true
+  },
+  {
+    "case": "finish_stop",
+    "test_exit_code": 0,
+    "runtime": "/home/liqidun/github/indoor_nav_ws/.sitl_runtime/v0/20261027T142110-243246",
+    "summaries": [
+      "docs/v0/evidence/20261027T142119-finish_stop/summary.json"
+    ],
+    "launcher_pid": 243246,
+    "stop_exit_code": 0,
+    "ports_released": true
+  },
+  {
+    "case": "manager_exit",
+    "test_exit_code": 0,
+    "runtime": "/home/liqidun/github/indoor_nav_ws/.sitl_runtime/v0/20261027T142336-246071",
+    "summaries": [
+      "docs/v0/evidence/20261027T142344-manager_exit/summary.json"
+    ],
+    "launcher_pid": 246071,
+    "stop_exit_code": 0,
+    "ports_released": true
+  },
+  {
+    "case": "f3",
+    "test_exit_code": 1,
+    "runtime": "/home/liqidun/github/indoor_nav_ws/.sitl_runtime/v0/20261027T142553-248635",
+    "summaries": [
+      "docs/v0/evidence/20261027T142601-f3/summary.json"
+    ],
+    "launcher_pid": 248635,
+    "stop_exit_code": 0,
+    "ports_released": true
+  },
+  {
+    "case": "link_fault",
+    "test_exit_code": 0,
+    "runtime": "/home/liqidun/github/indoor_nav_ws/.sitl_runtime/v0/20261027T142808-251201",
+    "summaries": [
+      "docs/v0/evidence/20261027T142816-link_fault/summary.json"
+    ],
+    "launcher_pid": 251201,
+    "stop_exit_code": 0,
+    "ports_released": true
+  },
+  {
+    "case": "gate_kill",
+    "test_exit_code": 0,
+    "runtime": "/home/liqidun/github/indoor_nav_ws/.sitl_runtime/v0/20261027T143023-253680",
+    "summaries": [
+      "docs/v0/evidence/20261027T143032-gate_kill/summary.json"
+    ],
+    "launcher_pid": 253680,
+    "stop_exit_code": 0,
+    "ports_released": true
+  },
+  {
+    "case": "publisher_conflict",
+    "test_exit_code": 0,
+    "runtime": "/home/liqidun/github/indoor_nav_ws/.sitl_runtime/v0/20261027T143238-256294",
+    "summaries": [
+      "docs/v0/evidence/20261027T143247-publisher_conflict/summary.json"
+    ],
+    "launcher_pid": 256294,
+    "stop_exit_code": 0,
+    "ports_released": true
+  },
+  {
+    "case": "single",
+    "test_exit_code": 1,
+    "runtime": "/home/liqidun/github/indoor_nav_ws/.sitl_runtime/v0/20261027T143452-258837",
+    "summaries": [
+      "docs/v0/evidence/20261027T143500-single/summary.json"
+    ],
+    "launcher_pid": 258837,
+    "stop_exit_code": 0,
+    "ports_released": true
+  },
+  {
+    "case": "multi",
+    "test_exit_code": 0,
+    "runtime": "/home/liqidun/github/indoor_nav_ws/.sitl_runtime/v0/20261027T143700-261404",
+    "summaries": [
+      "docs/v0/evidence/20261027T143709-multi/summary.json"
+    ],
+    "launcher_pid": 261404,
+    "stop_exit_code": 0,
+    "ports_released": true
+  },
+  {
+    "case": "dry_run",
+    "test_exit_code": 0,
+    "runtime": "/home/liqidun/github/indoor_nav_ws/.sitl_runtime/v0/20261027T143934-264544",
+    "summaries": [
+      "docs/v0/evidence/20261027T143943-dry_run/summary.json"
+    ],
+    "launcher_pid": 264544,
+    "stop_exit_code": 0,
+    "ports_released": true
+  }
+]

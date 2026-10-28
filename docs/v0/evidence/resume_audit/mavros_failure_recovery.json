@@ -1,0 +1,11 @@
+{
+  "verified": {
+    "runtime": "/home/liqidun/github/indoor_nav_ws/.sitl_runtime/v0/20261027T134815-203141",
+    "sitl_pid": 203264,
+    "proxy_pid": 203266,
+    "mavros_pid": 207629
+  },
+  "armed_before": true,
+  "disarmed_confirmed": true,
+  "wall_s": 1793080369.5222347
+}

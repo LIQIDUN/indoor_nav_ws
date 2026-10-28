@@ -1,0 +1,191 @@
+{
+  "result": "PASS",
+  "case": "publisher_conflict",
+  "identity": {
+    "runtime": "/home/liqidun/github/indoor_nav_ws/.sitl_runtime/v0/20261027T143238-256294",
+    "sitl_pid": 256425,
+    "proxy_pid": 256427,
+    "mavros_pid": 256505
+  },
+  "before": {
+    "wall_s": 1793082818.2270348,
+    "ros_s": 1793082818.2270389,
+    "mono_s": 1647611.221028459,
+    "mode": "GUIDED",
+    "armed": true,
+    "status": {
+      "state": "EXEC_WAYPOINT",
+      "mission_id": "20261027T143247-publisher_conflict",
+      "wp": 0,
+      "reason": "",
+      "health": "",
+      "gate": "",
+      "control_enabled": true,
+      "evidence_dir": "/home/liqidun/github/indoor_nav_ws/docs/v0/evidence/20261027T143247-publisher_conflict/navigation/20261027T143323-257307-1647596447367016",
+      "yaml_sha256": "5b09f839b0544aab4272a87e17aa065621fb9d9c7e1ad9d2f62d5a3c12736fdb",
+      "firmware": [
+        4,
+        5,
+        7
+      ],
+      "limit_age_s": 0.6113543519750237,
+      "pose_age_s": 0.015624393010511994,
+      "max_publish_gap_s": 0.10007935715839267,
+      "ekf_report": {
+        "flags": 831,
+        "ratios": [
+          0.008125296793878078,
+          0.006234748288989067,
+          0.0007383135962300003,
+          0.022234436124563217,
+          0.0
+        ],
+        "healthy": true
+      }
+    },
+    "phase": "execution before fault",
+    "watchdog": {
+      "healthy": true,
+      "reason": "",
+      "owner": "20261027T143247-publisher_conflict",
+      "revoked": false,
+      "exit_result": null,
+      "mode": "GUIDED",
+      "max_publish_gap_s": 0.10008213203400373
+    },
+    "home_altitude_m": 603.3986290627697,
+    "pose": [
+      -0.037373803555965424,
+      0.08066565543413162,
+      0.951560914516449
+    ],
+    "yaw": 1.533546288558517,
+    "pose_age_s": 0.02511119842529297,
+    "velocity": [
+      0.02679484896361828,
+      0.17005003988742828,
+      0.00423065759241581
+    ],
+    "truth": [
+      0.08883943838742148,
+      0.052762301938938556,
+      0.9297357894847851
+    ],
+    "truth_velocity": [
+      0.19520667617013696,
+      -0.0060385281841825325,
+      0.0017657982536299114
+    ],
+    "truth_yaw": -0.009244444467237902,
+    "target": [
+      -0.013115374526165846,
+      0.2684276829961041,
+      0.9565907716751099
+    ],
+    "expected_truth": [
+      0.289361500663868,
+      0.039971597035996065,
+      0.9338081532227311
+    ]
+  },
+  "after": {
+    "wall_s": 1793082818.4495437,
+    "ros_s": 1793082818.4495473,
+    "mono_s": 1647611.443531145,
+    "mode": "GUIDED",
+    "armed": true,
+    "status": {
+      "state": "ABORT_LATCHED",
+      "mission_id": "20261027T143247-publisher_conflict",
+      "wp": 0,
+      "reason": "OTHER_CONTROL_PUBLISHER",
+      "health": "",
+      "gate": "OTHER_CONTROL_PUBLISHER",
+      "control_enabled": true,
+      "evidence_dir": "/home/liqidun/github/indoor_nav_ws/docs/v0/evidence/20261027T143247-publisher_conflict/navigation/20261027T143323-257307-1647596447367016",
+      "yaml_sha256": "5b09f839b0544aab4272a87e17aa065621fb9d9c7e1ad9d2f62d5a3c12736fdb",
+      "firmware": [
+        4,
+        5,
+        7
+      ],
+      "limit_age_s": 0.8115080269053578,
+      "pose_age_s": 0.012945458991453052,
+      "max_publish_gap_s": 0.10007935715839267,
+      "ekf_report": {
+        "flags": 831,
+        "ratios": [
+          0.007686637341976166,
+          0.004756934009492397,
+          0.0007379478774964809,
+          0.02194134145975113,
+          0.0
+        ],
+        "healthy": true
+      }
+    },
+    "phase": "fault latched",
+    "watchdog": {
+      "healthy": false,
+      "reason": "OTHER_CONTROL_PUBLISHER",
+      "owner": "20261027T143247-publisher_conflict",
+      "revoked": true,
+      "exit_result": {
+        "reason": "OTHER_CONTROL_PUBLISHER",
+        "requested": false,
+        "mode_sent": false
+      },
+      "mode": "GUIDED",
+      "max_publish_gap_s": 0.10008213203400373
+    },
+    "home_altitude_m": 603.3986290627697,
+    "pose": [
+      -0.03546067699790001,
+      0.1309824138879776,
+      0.9516004323959351
+    ],
+    "yaw": 1.5334432023253777,
+    "pose_age_s": 0.007464408874511719,
+    "velocity": [
+      0.027715640142560005,
+      0.21163208782672882,
+      0.004885698668658733
+    ],
+    "truth": [
+      0.14511247655509962,
+      0.05129341449231144,
+      0.930098761048127
+    ],
+    "truth_velocity": [
+      0.2295955733411993,
+      -0.006565305238407956,
+      0.0024950534825863412
+    ],
+    "truth_yaw": -0.00933329192227817,
+    "target": [
+      -0.013115374526165846,
+      0.2684276829961041,
+      0.9565907716751099
+    ],
+    "expected_truth": [
+      0.289361500663868,
+      0.039971597035996065,
+      0.9338081532227311
+    ]
+  },
+  "fault_to_observed_response_s": 0.22245815000496805,
+  "guarded_brake_expected": false,
+  "responses": [],
+  "recovery_did_not_resume": true,
+  "evidence": "/home/liqidun/github/indoor_nav_ws/docs/v0/evidence/20261027T143247-publisher_conflict",
+  "cleanup": {
+    "armed_before": false,
+    "armed_after": false,
+    "connected": true,
+    "mode": "LAND",
+    "sim_stopped_by_test": false,
+    "processes_exited": true
+  },
+  "start_wall_s": 1793082767.0296364,
+  "end_wall_s": 1793082826.640372
+}

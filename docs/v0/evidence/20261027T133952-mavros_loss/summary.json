@@ -1,0 +1,14 @@
+{
+  "result": "FAIL",
+  "case": "mavros_loss",
+  "error": "timeout: MAVROS reconnect state=header: \n  seq: 0\n  stamp: \n    secs: 1793079644\n    nsecs: 695729017\n  frame_id: ''\nconnected: False\narmed: False\nguided: False\nmanual_input: False\nmode: ''\nsystem_status: 0 nav={'state': 'ABORT_LATCHED', 'mission_id': '20261027T133952-mavros_loss', 'wp': 0, 'reason': 'POSE_STALE', 'health': 'STATE_STALE', 'gate': 'POSE_STALE', 'control_enabled': True, 'evidence_dir': '/home/liqidun/github/indoor_nav_ws/docs/v0/evidence/20261027T133952-mavros_loss/navigation/20261027T134028-196753-1644421935757636', 'yaml_sha256': '9f2b6f7372c38146bae5296890d11f62a5a562f4afc33bae113c7d10e95e9596', 'firmware': [4, 5, 7], 'limit_age_s': 36.13715259497985, 'pose_age_s': 35.4531894500833, 'max_publish_gap_s': 0.10008218698203564, 'ekf_report': {'flags': 831, 'ratios': [0.009209807962179184, 0.0068073454312980175, 0.0002776032779365778, 0.022670935839414597, 0.0], 'healthy': True}}",
+  "evidence": "/home/liqidun/github/indoor_nav_ws/docs/v0/evidence/20261027T133952-mavros_loss",
+  "cleanup": {
+    "armed_before": false,
+    "armed_after": false,
+    "mode": "",
+    "processes_exited": true
+  },
+  "start_wall_s": 1793079592.621146,
+  "end_wall_s": 1793079681.0648713
+}

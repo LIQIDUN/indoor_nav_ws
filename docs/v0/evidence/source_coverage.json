@@ -1,0 +1,74 @@
+{
+  "final_production_sha256": {
+    "src/indoor_nav/src/indoor_nav/v0.py": "482cc55d081ccff2639dcb009783523638f08de14fa3bfc7b91e01e8f5be8bd7",
+    "src/indoor_nav/scripts/relative_mission_manager.py": "778bddbd0a05fe59cfb14322dc3530b69b8273e6dd4b816a974467edc8acb635",
+    "src/indoor_nav/scripts/v0_nav_health.py": "58c55369b43cdfdfad9e7b3da1525e36826cacb5300a223e4074aeafcd12501b"
+  },
+  "runs": [
+    {
+      "provenance": "docs/v0/evidence/20261026T133336-single/navigation/20261026T133337-3290560-1557610004197191/provenance.json",
+      "recorded_git_commit": "92f6e724d4ee9ba8c2a348d4ace108e561a4ef30",
+      "recorded_git_dirty": true,
+      "matches_final_production": false,
+      "recorded_source_sha256": null
+    },
+    {
+      "provenance": "docs/v0/evidence/20261026T133905-single/navigation/20261026T133906-3295229-1557939288270837/provenance.json",
+      "recorded_git_commit": "92f6e724d4ee9ba8c2a348d4ace108e561a4ef30",
+      "recorded_git_dirty": true,
+      "matches_final_production": false,
+      "recorded_source_sha256": null
+    },
+    {
+      "provenance": "docs/v0/evidence/20261026T134629-single/navigation/20261026T134629-3301807-1558382969523875/provenance.json",
+      "recorded_git_commit": "92f6e724d4ee9ba8c2a348d4ace108e561a4ef30",
+      "recorded_git_dirty": true,
+      "matches_final_production": false,
+      "recorded_source_sha256": null
+    },
+    {
+      "provenance": "docs/v0/evidence/20261026T134856-single/navigation/20261026T134857-3304306-1558530529615966/provenance.json",
+      "recorded_git_commit": "92f6e724d4ee9ba8c2a348d4ace108e561a4ef30",
+      "recorded_git_dirty": true,
+      "matches_final_production": false,
+      "recorded_source_sha256": {
+        "src/indoor_nav/src/indoor_nav/v0.py": "459a780d7bae3615f51b6c6575f849918217e70ca2c4d391bbe9479b1b03a854",
+        "src/indoor_nav/scripts/relative_mission_manager.py": "d3478bcfea9d0ca24fcfcd3cd9250e8e6f79fb311dd73a63a57cad1e15acf150",
+        "src/indoor_nav/scripts/v0_nav_health.py": "58c55369b43cdfdfad9e7b3da1525e36826cacb5300a223e4074aeafcd12501b"
+      }
+    },
+    {
+      "provenance": "docs/v0/evidence/20261026T142322-multi/navigation/20261026T142323-3330853-1560596656339461/provenance.json",
+      "recorded_git_commit": "93a5ee0eafbf27b325fb601ee188b40941588bcf",
+      "recorded_git_dirty": true,
+      "matches_final_production": false,
+      "recorded_source_sha256": {
+        "src/indoor_nav/src/indoor_nav/v0.py": "459a780d7bae3615f51b6c6575f849918217e70ca2c4d391bbe9479b1b03a854",
+        "src/indoor_nav/scripts/relative_mission_manager.py": "d3478bcfea9d0ca24fcfcd3cd9250e8e6f79fb311dd73a63a57cad1e15acf150",
+        "src/indoor_nav/scripts/v0_nav_health.py": "58c55369b43cdfdfad9e7b3da1525e36826cacb5300a223e4074aeafcd12501b"
+      }
+    },
+    {
+      "provenance": "docs/v0/evidence/20261026T143430-f3/navigation/20261026T143431-3340195-1561264291831403/provenance.json",
+      "recorded_git_commit": "93a5ee0eafbf27b325fb601ee188b40941588bcf",
+      "recorded_git_dirty": true,
+      "matches_final_production": true,
+      "recorded_source_sha256": {
+        "src/indoor_nav/src/indoor_nav/v0.py": "482cc55d081ccff2639dcb009783523638f08de14fa3bfc7b91e01e8f5be8bd7",
+        "src/indoor_nav/scripts/relative_mission_manager.py": "778bddbd0a05fe59cfb14322dc3530b69b8273e6dd4b816a974467edc8acb635",
+        "src/indoor_nav/scripts/v0_nav_health.py": "58c55369b43cdfdfad9e7b3da1525e36826cacb5300a223e4074aeafcd12501b"
+      }
+    },
+    {
+      "provenance": "docs/v0/evidence/20261026T143848-link_fault/navigation/20261026T143849-3344514-1561522375363669/provenance.json",
+      "recorded_git_commit": "93a5ee0eafbf27b325fb601ee188b40941588bcf",
+      "recorded_git_dirty": true,
+      "matches_final_production": true,
+      "recorded_source_sha256": {
+        "src/indoor_nav/src/indoor_nav/v0.py": "482cc55d081ccff2639dcb009783523638f08de14fa3bfc7b91e01e8f5be8bd7",
+        "src/indoor_nav/scripts/relative_mission_manager.py": "778bddbd0a05fe59cfb14322dc3530b69b8273e6dd4b816a974467edc8acb635",
+        "src/indoor_nav/scripts/v0_nav_health.py": "58c55369b43cdfdfad9e7b3da1525e36826cacb5300a223e4074aeafcd12501b"
+      }
+    }
+  ]
+}

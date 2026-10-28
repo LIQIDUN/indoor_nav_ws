@@ -25,12 +25,14 @@
 - 旧 GUI `tools/start_indoor_sitl.sh`：ROS11311、Gazebo11345、MAVROS14552；旧隔离 `tools/sitl_flight_instance.sh`：ROS11321、Gazebo11355、MAVROS14572，仍占 TCP5760、UDP9002/9003。
 - 新 V0 `tools/v0_sitl_instance.sh --sitl`：ROS11421、Gazebo11455、MAVROS14672，仍与旧仿真争用 TCP5760、UDP9002/9003，**先独占端口检查，不允许同时启动**。每次新建 `.sitl_runtime/v0/<timestamp-pid>`，不复制/覆盖旧 EEPROM；仅在副本改 Gazebo step 为 0.001 s。
 - 初次沙箱内 ps/netlink 可见性有限，不能以空输出宣称主机无进程。实际新 SITL 在授权的主机进程/套接字上下文中成功通过绑定独占检查。
+- 最终主机级审计发现本轮之前的MAVROS PID2391064（2026-10-14启动）和3263919（2026-10-15启动），均有至旧11311的CLOSE_WAIT及UDP14550；未见它们占用本轮11421/14672/FDM端口，也未见tty句柄。未停止/修改这些用户进程。因此“单一MAVROS”只指本轮隔离ROS图，**不是主机全局只有一份MAVROS**。最终本轮所有进程/端口已释放，保留原有两进程。
 
 ## MAVROS 接口现场差异
 
 - `/mavros/state`: `mavros_msgs/State`；pose: `geometry_msgs/PoseStamped`；`velocity_local`: `geometry_msgs/TwistStamped`；`/mavros/estimator_status`: `mavros_msgs/EstimatorStatus`。
 - 本机 1.20.1 的 **velocity_local 数据为 ENU，却沿用 odom.child_frame_id=`base_link` 标签**；不能按标签再次转机体系，也不能订阅 velocity_body 冒充 local。官方插件源码快照和运行 echo 在审计证据中。V0 只在这一指定话题允许 `map` / `base_link`，其他 frame 拒绝。pose/目标始终要求 `map`。
 - 首次 V0 单点因原严格 `map` 速度标签检查在 START 拒绝；已完整保留失败，不绕过其它门槛。
+- 第二次因通用msg230未出数而EKF_STALE拒绝；追溯旧runner及目标Copter源码，真实为msg193 EKF_STATUS_REPORT。新增仅接收既有MAVROS转发的固定报文解码/flags/ratio检查，不是MAVLink直连或GPS注入。
 - 仅支持经审计的 Copter4.5.7：`WPNAV_SPEED/UP/DN` 为 cm/s，`WPNAV_ACCEL/ACCEL_Z` 为 cm/s²；Guided `pva_control_start` 从 WPNav 读这些限制。未知固件/新 `WP_SPD` 不猜测单位，拒绝 START。生产节点不写参数。
 
 ## 采集与 Fake GPS 缺口

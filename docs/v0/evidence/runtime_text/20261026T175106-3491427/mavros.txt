@@ -1,0 +1,406 @@
+[WARN] [1793008268.856040464]: Could not retrive negate_measured_roll parameter value, using default (0)
+[WARN] [1793008268.856219141]: Could not retrive negate_measured_pitch parameter value, using default (0)
+[WARN] [1793008268.856374543]: Could not retrive negate_measured_yaw parameter value, using default (0)
+[WARN] [1793008268.856908850]: Could not retrive debounce_s parameter value, using default (4.000000)
+[WARN] [1793008268.857065023]: Could not retrive err_threshold_deg parameter value, using default (10.000000)
+[INFO] [1793008268.780171418]: FCU URL: udp://127.0.0.1:14672@
+[INFO] [1793008268.782222479]: udp0: Bind address: 127.0.0.1:14672
+[INFO] [1793008268.782261856]: GCS bridge disabled
+[INFO] [1793008268.792173191]: Plugin 3dr_radio loaded
+[INFO] [1793008268.794000067]: Plugin 3dr_radio initialized
+[INFO] [1793008268.794058680]: Plugin actuator_control blacklisted
+[INFO] [1793008268.798057832]: Plugin adsb loaded
+[INFO] [1793008268.800329390]: Plugin adsb initialized
+[INFO] [1793008268.800382994]: Plugin altitude blacklisted
+[INFO] [1793008268.800448371]: Plugin cam_imu_sync loaded
+[INFO] [1793008268.800754435]: Plugin cam_imu_sync initialized
+[INFO] [1793008268.800829210]: Plugin camera loaded
+[INFO] [1793008268.801112410]: Plugin camera initialized
+[INFO] [1793008268.801186644]: Plugin cellular_status loaded
+[INFO] [1793008268.802136317]: Plugin cellular_status initialized
+[INFO] [1793008268.802222775]: Plugin command loaded
+[INFO] [1793008268.804785559]: Plugin command initialized
+[INFO] [1793008268.804868530]: Plugin companion_process_status loaded
+[INFO] [1793008268.805806671]: Plugin companion_process_status initialized
+[INFO] [1793008268.805856247]: Plugin debug_value blacklisted
+[INFO] [1793008268.805912406]: Plugin distance_sensor loaded
+[INFO] [1793008268.809417298]: Plugin distance_sensor initialized
+[INFO] [1793008268.809501471]: Plugin esc_status loaded
+[INFO] [1793008268.810057140]: Plugin esc_status initialized
+[INFO] [1793008268.810138157]: Plugin esc_telemetry loaded
+[INFO] [1793008268.810426747]: Plugin esc_telemetry initialized
+[INFO] [1793008268.810509788]: Plugin fake_gps loaded
+[INFO] [1793008268.816778003]: Plugin fake_gps initialized
+[INFO] [1793008268.816830816]: Plugin ftp blacklisted
+[INFO] [1793008268.816897615]: Plugin geofence loaded
+[INFO] [1793008268.818269157]: Plugin geofence initialized
+[INFO] [1793008268.818368450]: Plugin global_position loaded
+[INFO] [1793008268.824582391]: Plugin global_position initialized
+[INFO] [1793008268.824667065]: Plugin gps_input loaded
+[INFO] [1793008268.825791037]: Plugin gps_input initialized
+[INFO] [1793008268.825870261]: Plugin gps_rtk loaded
+[INFO] [1793008268.827073947]: Plugin gps_rtk initialized
+[INFO] [1793008268.827154273]: Plugin gps_status loaded
+[INFO] [1793008268.828119797]: Plugin gps_status initialized
+[INFO] [1793008268.828200964]: Plugin guided_target loaded
+[INFO] [1793008268.830522179]: Plugin guided_target initialized
+[INFO] [1793008268.830584871]: Plugin hil blacklisted
+[INFO] [1793008268.830652452]: Plugin home_position loaded
+[INFO] [1793008268.832256074]: Plugin home_position initialized
+[INFO] [1793008268.832315870]: Plugin imu loaded
+[INFO] [1793008268.837280516]: Plugin imu initialized
+[INFO] [1793008268.837336184]: Plugin landing_target loaded
+[INFO] [1793008268.846005268]: Plugin landing_target initialized
+[INFO] [1793008268.846079082]: Plugin local_position loaded
+[INFO] [1793008268.850016253]: Plugin local_position initialized
+[INFO] [1793008268.850081459]: Plugin log_transfer loaded
+[INFO] [1793008268.851265547]: Plugin log_transfer initialized
+[INFO] [1793008268.851326776]: Plugin mag_calibration_status loaded
+[INFO] [1793008268.851730430]: Plugin mag_calibration_status initialized
+[INFO] [1793008268.851793642]: Plugin manual_control loaded
+[INFO] [1793008268.852822880]: Plugin manual_control initialized
+[INFO] [1793008268.852879590]: Plugin mocap_pose_estimate loaded
+[INFO] [1793008268.854158392]: Plugin mocap_pose_estimate initialized
+[INFO] [1793008268.854208940]: Plugin mount_control loaded
+[INFO] [1793008268.857089019]: Plugin mount_control initialized
+[INFO] [1793008268.857136011]: Plugin nav_controller_output loaded
+[INFO] [1793008268.857379122]: Plugin nav_controller_output initialized
+[INFO] [1793008268.857421344]: Plugin obstacle_distance loaded
+[INFO] [1793008268.858366318]: Plugin obstacle_distance initialized
+[INFO] [1793008268.858407288]: Plugin odom loaded
+[INFO] [1793008268.859790743]: Plugin odom initialized
+[INFO] [1793008268.859834608]: Plugin onboard_computer_status loaded
+[INFO] [1793008268.860697192]: Plug[WARN] [1793008270.628585796]: CMD: Unexpected command 410, result 4
+in onboard_computer_status initialized
+[INFO] [1793008268.860758661]: Plugin param loaded
+[INFO] [1793008268.861769233]: Plugin param initialized
+[INFO] [1793008268.861815472]: Plugin play_tune loaded
+[INFO] [1793008268.862818369]: Plugin play_tune initialized
+[INFO] [1793008268.862832075]: Plugin px4flow blacklisted
+[INFO] [1793008268.862876842]: Plugin rallypoint loaded
+[INFO] [1793008268.864005783]: Plugin rallypoint initialized
+[INFO] [1793008268.864049688]: Plugin rangefinder loaded
+[INFO] [1793008268.864270567]: Plugin rangefinder initialized
+[INFO] [1793008268.864317789]: Plugin rc_io loaded
+[INFO] [1793008268.865466228]: Plugin rc_io initialized
+[INFO] [1793008268.865482259]: Plugin safety_area blacklisted
+[INFO] [1793008268.865525954]: Plugin setpoint_accel loaded
+[INFO] [1793008268.866610017]: Plugin setpoint_accel initialized
+[INFO] [1793008268.866664814]: Plugin setpoint_attitude loaded
+[INFO] [1793008268.869710274]: Plugin setpoint_attitude initialized
+[INFO] [1793008268.869763357]: Plugin setpoint_position loaded
+[INFO] [1793008268.875029538]: Plugin setpoint_position initialized
+[INFO] [1793008268.875092370]: Plugin setpoint_raw loaded
+[INFO] [1793008268.878182477]: Plugin setpoint_raw initialized
+[INFO] [1793008268.878244698]: Plugin setpoint_trajectory loaded
+[INFO] [1793008268.879630016]: Plugin setpoint_trajectory initialized
+[INFO] [1793008268.879676276]: Plugin setpoint_velocity loaded
+[INFO] [1793008268.881771202]: Plugin setpoint_velocity initialized
+[INFO] [1793008268.881835346]: Plugin sys_status loaded
+[INFO] [1793008268.885332834]: Plugin sys_status initialized
+[INFO] [1793008268.885395967]: Plugin sys_time loaded
+[INFO] [1793008268.887561360]: TM: Timesync mode: MAVLINK
+[INFO] [1793008268.887711902]: TM: Not publishing sim time
+[INFO] [1793008268.888165523]: Plugin sys_time initialized
+[INFO] [1793008268.888216722]: Plugin terrain loaded
+[INFO] [1793008268.888444053]: Plugin terrain initialized
+[INFO] [1793008268.888489081]: Plugin trajectory loaded
+[INFO] [1793008268.890452552]: Plugin trajectory initialized
+[INFO] [1793008268.890496788]: Plugin tunnel loaded
+[INFO] [1793008268.891530504]: Plugin tunnel initialized
+[INFO] [1793008268.891582034]: Plugin vfr_hud loaded
+[INFO] [1793008268.891788405]: Plugin vfr_hud initialized
+[INFO] [1793008268.891799847]: Plugin vibration blacklisted
+[INFO] [1793008268.891837580]: Plugin vision_pose_estimate loaded
+[INFO] [1793008268.894651942]: Plugin vision_pose_estimate initialized
+[INFO] [1793008268.894666080]: Plugin vision_speed_estimate blacklisted
+[INFO] [1793008268.894714083]: Plugin waypoint loaded
+[INFO] [1793008268.896502033]: Plugin waypoint initialized
+[INFO] [1793008268.896517873]: Plugin wheel_odometry blacklisted
+[INFO] [1793008268.896566227]: Plugin wind_estimation loaded
+[INFO] [1793008268.896771225]: Plugin wind_estimation initialized
+[INFO] [1793008268.896821362]: Built-in SIMD instructions: SSE, SSE2
+[INFO] [1793008268.896830751]: Built-in MAVLink package version: 2025.5.5
+[INFO] [1793008268.896844167]: Known MAVLink dialects: common ardupilotmega ASLUAV AVSSUAS all csAirLink cubepilot development icarous loweheiser matrixpilot paparazzi standard storm32 uAvionix ualberta
+[INFO] [1793008268.896853254]: MAVROS started. MY ID 1.240, TARGET ID 1.1
+[INFO] [1793008269.427378075]: udp0: Remote address: 127.0.0.1:38082
+[INFO] [1793008269.453667538]: FCU: Calibrating barometer
+[INFO] [1793008269.631646479]: FCU: ArduCopter V4.5.7 (2a3dc4b7)
+[INFO] [1793008269.631833231]: FCU: a887c46f926f4e748eb27eb2db56f23a
+[INFO] [1793008269.632028290]: FCU: Frame: QUAD/X
+[INFO] [1793008270.324085563]: CON: Got HEARTBEAT, connected. FCU: ArduPilot
+[INFO] [1793008270.435757566]: FCU: ArduCopter V4.5.7 (2a3dc4b7)
+[INFO] [1793008270.436328635]: FCU: a887c46f926f4e748eb27eb2db56f23a
+[INFO] [1793008270.436573810]: FCU: Frame: QUAD/X
+[INFO] [1793008271.053652667]: FCU: Barometer 1 calibration complete
+[INFO] [1793008271.053950385]: FCU: Barometer 2 calibration complete
+[INFO] [1793008271.339236648]: GF: Using MISSION_ITEM_INT
+[INFO] [1793008271.339274471]: RP: Using [ERROR] [1793008272.054963943]: PR: Unknown parameter to get: SIM_SPEEDUP
+[ERROR] [1793008272.066241029]: PR: Unknown parameter to get: GPS_TYPE
+[ERROR] [1793008275.054717306]: PR: Unknown parameter to get: SIM_SPEEDUP
+[ERROR] [1793008275.063891901]: PR: Unknown parameter to get: GPS_TYPE
+[ERROR] [1793008278.055127447]: PR: Unknown parameter to get: SIM_SPEEDUP
+[ERROR] [1793008278.065618950]: PR: Unknown parameter to get: GPS_TYPE
+[WARN] [1793008280.657932856]: CMD: Unexpected command 410, result 4
+[WARN] [1793008283.700484703]: GP: No GPS fix
+[WARN] [1793008283.700642930]: TM: Wrong FCU time.
+[WARN] [1793008290.678516351]: CMD: Unexpected command 410, result 4
+[WARN] [1793008300.690410240]: CMD: Unexpected command 410, result 4
+[WARN] [1793008310.714805301]: CMD: Unexpected command 410, result 4
+[WARN] [1793008313.720488758]: GP: No GPS fix
+[WARN] [1793008320.747273427]: CMD: Unexpected command 410, result 4
+[WARN] [1793008330.777716644]: CMD: Unexpected command 410, result 4
+[WARN] [1793008340.797260256]: CMD: Unexpected command 410, result 4
+[WARN] [1793008343.739333387]: GP: No GPS fix
+[WARN] [1793008343.739447689]: TM: Wrong FCU time.
+[WARN] [1793008350.803763144]: CMD: Unexpected command 410, result 4
+[WARN] [1793008360.831543033]: CMD: Unexpected command 410, result 4
+[WARN] [1793008370.856931682]: CMD: Unexpected command 410, result 4
+[WARN] [1793008373.750666237]: GP: No GPS fix
+[WARN] [1793008380.879568049]: CMD: Unexpected command 410, result 4
+[WARN] [1793008390.900066952]: CMD: Unexpected command 410, result 4
+[WARN] [1793008400.924015145]: CMD: Unexpected command 410, result 4
+[WARN] [1793008403.757520143]: GP: No GPS fix
+[WARN] [1793008403.757628454]: TM: Wrong FCU time.
+[WARN] [1793008410.947326625]: CMD: Unexpected command 410, result 4
+[WARN] [1793008420.969759607]: CMD: Unexpected command 410, result 4
+[WARN] [1793008430.997414774]: CMD: Unexpected command 410, result 4
+[WARN] [1793008433.765993481]: GP: No GPS fix
+[WARN] [1793008441.034956045]: CMD: Unexpected command 410, result 4
+[WARN] [1793008451.057728993]: CMD: Unexpected command 410, result 4
+[WARN] [1793008461.081035426]: CMD: Unexpected command 410, result 4
+[WARN] [1793008463.771284353]: GP: No GPS fix
+[WARN] [1793008463.771389968]: TM: Wrong FCU time.
+[WARN] [1793008471.101569047]: CMD: Unexpected command 410, result 4
+MISSION_ITEM_INT
+[INFO] [1793008271.339301434]: WP: Using MISSION_ITEM_INT
+[INFO] [1793008271.339315441]: VER: 1.1: Capabilities         0x000000000000fbef
+[INFO] [1793008271.339325711]: VER: 1.1: Flight software:     040507ff (2a3dc4b7)
+[INFO] [1793008271.339335399]: VER: 1.1: Middleware software: 00000000 (        )
+[INFO] [1793008271.339345369]: VER: 1.1: OS software:         00000000 (        )
+[INFO] [1793008271.339353595]: VER: 1.1: Board hardware:      00000000
+[INFO] [1793008271.339364205]: VER: 1.1: VID/PID:             0000:0000
+[INFO] [1793008271.339373553]: VER: 1.1: UID:                 0000000000000000
+[INFO] [1793008271.644526245]: FCU: ArduPilot Ready
+[INFO] [1793008271.644685564]: FCU: AHRS: DCM active
+[INFO] [1793008272.040446586]: FCU: RC7: SaveWaypoint LOW
+[INFO] [1793008272.040738924]: FCU: RC8: PrecisionLoiter MIDDLE
+[INFO] [1793008273.650095899]: FCU: EKF3 IMU0 initialised
+[INFO] [1793008273.650315505]: FCU: EKF3 IMU1 initialised
+[INFO] [1793008273.655500708]: FCU: AHRS: EKF3 active
+[INFO] [1793008274.960153776]: FCU: EKF3 IMU0 tilt alignment complete
+[INFO] [1793008274.966168469]: FCU: EKF3 IMU1 tilt alignment complete
+[INFO] [1793008275.043594098]: FCU: EKF3 IMU0 MAG0 initial yaw alignment complete
+[INFO] [1793008275.050088121]: FCU: EKF3 IMU1 MAG0 initial yaw alignment complete
+[INFO] [1793008280.324491498]: HP: requesting home position
+[INFO] [1793008280.326129738]: FCU: ArduCopter V4.5.7 (2a3dc4b7)
+[INFO] [1793008280.326405823]: FCU: a887c46f926f4e748eb27eb2db56f23a
+[INFO] [1793008280.326586845]: FCU: Frame: QUAD/X
+[INFO] [1793008281.034477099]: PR: parameters list received
+[INFO] [1793008283.660261367]: IMU: Raw IMU message used.
+[INFO] [1793008283.699634954]: RC_CHANNELS message detected!
+[INFO] [1793008285.330128930]: GF: mission received
+[INFO] [1793008285.330712413]: RP: mission received
+[INFO] [1793008285.331096168]: WP: mission received
+[INFO] [1793008290.324469465]: HP: requesting home position
+[INFO] [1793008300.324475217]: HP: requesting home position
+[INFO] [1793008310.324478612]: HP: requesting home position
+[INFO] [1793008320.324473916]: HP: requesting home position
+[INFO] [1793008330.324475674]: HP: requesting home position
+[INFO] [1793008340.324476299]: HP: requesting home position
+[INFO] [1793008350.324470878]: HP: requesting home position
+[INFO] [1793008354.568075034]: FCU: VisOdom: yaw shifted 0 to 347 deg
+[INFO] [1793008354.601742790]: FCU: EKF3 IMU0 is using external nav data
+[INFO] [1793008354.602055578]: FCU: EKF3 IMU0 initial pos NED = -0.0,0.0,0.0 (m)
+[INFO] [1793008354.602283760]: FCU: EKF3 IMU0 initial vel NED = 0.0,0.0,0.0 (m/s)
+[INFO] [1793008354.607155135]: FCU: EKF3 IMU1 is using external nav data
+[INFO] [1793008354.607459967]: FCU: EKF3 IMU1 initial pos NED = -0.0,0.0,0.0 (m)
+[INFO] [1793008354.607632402]: FCU: EKF3 IMU1 initial vel NED = 0.0,0.0,0.0 (m/s)
+[INFO] [1793008360.324474489]: HP: requesting home position
+[INFO] [1793008370.324483261]: HP: requesting home position
+[INFO] [1793008380.324478164]: HP: requesting home position
+[INFO] [1793008390.324469527]: HP: requesting home position
+[INFO] [1793008400.324469801]: HP: requesting home position
+[INFO] [1793008410.324471068]: HP: requesting home position
+[INFO] [1793008420.324470029]: HP: requesting home position
+[INFO] [1793008430.324476281]: HP: requesting home position
+[INFO] [1793008440.324472668]: HP: requesting home position
+[INFO] [1793008450.324472255]: HP: requesting home position
+[INFO] [1793008460.324484856]: HP: requesting home position
+[INFO] [1793008470.324474029]: HP: requesting home position
+... logging to /home/liqidun/github/indoor_nav_ws/.sitl_runtime/v0/20261026T175106-3491427/ros_logs/c3f31aba-d122-11f1-bc59-710cf840f56d/roslaunch-liqidun-MS-Challenger-B650M-3491559.log
+Checking log directory for disk usage. This may take a while.
+Press Ctrl-C to interrupt
+Done checking log file disk usage. Usage is <1GB.
+]2;/opt/ros/noetic/share/mavros/launch/apm.launch
+[1mstarted roslaunch server http://127.0.0.1:42345/[0m
+
+SUMMARY
+========
+
+CLEAR PARAMETERS
+ * /mavros/
+
+PARAMETERS
+ * /mavros/cmd/use_comp_id_system_control: False
+ * /mavros/conn/heartbeat_mav_type: ONBOARD_CONTROLLER
+ * /mavros/conn/heartbeat_rate: 1.0
+ * /mavros/conn/system_time_rate: 1.0
+ * /mavros/conn/timeout: 10.0
+ * /mavros/conn/timesync_rate: 10.0
+ * /mavros/distance_sensor/rangefinder_pub/field_of_view: 0.0
+ * /mavros/distance_sensor/rangefinder_pub/frame_id: lidar
+ * /mavros/distance_sensor/rangefinder_pub/id: 0
+ * /mavros/distance_sensor/rangefinder_pub/send_tf: False
+ * /mavros/distance_sensor/rangefinder_pub/sensor_position/x: 0.0
+ * /mavros/distance_sensor/rangefinder_pub/sensor_position/y: 0.0
+ * /mavros/distance_sensor/rangefinder_pub/sensor_position/z: -0.1
+ * /mavros/distance_sensor/rangefinder_sub/id: 1
+ * /mavros/distance_sensor/rangefinder_sub/orientation: PITCH_270
+ * /mavros/distance_sensor/rangefinder_sub/subscriber: True
+ * /mavros/fake_gps/eph: 2.0
+ * /mavros/fake_gps/epv: 2.0
+ * /mavros/fake_gps/fix_type: 3
+ * /mavros/fake_gps/geo_origin/alt: 408.0
+ * /mavros/fake_gps/geo_origin/lat: 47.3667
+ * /mavros/fake_gps/geo_origin/lon: 8.55
+ * /mavros/fake_gps/gps_id: 4
+ * /mavros/fake_gps/gps_rate: 5.0
+ * /mavros/fake_gps/horiz_accuracy: 0.5
+ * /mavros/fake_gps/mocap_transform: False
+ * /mavros/fake_gps/mocap_withcovariance: False
+ * /mavros/fake_gps/satellites_visible: 6
+ * /mavros/fake_gps/speed_accuracy: 0.0
+ * /mavros/fake_gps/tf/child_frame_id: fix
+ * /mavros/fake_gps/tf/frame_id: map
+ * /mavros/fake_gps/tf/listen: False
+ * /mavros/fake_gps/tf/rate_limit: 10.0
+ * /mavros/fake_gps/tf/send: False
+ * /mavros/fake_gps/use_hil_gps: True
+ * /mavros/fake_gps/use_mocap: True
+ * /mavros/fake_gps/use_vision: False
+ * /mavros/fake_gps/vert_accuracy: 0.5
+ * /mavros/fcu_protocol: v2.0
+ * /mavros/fcu_url: udp://127.0.0.1:1...
+ * /mavros/gcs_url: 
+ * /mavros/global_position/child_frame_id: base_link
+ * /mavros/global_position/frame_id: map
+ * /mavros/global_position/gps_uere: 1.0
+ * /mavros/global_position/rot_covariance: 99999.0
+ * /mavros/global_position/tf/child_frame_id: base_link
+ * /mavros/global_position/tf/frame_id: map
+ * /mavros/global_position/tf/global_frame_id: earth
+ * /mavros/global_position/tf/send: False
+ * /mavros/global_position/use_relative_alt: True
+ * /mavros/guided_target/tf/child_frame_id: target_position
+ * /mavros/guided_target/tf/frame_id: map
+ * /mavros/guided_target/tf/listen: False
+ * /mavros/guided_target/tf/rate_limit: 50.0
+ * /mavros/image/frame_id: px4flow
+ * /mavros/imu/angular_velocity_stdev: 0.0003490659 // 0...
+ * /mavros/imu/frame_id: base_link
+ * /mavros/imu/linear_acceleration_stdev: 0.0003
+ * /mavros/imu/magnetic_stdev: 0.0
+ * /mavros/imu/orientation_stdev: 1.0
+ * /mavros/landing_target/camera/fov_x: 2.0071286398
+ * /mavros/landing_target/camera/fov_y: 2.0071286398
+ * /mavros/landing_target/image/height: 480
+ * /mavros/landing_target/image/width: 640
+ * /mavros/landing_target/land_target_type: VISION_FIDUCIAL
+ * /mavros/landing_target/listen_lt: False
+ * /mavros/landing_target/mav_frame: LOCAL_NED
+ * /mavros/landing_target/target_size/x: 0.3
+ * /mavros/landing_target/target_size/y: 0.3
+ * /mavros/landing_target/tf/child_frame_id: camera_center
+ * /mavros/landing_target/tf/frame_id: landing_target
+ * /mavros/landing_target/tf/listen: False
+ * /mavros/landing_target/tf/rate_limit: 10.0
+ * /mavros/landing_target/tf/send: True
+ * /mavros/local_position/frame_id: map
+ * /mavros/local_position/tf/child_frame_id: base_link
+ * /mavros/local_position/tf/frame_id: map
+ * /mavros/local_position/tf/send: False
+ * /mavros/local_position/tf/send_fcu: False
+ * /mavros/mission/pull_after_gcs: True
+ * /mavros/mission/use_mission_item_int: True
+ * /mavros/mocap/use_pose: True
+ * /mavros/mocap/use_tf: False
+ * /mavros/mount/debounce_s: 4.0
+ * /mavros/mount/err_threshold_deg: 10.0
+ * /mavros/mount/negate_measured_pitch: False
+ * /mavros/mount/negate_measured_roll: False
+ * /mavros/mount/negate_measured_yaw: False
+ * /mavros/odometry/estimator_type: 3
+ * /mavros/odometry/frame_tf/desired_frame: ned
+ * /mavros/plugin_blacklist: ['actuator_contro...
+ * /mavros/plugin_whitelist: []
+ * /mavros/px4flow/frame_id: px4flow
+ * /mavros/px4flow/ranger_fov: 0.118682
+ * /mavros/px4flow/ranger_max_range: 5.0
+ * /mavros/px4flow/ranger_min_range: 0.3
+ * /mavros/safety_area/p1/x: 1.0
+ * /mavros/safety_area/p1/y: 1.0
+ * /mavros/safety_area/p1/z: 1.0
+ * /mavros/safety_area/p2/x: -1.0
+ * /mavros/safety_area/p2/y: -1.0
+ * /mavros/safety_area/p2/z: -1.0
+ * /mavros/setpoint_accel/send_force: False
+ * /mavros/setpoint_attitude/reverse_thrust: False
+ * /mavros/setpoint_attitude/tf/child_frame_id: target_attitude
+ * /mavros/setpoint_attitude/tf/frame_id: map
+ * /mavros/setpoint_attitude/tf/listen: False
+ * /mavros/setpoint_attitude/tf/rate_limit: 50.0
+ * /mavros/setpoint_attitude/use_quaternion: False
+ * /mavros/setpoint_position/mav_frame: LOCAL_NED
+ * /mavros/setpoint_position/tf/child_frame_id: target_position
+ * /mavros/setpoint_position/tf/frame_id: map
+ * /mavros/setpoint_position/tf/listen: False
+ * /mavros/setpoint_position/tf/rate_limit: 50.0
+ * /mavros/setpoint_raw/thrust_scaling: 1.0
+ * /mavros/setpoint_velocity/mav_frame: LOCAL_NED
+ * /mavros/startup_px4_usb_quirk: False
+ * /mavros/sys/disable_diag: False
+ * /mavros/sys/min_voltage: 10.0
+ * /mavros/target_component_id: 1
+ * /mavros/target_system_id: 1
+ * /mavros/tdr_radio/low_rssi: 40
+ * /mavros/time/time_ref_source: fcu
+ * /mavros/time/timesync_avg_alpha: 0.6
+ * /mavros/time/timesync_mode: MAVLINK
+ * /mavros/vibration/frame_id: base_link
+ * /mavros/vision_pose/tf/child_frame_id: vision_estimate
+ * /mavros/vision_pose/tf/frame_id: map
+ * /mavros/vision_pose/tf/listen: False
+ * /mavros/vision_pose/tf/rate_limit: 10.0
+ * /mavros/vision_speed/listen_twist: True
+ * /mavros/vision_speed/twist_cov: True
+ * /mavros/wheel_odometry/child_frame_id: base_link
+ * /mavros/wheel_odometry/count: 2
+ * /mavros/wheel_odometry/frame_id: map
+ * /mavros/wheel_odometry/send_raw: True
+ * /mavros/wheel_odometry/send_twist: False
+ * /mavros/wheel_odometry/tf/child_frame_id: base_link
+ * /mavros/wheel_odometry/tf/frame_id: map
+ * /mavros/wheel_odometry/tf/send: True
+ * /mavros/wheel_odometry/use_rpm: False
+ * /mavros/wheel_odometry/vel_error: 0.1
+ * /mavros/wheel_odometry/wheel0/radius: 0.05
+ * /mavros/wheel_odometry/wheel0/x: 0.0
+ * /mavros/wheel_odometry/wheel0/y: -0.15
+ * /mavros/wheel_odometry/wheel1/radius: 0.05
+ * /mavros/wheel_odometry/wheel1/x: 0.0
+ * /mavros/wheel_odometry/wheel1/y: 0.15
+ * /rosdistro: noetic
+ * /rosversion: 1.17.4
+
+NODES
+  /
+    mavros (mavros/mavros_node)
+
+[1mROS_MASTER_URI=http://127.0.0.1:11421[0m
+]2;/opt/ros/noetic/share/mavros/launch/apm.launch http://127.0.0.1:11421
+[1mprocess[mavros-1]: started with pid [3491672][0m
+[mavros-1] killing on exit
+shutting down processing monitor...
+... shutting down processing monitor complete
+[1mdone[0m

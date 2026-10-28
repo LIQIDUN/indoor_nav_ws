@@ -1,0 +1,63 @@
+{
+  "bag_readable": true,
+  "topics": {
+    "/mavros/global_position/gp_origin": {
+      "messages": 2,
+      "max_gap_s": 0.6071531772613525,
+      "rate_hz": 1.6470308275592607
+    },
+    "/mavros/state": {
+      "messages": 45,
+      "max_gap_s": 1.0047833919525146,
+      "rate_hz": 1.0697813022255607
+    },
+    "/gazebo/model_states": {
+      "messages": 42115,
+      "max_gap_s": 0.014744281768798828,
+      "rate_hz": 999.9500172286374
+    },
+    "/mavlink/from": {
+      "messages": 29964,
+      "max_gap_s": 0.0424799919128418,
+      "rate_hz": 711.5771645513615
+    },
+    "/mavros/global_position/raw/fix": {
+      "messages": 1053,
+      "max_gap_s": 0.0483241081237793,
+      "rate_hz": 24.985599120950603
+    },
+    "/mavros/local_position/pose": {
+      "messages": 1053,
+      "max_gap_s": 0.04736757278442383,
+      "rate_hz": 24.985599686882132
+    },
+    "/mavros/local_position/velocity_local": {
+      "messages": 1053,
+      "max_gap_s": 0.04735708236694336,
+      "rate_hz": 24.98561581594157
+    },
+    "/v0_nav/watchdog": {
+      "messages": 410,
+      "max_gap_s": 0.10137128829956055,
+      "rate_hz": 9.99955982522997
+    },
+    "/v0_nav/status": {
+      "messages": 410,
+      "max_gap_s": 0.10319685935974121,
+      "rate_hz": 9.996831704207171
+    },
+    "/v0_nav/heartbeat": {
+      "messages": 408,
+      "max_gap_s": 0.10315704345703125,
+      "rate_hz": 9.992178541602314
+    },
+    "/v0_nav/event": {
+      "messages": 1,
+      "max_gap_s": 0,
+      "rate_hz": 0
+    }
+  },
+  "pose_header_age_s": null,
+  "waypoint_tracking": {},
+  "state_events": []
+}

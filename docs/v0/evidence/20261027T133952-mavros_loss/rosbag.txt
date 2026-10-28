@@ -1,0 +1,66 @@
+[INFO] [1793079628.501837199]: Subscribing to /mavlink/from
+[INFO] [1793079628.502741584]: Subscribing to /mavros/estimator_status
+[INFO] [1793079628.503305459]: Subscribing to /mavros/global_position/gp_origin
+[INFO] [1793079628.503854665]: Subscribing to /mavros/global_position/raw/fix
+[INFO] [1793079628.504409031]: Subscribing to /mavros/home_position/home
+[INFO] [1793079628.504966223]: Subscribing to /mavros/local_position/pose
+[INFO] [1793079628.505576557]: Subscribing to /mavros/local_position/velocity_local
+[INFO] [1793079628.506257640]: Subscribing to /mavros/setpoint_position/local
+[INFO] [1793079628.506792969]: Subscribing to /mavros/setpoint_raw/target_local
+[INFO] [1793079628.507397081]: Subscribing to /mavros/state
+[INFO] [1793079628.507976626]: Subscribing to /motor_mic/audio_raw
+[INFO] [1793079628.508517577]: Subscribing to /sound_sensor/audio_raw
+[INFO] [1793079628.509051573]: Subscribing to /v0_nav/event
+[INFO] [1793079628.509581231]: Subscribing to /v0_nav/heartbeat
+[INFO] [1793079628.510120288]: Subscribing to /v0_nav/origin_pose
+[INFO] [1793079628.510621861]: Subscribing to /v0_nav/status
+[INFO] [1793079628.511125419]: Subscribing to /v0_nav/target_pose
+[INFO] [1793079628.511700926]: Subscribing to /v0_nav/watchdog
+[INFO] [1793079628.512303686]: Subscribing to /vibration_data
+[INFO] [1793079628.513010689]: Recording to '/home/liqidun/github/indoor_nav_ws/docs/v0/evidence/20261027T133952-mavros_loss/flight.bag'.
+Error in XmlRpcClient::writeRequest: write error (Connection refused).
+Error in XmlRpcDispatch::work: couldn't find source iterator
+Error in XmlRpcClient::writeRequest: write error (Connection refused).
+Error in XmlRpcDispatch::work: couldn't find source iterator
+Error in XmlRpcClient::writeRequest: write error (Connection refused).
+Error in XmlRpcDispatch::work: couldn't find source iterator
+Error in XmlRpcClient::writeRequest: write error (Connection refused).
+Error in XmlRpcDispatch::work: couldn't find source iterator
+Error in XmlRpcClient::writeRequest: write error (Connection refused).
+Error in XmlRpcDispatch::work: couldn't find source iterator
+Error in XmlRpcClient::writeRequest: write error (Connection refused).
+Error in XmlRpcDispatch::work: couldn't find source iterator
+Error in XmlRpcClient::writeRequest: write error (Connection refused).
+Error in XmlRpcDispatch::work: couldn't find source iterator
+Error in XmlRpcClient::writeRequest: write error (Connection refused).
+Error in XmlRpcDispatch::work: couldn't find source iterator
+Error in XmlRpcClient::writeRequest: write error (Connection refused).
+Error in XmlRpcDispatch::work: couldn't find source iterator
+Error in XmlRpcClient::writeRequest: write error (Connection refused).
+Error in XmlRpcDispatch::work: couldn't find source iterator
+Error in XmlRpcClient::writeRequest: write error (Connection refused).
+Error in XmlRpcDispatch::work: couldn't find source iterator
+Error in XmlRpcClient::writeRequest: write error (Connection refused).
+Error in XmlRpcDispatch::work: couldn't find source iterator
+Error in XmlRpcClient::writeRequest: write error (Connection refused).
+Error in XmlRpcDispatch::work: couldn't find source iterator
+Error in XmlRpcClient::writeRequest: write error (Connection refused).
+Error in XmlRpcDispatch::work: couldn't find source iterator
+Error in XmlRpcClient::writeRequest: write error (Connection refused).
+Error in XmlRpcDispatch::work: couldn't find source iterator
+Error in XmlRpcClient::writeRequest: write error (Connection refused).
+Error in XmlRpcDispatch::work: couldn't find source iterator
+Error in XmlRpcClient::writeRequest: write error (Connection refused).
+Error in XmlRpcDispatch::work: couldn't find source iterator
+Error in XmlRpcClient::writeRequest: write error (Connection refused).
+Error in XmlRpcDispatch::work: couldn't find source iterator
+Error in XmlRpcClient::writeRequest: write error (Connection refused).
+Error in XmlRpcDispatch::work: couldn't find source iterator
+Error in XmlRpcClient::writeRequest: write error (Connection refused).
+Error in XmlRpcDispatch::work: couldn't find source iterator
+Error in XmlRpcClient::writeRequest: write error (Connection refused).
+Error in XmlRpcDispatch::work: couldn't find source iterator
+Error in XmlRpcClient::writeRequest: write error (Connection refused).
+Error in XmlRpcDispatch::work: couldn't find source iterator
+Error in XmlRpcClient::writeRequest: write error (Connection refused).
+Error in XmlRpcDispatch::work: couldn't find source iterator

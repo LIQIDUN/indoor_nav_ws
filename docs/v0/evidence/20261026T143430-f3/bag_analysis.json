@@ -1,0 +1,194 @@
+{
+  "bag_readable": true,
+  "topics": {
+    "/mavros/global_position/gp_origin": {
+      "messages": 2,
+      "max_gap_s": 0.6364428997039795,
+      "rate_hz": 1.5712328638831812
+    },
+    "/mavros/state": {
+      "messages": 30,
+      "max_gap_s": 1.0055696964263916,
+      "rate_hz": 1.1079822143603912
+    },
+    "/gazebo/model_states": {
+      "messages": 26856,
+      "max_gap_s": 0.019356966018676758,
+      "rate_hz": 1000.1352472121943
+    },
+    "/mavlink/from": {
+      "messages": 19289,
+      "max_gap_s": 0.04164743423461914,
+      "rate_hz": 719.1253738564147
+    },
+    "/mavros/global_position/raw/fix": {
+      "messages": 671,
+      "max_gap_s": 0.046756744384765625,
+      "rate_hz": 24.983555760460664
+    },
+    "/mavros/local_position/pose": {
+      "messages": 671,
+      "max_gap_s": 0.04690814018249512,
+      "rate_hz": 24.982663564787206
+    },
+    "/mavros/local_position/velocity_local": {
+      "messages": 671,
+      "max_gap_s": 0.04689216613769531,
+      "rate_hz": 24.982783275665696
+    },
+    "/sound_sensor/audio_raw": {
+      "messages": 233,
+      "max_gap_s": 2.8901522159576416,
+      "rate_hz": 8.91008607281795,
+      "payload_bytes": [
+        19208
+      ],
+      "sequence_missing_inside_epochs": 0,
+      "sequence_resets": 1
+    },
+    "/vibration_data": {
+      "messages": 233,
+      "max_gap_s": 2.8901591300964355,
+      "rate_hz": 8.910090886397525,
+      "payload_bytes": [
+        72
+      ],
+      "sequence_missing_inside_epochs": 0,
+      "sequence_resets": 1
+    },
+    "/motor_mic/audio_raw": {
+      "messages": 233,
+      "max_gap_s": 2.8902063369750977,
+      "rate_hz": 8.910118217837777,
+      "payload_bytes": [
+        86408
+      ],
+      "sequence_missing_inside_epochs": 0,
+      "sequence_resets": 1
+    },
+    "/v0_nav/watchdog": {
+      "messages": 249,
+      "max_gap_s": 0.10651803016662598,
+      "rate_hz": 10.015917066200073
+    },
+    "/v0_nav/status": {
+      "messages": 174,
+      "max_gap_s": 0.10093212127685547,
+      "rate_hz": 10.017598811077407
+    },
+    "/v0_nav/heartbeat": {
+      "messages": 173,
+      "max_gap_s": 0.10094618797302246,
+      "rate_hz": 9.992251001499696
+    },
+    "/v0_nav/event": {
+      "messages": 10,
+      "max_gap_s": 2.502021312713623,
+      "rate_hz": 1.6266389906140866
+    },
+    "/v0_nav/origin_pose": {
+      "messages": 1,
+      "max_gap_s": 0,
+      "rate_hz": 0
+    },
+    "/mavros/setpoint_position/local": {
+      "messages": 56,
+      "max_gap_s": 0.10055899620056152,
+      "rate_hz": 9.992694993090046
+    },
+    "/v0_nav/target_pose": {
+      "messages": 56,
+      "max_gap_s": 0.10067105293273926,
+      "rate_hz": 9.99262833382931
+    }
+  },
+  "pose_header_age_s": {
+    "count": 92,
+    "max": 0.042736053466796875,
+    "p99": 0.042736053466796875,
+    "rms": 0.02438616913762925
+  },
+  "waypoint_tracking": {
+    "0": {
+      "sample_count": 25,
+      "fcu_target_xy_error_m": {
+        "count": 25,
+        "max": 0.158793461489597,
+        "p99": 0.158793461489597,
+        "rms": 0.05782072509142695
+      },
+      "truth_target_xy_error_m": {
+        "count": 25,
+        "max": 0.16064109415647465,
+        "p99": 0.16064109415647465,
+        "rms": 0.05480533061967399
+      }
+    },
+    "1": {
+      "sample_count": 67,
+      "fcu_target_xy_error_m": {
+        "count": 67,
+        "max": 0.2644265383035621,
+        "p99": 0.2644265383035621,
+        "rms": 0.08797951659628585
+      },
+      "truth_target_xy_error_m": {
+        "count": 67,
+        "max": 0.24494479009880565,
+        "p99": 0.24494479009880565,
+        "rms": 0.07805525449116886
+      }
+    }
+  },
+  "state_events": [
+    {
+      "state": "WAIT_FOR_READY",
+      "wp": 0,
+      "ros_s": 1792996483.3194306,
+      "mono_delta_s": 12.034433961845934,
+      "reason": ""
+    },
+    {
+      "state": "CAPTURE_ORIGIN",
+      "wp": 0,
+      "ros_s": 1792996483.3195353,
+      "mono_delta_s": 12.03453801292926,
+      "reason": ""
+    },
+    {
+      "state": "HOLD_INITIAL",
+      "wp": 0,
+      "ros_s": 1792996483.3196175,
+      "mono_delta_s": 12.034618749981746,
+      "reason": ""
+    },
+    {
+      "state": "EXEC_WAYPOINT",
+      "wp": 0,
+      "ros_s": 1792996485.3208747,
+      "mono_delta_s": 14.035876153036952,
+      "reason": ""
+    },
+    {
+      "state": "DWELL",
+      "wp": 0,
+      "ros_s": 1792996487.8229015,
+      "mono_delta_s": 16.53790046996437,
+      "reason": "ARRIVED_STABLE"
+    },
+    {
+      "state": "DWELL_COMPLETE",
+      "wp": 0,
+      "ros_s": 1792996488.8236172,
+      "mono_delta_s": 17.538617837941274,
+      "reason": ""
+    },
+    {
+      "state": "EXEC_WAYPOINT",
+      "wp": 1,
+      "ros_s": 1792996488.8237002,
+      "mono_delta_s": 17.538699976867065,
+      "reason": ""
+    }
+  ]
+}

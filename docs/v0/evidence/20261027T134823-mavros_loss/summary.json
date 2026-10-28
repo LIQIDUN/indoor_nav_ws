@@ -1,0 +1,16 @@
+{
+  "result": "FAIL",
+  "case": "mavros_loss",
+  "error": "not SIM firmware",
+  "evidence": "/home/liqidun/github/indoor_nav_ws/docs/v0/evidence/20261027T134823-mavros_loss",
+  "cleanup": {
+    "armed_before": true,
+    "armed_after": true,
+    "connected": true,
+    "mode": "GUIDED",
+    "processes_exited": true
+  },
+  "cleanup_failure": "test-owned processes or simulator still active/armed",
+  "start_wall_s": 1793080103.3464289,
+  "end_wall_s": 1793080157.4390075
+}

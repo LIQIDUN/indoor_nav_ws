@@ -1,0 +1,191 @@
+{
+  "result": "PASS",
+  "case": "gate_pause",
+  "identity": {
+    "runtime": "/home/liqidun/github/indoor_nav_ws/.sitl_runtime/v0/20261027T140735-226711",
+    "sitl_pid": 226831,
+    "proxy_pid": 226833,
+    "mavros_pid": 226913
+  },
+  "before": {
+    "wall_s": 1793081314.9462748,
+    "ros_s": 1793081314.94628,
+    "mono_s": 1646107.940275325,
+    "mode": "GUIDED",
+    "armed": true,
+    "status": {
+      "state": "EXEC_WAYPOINT",
+      "mission_id": "20261027T140743-gate_pause",
+      "wp": 0,
+      "reason": "",
+      "health": "",
+      "gate": "",
+      "control_enabled": true,
+      "evidence_dir": "/home/liqidun/github/indoor_nav_ws/docs/v0/evidence/20261027T140743-gate_pause/navigation/20261027T140820-227674-1646093099877514",
+      "yaml_sha256": "4d8a1b7df81dd2c1abd67077113bc43157c2cdb213dda9578325a206754d56a1",
+      "firmware": [
+        4,
+        5,
+        7
+      ],
+      "limit_age_s": 0.7124934860039502,
+      "pose_age_s": 0.013414144981652498,
+      "max_publish_gap_s": 0.10008644312620163,
+      "ekf_report": {
+        "flags": 831,
+        "ratios": [
+          0.009914182126522064,
+          0.007436075247824192,
+          0.0005396088818088174,
+          0.02252766489982605,
+          0.0
+        ],
+        "healthy": true
+      }
+    },
+    "phase": "execution before fault",
+    "watchdog": {
+      "healthy": true,
+      "reason": "",
+      "owner": "20261027T140743-gate_pause",
+      "revoked": false,
+      "exit_result": null,
+      "mode": "GUIDED",
+      "max_publish_gap_s": 0.10009609092958272
+    },
+    "home_altitude_m": 603.4186290627697,
+    "pose": [
+      -0.03699907660484314,
+      0.07105313241481781,
+      0.98534095287323
+    ],
+    "yaw": 1.5336862924185135,
+    "pose_age_s": 0.033978939056396484,
+    "velocity": [
+      0.02551710046827793,
+      0.14916904270648956,
+      -0.004003832582384348
+    ],
+    "truth": [
+      0.07995682696337245,
+      0.05553163293306373,
+      0.9737361698403917
+    ],
+    "truth_velocity": [
+      0.18067680370919753,
+      -0.003689721276116064,
+      0.0005284317830857238
+    ],
+    "truth_yaw": -0.00948193442956413,
+    "target": [
+      -0.011972976861457037,
+      0.2682964060195757,
+      0.9816755652427673
+    ],
+    "expected_truth": [
+      0.2908984365966308,
+      0.034207587205916046,
+      0.9672732399805504
+    ]
+  },
+  "after": {
+    "wall_s": 1793081315.7275116,
+    "ros_s": 1793081315.7275178,
+    "mono_s": 1646108.721518214,
+    "mode": "GUIDED",
+    "armed": true,
+    "status": {
+      "state": "ABORT_LATCHED",
+      "mission_id": "20261027T140743-gate_pause",
+      "wp": 0,
+      "reason": "WATCHDOG_STALE",
+      "health": "",
+      "gate": "GRAPH_STALE",
+      "control_enabled": true,
+      "evidence_dir": "/home/liqidun/github/indoor_nav_ws/docs/v0/evidence/20261027T140743-gate_pause/navigation/20261027T140820-227674-1646093099877514",
+      "yaml_sha256": "4d8a1b7df81dd2c1abd67077113bc43157c2cdb213dda9578325a206754d56a1",
+      "firmware": [
+        4,
+        5,
+        7
+      ],
+      "limit_age_s": 1.4130347250029445,
+      "pose_age_s": 0.03251201706007123,
+      "max_publish_gap_s": 0.10008644312620163,
+      "ekf_report": {
+        "flags": 831,
+        "ratios": [
+          0.010876518674194813,
+          0.005151576828211546,
+          0.0005310406559146941,
+          0.021986093372106552,
+          0.0
+        ],
+        "healthy": true
+      }
+    },
+    "phase": "fault latched",
+    "watchdog": {
+      "healthy": false,
+      "reason": "GRAPH_STALE",
+      "owner": "20261027T140743-gate_pause",
+      "revoked": true,
+      "exit_result": {
+        "reason": "GRAPH_STALE",
+        "requested": false,
+        "mode_sent": false
+      },
+      "mode": "GUIDED",
+      "max_publish_gap_s": 0.10009609092958272
+    },
+    "home_altitude_m": 603.4186290627697,
+    "pose": [
+      -0.03310517594218254,
+      0.2370728999376297,
+      0.9856888651847839
+    ],
+    "yaw": 1.5336449752238135,
+    "pose_age_s": 0.016666173934936523,
+    "velocity": [
+      0.027319826185703278,
+      0.18439194560050964,
+      -0.0034224081318825483
+    ],
+    "truth": [
+      0.2627978097551604,
+      0.051025586509609915,
+      0.9744617445375268
+    ],
+    "truth_velocity": [
+      0.20220234640647813,
+      -0.008004686527656662,
+      0.0012631290273494526
+    ],
+    "truth_yaw": -0.009988531681123944,
+    "target": [
+      -0.011972976861457037,
+      0.2682964060195757,
+      0.9816755652427673
+    ],
+    "expected_truth": [
+      0.2908984365966308,
+      0.034207587205916046,
+      0.9672732399805504
+    ]
+  },
+  "fault_to_observed_response_s": 0.7811863319948316,
+  "guarded_brake_expected": false,
+  "responses": [],
+  "recovery_did_not_resume": true,
+  "evidence": "/home/liqidun/github/indoor_nav_ws/docs/v0/evidence/20261027T140743-gate_pause",
+  "cleanup": {
+    "armed_before": false,
+    "armed_after": false,
+    "connected": true,
+    "mode": "LAND",
+    "sim_stopped_by_test": false,
+    "processes_exited": true
+  },
+  "start_wall_s": 1793081263.667915,
+  "end_wall_s": 1793081323.2529259
+}

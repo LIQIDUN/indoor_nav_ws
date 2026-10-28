@@ -1,0 +1,12 @@
+SET_GPS_GLOBAL_ORIGIN sent; delivery/acceptance NOT guaranteed. Check /mavros/global_position/gp_origin and FC logs.
+ORIGIN_ACCEPTED header: 
+  seq: 0
+  stamp: 
+    secs: 1793009518
+    nsecs: 252766554
+  frame_id: "earth"
+position: 
+  latitude: -35.363261
+  longitude: 149.16523
+  altitude: 583.9986291906523
+{"success": true, "message": "CALIBRATED and LOCKED; check +X/+Y hand motion before flight"}

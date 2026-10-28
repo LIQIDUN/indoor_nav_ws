@@ -1,0 +1,2 @@
+{"event": "LEASE_REVOKED", "wall_s": 1793079511.2520401, "ros_s": 1793079511.2520409, "mono_s": 1644304.246019861, "reason": "POSE_STALE", "requested": false, "mode_sent": false, "warning": "mode_sent is not confirmed braking; observe FCU and RC takeover"}
+{"event": "GATE_SHUTDOWN", "wall_s": 1793079517.9116275, "ros_s": 1793079517.911631, "mono_s": 1644310.905625013, "warning": "no guaranteed FCU action if the sole outlet exits; RC/FCU failsafe required"}

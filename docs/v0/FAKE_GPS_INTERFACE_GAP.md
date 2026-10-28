@@ -1,4 +1,6 @@
-# F2 = BLOCKED：真实 Fake GPS 接口未取得
+# 历史归档：原 F2 Fake GPS 接口缺口（任务已取消）
+
+> 2026-10-26用户已确认真实UWB通过飞控GPS接口提供定位，并取消专项模拟、协议调查和F2验收门槛。**下文为原审查背景，不再是待办或放行条件**；旧“BLOCKED/必须F2 PASS”措辞不再适用于后续计划。当前执行范围见 `DEVELOPMENT_PLAN_REVISION_20261026.md`。真实定位质量、方向和EKF状态转到R0拆桨联调，不再开发adapter/协议注入程序；实验仍暂停。
 
 截至2026-10-26：在 indoor_nav_ws 和可读的开发机 ros_sensor 目录中未找到真实 UWB→Fake GPS 协议实现/设备映射。旧链路明确为 ExternalNav `/mavros/odometry/out`，不是 Fake GPS。F1 仿真内置 GPS 不构成等价注入链路。
 

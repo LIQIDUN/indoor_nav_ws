@@ -1,0 +1,68 @@
+{
+  "bag_readable": true,
+  "topics": {
+    "/gazebo/model_states": {
+      "messages": 18775,
+      "max_gap_s": 0.024911165237426758,
+      "rate_hz": 999.0725637848432
+    },
+    "/mavros/state": {
+      "messages": 21,
+      "max_gap_s": 1.0050134658813477,
+      "rate_hz": 1.1204690177375234
+    },
+    "/mavros/global_position/raw/fix": {
+      "messages": 469,
+      "max_gap_s": 0.05834054946899414,
+      "rate_hz": 24.998940050203323
+    },
+    "/mavros/local_position/pose": {
+      "messages": 469,
+      "max_gap_s": 0.05825543403625488,
+      "rate_hz": 24.999233912750416
+    },
+    "/mavros/local_position/velocity_local": {
+      "messages": 469,
+      "max_gap_s": 0.05823469161987305,
+      "rate_hz": 24.999277849456234
+    },
+    "/v0_nav/watchdog": {
+      "messages": 177,
+      "max_gap_s": 0.10104894638061523,
+      "rate_hz": 10.037624958281235
+    },
+    "/v0_nav/status": {
+      "messages": 177,
+      "max_gap_s": 0.10308408737182617,
+      "rate_hz": 10.028038310604824
+    },
+    "/v0_nav/heartbeat": {
+      "messages": 175,
+      "max_gap_s": 0.10320782661437988,
+      "rate_hz": 9.991880716963603
+    },
+    "/v0_nav/event": {
+      "messages": 4,
+      "max_gap_s": 5.58414363861084,
+      "rate_hz": 0.5284699145513233
+    }
+  },
+  "pose_header_age_s": null,
+  "waypoint_tracking": {},
+  "state_events": [
+    {
+      "state": "WAIT_FOR_READY",
+      "wp": 0,
+      "ros_s": 1792992829.2314198,
+      "mono_delta_s": 12.233961883932352,
+      "reason": ""
+    },
+    {
+      "state": "IDLE",
+      "wp": 0,
+      "ros_s": 1792992829.2315378,
+      "mono_delta_s": 12.234082100912929,
+      "reason": "VELOCITY_FRAME_OR_STAMP"
+    }
+  ]
+}

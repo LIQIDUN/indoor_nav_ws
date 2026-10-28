@@ -1,0 +1,16 @@
+{
+  "result": "FAIL",
+  "case": "single",
+  "error": "start refused: POSE_FRAME_OR_STAMP",
+  "evidence": "/home/liqidun/github/indoor_nav_ws/docs/v0/evidence/20261027T143500-single",
+  "cleanup": {
+    "armed_before": false,
+    "armed_after": false,
+    "connected": true,
+    "mode": "LAND",
+    "sim_stopped_by_test": false,
+    "processes_exited": true
+  },
+  "start_wall_s": 1793082900.378103,
+  "end_wall_s": 1793082955.253851
+}

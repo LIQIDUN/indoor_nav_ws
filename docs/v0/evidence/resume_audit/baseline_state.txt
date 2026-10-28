@@ -1,0 +1,30 @@
+2026-10-26T21:18:07+08:00
+feat/arducopter-v0-relative-waypoints
+a07623f34390065dab960944abf68c4005b5edc5
+a07623f34390065dab960944abf68c4005b5edc5 fix(v0): latch EKF origin resets and verify SITL fault isolation
+93a5ee0eafbf27b325fb601ee188b40941588bcf feat(v0): add fail-closed relative Guided missions and isolated GPS SITL tools
+92f6e724d4ee9ba8c2a348d4ace108e561a4ef30 基本完成基础飞行测试
+ M docs/v0/00_REPO_AUDIT.md
+ M docs/v0/FAKE_GPS_INTERFACE_GAP.md
+ M docs/v0/README.md
+ M docs/v0/REAL_AIRCRAFT_SOP.md
+ M docs/v0/SAFETY_AND_LIMITATIONS.md
+ M src/indoor_nav/config/mission_v0.yaml
+ M src/indoor_nav/launch/indoor_nav_v0.launch
+ M src/indoor_nav/scripts/relative_mission_manager.py
+ M src/indoor_nav/scripts/v0_nav_health.py
+ M src/indoor_nav/src/indoor_nav/v0.py
+ M tests/test_v0.py
+ M tools/v0_sitl_stop.py
+ M tools/v0_sitl_test.py
+?? docs/ArduCopter_V0相对航点_完整项目设计与验收文档.md
+?? docs/Codex_开发提示词_ArduCopter_V0相对航点.md
+?? docs/README_使用说明.md
+?? docs/mission_v0_copter.yaml
+?? docs/v0/DEVELOPMENT_PLAN_REVISION_20261026.md
+?? docs/v0/SITL_REPORT.md
+?? docs/v0/WEB_REVIEW_STATUS_20261026.md
+?? docs/v0/evidence/
+?? tools/v0_archive_evidence.py
+?? tools/v0_dataflash_altitude.py
+?? tools/v0_sitl_suite.py

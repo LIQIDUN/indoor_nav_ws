@@ -83,6 +83,16 @@ class GateROS(unittest.TestCase):
             proxy.return_value.assert_called_once_with(0, 'BRAKE')
         self.assertTrue(self.gate.exit_result['requested'])
 
+    def test_combined_graph_failures_and_invalid_limits_never_authorize_mode(self):
+        self.gate.status.update(firmware=[4, 5, 7], limit_age_s=.1)
+        self.assertTrue(self.gate.brake_eligible(3., 103., 'MISSION_HEARTBEAT_TIMEOUT'))
+        for reason in ('OTHER_POSITION_PUBLISHER,OTHER_CONTROL_PUBLISHER', 'GRAPH_STALE',
+                       'MANAGER_GATE_CONFIG_MISMATCH', 'GATE_CLOCK_OR_CYCLE_TIMEOUT'):
+            self.assertFalse(self.gate.brake_eligible(3., 103., reason))
+        for value in (True, '1', math.nan, -1., 6.):
+            self.gate.status['limit_age_s'] = value
+            self.assertFalse(self.gate.brake_eligible(3., 103., ''))
+
     def test_malformed_status_cannot_refresh_authorization(self):
         before = self.gate.status_time
         self.gate.status_cb(String(data=json.dumps(['not', 'a', 'status'])))

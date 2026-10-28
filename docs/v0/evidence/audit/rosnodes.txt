@@ -1,0 +1,4 @@
+/gazebo
+/mavros
+/rosout
+/rostopic_3291648_1792992874752

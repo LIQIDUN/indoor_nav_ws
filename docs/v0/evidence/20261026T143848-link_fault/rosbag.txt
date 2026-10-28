@@ -1,0 +1,26 @@
+[INFO] [1792996728.939547659]: Subscribing to /gazebo/model_states
+[INFO] [1792996728.940541584]: Subscribing to /mavlink/from
+[INFO] [1792996728.941286515]: Subscribing to /mavros/estimator_status
+[INFO] [1792996728.942212137]: Subscribing to /mavros/global_position/gp_origin
+[INFO] [1792996728.942821554]: Subscribing to /mavros/global_position/raw/fix
+[INFO] [1792996728.943425420]: Subscribing to /mavros/local_position/pose
+[INFO] [1792996728.944008495]: Subscribing to /mavros/local_position/velocity_local
+[INFO] [1792996728.944565560]: Subscribing to /mavros/setpoint_position/local
+[INFO] [1792996728.945250624]: Subscribing to /mavros/setpoint_raw/target_local
+[INFO] [1792996728.945987469]: Subscribing to /mavros/state
+[INFO] [1792996728.946671431]: Subscribing to /motor_mic/audio_raw
+[INFO] [1792996728.947236592]: Subscribing to /sound_sensor/audio_raw
+[INFO] [1792996728.947804848]: Subscribing to /v0_nav/event
+[INFO] [1792996728.948397803]: Subscribing to /v0_nav/heartbeat
+[INFO] [1792996728.949099750]: Subscribing to /v0_nav/origin_pose
+[INFO] [1792996728.950207327]: Subscribing to /v0_nav/status
+[INFO] [1792996728.951131587]: Subscribing to /v0_nav/target_pose
+[INFO] [1792996728.951834566]: Subscribing to /v0_nav/watchdog
+[INFO] [1792996728.952590267]: Subscribing to /vibration_data
+[INFO] [1792996728.953330749]: Recording to '/home/liqidun/github/indoor_nav_ws/docs/v0/evidence/20261026T143848-link_fault/flight.bag'.
+Error in XmlRpcClient::writeRequest: write error (Connection refused).
+Error in XmlRpcClient::writeRequest: write error (Connection refused).
+Error in XmlRpcClient::writeRequest: write error (Connection refused).
+Error in XmlRpcClient::writeRequest: write error (Connection refused).
+Error in XmlRpcClient::writeRequest: write error (Connection refused).
+Error in XmlRpcClient::writeRequest: write error (Connection refused).

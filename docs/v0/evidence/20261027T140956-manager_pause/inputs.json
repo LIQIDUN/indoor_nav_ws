@@ -1,0 +1,40 @@
+{
+  "git_commit": "3884103860b469c1880c6019bb7a2ede82f27960",
+  "git_dirty": true,
+  "sha256": {
+    "src/indoor_nav/src/indoor_nav/v0.py": "3063e05962fa0064d6519d3499aaa017d5183b7fe121fe13d614a913c1a3ba44",
+    "src/indoor_nav/scripts/relative_mission_manager.py": "17f3095860900ca237d852fdfd936682c862ed8b69029fecbce3abb44020de4d",
+    "src/indoor_nav/scripts/v0_nav_health.py": "74f2d01fbb589645c836e3da5e9b1aee7e9ed682eeac7f9c4690016e4bb607b9",
+    "src/indoor_nav/launch/indoor_nav_v0.launch": "032965600a179f3e8050b3e6ad51bb7eeeb10a6b6e401ff4bcc4d0799fd930e7",
+    "src/indoor_nav/config/v0_sitl_gps.parm": "965806e915aad5ab94b9096d92e9ec4a6bfbfb51dfdf9387aa4dd4ffa17a6023",
+    "tools/v0_sitl_test.py": "6b7d0e8ad15fdf49889579fb47f4bbfccda5e38692353f735b92864e7a64ca09",
+    "tools/v0_sitl_instance.sh": "650f60527ebeeb7de901f8d33f27d08b330355253d4076c4acf46f64c4670266"
+  },
+  "runtime": "/home/liqidun/github/indoor_nav_ws/.sitl_runtime/v0/20261027T140948-229318",
+  "original_hover_gate": {
+    "truth_z_gt_m": 0.85,
+    "speed_norm_lt_mps": 0.06,
+    "timeout_s": 35
+  },
+  "mission_yaml_sha256": "0d2954885284e8c8732a7cd52491c7dd0c9c23031ddf154153754fe10e9bb031",
+  "fcu_parameters": {
+    "GPS_TYPE": 1,
+    "GPS_TYPE2": 0.0,
+    "EK3_SRC1_POSXY": 3,
+    "EK3_SRC1_VELXY": 3,
+    "EK3_SRC1_POSZ": 1,
+    "EK3_SRC1_VELZ": 3,
+    "EK3_SRC1_YAW": 1,
+    "VISO_TYPE": 0.0,
+    "FS_GCS_ENABLE": 0.0,
+    "FS_EKF_ACTION": 1,
+    "FS_THR_ENABLE": 1,
+    "GUID_TIMEOUT": 3.0,
+    "WPNAV_SPEED": 20.0,
+    "WPNAV_SPEED_UP": 20.0,
+    "WPNAV_SPEED_DN": 20.0,
+    "WPNAV_ACCEL": 50.0,
+    "WPNAV_ACCEL_Z": 50.0,
+    "GUID_OPTIONS": 0.0
+  }
+}

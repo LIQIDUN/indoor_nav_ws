@@ -1,0 +1,284 @@
+{
+  "path": ".sitl_runtime/v0/20261026T181944-3520869/logs/00000001.BIN",
+  "events": [
+    {
+      "type": "MODE",
+      "data": {
+        "TimeUS": 2406174,
+        "Mode": 0,
+        "ModeNum": 0,
+        "Rsn": 26
+      },
+      "preceding_CTUN_m": {}
+    },
+    {
+      "type": "ORGN",
+      "data": {
+        "TimeUS": 20143539,
+        "Type": 0,
+        "Lat": -353632610,
+        "Lng": 1491652299,
+        "Alt": 58399,
+        "Alt_m": 583.99
+      },
+      "preceding_CTUN_m": {
+        "TimeUS": 20101553,
+        "Alt": -0.021840045228600502,
+        "DAlt": 0.0
+      }
+    },
+    {
+      "type": "ORGN",
+      "data": {
+        "TimeUS": 20143539,
+        "Type": 1,
+        "Lat": -353632610,
+        "Lng": 1491652299,
+        "Alt": 58399,
+        "Alt_m": 583.99
+      },
+      "preceding_CTUN_m": {
+        "TimeUS": 20101553,
+        "Alt": -0.021840045228600502,
+        "DAlt": 0.0
+      }
+    },
+    {
+      "type": "MODE",
+      "data": {
+        "TimeUS": 318708263,
+        "Mode": 4,
+        "ModeNum": 4,
+        "Rsn": 2
+      },
+      "preceding_CTUN_m": {
+        "TimeUS": 318701267,
+        "Alt": -0.023876609280705452,
+        "DAlt": 0.0
+      }
+    },
+    {
+      "type": "ARM",
+      "data": {
+        "TimeUS": 318826194,
+        "ArmState": 1,
+        "ArmChecks": 1,
+        "Forced": 0,
+        "Method": 1
+      },
+      "preceding_CTUN_m": {
+        "TimeUS": 318801208,
+        "Alt": -0.023866554722189903,
+        "DAlt": -0.023866554722189903
+      }
+    },
+    {
+      "type": "ORGN",
+      "data": {
+        "TimeUS": 318826194,
+        "Type": 0,
+        "Lat": -353632610,
+        "Lng": 1491652299,
+        "Alt": 58399,
+        "Alt_m": 583.99
+      },
+      "preceding_CTUN_m": {
+        "TimeUS": 318801208,
+        "Alt": -0.023866554722189903,
+        "DAlt": -0.023866554722189903
+      }
+    },
+    {
+      "type": "ORGN",
+      "data": {
+        "TimeUS": 318826194,
+        "Type": 1,
+        "Lat": -353632610,
+        "Lng": 1491652299,
+        "Alt": 58396,
+        "Alt_m": 583.96
+      },
+      "preceding_CTUN_m": {
+        "TimeUS": 318801208,
+        "Alt": -0.023866554722189903,
+        "DAlt": -0.023866554722189903
+      }
+    },
+    {
+      "type": "MODE",
+      "data": {
+        "TimeUS": 318826194,
+        "Mode": 4,
+        "ModeNum": 4,
+        "Rsn": 2
+      },
+      "preceding_CTUN_m": {
+        "TimeUS": 318801208,
+        "Alt": -0.023866554722189903,
+        "DAlt": -0.023866554722189903
+      }
+    },
+    {
+      "type": "MODE",
+      "data": {
+        "TimeUS": 336788698,
+        "Mode": 2,
+        "ModeNum": 2,
+        "Rsn": 2
+      },
+      "preceding_CTUN_m": {
+        "TimeUS": 336700749,
+        "Alt": 0.9674943089485168,
+        "DAlt": 0.9674556255340576
+      }
+    },
+    {
+      "type": "MODE",
+      "data": {
+        "TimeUS": 336901632,
+        "Mode": 4,
+        "ModeNum": 4,
+        "Rsn": 2
+      },
+      "preceding_CTUN_m": {
+        "TimeUS": 336901632,
+        "Alt": 0.9672332406044006,
+        "DAlt": 0.9662966728210449
+      }
+    },
+    {
+      "type": "MODE",
+      "data": {
+        "TimeUS": 337523268,
+        "Mode": 9,
+        "ModeNum": 9,
+        "Rsn": 2
+      },
+      "preceding_CTUN_m": {
+        "TimeUS": 337501281,
+        "Alt": 0.9439892172813416,
+        "DAlt": 0.964841365814209
+      }
+    },
+    {
+      "type": "ARM",
+      "data": {
+        "TimeUS": 342456386,
+        "ArmState": 0,
+        "ArmChecks": 0,
+        "Forced": 0,
+        "Method": 13
+      },
+      "preceding_CTUN_m": {
+        "TimeUS": 342401418,
+        "Alt": -0.1766100823879242,
+        "DAlt": -0.1766100823879242
+      }
+    },
+    {
+      "type": "MODE",
+      "data": {
+        "TimeUS": 346461046,
+        "Mode": 4,
+        "ModeNum": 4,
+        "Rsn": 2
+      },
+      "preceding_CTUN_m": {
+        "TimeUS": 346401081,
+        "Alt": -0.1295737475156784,
+        "DAlt": -0.1295737475156784
+      }
+    },
+    {
+      "type": "ARM",
+      "data": {
+        "TimeUS": 346585973,
+        "ArmState": 1,
+        "ArmChecks": 1,
+        "Forced": 0,
+        "Method": 1
+      },
+      "preceding_CTUN_m": {
+        "TimeUS": 346501022,
+        "Alt": -0.12787719070911407,
+        "DAlt": -0.12787719070911407
+      }
+    },
+    {
+      "type": "ORGN",
+      "data": {
+        "TimeUS": 346585973,
+        "Type": 0,
+        "Lat": -353632610,
+        "Lng": 1491652299,
+        "Alt": 58399,
+        "Alt_m": 583.99
+      },
+      "preceding_CTUN_m": {
+        "TimeUS": 346501022,
+        "Alt": -0.12787719070911407,
+        "DAlt": -0.12787719070911407
+      }
+    },
+    {
+      "type": "ORGN",
+      "data": {
+        "TimeUS": 346585973,
+        "Type": 1,
+        "Lat": -353632591,
+        "Lng": 1491652302,
+        "Alt": 58386,
+        "Alt_m": 583.86
+      },
+      "preceding_CTUN_m": {
+        "TimeUS": 346501022,
+        "Alt": -0.12787719070911407,
+        "DAlt": -0.12787719070911407
+      }
+    },
+    {
+      "type": "MODE",
+      "data": {
+        "TimeUS": 346585973,
+        "Mode": 4,
+        "ModeNum": 4,
+        "Rsn": 2
+      },
+      "preceding_CTUN_m": {
+        "TimeUS": 346501022,
+        "Alt": -0.12787719070911407,
+        "DAlt": -0.12787719070911407
+      }
+    },
+    {
+      "type": "MODE",
+      "data": {
+        "TimeUS": 382204160,
+        "Mode": 9,
+        "ModeNum": 9,
+        "Rsn": 2
+      },
+      "preceding_CTUN_m": {
+        "TimeUS": 382201161,
+        "Alt": 0.8594847917556763,
+        "DAlt": 0.8700025081634521
+      }
+    },
+    {
+      "type": "ARM",
+      "data": {
+        "TimeUS": 386273781,
+        "ArmState": 0,
+        "ArmChecks": 0,
+        "Forced": 0,
+        "Method": 13
+      },
+      "preceding_CTUN_m": {
+        "TimeUS": 386200824,
+        "Alt": 0.06361669301986694,
+        "DAlt": 0.06361669301986694
+      }
+    }
+  ],
+  "note": "ORGN Alt scaled cm to m; CTUN Alt/DAlt float metres; other raw fields unscaled"
+}

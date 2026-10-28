@@ -1,0 +1,344 @@
+Connect tcp:127.0.0.1:5760 source_system=245
+Log Directory: 
+Telemetry log: mav.tlog
+Waiting for heartbeat from tcp:127.0.0.1:5760
+AP: ArduCopter V4.5.7 (2a3dc4b7)
+AP: a887c46f926f4e748eb27eb2db56f23a
+AP: Frame: QUAD/X
+AP: Calibrating barometer
+Detected vehicle 1:1 on link 0
+online system 1
+STABILIZE> Mode STABILIZE
+AP: ArduCopter V4.5.7 (2a3dc4b7)
+AP: a887c46f926f4e748eb27eb2db56f23a
+AP: Frame: QUAD/X
+AP: Barometer 1 calibration complete
+AP: Barometer 2 calibration complete
+Init Gyro*AP: ArduCopter V4.5.7 (2a3dc4b7)
+AP: a887c46f926f4e748eb27eb2db56f23a
+AP: Frame: QUAD/X
+Got COMMAND_ACK: REQUEST_AUTOPILOT_CAPABILITIES: ACCEPTED
+*
+AP: ArduPilot Ready
+AP: AHRS: DCM active
+Received 1424 parameters (ftp)
+Saved 1424 parameters to mav.parm
+AP: RC7: SaveWaypoint LOW
+AP: RC8: PrecisionLoiter MIDDLE
+AP: EKF3 IMU0 initialised
+AP: EKF3 IMU1 initialised
+AP: AHRS: EKF3 active
+AP: EKF3 IMU0 tilt alignment complete
+AP: EKF3 IMU1 tilt alignment complete
+AP: EKF3 IMU1 MAG0 initial yaw alignment complete
+AP: EKF3 IMU0 MAG0 initial yaw alignment complete
+AP: GPS 1: detected as u-blox at 230400 baud
+AP: ArduCopter V4.5.7 (2a3dc4b7)
+AP: a887c46f926f4e748eb27eb2db56f23a
+AP: Frame: QUAD/X
+fence present
+Flight battery 100 percent
+AP: EKF3 IMU1 origin set
+AP: EKF3 IMU0 origin set
+AP: Field Elevation Set: 584m
+AP: EKF3 IMU1 is using GPS
+AP: EKF3 IMU0 is using GPS
+Flight battery 100 percent
+Flight battery 100 percent
+Got MAVLink msg: COMMAND_ACK {command : 11, result : 0, progress : 0, result_param2 : 0, target_system : 1, target_component : 240}
+GUIDED> Mode GUIDED
+Got COMMAND_ACK: COMPONENT_ARM_DISARM: ACCEPTED
+AP: Arming motors
+ARMED
+Got COMMAND_ACK: NAV_TAKEOFF: ACCEPTED
+Got MAVLink msg: COMMAND_ACK {command : 11, result : 0, progress : 0, result_param2 : 0, target_system : 1, target_component : 240}
+LAND> Mode LAND
+AP: Disarming motors
+Flight battery 100 percent
+DISARMED
+Flight battery 100 percent
+Flight battery 100 percent
+Flight battery 100 percent
+Flight battery 100 percent
+Flight battery 100 percent
+Got MAVLink msg: COMMAND_ACK {command : 11, result : 0, progress : 0, result_param2 : 0, target_system : 1, target_component : 240}
+GUIDED> Mode GUIDED
+Got COMMAND_ACK: COMPONENT_ARM_DISARM: ACCEPTED
+AP: Arming motors
+ARMED
+Got COMMAND_ACK: NAV_TAKEOFF: ACCEPTED
+Got MAVLink msg: COMMAND_ACK {command : 11, result : 0, progress : 0, result_param2 : 0, target_system : 1, target_component : 240}
+LAND> Mode LAND
+AP: Disarming motors
+DISARMED
+Flight battery 100 percent
+Flight battery 100 percent
+Flight battery 100 percent
+Flight battery 100 percent
+Flight battery 100 percent
+Flight battery 100 percent
+Flight battery 100 percent
+Got MAVLink msg: COMMAND_ACK {command : 11, result : 0, progress : 0, result_param2 : 0, target_system : 1, target_component : 240}
+GUIDED> Mode GUIDED
+Got COMMAND_ACK: COMPONENT_ARM_DISARM: ACCEPTED
+AP: Arming motors
+ARMED
+Got COMMAND_ACK: NAV_TAKEOFF: ACCEPTED
+Got MAVLink msg: COMMAND_ACK {command : 11, result : 0, progress : 0, result_param2 : 0, target_system : 1, target_component : 240}
+ALT_HOLD> Mode ALT_HOLD
+Got MAVLink msg: COMMAND_ACK {command : 11, result : 0, progress : 0, result_param2 : 0, target_system : 1, target_component : 240}
+GUIDED> Got MAVLink msg: COMMAND_ACK {command : 11, result : 0, progress : 0, result_param2 : 0, target_system : 1, target_component : 240}
+LAND> Mode LAND
+AP: Disarming motors
+DISARMED
+Flight battery 100 percent
+Flight battery 100 percent
+Flight battery 100 percent
+Got MAVLink msg: COMMAND_ACK {command : 11, result : 0, progress : 0, result_param2 : 0, target_system : 1, target_component : 240}
+GUIDED> Mode GUIDED
+Got COMMAND_ACK: COMPONENT_ARM_DISARM: ACCEPTED
+AP: Arming motors
+ARMED
+Got COMMAND_ACK: NAV_TAKEOFF: ACCEPTED
+Got MAVLink msg: COMMAND_ACK {command : 11, result : 0, progress : 0, result_param2 : 0, target_system : 1, target_component : 240}
+ALT_HOLD> Mode ALT_HOLD
+Got MAVLink msg: COMMAND_ACK {command : 11, result : 0, progress : 0, result_param2 : 0, target_system : 1, target_component : 240}
+GUIDED> Got MAVLink msg: COMMAND_ACK {command : 11, result : 0, progress : 0, result_param2 : 0, target_system : 1, target_component : 240}
+LAND> Mode LAND
+AP: Disarming motors
+DISARMED
+Flight battery 100 percent
+Flight battery 100 percent
+Flight battery 100 percent
+Flight battery 100 percent
+Flight battery 100 percent
+Flight battery 100 percent
+Flight battery 100 percent
+Flight battery 100 percent
+Flight battery 100 percent
+Flight battery 100 percent
+Flight battery 100 percent
+Flight battery 100 percent
+Flight battery 100 percent
+Flight battery 100 percent
+Flight battery 100 percent
+Flight battery 100 percent
+Flight battery 100 percent
+Flight battery 100 percent
+Flight battery 100 percent
+Flight battery 100 percent
+Flight battery 100 percent
+Flight battery 100 percent
+Flight battery 100 percent
+Flight battery 100 percent
+Flight battery 100 percent
+Flight battery 100 percent
+Flight battery 100 percent
+Flight battery 100 percent
+Flight battery 100 percent
+Flight battery 100 percent
+Flight battery 100 percent
+Flight battery 100 percent
+Flight battery 100 percent
+Flight battery 100 percent
+Got MAVLink msg: COMMAND_ACK {command : 11, result : 0, progress : 0, result_param2 : 0, target_system : 1, target_component : 240}
+GUIDED> Mode GUIDED
+Got COMMAND_ACK: COMPONENT_ARM_DISARM: ACCEPTED
+AP: Arming motors
+ARMED
+Got COMMAND_ACK: NAV_TAKEOFF: ACCEPTED
+Got COMMAND_ACK: CONDITION_YAW: ACCEPTED
+Got MAVLink msg: COMMAND_ACK {command : 11, result : 0, progress : 0, result_param2 : 0, target_system : 1, target_component : 240}
+ALT_HOLD> Mode ALT_HOLD
+Got MAVLink msg: COMMAND_ACK {command : 11, result : 0, progress : 0, result_param2 : 0, target_system : 1, target_component : 240}
+GUIDED> Got MAVLink msg: COMMAND_ACK {command : 11, result : 0, progress : 0, result_param2 : 0, target_system : 1, target_component : 240}
+LAND> Flight battery 100 percent
+Mode LAND
+AP: Disarming motors
+DISARMED
+Flight battery 100 percent
+Flight battery 100 percent
+Flight battery 100 percent
+Flight battery 100 percent
+Flight battery 100 percent
+Flight battery 100 percent
+Flight battery 100 percent
+Flight battery 100 percent
+Flight battery 100 percent
+Flight battery 100 percent
+Got MAVLink msg: COMMAND_ACK {command : 11, result : 0, progress : 0, result_param2 : 0, target_system : 1, target_component : 240}
+GUIDED> Mode GUIDED
+Got COMMAND_ACK: COMPONENT_ARM_DISARM: ACCEPTED
+AP: Arming motors
+ARMED
+Got COMMAND_ACK: NAV_TAKEOFF: ACCEPTED
+Got MAVLink msg: COMMAND_ACK {command : 11, result : 0, progress : 0, result_param2 : 0, target_system : 1, target_component : 240}
+LAND> Mode LAND
+AP: Disarming motors
+DISARMED
+Flight battery 100 percent
+Flight battery 100 percent
+Flight battery 100 percent
+Flight battery 100 percent
+Got MAVLink msg: COMMAND_ACK {command : 11, result : 0, progress : 0, result_param2 : 0, target_system : 1, target_component : 240}
+GUIDED> Mode GUIDED
+Got COMMAND_ACK: COMPONENT_ARM_DISARM: ACCEPTED
+AP: Arming motors
+ARMED
+Got COMMAND_ACK: NAV_TAKEOFF: ACCEPTED
+Flight battery 100 percent
+Got MAVLink msg: COMMAND_ACK {command : 11, result : 0, progress : 0, result_param2 : 0, target_system : 1, target_component : 240}
+LAND> Mode LAND
+AP: Disarming motors
+DISARMED
+Flight battery 100 percent
+Flight battery 100 percent
+Flight battery 100 percent
+Flight battery 100 percent
+Flight battery 100 percent
+Flight battery 100 percent
+Flight battery 100 percent
+Flight battery 100 percent
+Flight battery 100 percent
+Flight battery 100 percent
+Flight battery 100 percent
+Flight battery 100 percent
+Flight battery 100 percent
+Flight battery 100 percent
+Flight battery 100 percent
+Flight battery 100 percent
+Flight battery 100 percent
+Flight battery 100 percent
+Flight battery 100 percent
+Flight battery 100 percent
+Flight battery 100 percent
+Flight battery 100 percent
+Flight battery 100 percent
+Flight battery 100 percent
+Flight battery 100 percent
+Flight battery 100 percent
+Flight battery 100 percent
+Flight battery 100 percent
+Flight battery 100 percent
+Flight battery 100 percent
+Flight battery 100 percent
+Flight battery 100 percent
+Flight battery 100 percent
+Flight battery 100 percent
+Flight battery 100 percent
+Flight battery 100 percent
+Flight battery 100 percent
+Flight battery 100 percent
+Flight battery 100 percent
+Flight battery 100 percent
+Flight battery 100 percent
+Flight battery 100 percent
+Flight battery 100 percent
+Flight battery 100 percent
+Flight battery 100 percent
+Flight battery 100 percent
+Flight battery 100 percent
+Flight battery 100 percent
+Flight battery 100 percent
+Flight battery 100 percent
+Flight battery 100 percent
+Flight battery 100 percent
+Flight battery 100 percent
+Flight battery 100 percent
+Flight battery 100 percent
+Flight battery 100 percent
+Flight battery 100 percent
+Flight battery 100 percent
+Flight battery 100 percent
+Flight battery 100 percent
+Flight battery 100 percent
+Flight battery 100 percent
+Flight battery 100 percent
+Flight battery 100 percent
+Flight battery 100 percent
+Flight battery 100 percent
+Flight battery 100 percent
+Flight battery 100 percent
+Flight battery 100 percent
+Flight battery 100 percent
+Flight battery 100 percent
+Flight battery 100 percent
+Flight battery 100 percent
+Flight battery 100 percent
+Flight battery 100 percent
+Flight battery 100 percent
+Flight battery 100 percent
+Flight battery 100 percent
+Flight battery 100 percent
+Flight battery 100 percent
+Flight battery 100 percent
+Flight battery 100 percent
+Flight battery 100 percent
+Flight battery 100 percent
+Flight battery 100 percent
+Flight battery 100 percent
+Flight battery 100 percent
+Flight battery 100 percent
+Flight battery 100 percent
+Flight battery 100 percent
+Flight battery 100 percent
+Flight battery 100 percent
+Flight battery 100 percent
+Flight battery 100 percent
+Flight battery 100 percent
+Flight battery 100 percent
+Flight battery 100 percent
+Flight battery 100 percent
+Flight battery 100 percent
+Flight battery 100 percent
+Flight battery 100 percent
+Flight battery 100 percent
+Flight battery 100 percent
+Flight battery 100 percent
+Flight battery 100 percent
+Flight battery 100 percent
+Flight battery 100 percent
+Flight battery 100 percent
+Flight battery 100 percent
+Flight battery 100 percent
+Flight battery 100 percent
+Flight battery 100 percent
+Flight battery 100 percent
+Flight battery 100 percent
+Flight battery 100 percent
+Flight battery 100 percent
+Flight battery 100 percent
+Flight battery 100 percent
+Flight battery 100 percent
+Flight battery 100 percent
+Flight battery 100 percent
+Flight battery 100 percent
+Flight battery 100 percent
+Flight battery 100 percent
+Flight battery 100 percent
+Flight battery 100 percent
+Unloading module link
+Unloading module log
+Unloading module signing
+Unloading module wp
+Unloading module rally
+Unloading module fence
+Unloading module ftp
+Unloading module param
+Unloading module relay
+Unloading module tuneopt
+Unloading module arm
+Unloading module mode
+Unloading module calibration
+Unloading module rc
+Unloading module auxopt
+Unloading module misc
+Unloading module cmdlong
+Unloading module battery
+Unloading module terrain
+Unloading module output
+Unloading module adsb
+Unloading module layout
+Exception in thread log_writer:
+Traceback (most recent call last):
+  File "/usr/lib/python3.8/threading.py", line 932, in _bootstrap_inner

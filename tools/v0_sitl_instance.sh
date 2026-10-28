@@ -32,7 +32,9 @@ if [[ "$PROFILE" == externalnav ]]; then
 else
   DEFAULTS="$DEFAULTS,$WS/src/indoor_nav/config/v0_sitl_gps.parm"
 fi
-sha256sum "$AP/build/sitl/bin/arducopter" "$WS/src/indoor_nav/config/v0_sitl_gps.parm" "$RUNTIME/flight.world" > "$RUNTIME/inputs.sha256"
+sha256sum "$AP/build/sitl/bin/arducopter" "$AP/Tools/autotest/default_params/copter.parm" \
+ "$AP/Tools/autotest/default_params/gazebo-iris.parm" "$WS/src/indoor_nav/config/v0_sitl_gps.parm" "$RUNTIME/flight.world" > "$RUNTIME/inputs.sha256"
+git -C "$AP" rev-parse HEAD > "$RUNTIME/ardupilot_commit.txt"
 export GAZEBO_MODEL_PATH="$GZ/models:$GZ/models_gazebo:$AP/Tools/autotest/models:${GAZEBO_MODEL_PATH:-}"
 export GAZEBO_RESOURCE_PATH="$GZ/worlds:${GAZEBO_RESOURCE_PATH:-}"
 export GAZEBO_PLUGIN_PATH="$GZ/build:${GAZEBO_PLUGIN_PATH:-}"
@@ -52,6 +54,7 @@ cleanup() {
 }
 trap cleanup EXIT INT TERM
 roscore -p 11421 > roscore.log 2>&1 & children+=("$!")
+roscore_pid="$!"
 for attempt in {1..30}; do rosparam list >/dev/null 2>&1 && break; sleep 1; done
 rosparam set /v0_sitl/isolated true
 rosparam set /v0_sitl/runtime "$RUNTIME"
@@ -63,6 +66,7 @@ echo "$!" > arducopter.pid
 sitl_pid="$!"
 roslaunch gazebo_ros empty_world.launch world_name:="$RUNTIME/flight.world" \
  paused:=false gui:=false use_sim_time:=false verbose:=true > gazebo.log 2>&1 & children+=("$!")
+gazebo_pid="$!"
 mavproxy.py --master=tcp:127.0.0.1:5760 --out=127.0.0.1:14672 --streamrate=25 \
  --source-system=245 --source-component=190 --daemon > mavproxy.log 2>&1 & children+=("$!")
 echo "$!" > mavproxy.pid
@@ -72,4 +76,7 @@ if [[ "$PROFILE" == externalnav ]]; then
   roslaunch indoor_nav indoor_nav_sitl.launch external_nav_enabled:=true sitl_covariance_adapter:=true \
    mission_file:="$WS/src/indoor_nav/config/mission_sitl_flight.yaml" > indoor.log 2>&1 & children+=("$!")
 fi
-wait -n
+while kill -0 "$sitl_pid" 2>/dev/null && kill -0 "$roscore_pid" 2>/dev/null && kill -0 "$gazebo_pid" 2>/dev/null; do
+  sleep 1
+done
+exit 1

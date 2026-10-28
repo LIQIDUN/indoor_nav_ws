@@ -1,0 +1,20 @@
+{
+  "git_commit": "a07623f34390065dab960944abf68c4005b5edc5",
+  "git_dirty": true,
+  "sha256": {
+    "src/indoor_nav/src/indoor_nav/v0.py": "3063e05962fa0064d6519d3499aaa017d5183b7fe121fe13d614a913c1a3ba44",
+    "src/indoor_nav/scripts/relative_mission_manager.py": "17f3095860900ca237d852fdfd936682c862ed8b69029fecbce3abb44020de4d",
+    "src/indoor_nav/scripts/v0_nav_health.py": "e737aab1474910d71d8aa8aedc0ccc666f75f7a2b909e3f8525df728fa6a582a",
+    "src/indoor_nav/launch/indoor_nav_v0.launch": "032965600a179f3e8050b3e6ad51bb7eeeb10a6b6e401ff4bcc4d0799fd930e7",
+    "src/indoor_nav/config/v0_sitl_gps.parm": "965806e915aad5ab94b9096d92e9ec4a6bfbfb51dfdf9387aa4dd4ffa17a6023",
+    "tools/v0_sitl_test.py": "251024a240db099c78b91249be92a25d5e7f2ca5dcabcae81f3e76a84066cc41",
+    "tools/v0_sitl_instance.sh": "f49ca8622d9d5da765e96962d6bd5a5cf0292fd2f15db39c68519d3ebc5fd244"
+  },
+  "runtime": "/home/liqidun/github/indoor_nav_ws/.sitl_runtime/v0/20261026T210828-3653143",
+  "original_hover_gate": {
+    "truth_z_gt_m": 0.85,
+    "speed_norm_lt_mps": 0.06,
+    "timeout_s": 35
+  },
+  "mission_yaml_sha256": "ab0acf9eb6ad11722ddbf9d2b9c3ec9c1fcf6cc0846e5f7f63bfca6d97bb7769"
+}

@@ -1,0 +1,1 @@
+{"event": "SHUTDOWN", "seq": 2, "mission_id": "20261027T143943-dry_run", "wall_s": 1793083220.563008, "ros_s": 1793083220.5630121, "mono_delta_s": 1.1756774929817766, "state": "IDLE", "max_publish_gap_s": 0.0, "max_pose_age_s": 0.038254482904449105, "warning": "no guaranteed braking; last FCU target may persist"}

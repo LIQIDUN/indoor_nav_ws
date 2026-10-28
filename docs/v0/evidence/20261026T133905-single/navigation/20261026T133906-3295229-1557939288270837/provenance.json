@@ -1,0 +1,11 @@
+{
+  "yaml_path": "/home/liqidun/github/indoor_nav_ws/docs/v0/evidence/20261026T133905-single/mission.yaml",
+  "yaml_sha256": "14999457aeae0204b25b8c030998446f08d2e32051f117ee344b634d17a9aea7",
+  "git_commit": "92f6e724d4ee9ba8c2a348d4ace108e561a4ef30",
+  "git_dirty": true,
+  "navigation_source": "fc_ekf_sitl_gps",
+  "control_enabled": true,
+  "setpoint_topic": "/mavros/setpoint_position/local",
+  "pid": 3295229,
+  "ros_master": "http://127.0.0.1:11421"
+}

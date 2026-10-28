@@ -1,0 +1,18 @@
+{
+  "workspace": "/home/liqidun/github/onboard_ros_sensor",
+  "git_commit": "51be539814869c80b1ebda6c0f9155ff00b03920",
+  "dirty_names": [
+    " M .gitignore",
+    " M analyze/plot_fft.py",
+    "?? analyze/README.md",
+    "?? analyze/inspect_bag_raw.py",
+    "?? analyze/rescue_bag.py"
+  ],
+  "read_only_source_sha256": {
+    "/home/liqidun/github/onboard_ros_sensor/ros_sensor/src/rs485_driver_sound/launch/all_sensors.launch": "e3c076af2695c74494063e5c06c2133e3a5ca1c296ee42230cfe978067f91d0c",
+    "/home/liqidun/github/onboard_ros_sensor/ros_sensor/src/rs485_driver_sound/scripts/auto_bag_recorder.py": "2884dae1121b9b4e4717e7fa19ec4ce320fb262889ab9c0d51f6bd4193996ff5",
+    "/home/liqidun/github/onboard_ros_sensor/ros_sensor/src/rs485_driver_sound/scripts/xvf3800_node.py": "9d95673876c1b6d10c385f1fb04adf9c9ad7c91f06d264d2c80a2c77e7cdc684"
+  },
+  "IM72_driver_found": false,
+  "limits": "local source inspection only; no hardware launch/device open; onboard latest deployment not verified"
+}

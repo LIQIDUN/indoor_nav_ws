@@ -1,0 +1,8 @@
+{
+  "result": "FAIL",
+  "case": "single",
+  "error": "start refused: EKF_STALE",
+  "evidence": "/home/liqidun/github/indoor_nav_ws/docs/v0/evidence/20261026T133905-single",
+  "start_wall_s": 1792993145.523248,
+  "end_wall_s": 1792993164.3782434
+}

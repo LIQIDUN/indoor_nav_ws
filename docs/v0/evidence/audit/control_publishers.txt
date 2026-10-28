@@ -1,0 +1,8 @@
+Type: geometry_msgs/PoseStamped
+
+Publishers: None
+
+Subscribers: 
+ * /mavros (http://127.0.0.1:42875/)
+
+

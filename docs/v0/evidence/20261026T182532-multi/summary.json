@@ -1,0 +1,8 @@
+{
+  "result": "FAIL",
+  "case": "multi",
+  "error": "timeout: hover state=header: \n  seq: 389\n  stamp: \n    secs: 1793010369\n    nsecs: 586963848\n  frame_id: ''\nconnected: True\narmed: True\nguided: True\nmanual_input: True\nmode: \"GUIDED\"\nsystem_status: 4 nav={'state': 'IDLE', 'mission_id': '20261026T182532-multi', 'wp': 0, 'reason': '', 'health': '', 'gate': '', 'control_enabled': True, 'evidence_dir': '/home/liqidun/github/indoor_nav_ws/docs/v0/evidence/20261026T182532-multi/navigation/20261026T182533-3526077-1575126623597767', 'pose_age_s': 0.023242579074576497, 'max_publish_gap_s': 0.0, 'ekf_report': {'flags': 831, 'ratios': [0.009027677588164806, 0.004763101693242788, 0.0014602744486182928, 0.006219094153493643, 0.0], 'healthy': True}}",
+  "evidence": "/home/liqidun/github/indoor_nav_ws/docs/v0/evidence/20261026T182532-multi",
+  "start_wall_s": 1793010332.817476,
+  "end_wall_s": 1793010375.984137
+}

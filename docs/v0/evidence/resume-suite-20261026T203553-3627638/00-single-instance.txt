@@ -1,0 +1,1 @@
+V0 SITL ready to inspect: /home/liqidun/github/indoor_nav_ws/.sitl_runtime/v0/20261026T203553-3627639 (no ARM, no navigation started)

@@ -1,0 +1,37 @@
+[31mWARNING: disk usage in log directory [/home/liqidun/.ros/log] is over 1GB.
+It's recommended that you use the 'rosclean' command.[0m
+... logging to /home/liqidun/.ros/log/a531a212-d1cd-11f1-bc59-710cf840f56d/roslaunch-liqidun-MS-Challenger-B650M-236077.log
+Checking log directory for disk usage. This may take a while.
+Press Ctrl-C to interrupt
+]2;/home/liqidun/github/indoor_nav_ws/src/indoor_nav/launch/indoor_nav_v0.launch
+[1mstarted roslaunch server http://127.0.0.1:46489/[0m
+
+SUMMARY
+========
+
+PARAMETERS
+ * /rosdistro: noetic
+ * /rosversion: 1.17.4
+ * /v0_nav_manager/dry_run: False
+ * /v0_nav_manager/enable_control: True
+ * /v0_nav_manager/evidence_dir: /home/liqidun/git...
+ * /v0_nav_manager/mission_file: /home/liqidun/git...
+ * /v0_nav_watchdog/dry_run: False
+ * /v0_nav_watchdog/enable_control: True
+ * /v0_nav_watchdog/evidence_dir: /home/liqidun/git...
+ * /v0_nav_watchdog/mission_file: /home/liqidun/git...
+
+NODES
+  /
+    v0_nav_manager (indoor_nav/relative_mission_manager.py)
+    v0_nav_watchdog (indoor_nav/v0_nav_health.py)
+
+[1mROS_MASTER_URI=http://127.0.0.1:11421[0m
+]2;/home/liqidun/github/indoor_nav_ws/src/indoor_nav/launch/indoor_nav_v0.launch http://127.0.0.1:11421
+[1mprocess[v0_nav_manager-1]: started with pid [236175][0m
+[1mprocess[v0_nav_watchdog-2]: started with pid [236176][0m
+[v0_nav_watchdog-2] killing on exit
+[v0_nav_manager-1] killing on exit
+shutting down processing monitor...
+... shutting down processing monitor complete
+[1mdone[0m

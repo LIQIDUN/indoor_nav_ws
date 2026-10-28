@@ -1,0 +1,171 @@
+{
+  "bag_readable": true,
+  "topics": {
+    "/mavros/global_position/gp_origin": {
+      "messages": 2,
+      "max_gap_s": 0.5715327262878418,
+      "rate_hz": 1.749681083872647
+    },
+    "/mavros/state": {
+      "messages": 30,
+      "max_gap_s": 1.0043787956237793,
+      "rate_hz": 1.167222283610734
+    },
+    "/gazebo/model_states": {
+      "messages": 25770,
+      "max_gap_s": 0.013095855712890625,
+      "rate_hz": 1000.0090651138709
+    },
+    "/mavlink/from": {
+      "messages": 18490,
+      "max_gap_s": 0.04080653190612793,
+      "rate_hz": 718.552866661681
+    },
+    "/mavros/global_position/raw/fix": {
+      "messages": 644,
+      "max_gap_s": 0.04772162437438965,
+      "rate_hz": 24.9947374709514
+    },
+    "/mavros/local_position/pose": {
+      "messages": 644,
+      "max_gap_s": 0.046111106872558594,
+      "rate_hz": 24.993312229542717
+    },
+    "/mavros/local_position/velocity_local": {
+      "messages": 644,
+      "max_gap_s": 0.04607224464416504,
+      "rate_hz": 24.993299953669112
+    },
+    "/v0_nav/status": {
+      "messages": 246,
+      "max_gap_s": 0.10054874420166016,
+      "rate_hz": 10.026358885980375
+    },
+    "/v0_nav/watchdog": {
+      "messages": 245,
+      "max_gap_s": 0.10684561729431152,
+      "rate_hz": 9.983277211205387
+    },
+    "/v0_nav/heartbeat": {
+      "messages": 244,
+      "max_gap_s": 0.10048770904541016,
+      "rate_hz": 9.992484498066457
+    },
+    "/v0_nav/event": {
+      "messages": 11,
+      "max_gap_s": 6.283184051513672,
+      "rate_hz": 0.7917695610907408
+    },
+    "/v0_nav/origin_pose": {
+      "messages": 1,
+      "max_gap_s": 0,
+      "rate_hz": 0
+    },
+    "/mavros/setpoint_position/local": {
+      "messages": 63,
+      "max_gap_s": 0.10032272338867188,
+      "rate_hz": 9.992711553320802
+    },
+    "/v0_nav/target_pose": {
+      "messages": 63,
+      "max_gap_s": 0.10047340393066406,
+      "rate_hz": 9.99281177460693
+    }
+  },
+  "pose_header_age_s": {
+    "count": 35,
+    "max": 0.04831719398498535,
+    "p99": 0.04831719398498535,
+    "rms": 0.030482134346731526
+  },
+  "waypoint_tracking": {
+    "0": {
+      "sample_count": 33,
+      "fcu_target_xy_error_m": {
+        "count": 33,
+        "max": 0.26061463412680885,
+        "p99": 0.26061463412680885,
+        "rms": 0.12094894725769542
+      },
+      "truth_target_xy_error_m": {
+        "count": 33,
+        "max": 0.2632753251540714,
+        "p99": 0.2632753251540714,
+        "rms": 0.11968551869498868
+      }
+    },
+    "1": {
+      "sample_count": 2,
+      "fcu_target_xy_error_m": {
+        "count": 2,
+        "max": 0.02261160906890951,
+        "p99": 0.02261160906890951,
+        "rms": 0.02216085857741696
+      },
+      "truth_target_xy_error_m": {
+        "count": 2,
+        "max": 0.023527779968747636,
+        "p99": 0.023527779968747636,
+        "rms": 0.023129133811739252
+      }
+    }
+  },
+  "state_events": [
+    {
+      "state": "WAIT_FOR_READY",
+      "wp": 0,
+      "ros_s": 1793010318.045008,
+      "mono_delta_s": 12.13668495300226,
+      "reason": ""
+    },
+    {
+      "state": "CAPTURE_ORIGIN",
+      "wp": 0,
+      "ros_s": 1793010318.0450976,
+      "mono_delta_s": 12.136774356011301,
+      "reason": ""
+    },
+    {
+      "state": "HOLD_INITIAL",
+      "wp": 0,
+      "ros_s": 1793010318.045148,
+      "mono_delta_s": 12.136823551962152,
+      "reason": ""
+    },
+    {
+      "state": "EXEC_WAYPOINT",
+      "wp": 0,
+      "ros_s": 1793010320.0465124,
+      "mono_delta_s": 14.138189649907872,
+      "reason": ""
+    },
+    {
+      "state": "DWELL",
+      "wp": 0,
+      "ros_s": 1793010322.6484017,
+      "mono_delta_s": 16.740079340990633,
+      "reason": "ARRIVED_STABLE"
+    },
+    {
+      "state": "DWELL_COMPLETE",
+      "wp": 0,
+      "ros_s": 1793010323.6491425,
+      "mono_delta_s": 17.74081945582293,
+      "reason": ""
+    },
+    {
+      "state": "FINISH_HOLD",
+      "wp": 1,
+      "ros_s": 1793010323.649243,
+      "mono_delta_s": 17.740921224001795,
+      "reason": ""
+    },
+    {
+      "state": "ABORT_LATCHED",
+      "wp": 1,
+      "ros_s": 1793010324.349612,
+      "mono_delta_s": 18.44128837599419,
+      "reason": "FCU_STATE_CHANGED"
+    }
+  ]
+}

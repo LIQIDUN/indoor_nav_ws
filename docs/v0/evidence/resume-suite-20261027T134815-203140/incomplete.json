@@ -1,0 +1,17 @@
+{
+  "error": "safe stop refused; leaving instance untouched, no next flight",
+  "runtime": "/home/liqidun/github/indoor_nav_ws/.sitl_runtime/v0/20261027T134815-203141",
+  "launcher_pid": 203141,
+  "completed": [
+    {
+      "case": "mavros_loss",
+      "test_exit_code": 1,
+      "runtime": "/home/liqidun/github/indoor_nav_ws/.sitl_runtime/v0/20261027T134815-203141",
+      "summaries": [
+        "docs/v0/evidence/20261027T134823-mavros_loss/summary.json"
+      ],
+      "launcher_pid": 203141,
+      "stop_exit_code": 1
+    }
+  ]
+}

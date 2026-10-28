@@ -1,0 +1,65 @@
+[
+  {
+    "directory": "/home/liqidun/github/indoor_nav_ws/.sitl_runtime/v0/20261026T133036-3287852",
+    "files": [
+      {
+        "path": "/home/liqidun/github/indoor_nav_ws/.sitl_runtime/v0/20261026T133036-3287852/eeprom.bin",
+        "size": 16384,
+        "sha256": "67fc79a141f52dcd36687e795676ad168775758aa5ddbd9f79a48a8b138c7379",
+        "git_ignored_local_only": true
+      },
+      {
+        "path": "/home/liqidun/github/indoor_nav_ws/.sitl_runtime/v0/20261026T133036-3287852/logs/00000001.BIN",
+        "size": 493060096,
+        "sha256": "fb157531be03dd807a9e706933f4f18c82ffc963b441165147dac4760c1f6e2b",
+        "git_ignored_local_only": true
+      },
+      {
+        "path": "/home/liqidun/github/indoor_nav_ws/.sitl_runtime/v0/20261026T133036-3287852/mav.tlog",
+        "size": 349036348,
+        "sha256": "bb3ce87b270adbd318661ca2cca97e481a54f647866e39df320b3bdeb5aab417",
+        "git_ignored_local_only": true
+      },
+      {
+        "path": "/home/liqidun/github/indoor_nav_ws/.sitl_runtime/v0/20261026T133036-3287852/mav.tlog.raw",
+        "size": 277239310,
+        "sha256": "1af74f6e9c65cd5fe9044c4046f147916e7e1f45509b8cb444058f7d6c22aea2",
+        "git_ignored_local_only": true
+      }
+    ]
+  },
+  {
+    "directory": "/home/liqidun/github/indoor_nav_ws/.sitl_runtime/v0/20261026T170942-3459028",
+    "files": [
+      {
+        "path": "/home/liqidun/github/indoor_nav_ws/.sitl_runtime/v0/20261026T170942-3459028/eeprom.bin",
+        "size": 16384,
+        "sha256": "7b539e9fe4d100dfc1a72f012b62d947612e366815f429e4c1de5286196c4575",
+        "git_ignored_local_only": true
+      }
+    ]
+  },
+  {
+    "directory": "/home/liqidun/github/indoor_nav_ws/.sitl_runtime/v0/20261026T175106-3491427",
+    "files": [
+      {
+        "path": "/home/liqidun/github/indoor_nav_ws/.sitl_runtime/v0/20261026T175106-3491427/eeprom.bin",
+        "size": 16384,
+        "sha256": "b65c8d038ef9aecef88abfd620c326a44639c7cee191ac863bfee6240f4c95dc",
+        "git_ignored_local_only": true
+      },
+      {
+        "path": "/home/liqidun/github/indoor_nav_ws/.sitl_runtime/v0/20261026T175106-3491427/mav.tlog",
+        "size": 6495702,
+        "sha256": "15625810415aa85168fc46c505c13bc057baae6ef92ba08d123ab69d09ace445",
+        "git_ignored_local_only": true
+      },
+      {
+        "path": "/home/liqidun/github/indoor_nav_ws/.sitl_runtime/v0/20261026T175106-3491427/mav.tlog.raw",
+        "size": 4360605,
+        "sha256": "09073c439f61f6ccdb3a9539df17cf9b84bdd810db3a8d86957d1e60559844c5",
+        "git_ignored_local_only": true
+      }
+    ]
+  }
+]

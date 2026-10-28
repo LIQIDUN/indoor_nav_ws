@@ -1,0 +1,13 @@
+[INFO] [1793081705.003130432]: Subscribing to /mavros/state
+[INFO] [1793081705.004724791]: Subscribing to /motor_mic/audio_raw
+[INFO] [1793081705.005716143]: Subscribing to /sound_sensor/audio_raw
+[INFO] [1793081705.006728476]: Subscribing to /v0_nav/status
+[INFO] [1793081705.007965611]: Subscribing to /v0_nav/watchdog
+[INFO] [1793081705.012466458]: Recording to '/home/liqidun/github/indoor_nav_ws/docs/v0/evidence/20261027T141427-f3_auto_bag/auto/isolated_2026-10-27-14-15-05.bag'.
+[INFO] [1793081703.663924]: 自动录包节点已启动。保存路径: /home/liqidun/github/indoor_nav_ws/docs/v0/evidence/20261027T141427-f3_auto_bag/auto
+[INFO] [1793081703.664404]: 当前测试批次前缀: isolated
+[INFO] [1793081703.665008]: 等待飞控解锁 (ARM) ...
+[INFO] [1793081704.776227]: 启动 rosbag 命令: rosbag record -o /home/liqidun/github/indoor_nav_ws/docs/v0/evidence/20261027T141427-f3_auto_bag/auto/isolated /mavros/state /sound_sensor/audio_raw /motor_mic/audio_raw /v0_nav/status /v0_nav/watchdog
+[INFO] [1793081704.779804]: [92m[开始录制] 飞机已解锁，文件前缀: isolated[0m
+[INFO] [1793081728.792748]: [93m[停止录制] 飞机已上锁，正在安全关闭 rosbag...[0m
+[INFO] [1793081729.207845]: [92m[保存完成] Rosbag 已安全落盘。[0m

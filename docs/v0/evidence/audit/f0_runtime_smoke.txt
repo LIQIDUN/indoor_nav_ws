@@ -1,0 +1,180 @@
+test_imu_topic_and_range_in_use (test_cold_start_static.ColdStartSmoke) ... ok
+test_math_transform (test_cold_start_static.ColdStartSmoke) ... ok
+test_no_local_ekf_pose_dependency (test_cold_start_static.ColdStartSmoke) ... ok
+test_installed_eigen_dense_nan_transport (test_covariance_transport.EigenTransport) ... ok
+test_latched_mission_state_not_heartbeat (test_flight_runner_ros.FlightRunner) ... ok
+test_wrong_fcu_url_rejected_before_fc_services (test_flight_runner_ros.FlightRunner) ... ok
+test_wrong_master_rejected_before_fc_services (test_flight_runner_ros.FlightRunner) ... ok
+test_clock_rewind_is_latched_until_disarmed_reset (test_freeze_ros.SupervisorFreeze) ... ok
+test_decoded_velocity_drives_world_predictive_fence (test_freeze_ros.SupervisorFreeze) ... ok
+test_first_target_uses_existing_deadline_without_forwarding (test_freeze_ros.SupervisorFreeze) ... ok
+test_invalid_frame_and_truth_failure_not_freeze (test_freeze_ros.SupervisorFreeze) ... ok
+test_large_future_and_expired_pending_velocity_fail_closed (test_freeze_ros.SupervisorFreeze) ... ok
+test_new_world_messages_are_not_new_uwb_samples (test_freeze_ros.SupervisorFreeze) ... ok
+test_odometry_decode_preserves_stamp_and_stale_guard (test_freeze_ros.SupervisorFreeze) ... ok
+test_old_header_replayed_with_new_receipt_is_not_fresh (test_freeze_ros.SupervisorFreeze) ... ok
+test_publisher_stop_retains_window_in_abort_snapshot (test_freeze_ros.SupervisorFreeze) ... ok
+test_small_future_velocity_waits_without_retimestamping (test_freeze_ros.SupervisorFreeze) ... ok
+test_stationary_truth_does_not_trigger_despite_ekf_speed (test_freeze_ros.SupervisorFreeze) ... ok
+test_trigger_snapshot_and_land_gate (test_freeze_ros.SupervisorFreeze) ... ok
+test_actual_flight_stationary_truth_and_drifting_ekf_is_not_freeze (test_freeze_window.FreezeTests) ... ok
+test_dataflash_343_replay_reproduces_old_false_alarm (test_freeze_window.FreezeTests) ... ok
+test_frozen_gazebo_pose_with_moving_twist_is_source_anomaly (test_freeze_window.FreezeTests) ... ok
+test_frozen_uwb_with_independent_movement_triggers (test_freeze_window.FreezeTests) ... ok
+test_full_window_snapshot_is_detached_from_reset (test_freeze_window.FreezeTests) ... ok
+test_gaps_rewind_and_source_change_clear_history (test_freeze_window.FreezeTests) ... ok
+test_low_speed_resets_hardware_motion_evidence (test_freeze_window.FreezeTests) ... ok
+test_normal_motion_and_hover (test_freeze_window.FreezeTests) ... ok
+test_out_and_back_not_mistaken_for_static (test_freeze_window.FreezeTests) ... ok
+test_timer_reusing_sample_does_not_build_window (test_freeze_window.FreezeTests) ... ok
+test_home_and_origin_acceptance_includes_altitude (test_gui_preparation.GuiPreparationTests) ... ok
+test_invalid_home_rejected (test_gui_preparation.GuiPreparationTests) ... ok
+test_other_ros_master_rejected_before_any_service (test_gui_preparation.GuiPreparationTests) ... ok
+test_parameter_event_can_record_parameter_name (test_gui_preparation.GuiPreparationTests) ... {"event": "SITL_PARAMETER", "wall_s": 1793009519.8697126, "name": "ARMING_CHECK", "before": 0, "after": 1}
+ok
+test_unsafe_velocity_source_rejected_before_mutations (test_gui_preparation.GuiPreparationTests) ... ok
+test_large_future_stale_and_expired_pending_are_rejected (test_imu_publication_ros.ImuPublication) ... ok
+test_recorded_baseline_timing_replay (test_imu_publication_ros.ImuPublication) ... ok
+test_small_future_header_waits_without_restamping_or_freshening (test_imu_publication_ros.ImuPublication) ... ok
+test_stop_and_resume_snapshots_preserve_gates (test_imu_publication_ros.ImuPublication) ... ok
+test_transport_stop_distinct_from_healthy_world (test_imu_publication_ros.ImuPublication) ... ok
+test_frequency_gaps_and_censored_edges (test_mavlink_tools.StreamTools) ... ok
+test_sitl_defaults_and_explicit_rollback_without_launching (test_mavlink_tools.StreamTools) ... ok
+test_localization_diagnostics_identifies_disconnect_and_range_loss (test_mock_faults_ros.EstimatorPublication) ... ok
+test_clock_stall_drops_truth_even_if_pose_callbacks_continue (test_mock_faults_ros.MockFaults) ... ok
+test_drop_all_stops_uwb_but_not_range (test_mock_faults_ros.MockFaults) ... ok
+test_freeze_injection_keeps_range_and_changes_truth (test_mock_faults_ros.MockFaults) ... ok
+test_fresh_stationary_truth_keeps_publishing (test_mock_faults_ros.MockFaults) ... ok
+test_missing_invalid_truth_clears_delayed_queue (test_mock_faults_ros.MockFaults) ... ok
+test_combined_attitude_inverse_and_norm (test_navigation_velocity.NavigationVelocity) ... ok
+test_pitch_horizontal_projection (test_navigation_velocity.NavigationVelocity) ... ok
+test_reject_bad_frames_nan_and_quaternion (test_navigation_velocity.NavigationVelocity) ... ok
+test_roll_horizontal_projection (test_navigation_velocity.NavigationVelocity) ... ok
+test_yaws (test_navigation_velocity.NavigationVelocity) ... ok
+test_truth_to_mock_to_world_to_odometry_and_loss (test_pipeline_ros_messages.Pipeline) ... ok
+test_callback_gap_reported_without_faking_a_health_failure (test_publication.PublicationAccounting) ... ok
+test_clock_rewind_does_not_report_negative_outage (test_publication.PublicationAccounting) ... ok
+test_stop_reason_change_recovery_and_last_success (test_publication.PublicationAccounting) ... ok
+test_ack_is_not_ready_and_reset (test_safety_behavior.SafetyBehavior) ... ok
+test_dynamic_increment_and_faults (test_safety_behavior.SafetyBehavior) ... ok
+test_freeze_requires_motion_evidence (test_safety_behavior.SafetyBehavior) ... ok
+test_ground_and_strict_height (test_safety_behavior.SafetyBehavior) ... ok
+test_stale_and_wrong_frame (test_safety_behavior.SafetyBehavior) ... ok
+test_start_never_arms_or_switches (test_safety_behavior.SafetyBehavior) ... ok
+test_cardinal_yaws_and_z_up (test_v0.Coordinates) ... ok
+test_invalid_quaternion (test_v0.Coordinates) ... ok
+test_nonfinite_position (test_v0.Coordinates) ... ok
+test_quaternion_normalization_and_wrap (test_v0.Coordinates) ... ok
+test_ekf_report_wire_layout_and_mavlink2_truncation (test_v0.FcuLimits) ... ok
+test_units (test_v0.FcuLimits) ... ok
+test_unknown_versions_and_parameters (test_v0.FcuLimits) ... ok
+test_ekf_origin_change_latches_even_without_pose_jump (test_v0.NavigationHealth) ... ok
+test_freeze_requires_sustained_velocity_not_single_spike (test_v0.NavigationHealth) ... ok
+test_jump_nan_quaternion_and_frames (test_v0.NavigationHealth) ... ok
+test_mavros_1201_velocity_local_enu_with_child_label (test_v0.NavigationHealth) ... ok
+test_stale_pose_and_duplicate_stamp (test_v0.NavigationHealth) ... ok
+test_stationary_not_freeze (test_v0.NavigationHealth) ... ok
+test_upstream_required_for_fake_gps (test_v0.NavigationHealth) ... ok
+test_bad_schemas (test_v0.Schema) ... ok
+test_duplicate_yaml_keys (test_v0.Schema) ... ok
+test_launch_is_navigation_only (test_v0.Schema) ... ok
+test_no_production_unsafe_apis (test_v0.Schema) ... ok
+test_sample_and_defaults (test_v0.Schema) ... ok
+test_arrival_continuous_stability_and_dwell_reset (test_v0.StateMachine) ... ok
+test_clock_and_cycle_faults (test_v0.StateMachine) ... ok
+test_disarm_disconnect_ekf_and_watchdog (test_v0.StateMachine) ... ok
+test_double_start_and_latched_abort (test_v0.StateMachine) ... ok
+test_fence_and_sustained_overspeed (test_v0.StateMachine) ... ok
+test_fixed_origin_despite_yaw_change (test_v0.StateMachine) ... ok
+test_mode_exit_and_no_resume (test_v0.StateMachine) ... ok
+test_normal_finish_does_not_stop_hold (test_v0.StateMachine) ... ok
+test_pose_stale (test_v0.StateMachine) ... ok
+test_timeout (test_v0.StateMachine) ... ok
+test_duplicate_disorder_and_wrap (test_velocity.TimingTests) ... ok
+test_missing_time_and_receipt_rewind (test_velocity.TimingTests) ... ok
+test_adapter_refuses_hardware_wrong_version_low_noise_or_any_external_velocity (test_velocity.TransportTests) ... ok
+test_old_covariance_saturates_unknown_uses_configured_floor (test_velocity.TransportTests) ... ok
+test_huber_window_reduces_outlier_effect (test_velocity.VelocityTests) ... ok
+test_initialization_stale_gap_rewind (test_velocity.VelocityTests) ... ok
+test_linear_velocity_covariance_delay (test_velocity.VelocityTests) ... ok
+test_native_and_derived_lever_arm_compensation (test_velocity.VelocityTests) ... ok
+test_native_selection_requires_fresh_verified_data (test_velocity.VelocityTests) ... ok
+test_rejected_nonfinite_and_excessive_velocity (test_velocity.VelocityTests) ... ok
+test_rotation_never_adds_translation_and_body_frd (test_velocity.VelocityTests) ... ok
+test_static_freeze_is_ambiguous_not_valid_zero (test_velocity.VelocityTests) ... ok
+test_adapter_preserves_ros_covariance_and_checks_freshness (test_velocity_ros.ShadowROS) ... ok
+test_adapter_readonly_validation_and_fail_closed (test_velocity_ros.ShadowROS) ... ok
+test_native_requires_evidence (test_velocity_ros.ShadowROS) ... ok
+test_shadow_only_and_stale_or_freeze_stops_publication (test_velocity_ros.ShadowROS) ... ok
+
+----------------------------------------------------------------------
+Ran 107 tests in 1.056s
+
+OK
+test_box (test_core.TestCore) ... ok
+test_eop (test_core.TestCore) ... ok
+test_gate_jump_and_timeout (test_core.TestCore) ... ok
+test_ground_bias (test_core.TestCore) ... ok
+test_outlier_reference (test_core.TestCore) ... ok
+test_step_limiter (test_core.TestCore) ... ok
+test_tag_extrinsic_rotates_with_aircraft_yaw (test_core.TestCore) ... ok
+test_transform_roundtrip (test_core.TestCore) ... ok
+test_yaw_rotation (test_core.TestCore) ... ok
+
+----------------------------------------------------------------------
+Ran 9 tests in 0.000s
+
+OK
+PASS FC connected 
+FC armed=False mode=STABILIZE
+PASS DISARMED smoke prerequisite 
+Effective safety parameters: {"check_fc_params": true, "config_source": "/home/liqidun/github/indoor_nav_ws/src/indoor_nav/config/safety_sitl.yaml", "expected_profile": "sitl", "frame_id": "world_lab", "freeze_detection": {"enabled": true, "min_speed_mps": 0.2, "movement_epsilon_m": 0.015, "window_s": 1.0}, "geofence": {"x_max": 1.1, "x_min": -1.1, "y_max": 1.1, "y_min": -1.1, "z_max": 1.3, "z_min": 0.3}, "mission": {"fence_prediction_s": 0.35, "max_xy_speed_mps": 0.4, "max_z_speed_mps": 0.2, "setpoint_timeout_s": 0.5}, "operator_verified_fixed_ekf_origin": true, "profile": "sitl"}
+PASS profile matches launch 
+PASS FC parameter checking enabled 
+PASS consistent world frame 
+PASS waypoint 0 
+PASS waypoint 1 
+PASS waypoint 2 
+PASS waypoint 3 
+PASS waypoint 4 
+PASS waypoint 5 
+PASS waypoint 6 
+PASS waypoint 7 
+PASS waypoint 8 
+PASS waypoint 9 
+PASS nonempty route 
+PASS localization healthy 
+Safety ready=False reason=OPERATOR_NOT_ACKNOWLEDGED
+Node snapshot: {"freeze": {"now_s": 1793009520.9316733, "world_receipt_age_s": 0.019213199615478516, "world_header_age_s": 0.019594669342041016, "velocity_receipt_age_s": 0.03548860549926758, "velocity_header_age_s": 0.03034806251525879, "world_xyz": [-0.0007596501126522215, -0.0011544146188875448, -0.0002330007902351383], "velocity_frame": "map", "velocity_source": "/mavros/local_position/odom", "velocity_source_error": null, "velocity_pending_header_s": null, "velocity_future_hold_limit_s": 0.02, "uwb_age_s": 0.022460222244262695, "range_age_s": 0.030702829360961914, "fc_connected": true, "fc_age_s": 0.6224470138549805, "fc_armed": false, "fc_mode": "STABILIZE", "mission_state": "IDLE", "uwb_receipt_age_s": 0.0019567012786865234, "uwb_header_age_s": 0.0021469593048095703, "uwb_sample_stamp_s": 1793009520.9295263, "uwb_frame": "uwb_anchor", "velocity_nav_xy": [0.02122831530869006, -0.012694002129137523], "velocity_world_xy": [-0.017031417761080574, -0.017936272465238195], "truth_age_s": 0.0017406940460205078, "gazebo_clock_s": 84.702, "clock_progress_age_s": 0.0017750263214111328, "truth_velocity_xy": [-1.1691415539861415e-07, 6.320812716743759e-06], "truth_speed_mps": 6.321893887110269e-06, "classification": "STATIONARY", "triggered": false, "motion_source": "GAZEBO_TRUTH", "duration_s": 1.0000076293945312, "window_s": 1.0, "movement_epsilon_m": 0.015, "min_speed_mps": 0.2, "uwb_span_m": 9.853463260546817e-07, "truth_span_m": 9.852477812467554e-07, "motion_path_m": 9.852478306266938e-07, "motion_mean_speed_mps": 9.852403138396315e-07, "ekf_speed_min_mps": 0.02017236408597087, "ekf_speed_max_mps": 0.024916040352006747, "sample_count": 21}, "reason": "OPERATOR_NOT_ACKNOWLEDGED", "profile": "sitl", "config_source": "/home/liqidun/github/indoor_nav_ws/src/indoor_nav/config/safety_sitl.yaml", "geofence": {"x_min": -1.1, "x_max": 1.1, "y_min": -1.1, "y_max": 1.1, "z_min": 0.3, "z_max": 1.3}, "world_xyz": [-0.0007596501126522215, -0.0011544146188875448, -0.0002330007902351383], "frame_id": "world_lab", "armed": false, "mode": "STABILIZE", "world_age_s": 0.019213199615478516, "localization_age_s": 0.019177913665771484, "uwb_age_s": 0.022460222244262695, "laser_age_s": 0.030702829360961914}
+PASS node snapshot matches ROS params 
+world XYZ: (-0.0007596501126522215, -0.0011544127562423956, -0.00023289364388565104)
+PASS world pose frame 
+PASS EKF origin received 
+PASS GPS_TYPE 0 expected 0
+PASS AHRS_EKF_TYPE 3 expected 3
+PASS EK3_ENABLE 1 expected 1
+PASS VISO_TYPE 3 expected 3
+PASS VISO_POS_X 0 expected 0
+PASS VISO_POS_Y 0 expected 0
+PASS VISO_POS_Z 0 expected 0
+PASS EK3_SRC1_POSXY 6 expected 6
+PASS EK3_SRC1_VELXY 0 expected 0
+PASS EK3_SRC1_POSZ 1 expected 1
+PASS EK3_SRC1_VELZ 0 expected 0
+PASS EK3_SRC1_YAW 1 expected 1
+PASS node /mock_uwb_node 
+PASS node /world_estimator 
+PASS node /safety_supervisor 
+PASS node /mission_manager 
+PASS node /mavros 
+PASS service /indoor_nav/safety/acknowledge 
+PASS service /indoor_nav/safety/reset 
+PASS service /indoor_nav/mission/start 
+PASS service /indoor_nav/mission/stop 
+PASS independent Gazebo source {'source': 'gazebo_model_states', 'topic': '/gazebo/model_states', 'model_name': 'iris'}
+PASS actual mock subscription 
+PASS TF odom_ned <- odom 
+PASS TF expected axis conversion odom_ned 
+PASS TF base_link_frd <- base_link 
+PASS TF expected axis conversion base_link_frd 
+WARN FC fusion and dynamic increments require fresh cold-start logs; this snapshot cannot certify flight.

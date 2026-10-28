@@ -1,0 +1,83 @@
+schema_version: 1
+mission_id: 20261027T141427-f3_auto_bag
+navigation:
+  vehicle: ArduCopter
+  source: fc_ekf_sitl_gps
+  require_upstream_health: false
+reference:
+  origin: pose_at_mission_start
+  heading: yaw_at_mission_start
+  axes: forward_right_up
+start_policy:
+  require_operator_start: true
+  require_manual_takeoff: true
+  require_stable_hover: true
+  require_guided_mode: true
+  auto_arm: false
+  auto_takeoff: false
+  auto_land: false
+control:
+  dry_run_default: true
+  setpoint_rate_hz: 10.0
+  yaw_policy: hold_initial_yaw
+  exit_action: brake_if_position_healthy
+motion:
+  speed_xy_mps: 0.2
+  max_speed_xy_mps: 0.3
+  speed_enforcement: verify_fcu_limit
+arrival:
+  xy_tolerance_m: 0.12
+  z_tolerance_m: 0.08
+  stable_time_s: 1.5
+  max_waypoint_time_s: 15.0
+safety:
+  max_offset_xy_m: 0.8
+  max_offset_z_m: 0.2
+  pose_timeout_s: 0.35
+  state_timeout_s: 3.0
+  velocity_timeout_s: 0.5
+  gps_timeout_s: 3.0
+  ekf_timeout_s: 3.0
+  future_tolerance_s: 0.1
+  jump_distance_m: 0.35
+  overspeed_duration_s: 0.8
+  max_speed_z_mps: 0.2
+  hover_time_s: 2.0
+  hover_speed_mps: 0.08
+  hover_radius_m: 0.08
+  hover_yaw_rad: 0.15
+  max_tilt_rad: 0.35
+  initial_hold_s: 2.0
+  clock_tolerance_s: 0.5
+  cycle_timeout_s: 0.5
+  freeze_window_s: 1.5
+  freeze_distance_m: 0.005
+  freeze_speed_mps: 0.12
+  upstream_timeout_s: 1.0
+  watchdog_timeout_s: 0.6
+  abort_on_mode_change: true
+  abort_on_localization_loss: true
+  prevent_auto_resume: true
+waypoints:
+- id: forward
+  x: 0.25
+  y: 0.0
+  z: 0.0
+  hold_s: 1.0
+- id: right
+  x: 0.25
+  y: 0.25
+  z: 0.0
+  hold_s: 1.0
+- id: back
+  x: 0.0
+  y: 0.25
+  z: 0.1
+  hold_s: 1.0
+- id: return
+  x: 0.0
+  y: 0.0
+  z: 0.0
+  hold_s: 1.0
+finish:
+  action: hold_and_wait_pilot

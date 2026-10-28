@@ -4,10 +4,26 @@ import argparse
 import os
 from pathlib import Path
 import signal
+import socket
+import time
+import xmlrpc.client
 
 import psutil
 import rospy
 from mavros_msgs.msg import State
+
+
+def wait_exit(process, timeout):
+    deadline = time.monotonic() + timeout
+    while time.monotonic() < deadline:
+        try:
+            gone = not process.is_running() or process.status() == psutil.STATUS_ZOMBIE
+        except psutil.NoSuchProcess:
+            gone = True
+        if gone:
+            return
+        time.sleep(.1)
+    raise psutil.TimeoutExpired(timeout, pid=process.pid)
 
 
 if __name__ == '__main__':
@@ -16,6 +32,10 @@ if __name__ == '__main__':
     parser.parse_args()
     if os.environ.get('ROS_MASTER_URI') != 'http://127.0.0.1:11421':
         raise RuntimeError('wrong master')
+    socket.setdefaulttimeout(2.)
+    code, _, _ = xmlrpc.client.ServerProxy(os.environ['ROS_MASTER_URI']).getPid('/v0_sitl_stop_probe')
+    if code != 1:
+        raise RuntimeError('isolated master unavailable; no processes signalled')
     rospy.init_node('v0_sitl_stop', anonymous=True)
     state = rospy.wait_for_message('/mavros/state', State, timeout=5)
     if not state.connected or state.armed:
@@ -32,13 +52,13 @@ if __name__ == '__main__':
         raise RuntimeError('wrong launcher parent')
     launcher.send_signal(signal.SIGINT)
     try:
-        launcher.wait(timeout=8)
+        wait_exit(launcher, 8)
     except psutil.TimeoutExpired:
         if sitl.is_running() and sitl.ppid() == launcher.pid:
             sitl.terminate()
             try:
-                sitl.wait(timeout=5)
+                wait_exit(sitl, 5)
             except psutil.TimeoutExpired:
                 sitl.kill()
-        launcher.wait(timeout=10)
+        wait_exit(launcher, 10)
     print('Requested PID-scoped disarmed SITL shutdown:', launcher.pid, runtime)

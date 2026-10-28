@@ -1,0 +1,1 @@
+Requested PID-scoped disarmed SITL shutdown: 222902 /home/liqidun/github/indoor_nav_ws/.sitl_runtime/v0/20261027T140520-222902

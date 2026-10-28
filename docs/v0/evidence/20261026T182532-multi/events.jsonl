@@ -1,0 +1,1 @@
+{"event": "SHUTDOWN", "seq": 2, "mission_id": "20261026T182532-multi", "wall_s": 1793010374.715622, "ros_s": 1793010374.7156262, "mono_delta_s": 41.10322657506913, "state": "IDLE", "max_publish_gap_s": 0.0, "max_pose_age_s": 0.04460537200793624, "warning": "no guaranteed braking; last FCU target may persist"}

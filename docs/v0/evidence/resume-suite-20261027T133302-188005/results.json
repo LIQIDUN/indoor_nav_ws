@@ -1,0 +1,35 @@
+[
+  {
+    "case": "abort",
+    "test_exit_code": 0,
+    "runtime": "/home/liqidun/github/indoor_nav_ws/.sitl_runtime/v0/20261027T133302-188006",
+    "summaries": [
+      "docs/v0/evidence/20261027T133310-abort/summary.json"
+    ],
+    "launcher_pid": 188006,
+    "stop_exit_code": 0,
+    "ports_released": true
+  },
+  {
+    "case": "manager_kill",
+    "test_exit_code": 0,
+    "runtime": "/home/liqidun/github/indoor_nav_ws/.sitl_runtime/v0/20261027T133516-190437",
+    "summaries": [
+      "docs/v0/evidence/20261027T133524-manager_kill/summary.json"
+    ],
+    "launcher_pid": 190437,
+    "stop_exit_code": 0,
+    "ports_released": true
+  },
+  {
+    "case": "pose_loss",
+    "test_exit_code": 0,
+    "runtime": "/home/liqidun/github/indoor_nav_ws/.sitl_runtime/v0/20261027T133731-193015",
+    "summaries": [
+      "docs/v0/evidence/20261027T133739-pose_loss/summary.json"
+    ],
+    "launcher_pid": 193015,
+    "stop_exit_code": 0,
+    "ports_released": true
+  }
+]

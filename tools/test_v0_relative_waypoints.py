@@ -32,8 +32,9 @@ def main():
         result['publishers'] = rosgraph.Master(rospy.get_name()).getSystemState()[0]
         if result['status']['control_enabled']:
             raise RuntimeError('read-only smoke expects control disabled')
-        if '/v0_nav_manager' in dict(result['publishers']).get('/mavros/setpoint_position/local', []):
-            raise RuntimeError('read-only manager unexpectedly owns a control publisher')
+        controllers = dict(result['publishers']).get('/mavros/setpoint_position/local', [])
+        if set(controllers) & {'/v0_nav_manager', '/v0_nav_watchdog'}:
+            raise RuntimeError('read-only V0 unexpectedly owns a control publisher')
     print(json.dumps(result, indent=2))
 
 

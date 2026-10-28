@@ -1,0 +1,4 @@
+docs/ArduCopter_V0相对航点_完整项目设计与验收文档.md: OK
+docs/Codex_开发提示词_ArduCopter_V0相对航点.md: OK
+docs/README_使用说明.md: OK
+docs/mission_v0_copter.yaml: OK
