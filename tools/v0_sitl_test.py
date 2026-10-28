@@ -44,6 +44,12 @@ def test_waypoints(case):
             dict(id='return', x=0., y=0., z=0., hold_s=1.)]
 
 
+def active_bag_bytes(directory, process, pattern='*.bag.active'):
+    if process.poll() is not None:
+        raise RuntimeError('recorder exited before live recording check')
+    return sum(path.stat().st_size for path in directory.glob(pattern))
+
+
 def identity():
     if os.environ.get('ROS_MASTER_URI') != MASTER or not rospy.get_param('/v0_sitl/isolated', False):
         raise RuntimeError('not the isolated V0 ROS master')
@@ -510,8 +516,13 @@ class FlightTest:
         self.bag = subprocess.Popen(['rosbag', 'record', '-O', str(self.directory / 'after_recorder.bag'),
                                     '/sound_sensor/audio_raw', '/motor_mic/audio_raw', '/v0_nav/watchdog', '/mavros/state'],
                                    stdout=(self.directory / 'rosbag_restart.txt').open('w'), stderr=subprocess.STDOUT)
+        self.wait(lambda: active_bag_bytes(self.directory, self.bag, 'after_recorder*.bag.active') > 0,
+                  10, 'replacement recorder live file')
+        if self.auto_recorder:
+            self.wait(lambda: active_bag_bytes(self.directory / 'auto', self.auto_recorder) > 0,
+                      10, 'automatic ARM recorder live file')
         self.wait(lambda: self.status.get('state') == 'EXEC_WAYPOINT' and self.status.get('wp', 0) >= 1, 30, 'execution before node kill')
-        before = (self.directory / 'after_recorder.bag.active').stat().st_size
+        before = active_bag_bytes(self.directory, self.bag, 'after_recorder*.bag.active')
         automatic_before = sum(path.stat().st_size for path in (self.directory / 'auto').glob('*.bag.active'))
         killed, failed = rosnode.kill_nodes(['/v0_nav_manager'])
         if failed:
@@ -520,7 +531,7 @@ class FlightTest:
         while time.monotonic() < deadline:
             self.sample()
             time.sleep(.1)
-        after = (self.directory / 'after_recorder.bag.active').stat().st_size
+        after = active_bag_bytes(self.directory, self.bag, 'after_recorder*.bag.active')
         automatic_after = sum(path.stat().st_size for path in (self.directory / 'auto').glob('*.bag.active'))
         if self.mock.poll() is not None or self.bag.poll() is not None or after <= before:
             raise RuntimeError('acquisition did not survive active manager kill')

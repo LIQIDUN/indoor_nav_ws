@@ -50,7 +50,7 @@ if __name__ == '__main__':
     launcher = sitl.parent()
     if not any(argument.endswith('v0_sitl_instance.sh') for argument in launcher.cmdline()) or '--sitl' not in launcher.cmdline():
         raise RuntimeError('wrong launcher parent')
-    launcher.send_signal(signal.SIGINT)
+    launcher.send_signal(signal.SIGTERM)
     try:
         wait_exit(launcher, 8)
     except psutil.TimeoutExpired:

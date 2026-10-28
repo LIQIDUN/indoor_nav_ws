@@ -1,6 +1,8 @@
 import importlib.util
 from pathlib import Path
+import tempfile
 import unittest
+from unittest.mock import Mock
 
 from test_pipeline_ros_messages import ROS
 
@@ -22,3 +24,16 @@ class FlightDriver(unittest.TestCase):
         self.assertEqual([point['z'] for point in driver.test_waypoints('altitude')], [.1, 0.])
         self.assertEqual(driver.test_waypoints('distance_short')[0]['x'], .15)
         self.assertEqual(driver.test_waypoints('distance_long')[0]['x'], .5)
+
+    def test_live_recorder_waits_for_active_file_not_closed_bag(self):
+        process = Mock()
+        process.poll.return_value = None
+        with tempfile.TemporaryDirectory() as directory:
+            path = Path(directory)
+            (path / 'after_recorder.bag').write_bytes(b'closed')
+            self.assertEqual(driver.active_bag_bytes(path, process), 0)
+            (path / 'after_recorder.bag.active').write_bytes(b'live')
+            self.assertEqual(driver.active_bag_bytes(path, process), 4)
+            process.poll.return_value = 1
+            with self.assertRaises(RuntimeError):
+                driver.active_bag_bytes(path, process)

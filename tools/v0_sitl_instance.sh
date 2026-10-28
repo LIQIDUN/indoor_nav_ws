@@ -54,7 +54,7 @@ cleanup() {
     sleep 2
     kill -KILL "$sitl_pid" 2>/dev/null || true
   fi
-  kill -INT "${children[@]}" 2>/dev/null || true
+  kill -TERM "${children[@]}" 2>/dev/null || true
   wait || true
 }
 trap cleanup EXIT INT TERM
