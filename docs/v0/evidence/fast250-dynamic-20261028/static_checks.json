@@ -1,0 +1,23 @@
+{
+  "result": "PASS",
+  "production_sha256": {
+    "src/indoor_nav/src/indoor_nav/v0.py": "9ee22c8a9304f742eb723ccab3a3d92cd5683be734d43afdd5e23266711a2bb5",
+    "src/indoor_nav/scripts/relative_mission_manager.py": "170a0a504e953477dab9f17ace7dbe054e26cf1bb901f6a3cdfd2def8eb217e3",
+    "src/indoor_nav/scripts/v0_nav_health.py": "2e5f830937d570d88421e4349d2cb6a4b0832771fe7dc74377be794ae2b5fb06"
+  },
+  "forbidden_control_apis_absent": true,
+  "navigation_launch_no_include_two_nodes": true,
+  "legacy_paths_no_diff_from_af681a7": [
+    "src/indoor_nav/scripts/mission_manager.py",
+    "src/indoor_nav/scripts/safety_supervisor.py",
+    "src/indoor_nav/scripts/world_estimator.py",
+    "tools/sitl_flight_instance.sh",
+    "docs/evidence/sitl_flight/run_06"
+  ],
+  "user_originals_sha256": {
+    "docs/Codex_\u5f00\u53d1\u63d0\u793a\u8bcd_ArduCopter_V0\u76f8\u5bf9\u822a\u70b9.md": "ca7fd3a69813885692d05220d58dd3e4f999f03ebed06487d60aba8c810476a0",
+    "docs/README_\u4f7f\u7528\u8bf4\u660e.md": "fc1c4def6b23b58712f7e6e1c93f94887f0ec12819f9e6af5d7701d0cd360768",
+    "docs/mission_v0_copter.yaml": "43061dfa0440a847ebcbd7e846adb6db3c73b2589d041feac102ad52f547311b",
+    "docs/ArduCopter_V0\u76f8\u5bf9\u822a\u70b9_\u5b8c\u6574\u9879\u76ee\u8bbe\u8ba1\u4e0e\u9a8c\u6536\u6587\u6863.md": "31357d6ba768386f11ab08d20067d1cad1cc88ec79928e125bdea40e056fc9e4"
+  }
+}

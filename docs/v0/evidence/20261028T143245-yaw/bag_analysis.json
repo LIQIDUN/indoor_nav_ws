@@ -1,0 +1,271 @@
+{
+  "bag_readable": true,
+  "topics": {
+    "/mavros/global_position/gp_origin": {
+      "messages": 2,
+      "max_gap_s": 0.6775345802307129,
+      "rate_hz": 1.475939426825243
+    },
+    "/mavros/home_position/home": {
+      "messages": 2,
+      "max_gap_s": 0.6771926879882812,
+      "rate_hz": 1.4766845799393877
+    },
+    "/mavros/state": {
+      "messages": 27,
+      "max_gap_s": 1.005608320236206,
+      "rate_hz": 1.065378941541397
+    },
+    "/mavlink/from": {
+      "messages": 17129,
+      "max_gap_s": 0.5406558513641357,
+      "rate_hz": 700.2555698677033
+    },
+    "/mavros/global_position/raw/fix": {
+      "messages": 601,
+      "max_gap_s": 0.5468003749847412,
+      "rate_hz": 24.5685982299278
+    },
+    "/mavros/local_position/pose": {
+      "messages": 601,
+      "max_gap_s": 0.5471465587615967,
+      "rate_hz": 24.568661551931374
+    },
+    "/mavros/local_position/velocity_local": {
+      "messages": 601,
+      "max_gap_s": 0.5471692085266113,
+      "rate_hz": 24.568659633077985
+    },
+    "/v0_nav/watchdog": {
+      "messages": 232,
+      "max_gap_s": 0.1002504825592041,
+      "rate_hz": 9.99252970696267
+    },
+    "/v0_nav/status": {
+      "messages": 232,
+      "max_gap_s": 0.10033893585205078,
+      "rate_hz": 10.025437481040967
+    },
+    "/v0_nav/heartbeat": {
+      "messages": 231,
+      "max_gap_s": 0.10064315795898438,
+      "rate_hz": 9.992464502996688
+    },
+    "/v0_nav/event": {
+      "messages": 7,
+      "max_gap_s": 4.654508352279663,
+      "rate_hz": 1.1585474477434639
+    },
+    "/v0_nav/origin_pose": {
+      "messages": 1,
+      "max_gap_s": 0,
+      "rate_hz": 0
+    },
+    "/v0_nav/target_pose": {
+      "messages": 5,
+      "max_gap_s": 0.10025191307067871,
+      "rate_hz": 9.988441729084942
+    },
+    "/mavros/setpoint_position/local": {
+      "messages": 5,
+      "max_gap_s": 0.1001589298248291,
+      "rate_hz": 9.990701984120603
+    }
+  },
+  "driver_receptions": {
+    "pose": {
+      "messages": 625,
+      "rate_hz": 24.590289818244027,
+      "callback_interval_s": {
+        "count": 624,
+        "max": 0.5471398700028658,
+        "p99": 0.046235050074756145,
+        "rms": 0.045598906061914385
+      },
+      "raw_header_age_s": {
+        "count": 625,
+        "max": 0.5094561576843262,
+        "p99": 0.4096231460571289,
+        "rms": 0.07308090810774122
+      },
+      "raw_header_rewinds": 0,
+      "frames": [
+        "map"
+      ]
+    },
+    "state": {
+      "messages": 67,
+      "rate_hz": 1.0354905319908287,
+      "callback_interval_s": {
+        "count": 66,
+        "max": 1.0090803268831223,
+        "p99": 1.0090803268831223,
+        "rms": 0.975596249026627
+      },
+      "raw_header_age_s": {
+        "count": 67,
+        "max": 0.6837685108184814,
+        "p99": 0.6837685108184814,
+        "rms": 0.08353581582437059
+      },
+      "raw_header_rewinds": 0,
+      "frames": [
+        ""
+      ]
+    },
+    "velocity": {
+      "messages": 625,
+      "rate_hz": 24.590290682379102,
+      "callback_interval_s": {
+        "count": 624,
+        "max": 0.5472007088828832,
+        "p99": 0.04623265494592488,
+        "rms": 0.0456001723287184
+      },
+      "raw_header_age_s": {
+        "count": 625,
+        "max": 0.5095643997192383,
+        "p99": 0.4096689224243164,
+        "rms": 0.07309216246674445
+      },
+      "raw_header_rewinds": 0,
+      "frames": [
+        "base_link"
+      ]
+    }
+  },
+  "reception_scope": "driver callbacks only; production gate receipt times and raw diagnostics are in watchdog bag messages",
+  "pose_header_age_s": null,
+  "speed": {
+    "0.2": {
+      "threshold_mps": 0.2,
+      "peak_mps": 0.0,
+      "observed_above_threshold_s": 0.0,
+      "longest_observed_continuous_s": 0.0,
+      "unobserved_gap_s": 0.0,
+      "method": "sample-based; adjacent samples > threshold, gaps >0.25s excluded; not a continuous-time bound"
+    },
+    "0.3": {
+      "threshold_mps": 0.3,
+      "peak_mps": 0.0,
+      "observed_above_threshold_s": 0.0,
+      "longest_observed_continuous_s": 0.0,
+      "unobserved_gap_s": 0.0,
+      "method": "sample-based; adjacent samples > threshold, gaps >0.25s excluded; not a continuous-time bound"
+    }
+  },
+  "bag_velocity_speed": {
+    "0.2": {
+      "threshold_mps": 0.2,
+      "peak_mps": 0.0,
+      "observed_above_threshold_s": 0.0,
+      "longest_observed_continuous_s": 0.0,
+      "unobserved_gap_s": 0.0,
+      "method": "sample-based; adjacent samples > threshold, gaps >0.25s excluded; not a continuous-time bound"
+    },
+    "0.3": {
+      "threshold_mps": 0.3,
+      "peak_mps": 0.0,
+      "observed_above_threshold_s": 0.0,
+      "longest_observed_continuous_s": 0.0,
+      "unobserved_gap_s": 0.0,
+      "method": "sample-based; adjacent samples > threshold, gaps >0.25s excluded; not a continuous-time bound"
+    }
+  },
+  "bag_velocity_by_fcu_mode": {},
+  "bag_velocity_timing": "ROS bag receipt time, measured velocity_local; telemetry speed uses monotonic samples; no continuous-time guarantee",
+  "bag_state_alignment_warning": "last manager status can persist after manager death into LAND; use FC mode split, whose transition timing is limited by State message frequency",
+  "bag_velocity_by_wp": {},
+  "brake_speed": {
+    "threshold_mps": 0.2,
+    "peak_mps": 0.0,
+    "observed_above_threshold_s": 0.0,
+    "longest_observed_continuous_s": 0.0,
+    "unobserved_gap_s": 0.0,
+    "method": "sample-based; adjacent samples > threshold, gaps >0.25s excluded; not a continuous-time bound"
+  },
+  "truth_speed_by_fcu_mode": {
+    "GUIDED": {
+      "threshold_mps": 0.2,
+      "peak_mps": 0.01621482079672667,
+      "observed_above_threshold_s": 0.0,
+      "longest_observed_continuous_s": 0.0,
+      "unobserved_gap_s": 9.129435281967744,
+      "method": "sample-based; adjacent samples > threshold, gaps >0.25s excluded; not a continuous-time bound"
+    },
+    "BRAKE": {
+      "threshold_mps": 0.2,
+      "peak_mps": 0.0,
+      "observed_above_threshold_s": 0.0,
+      "longest_observed_continuous_s": 0.0,
+      "unobserved_gap_s": 0.0,
+      "method": "sample-based; adjacent samples > threshold, gaps >0.25s excluded; not a continuous-time bound"
+    }
+  },
+  "speed_by_state": {
+    "HOLD_INITIAL": {
+      "threshold_mps": 0.2,
+      "peak_mps": 0.007359303322747289,
+      "observed_above_threshold_s": 0.0,
+      "longest_observed_continuous_s": 0.0,
+      "unobserved_gap_s": 0.0,
+      "method": "sample-based; adjacent samples > threshold, gaps >0.25s excluded; not a continuous-time bound"
+    },
+    "EXEC_WAYPOINT": {
+      "threshold_mps": 0.2,
+      "peak_mps": 0.0,
+      "observed_above_threshold_s": 0.0,
+      "longest_observed_continuous_s": 0.0,
+      "unobserved_gap_s": 0.0,
+      "method": "sample-based; adjacent samples > threshold, gaps >0.25s excluded; not a continuous-time bound"
+    },
+    "DWELL": {
+      "threshold_mps": 0.2,
+      "peak_mps": 0.0,
+      "observed_above_threshold_s": 0.0,
+      "longest_observed_continuous_s": 0.0,
+      "unobserved_gap_s": 0.0,
+      "method": "sample-based; adjacent samples > threshold, gaps >0.25s excluded; not a continuous-time bound"
+    },
+    "FINISH_HOLD": {
+      "threshold_mps": 0.2,
+      "peak_mps": 0.0,
+      "observed_above_threshold_s": 0.0,
+      "longest_observed_continuous_s": 0.0,
+      "unobserved_gap_s": 0.0,
+      "method": "sample-based; adjacent samples > threshold, gaps >0.25s excluded; not a continuous-time bound"
+    }
+  },
+  "gate_publish_gap_s": 0.10008876398205757,
+  "waypoint_tracking": {},
+  "state_events": [
+    {
+      "state": "WAIT_FOR_READY",
+      "wp": 0,
+      "ros_s": 1793169223.6698287,
+      "mono_delta_s": 18.24582824506797,
+      "reason": ""
+    },
+    {
+      "state": "CAPTURE_ORIGIN",
+      "wp": 0,
+      "ros_s": 1793169223.6699204,
+      "mono_delta_s": 18.24591846112162,
+      "reason": ""
+    },
+    {
+      "state": "HOLD_INITIAL",
+      "wp": 0,
+      "ros_s": 1793169223.66996,
+      "mono_delta_s": 18.245956575032324,
+      "reason": ""
+    },
+    {
+      "state": "ABORT_LATCHED",
+      "wp": 0,
+      "ros_s": 1793169224.170223,
+      "mono_delta_s": 18.7462221251335,
+      "reason": "POSE_RX_TIMEOUT"
+    }
+  ]
+}

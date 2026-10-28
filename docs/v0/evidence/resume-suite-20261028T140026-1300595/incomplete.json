@@ -1,0 +1,17 @@
+{
+  "error": "safe stop refused; leaving instance untouched, no next flight",
+  "runtime": "/home/liqidun/github/indoor_nav_ws/.sitl_runtime/v0/20261028T140026-1300601",
+  "launcher_pid": 1300601,
+  "completed": [
+    {
+      "case": "single",
+      "test_exit_code": 0,
+      "runtime": "/home/liqidun/github/indoor_nav_ws/.sitl_runtime/v0/20261028T140026-1300601",
+      "summaries": [
+        "docs/v0/evidence/20261028T140034-single/summary.json"
+      ],
+      "launcher_pid": 1300601,
+      "stop_exit_code": 1
+    }
+  ]
+}

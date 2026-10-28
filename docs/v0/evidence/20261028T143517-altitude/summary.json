@@ -1,0 +1,1750 @@
+{
+  "result": "PASS",
+  "case": "altitude",
+  "identity": {
+    "runtime": "/home/liqidun/github/indoor_nav_ws/.sitl_runtime/v0/20261028T143509-1330752",
+    "sitl_pid": 1330877,
+    "proxy_pid": 1330879,
+    "mavros_pid": 1330964
+  },
+  "waypoints": 2,
+  "arrival_truth_errors": [
+    {
+      "wp": 0,
+      "xy_m": 0.00955999388362837,
+      "z_m": 0.0012017294189108352
+    },
+    {
+      "wp": 1,
+      "xy_m": 0.0029134273851108674,
+      "z_m": 0.010223512508640398
+    }
+  ],
+  "max_fcu_speed_xy_mps": 0.03384902519064848,
+  "max_truth_speed_xy_mps": 0.012179276540545014,
+  "max_pose_header_age_s": 0.04475045204162598,
+  "max_setpoint_gap_s": 0.10013489215634763,
+  "preparation": {
+    "wall_s": 1793169366.252852,
+    "ros_s": 1793169366.252853,
+    "mono_s": 1734159.246834717,
+    "mode": "GUIDED",
+    "armed": true,
+    "status": {
+      "state": "IDLE",
+      "mission_id": "20261028T143517-altitude",
+      "wp": 0,
+      "reason": "",
+      "health": "",
+      "gate": "",
+      "control_enabled": true,
+      "evidence_dir": "/home/liqidun/github/indoor_nav_ws/docs/v0/evidence/20261028T143517-altitude/navigation/20261028T143557-1331835-1734150165117376",
+      "yaml_sha256": "7382871bb9a85567c422900d3726929ee04b084ed07e673ffbd0cf5a6e55a4ae",
+      "firmware": [
+        4,
+        5,
+        7
+      ],
+      "limit_age_s": 0.9459750060923398,
+      "pose_age_s": 0.030620509991422296,
+      "max_publish_gap_s": 0.0,
+      "rx_ros_s": {
+        "state": 1793169365.9474933,
+        "gps": 1793169366.165159,
+        "ekf": 1793169366.1659207,
+        "pose": 1793169366.1661386,
+        "velocity": 1793169366.1662145
+      },
+      "header_stamps_s": {
+        "state": 1793169365.9472468,
+        "gps": 1793169366.1649876,
+        "ekf": 1793169366.1658602,
+        "pose": 1793169366.1659555,
+        "velocity": 1793169366.1659555
+      },
+      "stamp_diagnostics": {
+        "state": "",
+        "gps": "",
+        "ekf": "",
+        "pose": "",
+        "velocity": ""
+      },
+      "ekf_report": {
+        "flags": 831,
+        "ratios": [
+          0.009002861566841602,
+          0.0028143266681581736,
+          0.0008893077028915286,
+          0.026789600029587746,
+          0.0
+        ],
+        "healthy": true
+      }
+    },
+    "phase": "hover",
+    "watchdog": {
+      "healthy": true,
+      "reason": "",
+      "owner": null,
+      "revoked": false,
+      "exit_result": null,
+      "mode": "GUIDED",
+      "max_publish_gap_s": 0.0,
+      "rx_ros_s": {
+        "state": 1793169365.9474697,
+        "gps": 1793169366.1274924,
+        "ekf": 1793169366.1283224,
+        "pose": 1793169366.128585,
+        "velocity": 1793169366.1286783
+      },
+      "header_stamps_s": {
+        "state": 1793169365.9472468,
+        "gps": 1793169366.12738,
+        "ekf": 1793169366.1282697,
+        "pose": 1793169366.1283655,
+        "velocity": 1793169366.1283655
+      },
+      "stamp_diagnostics": {
+        "state": "",
+        "gps": "",
+        "ekf": "",
+        "pose": "",
+        "velocity": ""
+      },
+      "target_rx_ros_s": null,
+      "target_header_stamp_s": null
+    },
+    "home_altitude_m": 603.4086290627697,
+    "pose": [
+      -0.01803775317966938,
+      0.015351834706962109,
+      0.9917128682136536
+    ],
+    "yaw": 1.5329398038473467,
+    "pose_age_s": 0.0025293827056884766,
+    "velocity": [
+      0.013329217210412025,
+      -0.013916566967964172,
+      0.023470386862754822
+    ],
+    "truth": [
+      0.03420962302945171,
+      0.04223739009385789,
+      0.9758825667525062
+    ],
+    "truth_velocity": [
+      0.00497327842072131,
+      0.005602947562529157,
+      0.017536400459588257
+    ],
+    "truth_yaw": -0.005572122845062029
+  },
+  "gate": {
+    "healthy": false,
+    "reason": "MANUAL_MODE_EXIT_OR_DISARM",
+    "owner": "20261028T143517-altitude",
+    "revoked": true,
+    "exit_result": {
+      "reason": "MANUAL_MODE_EXIT_OR_DISARM",
+      "requested": false,
+      "mode_sent": false
+    },
+    "mode": "LAND",
+    "max_publish_gap_s": 0.10032322304323316,
+    "rx_ros_s": {
+      "state": 1793169382.9597583,
+      "gps": 1793169382.9380517,
+      "ekf": 1793169382.9391544,
+      "pose": 1793169382.9393878,
+      "velocity": 1793169382.9394739
+    },
+    "header_stamps_s": {
+      "state": 1793169382.9595485,
+      "gps": 1793169382.7755337,
+      "ekf": 1793169382.9390976,
+      "pose": 1793169382.9365337,
+      "velocity": 1793169382.9365337
+    },
+    "stamp_diagnostics": {
+      "state": "",
+      "gps": "RAW_STAMP_REPEAT",
+      "ekf": "",
+      "pose": "",
+      "velocity": ""
+    },
+    "target_rx_ros_s": 1793169377.9058955,
+    "target_header_stamp_s": 1793169377.9057717
+  },
+  "mode_exit_latched": {
+    "state": {
+      "state": "ABORT_LATCHED",
+      "mission_id": "20261028T143517-altitude",
+      "wp": 2,
+      "reason": "FCU_STATE_CHANGED",
+      "health": "",
+      "gate": "MANUAL_MODE_EXIT_OR_DISARM",
+      "control_enabled": true,
+      "evidence_dir": "/home/liqidun/github/indoor_nav_ws/docs/v0/evidence/20261028T143517-altitude/navigation/20261028T143557-1331835-1734150165117376",
+      "yaml_sha256": "7382871bb9a85567c422900d3726929ee04b084ed07e673ffbd0cf5a6e55a4ae",
+      "firmware": [
+        4,
+        5,
+        7
+      ],
+      "limit_age_s": 1.2806714808102697,
+      "pose_age_s": 0.02822113479487598,
+      "max_publish_gap_s": 0.10013489215634763,
+      "rx_ros_s": {
+        "state": 1793169378.0663633,
+        "gps": 1793169378.576631,
+        "ekf": 1793169378.5777655,
+        "pose": 1793169378.578004,
+        "velocity": 1793169378.5780857
+      },
+      "header_stamps_s": {
+        "state": 1793169378.0662272,
+        "gps": 1793169378.372596,
+        "ekf": 1793169378.5777023,
+        "pose": 1793169378.573596,
+        "velocity": 1793169378.573596
+      },
+      "stamp_diagnostics": {
+        "state": "",
+        "gps": "RAW_STAMP_REPEAT",
+        "ekf": "",
+        "pose": "",
+        "velocity": ""
+      },
+      "ekf_report": {
+        "flags": 831,
+        "ratios": [
+          0.00828499160706997,
+          0.00432257354259491,
+          0.0002525404270272702,
+          0.019319361075758934,
+          0.0
+        ],
+        "healthy": true
+      }
+    },
+    "mode": "GUIDED"
+  },
+  "graph": [
+    [
+      [
+        "/rosout_agg",
+        [
+          "/rosout"
+        ]
+      ],
+      [
+        "/rosout",
+        [
+          "/mavros",
+          "/gazebo",
+          "/gazebo_gui",
+          "/v0_sitl_test_1331241_1793169317501",
+          "/record_1793169356716740158",
+          "/v0_nav_watchdog",
+          "/v0_nav_manager"
+        ]
+      ],
+      [
+        "/diagnostics",
+        [
+          "/mavros"
+        ]
+      ],
+      [
+        "/tf",
+        [
+          "/mavros"
+        ]
+      ],
+      [
+        "/tf_static",
+        [
+          "/mavros"
+        ]
+      ],
+      [
+        "/mavlink/from",
+        [
+          "/mavros"
+        ]
+      ],
+      [
+        "/mavros/radio_status",
+        [
+          "/mavros"
+        ]
+      ],
+      [
+        "/mavros/adsb/vehicle",
+        [
+          "/mavros"
+        ]
+      ],
+      [
+        "/mavros/cam_imu_sync/cam_imu_stamp",
+        [
+          "/mavros"
+        ]
+      ],
+      [
+        "/mavros/camera/image_captured",
+        [
+          "/mavros"
+        ]
+      ],
+      [
+        "/mavros/distance_sensor/rangefinder_pub",
+        [
+          "/mavros"
+        ]
+      ],
+      [
+        "/mavros/esc_info",
+        [
+          "/mavros"
+        ]
+      ],
+      [
+        "/mavros/esc_status",
+        [
+          "/mavros"
+        ]
+      ],
+      [
+        "/mavros/esc_telemetry",
+        [
+          "/mavros"
+        ]
+      ],
+      [
+        "/mavros/geofence/waypoints",
+        [
+          "/mavros"
+        ]
+      ],
+      [
+        "/mavros/global_position/raw/fix",
+        [
+          "/mavros"
+        ]
+      ],
+      [
+        "/mavros/global_position/raw/gps_vel",
+        [
+          "/mavros"
+        ]
+      ],
+      [
+        "/mavros/global_position/raw/satellites",
+        [
+          "/mavros"
+        ]
+      ],
+      [
+        "/mavros/global_position/global",
+        [
+          "/mavros"
+        ]
+      ],
+      [
+        "/mavros/global_position/local",
+        [
+          "/mavros"
+        ]
+      ],
+      [
+        "/mavros/global_position/rel_alt",
+        [
+          "/mavros"
+        ]
+      ],
+      [
+        "/mavros/global_position/compass_hdg",
+        [
+          "/mavros"
+        ]
+      ],
+      [
+        "/mavros/global_position/gp_origin",
+        [
+          "/mavros"
+        ]
+      ],
+      [
+        "/mavros/global_position/gp_lp_offset",
+        [
+          "/mavros"
+        ]
+      ],
+      [
+        "/mavros/gps_rtk/rtk_baseline",
+        [
+          "/mavros"
+        ]
+      ],
+      [
+        "/mavros/gpsstatus/gps1/raw",
+        [
+          "/mavros"
+        ]
+      ],
+      [
+        "/mavros/gpsstatus/gps2/raw",
+        [
+          "/mavros"
+        ]
+      ],
+      [
+        "/mavros/gpsstatus/gps1/rtk",
+        [
+          "/mavros"
+        ]
+      ],
+      [
+        "/mavros/gpsstatus/gps2/rtk",
+        [
+          "/mavros"
+        ]
+      ],
+      [
+        "/move_base_simple/goal",
+        [
+          "/mavros"
+        ]
+      ],
+      [
+        "/mavros/home_position/home",
+        [
+          "/mavros"
+        ]
+      ],
+      [
+        "/mavros/imu/data",
+        [
+          "/mavros"
+        ]
+      ],
+      [
+        "/mavros/imu/mag",
+        [
+          "/mavros"
+        ]
+      ],
+      [
+        "/mavros/imu/temperature_imu",
+        [
+          "/mavros"
+        ]
+      ],
+      [
+        "/mavros/imu/temperature_baro",
+        [
+          "/mavros"
+        ]
+      ],
+      [
+        "/mavros/imu/static_pressure",
+        [
+          "/mavros"
+        ]
+      ],
+      [
+        "/mavros/imu/diff_pressure",
+        [
+          "/mavros"
+        ]
+      ],
+      [
+        "/mavros/imu/data_raw",
+        [
+          "/mavros"
+        ]
+      ],
+      [
+        "/mavros/landing_target/pose_in",
+        [
+          "/mavros"
+        ]
+      ],
+      [
+        "/mavros/landing_target/lt_marker",
+        [
+          "/mavros"
+        ]
+      ],
+      [
+        "/mavros/local_position/pose",
+        [
+          "/mavros"
+        ]
+      ],
+      [
+        "/mavros/local_position/pose_cov",
+        [
+          "/mavros"
+        ]
+      ],
+      [
+        "/mavros/local_position/velocity_local",
+        [
+          "/mavros"
+        ]
+      ],
+      [
+        "/mavros/local_position/velocity_body",
+        [
+          "/mavros"
+        ]
+      ],
+      [
+        "/mavros/local_position/velocity_body_cov",
+        [
+          "/mavros"
+        ]
+      ],
+      [
+        "/mavros/local_position/accel",
+        [
+          "/mavros"
+        ]
+      ],
+      [
+        "/mavros/local_position/odom",
+        [
+          "/mavros"
+        ]
+      ],
+      [
+        "/mavros/log_transfer/raw/log_entry",
+        [
+          "/mavros"
+        ]
+      ],
+      [
+        "/mavros/log_transfer/raw/log_data",
+        [
+          "/mavros"
+        ]
+      ],
+      [
+        "/mavros/mag_calibration/status",
+        [
+          "/mavros"
+        ]
+      ],
+      [
+        "/mavros/mag_calibration/report",
+        [
+          "/mavros"
+        ]
+      ],
+      [
+        "/mavros/manual_control/control",
+        [
+          "/mavros"
+        ]
+      ],
+      [
+        "/mavros/mount_control/orientation",
+        [
+          "/mavros"
+        ]
+      ],
+      [
+        "/mavros/mount_control/status",
+        [
+          "/mavros"
+        ]
+      ],
+      [
+        "/mavros/nav_controller_output",
+        [
+          "/mavros"
+        ]
+      ],
+      [
+        "/mavros/odometry/in",
+        [
+          "/mavros"
+        ]
+      ],
+      [
+        "/mavros/param/param_value",
+        [
+          "/mavros"
+        ]
+      ],
+      [
+        "/mavros/rallypoint/waypoints",
+        [
+          "/mavros"
+        ]
+      ],
+      [
+        "/mavros/rangefinder/rangefinder",
+        [
+          "/mavros"
+        ]
+      ],
+      [
+        "/mavros/rc/in",
+        [
+          "/mavros"
+        ]
+      ],
+      [
+        "/mavros/rc/out",
+        [
+          "/mavros"
+        ]
+      ],
+      [
+        "/mavros/setpoint_raw/target_local",
+        [
+          "/mavros"
+        ]
+      ],
+      [
+        "/mavros/setpoint_raw/target_global",
+        [
+          "/mavros"
+        ]
+      ],
+      [
+        "/mavros/setpoint_raw/target_attitude",
+        [
+          "/mavros"
+        ]
+      ],
+      [
+        "/mavros/setpoint_trajectory/desired",
+        [
+          "/mavros"
+        ]
+      ],
+      [
+        "/mavros/state",
+        [
+          "/mavros"
+        ]
+      ],
+      [
+        "/mavros/extended_state",
+        [
+          "/mavros"
+        ]
+      ],
+      [
+        "/mavros/battery",
+        [
+          "/mavros"
+        ]
+      ],
+      [
+        "/mavros/estimator_status",
+        [
+          "/mavros"
+        ]
+      ],
+      [
+        "/mavros/statustext/recv",
+        [
+          "/mavros"
+        ]
+      ],
+      [
+        "/mavros/sys_status",
+        [
+          "/mavros"
+        ]
+      ],
+      [
+        "/mavros/time_reference",
+        [
+          "/mavros"
+        ]
+      ],
+      [
+        "/mavros/timesync_status",
+        [
+          "/mavros"
+        ]
+      ],
+      [
+        "/mavros/terrain/report",
+        [
+          "/mavros"
+        ]
+      ],
+      [
+        "/mavros/trajectory/desired",
+        [
+          "/mavros"
+        ]
+      ],
+      [
+        "/mavros/tunnel/out",
+        [
+          "/mavros"
+        ]
+      ],
+      [
+        "/mavros/vfr_hud",
+        [
+          "/mavros"
+        ]
+      ],
+      [
+        "/mavros/mission/waypoints",
+        [
+          "/mavros"
+        ]
+      ],
+      [
+        "/mavros/mission/reached",
+        [
+          "/mavros"
+        ]
+      ],
+      [
+        "/mavros/wind_estimation",
+        [
+          "/mavros"
+        ]
+      ],
+      [
+        "/mavlink/gcs_ip",
+        [
+          "/mavros"
+        ]
+      ],
+      [
+        "/clock",
+        [
+          "/gazebo"
+        ]
+      ],
+      [
+        "/gazebo/link_states",
+        [
+          "/gazebo"
+        ]
+      ],
+      [
+        "/gazebo/model_states",
+        [
+          "/gazebo"
+        ]
+      ],
+      [
+        "/gazebo/performance_metrics",
+        [
+          "/gazebo"
+        ]
+      ],
+      [
+        "/gazebo/parameter_descriptions",
+        [
+          "/gazebo"
+        ]
+      ],
+      [
+        "/gazebo/parameter_updates",
+        [
+          "/gazebo"
+        ]
+      ],
+      [
+        "/v0_nav/watchdog",
+        [
+          "/v0_nav_watchdog"
+        ]
+      ],
+      [
+        "/mavros/setpoint_position/local",
+        [
+          "/v0_nav_watchdog"
+        ]
+      ],
+      [
+        "/v0_nav/status",
+        [
+          "/v0_nav_manager"
+        ]
+      ],
+      [
+        "/v0_nav/event",
+        [
+          "/v0_nav_manager"
+        ]
+      ],
+      [
+        "/v0_nav/origin_pose",
+        [
+          "/v0_nav_manager"
+        ]
+      ],
+      [
+        "/v0_nav/target_pose",
+        [
+          "/v0_nav_manager"
+        ]
+      ],
+      [
+        "/v0_nav/heartbeat",
+        [
+          "/v0_nav_manager"
+        ]
+      ]
+    ],
+    [
+      [
+        "/rosout",
+        [
+          "/rosout"
+        ]
+      ],
+      [
+        "/tf",
+        [
+          "/mavros"
+        ]
+      ],
+      [
+        "/tf_static",
+        [
+          "/mavros"
+        ]
+      ],
+      [
+        "/mavlink/to",
+        [
+          "/mavros"
+        ]
+      ],
+      [
+        "/mavros/adsb/send",
+        [
+          "/mavros"
+        ]
+      ],
+      [
+        "/mavros/cellular_status/status",
+        [
+          "/mavros"
+        ]
+      ],
+      [
+        "/mavros/companion_process/status",
+        [
+          "/mavros"
+        ]
+      ],
+      [
+        "/mavros/distance_sensor/rangefinder_sub",
+        [
+          "/mavros"
+        ]
+      ],
+      [
+        "/mavros/fake_gps/mocap/pose",
+        [
+          "/mavros"
+        ]
+      ],
+      [
+        "/mavros/global_position/set_gp_origin",
+        [
+          "/mavros"
+        ]
+      ],
+      [
+        "/mavros/home_position/home",
+        [
+          "/mavros",
+          "/v0_sitl_test_1331241_1793169317501",
+          "/record_1793169356716740158"
+        ]
+      ],
+      [
+        "/mavros/gps_input/gps_input",
+        [
+          "/mavros"
+        ]
+      ],
+      [
+        "/mavros/gps_rtk/send_rtcm",
+        [
+          "/mavros"
+        ]
+      ],
+      [
+        "/mavros/global_position/gp_origin",
+        [
+          "/mavros",
+          "/record_1793169356716740158",
+          "/v0_nav_watchdog",
+          "/v0_nav_manager"
+        ]
+      ],
+      [
+        "/mavros/home_position/set",
+        [
+          "/mavros"
+        ]
+      ],
+      [
+        "/mavros/landing_target/pose",
+        [
+          "/mavros"
+        ]
+      ],
+      [
+        "/mavros/manual_control/send",
+        [
+          "/mavros"
+        ]
+      ],
+      [
+        "/mavros/mocap/pose",
+        [
+          "/mavros"
+        ]
+      ],
+      [
+        "/mavros/mount_control/command",
+        [
+          "/mavros"
+        ]
+      ],
+      [
+        "/mavros/obstacle/send",
+        [
+          "/mavros"
+        ]
+      ],
+      [
+        "/mavros/odometry/out",
+        [
+          "/mavros"
+        ]
+      ],
+      [
+        "/mavros/onboard_computer/status",
+        [
+          "/mavros"
+        ]
+      ],
+      [
+        "/mavros/play_tune",
+        [
+          "/mavros"
+        ]
+      ],
+      [
+        "/mavros/rc/override",
+        [
+          "/mavros"
+        ]
+      ],
+      [
+        "/mavros/setpoint_accel/accel",
+        [
+          "/mavros"
+        ]
+      ],
+      [
+        "/mavros/setpoint_attitude/thrust",
+        [
+          "/mavros"
+        ]
+      ],
+      [
+        "/mavros/setpoint_attitude/cmd_vel",
+        [
+          "/mavros"
+        ]
+      ],
+      [
+        "/mavros/setpoint_position/local",
+        [
+          "/mavros",
+          "/record_1793169356716740158"
+        ]
+      ],
+      [
+        "/mavros/setpoint_position/global",
+        [
+          "/mavros"
+        ]
+      ],
+      [
+        "/mavros/setpoint_position/global_to_local",
+        [
+          "/mavros"
+        ]
+      ],
+      [
+        "/mavros/global_position/global",
+        [
+          "/mavros"
+        ]
+      ],
+      [
+        "/mavros/local_position/pose",
+        [
+          "/mavros",
+          "/v0_sitl_test_1331241_1793169317501",
+          "/record_1793169356716740158",
+          "/v0_nav_watchdog",
+          "/v0_nav_manager"
+        ]
+      ],
+      [
+        "/mavros/setpoint_raw/local",
+        [
+          "/mavros"
+        ]
+      ],
+      [
+        "/mavros/setpoint_raw/global",
+        [
+          "/mavros"
+        ]
+      ],
+      [
+        "/mavros/setpoint_raw/attitude",
+        [
+          "/mavros"
+        ]
+      ],
+      [
+        "/mavros/setpoint_trajectory/local",
+        [
+          "/mavros"
+        ]
+      ],
+      [
+        "/mavros/setpoint_velocity/cmd_vel",
+        [
+          "/mavros"
+        ]
+      ],
+      [
+        "/mavros/setpoint_velocity/cmd_vel_unstamped",
+        [
+          "/mavros"
+        ]
+      ],
+      [
+        "/mavros/statustext/send",
+        [
+          "/mavros"
+        ]
+      ],
+      [
+        "/mavros/trajectory/generated",
+        [
+          "/mavros"
+        ]
+      ],
+      [
+        "/mavros/trajectory/path",
+        [
+          "/mavros"
+        ]
+      ],
+      [
+        "/mavros/tunnel/in",
+        [
+          "/mavros"
+        ]
+      ],
+      [
+        "/mavros/vision_pose/pose",
+        [
+          "/mavros"
+        ]
+      ],
+      [
+        "/mavros/vision_pose/pose_cov",
+        [
+          "/mavros"
+        ]
+      ],
+      [
+        "/gazebo/set_link_state",
+        [
+          "/gazebo"
+        ]
+      ],
+      [
+        "/gazebo/set_model_state",
+        [
+          "/gazebo"
+        ]
+      ],
+      [
+        "/mavros/state",
+        [
+          "/v0_sitl_test_1331241_1793169317501",
+          "/record_1793169356716740158",
+          "/v0_nav_watchdog",
+          "/v0_nav_manager"
+        ]
+      ],
+      [
+        "/mavros/local_position/velocity_local",
+        [
+          "/v0_sitl_test_1331241_1793169317501",
+          "/record_1793169356716740158",
+          "/v0_nav_watchdog",
+          "/v0_nav_manager"
+        ]
+      ],
+      [
+        "/gazebo/model_states",
+        [
+          "/v0_sitl_test_1331241_1793169317501"
+        ]
+      ],
+      [
+        "/v0_nav/status",
+        [
+          "/v0_sitl_test_1331241_1793169317501",
+          "/record_1793169356716740158",
+          "/v0_nav_watchdog"
+        ]
+      ],
+      [
+        "/v0_nav/event",
+        [
+          "/v0_sitl_test_1331241_1793169317501",
+          "/record_1793169356716740158"
+        ]
+      ],
+      [
+        "/v0_nav/watchdog",
+        [
+          "/v0_sitl_test_1331241_1793169317501",
+          "/record_1793169356716740158",
+          "/v0_nav_manager"
+        ]
+      ],
+      [
+        "/v0_nav/target_pose",
+        [
+          "/v0_sitl_test_1331241_1793169317501",
+          "/record_1793169356716740158",
+          "/v0_nav_watchdog"
+        ]
+      ],
+      [
+        "/v0_nav/origin_pose",
+        [
+          "/v0_sitl_test_1331241_1793169317501",
+          "/record_1793169356716740158",
+          "/v0_nav_watchdog"
+        ]
+      ],
+      [
+        "/mavros/setpoint_raw/target_local",
+        [
+          "/v0_sitl_test_1331241_1793169317501",
+          "/record_1793169356716740158"
+        ]
+      ],
+      [
+        "/mavlink/from",
+        [
+          "/record_1793169356716740158",
+          "/v0_nav_watchdog",
+          "/v0_nav_manager"
+        ]
+      ],
+      [
+        "/mavros/estimator_status",
+        [
+          "/record_1793169356716740158",
+          "/v0_nav_manager"
+        ]
+      ],
+      [
+        "/mavros/global_position/raw/fix",
+        [
+          "/record_1793169356716740158",
+          "/v0_nav_watchdog",
+          "/v0_nav_manager"
+        ]
+      ],
+      [
+        "/motor_mic/audio_raw",
+        [
+          "/record_1793169356716740158"
+        ]
+      ],
+      [
+        "/sound_sensor/audio_raw",
+        [
+          "/record_1793169356716740158"
+        ]
+      ],
+      [
+        "/v0_nav/heartbeat",
+        [
+          "/record_1793169356716740158",
+          "/v0_nav_watchdog"
+        ]
+      ],
+      [
+        "/vibration_data",
+        [
+          "/record_1793169356716740158"
+        ]
+      ],
+      [
+        "/v0_nav/upstream_healthy",
+        [
+          "/v0_nav_watchdog",
+          "/v0_nav_manager"
+        ]
+      ]
+    ],
+    [
+      [
+        "/rosout/get_loggers",
+        [
+          "/rosout"
+        ]
+      ],
+      [
+        "/rosout/set_logger_level",
+        [
+          "/rosout"
+        ]
+      ],
+      [
+        "/mavros/get_loggers",
+        [
+          "/mavros"
+        ]
+      ],
+      [
+        "/mavros/set_logger_level",
+        [
+          "/mavros"
+        ]
+      ],
+      [
+        "/mavros/cmd/command",
+        [
+          "/mavros"
+        ]
+      ],
+      [
+        "/mavros/cmd/command_ack",
+        [
+          "/mavros"
+        ]
+      ],
+      [
+        "/mavros/cmd/command_int",
+        [
+          "/mavros"
+        ]
+      ],
+      [
+        "/mavros/cmd/arming",
+        [
+          "/mavros"
+        ]
+      ],
+      [
+        "/mavros/cmd/set_home",
+        [
+          "/mavros"
+        ]
+      ],
+      [
+        "/mavros/cmd/takeoff",
+        [
+          "/mavros"
+        ]
+      ],
+      [
+        "/mavros/cmd/land",
+        [
+          "/mavros"
+        ]
+      ],
+      [
+        "/mavros/cmd/trigger_control",
+        [
+          "/mavros"
+        ]
+      ],
+      [
+        "/mavros/cmd/trigger_interval",
+        [
+          "/mavros"
+        ]
+      ],
+      [
+        "/mavros/cmd/vtol_transition",
+        [
+          "/mavros"
+        ]
+      ],
+      [
+        "/mavros/geofence/pull",
+        [
+          "/mavros"
+        ]
+      ],
+      [
+        "/mavros/geofence/push",
+        [
+          "/mavros"
+        ]
+      ],
+      [
+        "/mavros/geofence/clear",
+        [
+          "/mavros"
+        ]
+      ],
+      [
+        "/mavros/home_position/req_update",
+        [
+          "/mavros"
+        ]
+      ],
+      [
+        "/mavros/log_transfer/raw/log_request_list",
+        [
+          "/mavros"
+        ]
+      ],
+      [
+        "/mavros/log_transfer/raw/log_request_data",
+        [
+          "/mavros"
+        ]
+      ],
+      [
+        "/mavros/log_transfer/raw/log_request_end",
+        [
+          "/mavros"
+        ]
+      ],
+      [
+        "/mavros/log_transfer/raw/log_request_erase",
+        [
+          "/mavros"
+        ]
+      ],
+      [
+        "/mavros/mount_control/configure",
+        [
+          "/mavros"
+        ]
+      ],
+      [
+        "/mavros/param/pull",
+        [
+          "/mavros"
+        ]
+      ],
+      [
+        "/mavros/param/push",
+        [
+          "/mavros"
+        ]
+      ],
+      [
+        "/mavros/param/set",
+        [
+          "/mavros"
+        ]
+      ],
+      [
+        "/mavros/param/get",
+        [
+          "/mavros"
+        ]
+      ],
+      [
+        "/mavros/rallypoint/pull",
+        [
+          "/mavros"
+        ]
+      ],
+      [
+        "/mavros/rallypoint/push",
+        [
+          "/mavros"
+        ]
+      ],
+      [
+        "/mavros/rallypoint/clear",
+        [
+          "/mavros"
+        ]
+      ],
+      [
+        "/mavros/setpoint_position/mav_frame",
+        [
+          "/mavros"
+        ]
+      ],
+      [
+        "/mavros/setpoint_trajectory/reset",
+        [
+          "/mavros"
+        ]
+      ],
+      [
+        "/mavros/setpoint_trajectory/mav_frame",
+        [
+          "/mavros"
+        ]
+      ],
+      [
+        "/mavros/setpoint_velocity/mav_frame",
+        [
+          "/mavros"
+        ]
+      ],
+      [
+        "/mavros/set_stream_rate",
+        [
+          "/mavros"
+        ]
+      ],
+      [
+        "/mavros/set_mode",
+        [
+          "/mavros"
+        ]
+      ],
+      [
+        "/mavros/vehicle_info_get",
+        [
+          "/mavros"
+        ]
+      ],
+      [
+        "/mavros/set_message_interval",
+        [
+          "/mavros"
+        ]
+      ],
+      [
+        "/mavros/mission/pull",
+        [
+          "/mavros"
+        ]
+      ],
+      [
+        "/mavros/mission/push",
+        [
+          "/mavros"
+        ]
+      ],
+      [
+        "/mavros/mission/clear",
+        [
+          "/mavros"
+        ]
+      ],
+      [
+        "/mavros/mission/set_current",
+        [
+          "/mavros"
+        ]
+      ],
+      [
+        "/gazebo/get_loggers",
+        [
+          "/gazebo"
+        ]
+      ],
+      [
+        "/gazebo/set_logger_level",
+        [
+          "/gazebo"
+        ]
+      ],
+      [
+        "/gazebo_gui/get_loggers",
+        [
+          "/gazebo_gui"
+        ]
+      ],
+      [
+        "/gazebo_gui/set_logger_level",
+        [
+          "/gazebo_gui"
+        ]
+      ],
+      [
+        "/gazebo/spawn_sdf_model",
+        [
+          "/gazebo"
+        ]
+      ],
+      [
+        "/gazebo/spawn_urdf_model",
+        [
+          "/gazebo"
+        ]
+      ],
+      [
+        "/gazebo/delete_model",
+        [
+          "/gazebo"
+        ]
+      ],
+      [
+        "/gazebo/delete_light",
+        [
+          "/gazebo"
+        ]
+      ],
+      [
+        "/gazebo/get_model_properties",
+        [
+          "/gazebo"
+        ]
+      ],
+      [
+        "/gazebo/get_model_state",
+        [
+          "/gazebo"
+        ]
+      ],
+      [
+        "/gazebo/get_world_properties",
+        [
+          "/gazebo"
+        ]
+      ],
+      [
+        "/gazebo/get_joint_properties",
+        [
+          "/gazebo"
+        ]
+      ],
+      [
+        "/gazebo/get_link_properties",
+        [
+          "/gazebo"
+        ]
+      ],
+      [
+        "/gazebo/get_link_state",
+        [
+          "/gazebo"
+        ]
+      ],
+      [
+        "/gazebo/get_light_properties",
+        [
+          "/gazebo"
+        ]
+      ],
+      [
+        "/gazebo/set_light_properties",
+        [
+          "/gazebo"
+        ]
+      ],
+      [
+        "/gazebo/get_physics_properties",
+        [
+          "/gazebo"
+        ]
+      ],
+      [
+        "/gazebo/set_link_properties",
+        [
+          "/gazebo"
+        ]
+      ],
+      [
+        "/gazebo/set_physics_properties",
+        [
+          "/gazebo"
+        ]
+      ],
+      [
+        "/gazebo/set_model_state",
+        [
+          "/gazebo"
+        ]
+      ],
+      [
+        "/gazebo/set_model_configuration",
+        [
+          "/gazebo"
+        ]
+      ],
+      [
+        "/gazebo/set_joint_properties",
+        [
+          "/gazebo"
+        ]
+      ],
+      [
+        "/gazebo/set_link_state",
+        [
+          "/gazebo"
+        ]
+      ],
+      [
+        "/gazebo/pause_physics",
+        [
+          "/gazebo"
+        ]
+      ],
+      [
+        "/gazebo/set_parameters",
+        [
+          "/gazebo"
+        ]
+      ],
+      [
+        "/gazebo/unpause_physics",
+        [
+          "/gazebo"
+        ]
+      ],
+      [
+        "/gazebo/apply_body_wrench",
+        [
+          "/gazebo"
+        ]
+      ],
+      [
+        "/gazebo/apply_joint_effort",
+        [
+          "/gazebo"
+        ]
+      ],
+      [
+        "/gazebo/clear_joint_forces",
+        [
+          "/gazebo"
+        ]
+      ],
+      [
+        "/gazebo/clear_body_wrenches",
+        [
+          "/gazebo"
+        ]
+      ],
+      [
+        "/gazebo/reset_simulation",
+        [
+          "/gazebo"
+        ]
+      ],
+      [
+        "/gazebo/reset_world",
+        [
+          "/gazebo"
+        ]
+      ],
+      [
+        "/v0_sitl_test_1331241_1793169317501/get_loggers",
+        [
+          "/v0_sitl_test_1331241_1793169317501"
+        ]
+      ],
+      [
+        "/v0_sitl_test_1331241_1793169317501/set_logger_level",
+        [
+          "/v0_sitl_test_1331241_1793169317501"
+        ]
+      ],
+      [
+        "/record_1793169356716740158/get_loggers",
+        [
+          "/record_1793169356716740158"
+        ]
+      ],
+      [
+        "/record_1793169356716740158/set_logger_level",
+        [
+          "/record_1793169356716740158"
+        ]
+      ],
+      [
+        "/v0_nav_watchdog/get_loggers",
+        [
+          "/v0_nav_watchdog"
+        ]
+      ],
+      [
+        "/v0_nav_watchdog/set_logger_level",
+        [
+          "/v0_nav_watchdog"
+        ]
+      ],
+      [
+        "/v0_nav_manager/get_loggers",
+        [
+          "/v0_nav_manager"
+        ]
+      ],
+      [
+        "/v0_nav_manager/set_logger_level",
+        [
+          "/v0_nav_manager"
+        ]
+      ],
+      [
+        "/v0_nav/start",
+        [
+          "/v0_nav_manager"
+        ]
+      ],
+      [
+        "/v0_nav/abort",
+        [
+          "/v0_nav_manager"
+        ]
+      ],
+      [
+        "/v0_nav/stop",
+        [
+          "/v0_nav_manager"
+        ]
+      ],
+      [
+        "/v0_nav/reset",
+        [
+          "/v0_nav_manager"
+        ]
+      ]
+    ]
+  ],
+  "max_navigation_tree_rss_bytes": 147513344,
+  "system_cpu_percent_max": 78.3,
+  "evidence": "/home/liqidun/github/indoor_nav_ws/docs/v0/evidence/20261028T143517-altitude",
+  "cleanup": {
+    "armed_before": false,
+    "armed_after": false,
+    "connected": true,
+    "mode": "LAND",
+    "sim_stopped_by_test": false,
+    "processes_exited": true
+  },
+  "start_wall_s": 1793169317.628164,
+  "end_wall_s": 1793169384.364391
+}

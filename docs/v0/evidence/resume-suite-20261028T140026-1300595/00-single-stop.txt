@@ -1,0 +1,15 @@
+Traceback (most recent call last):
+  File "/home/liqidun/github/indoor_nav_ws/tools/v0_sitl_stop.py", line 55, in <module>
+    wait_exit(launcher, 8)
+  File "/home/liqidun/github/indoor_nav_ws/tools/v0_sitl_stop.py", line 26, in wait_exit
+    raise psutil.TimeoutExpired(timeout, pid=process.pid)
+psutil.TimeoutExpired: psutil.TimeoutExpired timeout after 8 seconds (pid=1300601)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/liqidun/github/indoor_nav_ws/tools/v0_sitl_stop.py", line 63, in <module>
+    wait_exit(launcher, 10)
+  File "/home/liqidun/github/indoor_nav_ws/tools/v0_sitl_stop.py", line 26, in wait_exit
+    raise psutil.TimeoutExpired(timeout, pid=process.pid)
+psutil.TimeoutExpired: psutil.TimeoutExpired timeout after 10 seconds (pid=1300601)

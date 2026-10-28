@@ -1,0 +1,281 @@
+{
+  "result": "PASS",
+  "case": "abort",
+  "identity": {
+    "runtime": "/home/liqidun/github/indoor_nav_ws/.sitl_runtime/v0/20261028T144012-1336634",
+    "sitl_pid": 1336758,
+    "proxy_pid": 1336760,
+    "mavros_pid": 1336845
+  },
+  "before": {
+    "wall_s": 1793169674.8167093,
+    "ros_s": 1793169674.8167102,
+    "mono_s": 1734467.810692094,
+    "mode": "GUIDED",
+    "armed": true,
+    "status": {
+      "state": "EXEC_WAYPOINT",
+      "mission_id": "20261028T144020-abort",
+      "wp": 0,
+      "reason": "",
+      "health": "",
+      "gate": "",
+      "control_enabled": true,
+      "evidence_dir": "/home/liqidun/github/indoor_nav_ws/docs/v0/evidence/20261028T144020-abort/navigation/20261028T144100-1337779-1734453007326078",
+      "yaml_sha256": "4e658ce99fe9b5cae702c13814abf6eb037d1720a9aa4a9150ab46a34439a7f5",
+      "firmware": [
+        4,
+        5,
+        7
+      ],
+      "limit_age_s": 0.6157282870262861,
+      "pose_age_s": 0.0031278228852897882,
+      "max_publish_gap_s": 0.10008637700229883,
+      "rx_ros_s": {
+        "state": 1793169673.746148,
+        "gps": 1793169674.7304208,
+        "ekf": 1793169674.731347,
+        "pose": 1793169674.7315598,
+        "velocity": 1793169674.7316296
+      },
+      "header_stamps_s": {
+        "state": 1793169673.7459693,
+        "gps": 1793169674.5628152,
+        "ekf": 1793169674.7312996,
+        "pose": 1793169674.725815,
+        "velocity": 1793169674.725815
+      },
+      "stamp_diagnostics": {
+        "state": "",
+        "gps": "RAW_STAMP_REPEAT",
+        "ekf": "",
+        "pose": "",
+        "velocity": ""
+      },
+      "ekf_report": {
+        "flags": 831,
+        "ratios": [
+          0.010090254247188568,
+          0.0067997039295732975,
+          5.845580744789913e-05,
+          0.022969799116253853,
+          0.0
+        ],
+        "healthy": true
+      }
+    },
+    "phase": "execution before fault",
+    "watchdog": {
+      "healthy": true,
+      "reason": "",
+      "owner": "20261028T144020-abort",
+      "revoked": false,
+      "exit_result": null,
+      "mode": "GUIDED",
+      "max_publish_gap_s": 0.10008207010105252,
+      "rx_ros_s": {
+        "state": 1793169673.746139,
+        "gps": 1793169674.6868389,
+        "ekf": 1793169674.6875765,
+        "pose": 1793169674.687764,
+        "velocity": 1793169674.6878974
+      },
+      "header_stamps_s": {
+        "state": 1793169673.7459693,
+        "gps": 1793169674.5628152,
+        "ekf": 1793169674.6875205,
+        "pose": 1793169674.685815,
+        "velocity": 1793169674.685815
+      },
+      "stamp_diagnostics": {
+        "state": "",
+        "gps": "RAW_STAMP_REPEAT",
+        "ekf": "",
+        "pose": "",
+        "velocity": ""
+      },
+      "target_rx_ros_s": 1793169674.6349664,
+      "target_header_stamp_s": 1793169674.6347108
+    },
+    "home_altitude_m": 603.4086290627697,
+    "pose": [
+      -0.03393002972006798,
+      0.06916026026010513,
+      0.9673480987548828
+    ],
+    "yaw": 1.5336246984687192,
+    "pose_age_s": 0.010850906372070312,
+    "velocity": [
+      0.023215260356664658,
+      0.1437944918870926,
+      -2.364882493566256e-05
+    ],
+    "truth": [
+      0.07243781614491124,
+      0.05298292683314732,
+      0.9403368413086866
+    ],
+    "truth_velocity": [
+      0.16620203565884484,
+      -0.0015463863977125765,
+      -0.0015549563305778656
+    ],
+    "truth_yaw": -0.009157653675862562,
+    "target": [
+      -0.013815547701160408,
+      0.2684702733066245,
+      0.9678446650505066
+    ],
+    "expected_truth": [
+      0.2910802307200305,
+      0.04011652368714939,
+      0.9434886564699695
+    ]
+  },
+  "after": {
+    "wall_s": 1793169676.4710066,
+    "ros_s": 1793169676.4710095,
+    "mono_s": 1734469.464998149,
+    "mode": "BRAKE",
+    "armed": true,
+    "status": {
+      "state": "ABORT_LATCHED",
+      "mission_id": "20261028T144020-abort",
+      "wp": 0,
+      "reason": "OPERATOR_ABORT_NO_FCU_MODE_CHANGE",
+      "health": "MODE_LOST",
+      "gate": "MANAGER_REVOKED",
+      "control_enabled": true,
+      "evidence_dir": "/home/liqidun/github/indoor_nav_ws/docs/v0/evidence/20261028T144020-abort/navigation/20261028T144100-1337779-1734453007326078",
+      "yaml_sha256": "4e658ce99fe9b5cae702c13814abf6eb037d1720a9aa4a9150ab46a34439a7f5",
+      "firmware": [
+        4,
+        5,
+        7
+      ],
+      "limit_age_s": 0.304070760961622,
+      "pose_age_s": 0.024031219072639942,
+      "max_publish_gap_s": 0.10008637700229883,
+      "rx_ros_s": {
+        "state": 1793169675.7518806,
+        "gps": 1793169676.410483,
+        "ekf": 1793169676.4116576,
+        "pose": 1793169676.4119012,
+        "velocity": 1793169676.4119756
+      },
+      "header_stamps_s": {
+        "state": 1793169675.7517414,
+        "gps": 1793169676.3640387,
+        "ekf": 1793169676.4115791,
+        "pose": 1793169676.4070387,
+        "velocity": 1793169676.4070387
+      },
+      "stamp_diagnostics": {
+        "state": "",
+        "gps": "",
+        "ekf": "",
+        "pose": "",
+        "velocity": ""
+      },
+      "ekf_report": {
+        "flags": 831,
+        "ratios": [
+          0.009464618749916553,
+          0.00551249785348773,
+          0.0002463025157339871,
+          0.021502453833818436,
+          0.0
+        ],
+        "healthy": true
+      }
+    },
+    "phase": "fault braking settled",
+    "watchdog": {
+      "healthy": false,
+      "reason": "MANAGER_REVOKED",
+      "owner": "20261028T144020-abort",
+      "revoked": true,
+      "exit_result": {
+        "reason": "MANAGER_REVOKED",
+        "requested": true,
+        "mode_sent": true
+      },
+      "mode": "BRAKE",
+      "max_publish_gap_s": 0.10008207010105252,
+      "rx_ros_s": {
+        "state": 1793169675.7518888,
+        "gps": 1793169676.4104724,
+        "ekf": 1793169676.4116578,
+        "pose": 1793169676.4118876,
+        "velocity": 1793169676.4119656
+      },
+      "header_stamps_s": {
+        "state": 1793169675.7517414,
+        "gps": 1793169676.3640387,
+        "ekf": 1793169676.4115791,
+        "pose": 1793169676.4070387,
+        "velocity": 1793169676.4070387
+      },
+      "stamp_diagnostics": {
+        "state": "",
+        "gps": "",
+        "ekf": "",
+        "pose": "",
+        "velocity": ""
+      },
+      "target_rx_ros_s": 1793169674.7348702,
+      "target_header_stamp_s": 1793169674.7347572
+    },
+    "home_altitude_m": 603.4086290627697,
+    "pose": [
+      -0.028410453349351883,
+      0.2714090049266815,
+      0.9656561017036438
+    ],
+    "yaw": 1.533608784028564,
+    "pose_age_s": 0.023945093154907227,
+    "velocity": [
+      0.024267209693789482,
+      0.028392793610692024,
+      0.0019955593161284924
+    ],
+    "truth": [
+      0.287948559517623,
+      0.04732996404236845,
+      0.940377059696162
+    ],
+    "truth_velocity": [
+      0.04544595781536725,
+      -0.00956306641281548,
+      0.001892077324305002
+    ],
+    "truth_yaw": -0.010179965584562682,
+    "target": [
+      -0.013815547701160408,
+      0.2684702733066245,
+      0.9678446650505066
+    ],
+    "expected_truth": [
+      0.2910802307200305,
+      0.04011652368714939,
+      0.9434886564699695
+    ]
+  },
+  "fault_to_observed_response_s": 1.6542699551209807,
+  "guarded_brake_expected": true,
+  "responses": [
+    true
+  ],
+  "recovery_did_not_resume": true,
+  "evidence": "/home/liqidun/github/indoor_nav_ws/docs/v0/evidence/20261028T144020-abort",
+  "cleanup": {
+    "armed_before": false,
+    "armed_after": false,
+    "connected": true,
+    "mode": "LAND",
+    "sim_stopped_by_test": false,
+    "processes_exited": true
+  },
+  "start_wall_s": 1793169620.524978,
+  "end_wall_s": 1793169684.1756673
+}

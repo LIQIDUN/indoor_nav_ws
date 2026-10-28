@@ -1,8 +1,8 @@
 # ArduCopter V0 相对航点
 
-**默认只读；SITL仍暂停。2026-10-28仅授权源码研究、修改与离线测试，未获任何真机操作授权。**
+**默认只读；2026-10-28已另行获准恢复隔离SITL动态测试，未获任何真机操作授权。**
 
-2026-10-26范围修订见 `DEVELOPMENT_PLAN_REVISION_20261026.md`：用户确认UWB经飞控GPS接口提供定位；F2专项模拟及协议调查已取消。10月27日暂停快照、原始失败和放行边界见 `PAUSE_REPORT_20261027.md`。10月28日参考Fast250的接收时间改造、离线对照与未复飞边界见 `FAST250_RECEIPT_TIME_REVIEW_20261028.md`。没有操作真机。
+2026-10-26范围修订见 `DEVELOPMENT_PLAN_REVISION_20261026.md`：用户确认UWB经飞控GPS接口提供定位；F2专项模拟及协议调查已取消。10月27日暂停快照见 `PAUSE_REPORT_20261027.md`。10月28日Fast250离线改造见 `FAST250_RECEIPT_TIME_REVIEW_20261028.md`，恢复后的GUI飞行、失败与安全边界见 `FAST250_DYNAMIC_SITL_REPORT_20261028.md`。历史报告按当时状态保留，没有操作真机。
 
 这是 `indoor_nav` 包的增量模式，不取代旧 ExternalNav。manager只发布任务意图 `/v0_nav/target_pose`；现有 `v0_nav_health.py` 作为gate，是唯一 `/mavros/setpoint_position/local` 发布者及可选BRAKE模式请求出口。gate独立观察定位、EKF、任务租约、时间和ROS图，失效后锁存；不是第二个无协调控制发布者。生产节点不 ARM/起降、不写FC参数、不管理rosbag/音频进程。
 

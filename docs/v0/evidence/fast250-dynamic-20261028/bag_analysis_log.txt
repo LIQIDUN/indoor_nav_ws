@@ -1,0 +1,15 @@
+{"directory": "docs/v0/evidence/20261028T135218-single", "bag_readable": true, "message_count": 20540}
+{"directory": "docs/v0/evidence/20261028T140034-single", "bag_readable": true, "message_count": 20582}
+{"directory": "docs/v0/evidence/20261028T142721-multi", "bag_readable": true, "message_count": 35015}
+{"directory": "docs/v0/evidence/20261028T143012-single", "bag_readable": true, "message_count": 20644}
+{"directory": "docs/v0/evidence/20261028T143245-yaw", "bag_readable": true, "message_count": 19676}
+{"directory": "docs/v0/evidence/20261028T143517-altitude", "bag_readable": true, "message_count": 22435}
+{"directory": "docs/v0/evidence/20261028T143753-mode_exit", "bag_readable": true, "message_count": 15506}
+{"directory": "docs/v0/evidence/20261028T144020-abort", "bag_readable": true, "message_count": 19712}
+{"directory": "docs/v0/evidence/20261028T144252-manager_kill", "bag_readable": true, "message_count": 21153}
+{"directory": "docs/v0/evidence/20261028T144525-gate_kill", "bag_readable": true, "message_count": 18843}
+{"directory": "docs/v0/evidence/20261028T144757-pose_loss", "bag_readable": true, "message_count": 18946}
+{"directory": "docs/v0/evidence/20261028T145026-mavros_loss", "bag_readable": true, "message_count": 29740}
+{"directory": "docs/v0/evidence/20261028T145308-concurrent", "bag_readable": true, "message_count": 19688}
+{"directory": "docs/v0/evidence/20261028T145540-f3", "bag_readable": true, "message_count": 14301}
+{"directory": "docs/v0/evidence/20261028T145816-f3_auto_bag", "bag_readable": true, "message_count": 14339}

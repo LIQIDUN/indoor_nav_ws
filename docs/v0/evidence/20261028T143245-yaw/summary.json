@@ -1,0 +1,16 @@
+{
+  "result": "FAIL",
+  "case": "yaw",
+  "error": "navigation aborted: {\"state\": \"ABORT_LATCHED\", \"mission_id\": \"20261028T143245-yaw\", \"wp\": 0, \"reason\": \"POSE_RX_TIMEOUT\", \"health\": \"POSE_RX_TIMEOUT\", \"gate\": \"\", \"control_enabled\": true, \"evidence_dir\": \"/home/liqidun/github/indoor_nav_ws/docs/v0/evidence/20261028T143245-yaw/navigation/20261028T143325-1328908-1733998436193690\", \"yaml_sha256\": \"cd35fbef774ba58b6f0c3592bdc090b177e131c1fa9547e3f2df408966252a4a\", \"firmware\": [4, 5, 7], \"limit_age_s\": 0.5887815540190786, \"pose_age_s\": 0.5153193960431963, \"max_publish_gap_s\": 0.1000902981031686, \"rx_ros_s\": {\"state\": 1793169223.229551, \"gps\": 1793169223.6539059, \"ekf\": 1793169223.6546664, \"pose\": 1793169223.6548429, \"velocity\": 1793169223.654916}, \"header_stamps_s\": {\"state\": 1793169223.2293496, \"gps\": 1793169223.4415162, \"ekf\": 1793169223.6546175, \"pose\": 1793169223.6525161, \"velocity\": 1793169223.6525161}, \"stamp_diagnostics\": {\"state\": \"\", \"gps\": \"\", \"ekf\": \"\", \"pose\": \"\", \"velocity\": \"\"}, \"ekf_report\": {\"flags\": 831, \"ratios\": [0.007172313053160906, 0.0011804932728409767, 0.00033370760502293706, 0.01909339427947998, 0.0], \"healthy\": true}}",
+  "evidence": "/home/liqidun/github/indoor_nav_ws/docs/v0/evidence/20261028T143245-yaw",
+  "cleanup": {
+    "armed_before": false,
+    "armed_after": false,
+    "connected": true,
+    "mode": "LAND",
+    "sim_stopped_by_test": false,
+    "processes_exited": true
+  },
+  "start_wall_s": 1793169165.9015613,
+  "end_wall_s": 1793169230.0971994
+}

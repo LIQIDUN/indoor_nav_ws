@@ -1,0 +1,5 @@
+[INFO] [1793170597.112006770]: Subscribing to /mavros/state
+[INFO] [1793170597.113357148]: Subscribing to /motor_mic/audio_raw
+[INFO] [1793170597.114300297]: Subscribing to /sound_sensor/audio_raw
+[INFO] [1793170597.115068496]: Subscribing to /v0_nav/watchdog
+[INFO] [1793170597.115933082]: Recording to '/home/liqidun/github/indoor_nav_ws/docs/v0/evidence/20261028T145540-f3/after_recorder.bag'.

@@ -1,0 +1,279 @@
+{
+  "result": "PASS",
+  "case": "mavros_loss",
+  "identity": {
+    "runtime": "/home/liqidun/github/indoor_nav_ws/.sitl_runtime/v0/20261028T145018-1348328",
+    "sitl_pid": 1348456,
+    "proxy_pid": 1348458,
+    "mavros_pid": 1348541
+  },
+  "before": {
+    "wall_s": 1793170281.0306132,
+    "ros_s": 1793170281.0306156,
+    "mono_s": 1735074.024602999,
+    "mode": "GUIDED",
+    "armed": true,
+    "status": {
+      "state": "EXEC_WAYPOINT",
+      "mission_id": "20261028T145026-mavros_loss",
+      "wp": 0,
+      "reason": "",
+      "health": "",
+      "gate": "",
+      "control_enabled": true,
+      "evidence_dir": "/home/liqidun/github/indoor_nav_ws/docs/v0/evidence/20261028T145026-mavros_loss/navigation/20261028T145106-1349440-1735059226266228",
+      "yaml_sha256": "70b6603faedb0f6f810d782ce96d8855055f11b7c247df3c6fe3931e3130e1f5",
+      "firmware": [
+        4,
+        5,
+        7
+      ],
+      "limit_age_s": 0.6106075157877058,
+      "pose_age_s": 0.03574169799685478,
+      "max_publish_gap_s": 0.10009864810854197,
+      "rx_ros_s": {
+        "state": 1793170279.9619207,
+        "gps": 1793170280.9168782,
+        "ekf": 1793170280.9180174,
+        "pose": 1793170280.918273,
+        "velocity": 1793170280.9183614
+      },
+      "header_stamps_s": {
+        "state": 1793170279.9617703,
+        "gps": 1793170280.9167292,
+        "ekf": 1793170280.917918,
+        "pose": 1793170280.9181044,
+        "velocity": 1793170280.9181044
+      },
+      "stamp_diagnostics": {
+        "state": "",
+        "gps": "",
+        "ekf": "",
+        "pose": "",
+        "velocity": ""
+      },
+      "ekf_report": {
+        "flags": 831,
+        "ratios": [
+          0.009785259142518044,
+          0.007505272980779409,
+          0.000348670466337353,
+          0.02336868830025196,
+          0.0
+        ],
+        "healthy": true
+      }
+    },
+    "phase": "execution before fault",
+    "watchdog": {
+      "healthy": true,
+      "reason": "",
+      "owner": "20261028T145026-mavros_loss",
+      "revoked": false,
+      "exit_result": null,
+      "mode": "GUIDED",
+      "max_publish_gap_s": 0.10007834783755243,
+      "rx_ros_s": {
+        "state": 1793170280.964571,
+        "gps": 1793170280.9930084,
+        "ekf": 1793170280.9942243,
+        "pose": 1793170280.9944496,
+        "velocity": 1793170280.9945302
+      },
+      "header_stamps_s": {
+        "state": 1793170280.9644268,
+        "gps": 1793170280.9929063,
+        "ekf": 1793170280.9941702,
+        "pose": 1793170280.9943228,
+        "velocity": 1793170280.9943228
+      },
+      "stamp_diagnostics": {
+        "state": "",
+        "gps": "",
+        "ekf": "",
+        "pose": "",
+        "velocity": ""
+      },
+      "target_rx_ros_s": 1793170280.9543672,
+      "target_header_stamp_s": 1793170280.954127
+    },
+    "home_altitude_m": 603.3986290627697,
+    "pose": [
+      -0.0371493399143219,
+      0.06618726253509521,
+      0.951863706111908
+    ],
+    "yaw": 1.533648629733596,
+    "pose_age_s": 0.03632616996765137,
+    "velocity": [
+      0.02546912245452404,
+      0.13490769267082214,
+      0.0031077207531780005
+    ],
+    "truth": [
+      0.07347755644797428,
+      0.05200650966901853,
+      0.9231679101906987
+    ],
+    "truth_velocity": [
+      0.17002500980790441,
+      -0.005394945945164601,
+      -0.0007371000131618981
+    ],
+    "truth_yaw": -0.009192822242559526,
+    "target": [
+      -0.013863107870902525,
+      0.26839777455138114,
+      0.9555861949920654
+    ],
+    "expected_truth": [
+      0.28968399245088505,
+      0.040491819063760544,
+      0.9285064211337966
+    ]
+  },
+  "after": {
+    "wall_s": 1793170281.7031446,
+    "ros_s": 1793170281.7031481,
+    "mono_s": 1735074.697141003,
+    "mode": "GUIDED",
+    "armed": true,
+    "status": {
+      "state": "ABORT_LATCHED",
+      "mission_id": "20261028T145026-mavros_loss",
+      "wp": 0,
+      "reason": "POSE_RX_TIMEOUT",
+      "health": "POSE_RX_TIMEOUT",
+      "gate": "MANAGER_REVOKED",
+      "control_enabled": true,
+      "evidence_dir": "/home/liqidun/github/indoor_nav_ws/docs/v0/evidence/20261028T145026-mavros_loss/navigation/20261028T145106-1349440-1735059226266228",
+      "yaml_sha256": "70b6603faedb0f6f810d782ce96d8855055f11b7c247df3c6fe3931e3130e1f5",
+      "firmware": [
+        4,
+        5,
+        7
+      ],
+      "limit_age_s": 1.3111105768475682,
+      "pose_age_s": 0.6177704138681293,
+      "max_publish_gap_s": 0.10009864810854197,
+      "rx_ros_s": {
+        "state": 1793170280.9646084,
+        "gps": 1793170281.0356514,
+        "ekf": 1793170281.0365374,
+        "pose": 1793170281.036748,
+        "velocity": 1793170281.0368369
+      },
+      "header_stamps_s": {
+        "state": 1793170280.9644268,
+        "gps": 1793170281.0355296,
+        "ekf": 1793170281.0364769,
+        "pose": 1793170281.0365858,
+        "velocity": 1793170281.0365858
+      },
+      "stamp_diagnostics": {
+        "state": "",
+        "gps": "",
+        "ekf": "",
+        "pose": "",
+        "velocity": ""
+      },
+      "ekf_report": {
+        "flags": 831,
+        "ratios": [
+          0.007454209495335817,
+          0.005200361367315054,
+          0.00035415656748227775,
+          0.022261399775743484,
+          0.0
+        ],
+        "healthy": true
+      }
+    },
+    "phase": "fault latched",
+    "watchdog": {
+      "healthy": false,
+      "reason": "MANAGER_REVOKED",
+      "owner": "20261028T145026-mavros_loss",
+      "revoked": true,
+      "exit_result": {
+        "reason": "MANAGER_REVOKED",
+        "requested": false,
+        "mode_sent": false
+      },
+      "mode": "GUIDED",
+      "max_publish_gap_s": 0.10010925913229585,
+      "rx_ros_s": {
+        "state": 1793170280.964571,
+        "gps": 1793170281.0356467,
+        "ekf": 1793170281.0365202,
+        "pose": 1793170281.0367122,
+        "velocity": 1793170281.0367892
+      },
+      "header_stamps_s": {
+        "state": 1793170280.9644268,
+        "gps": 1793170281.0355296,
+        "ekf": 1793170281.0364769,
+        "pose": 1793170281.0365858,
+        "velocity": 1793170281.0365858
+      },
+      "stamp_diagnostics": {
+        "state": "",
+        "gps": "",
+        "ekf": "",
+        "pose": "",
+        "velocity": ""
+      },
+      "target_rx_ros_s": 1793170281.4546278,
+      "target_header_stamp_s": 1793170281.4544606
+    },
+    "home_altitude_m": 603.3986290627697,
+    "pose": [
+      -0.037086371332407,
+      0.07293511182069778,
+      0.9518374800682068
+    ],
+    "yaw": 1.5335735725846629,
+    "pose_age_s": 0.6666061878204346,
+    "velocity": [
+      0.02589407004415989,
+      0.1546490639448166,
+      0.00310062849894166
+    ],
+    "truth": [
+      0.23082534135418387,
+      0.047952086757409834,
+      0.9228217737780768
+    ],
+    "truth_velocity": [
+      0.21674052447807546,
+      -0.006722851794135722,
+      -0.00024307960736034452
+    ],
+    "truth_yaw": -0.009671254295635982,
+    "target": [
+      -0.013863107870902525,
+      0.26839777455138114,
+      0.9555861949920654
+    ],
+    "expected_truth": [
+      0.28968399245088505,
+      0.040491819063760544,
+      0.9285064211337966
+    ]
+  },
+  "fault_to_observed_response_s": 0.6725003211759031,
+  "guarded_brake_expected": false,
+  "responses": [],
+  "recovery_did_not_resume": true,
+  "evidence": "/home/liqidun/github/indoor_nav_ws/docs/v0/evidence/20261028T145026-mavros_loss",
+  "cleanup": {
+    "armed_before": false,
+    "armed_after": false,
+    "connected": true,
+    "mode": "LAND",
+    "sim_stopped_by_test": true,
+    "processes_exited": true
+  },
+  "start_wall_s": 1793170226.8604336,
+  "end_wall_s": 1793170321.040408
+}

@@ -1,0 +1,155 @@
+[
+  {
+    "path": "docs/v0/evidence/20261028T145540-f3/after_recorder.bag",
+    "readable": true,
+    "start_ros_s": 1793170597.4079432,
+    "end_ros_s": 1793170606.095313,
+    "topics": {
+      "/mavros/state": {
+        "messages": 12,
+        "type": "mavros_msgs/State"
+      },
+      "/motor_mic/audio_raw": {
+        "messages": 87,
+        "type": "std_msgs/UInt8MultiArray"
+      },
+      "/sound_sensor/audio_raw": {
+        "messages": 87,
+        "type": "std_msgs/UInt8MultiArray"
+      },
+      "/v0_nav/watchdog": {
+        "messages": 79,
+        "type": "std_msgs/String"
+      }
+    },
+    "first_state": {
+      "ros_s": 1793170597.4079432,
+      "armed": true,
+      "connected": true,
+      "mode": "GUIDED"
+    },
+    "last_state": {
+      "ros_s": 1793170606.0324185,
+      "armed": false,
+      "connected": true,
+      "mode": "LAND"
+    },
+    "synthetic_sequences": {
+      "/sound_sensor/audio_raw": {
+        "messages": 87,
+        "missing_inside_epochs": 0,
+        "resets": 0
+      },
+      "/motor_mic/audio_raw": {
+        "messages": 87,
+        "missing_inside_epochs": 0,
+        "resets": 0
+      }
+    }
+  },
+  {
+    "path": "docs/v0/evidence/20261028T145540-f3/flight.bag",
+    "readable": true,
+    "start_ros_s": 1793170579.1846673,
+    "end_ros_s": 1793170595.9407535,
+    "topics": {
+      "/mavlink/from": {
+        "messages": 12011,
+        "type": "mavros_msgs/Mavlink"
+      },
+      "/mavros/global_position/gp_origin": {
+        "messages": 2,
+        "type": "geographic_msgs/GeoPointStamped"
+      },
+      "/mavros/global_position/raw/fix": {
+        "messages": 418,
+        "type": "sensor_msgs/NavSatFix"
+      },
+      "/mavros/home_position/home": {
+        "messages": 2,
+        "type": "mavros_msgs/HomePosition"
+      },
+      "/mavros/local_position/pose": {
+        "messages": 418,
+        "type": "geometry_msgs/PoseStamped"
+      },
+      "/mavros/local_position/velocity_local": {
+        "messages": 418,
+        "type": "geometry_msgs/TwistStamped"
+      },
+      "/mavros/setpoint_position/local": {
+        "messages": 43,
+        "type": "geometry_msgs/PoseStamped"
+      },
+      "/mavros/state": {
+        "messages": 18,
+        "type": "mavros_msgs/State"
+      },
+      "/motor_mic/audio_raw": {
+        "messages": 143,
+        "type": "std_msgs/UInt8MultiArray"
+      },
+      "/sound_sensor/audio_raw": {
+        "messages": 143,
+        "type": "std_msgs/UInt8MultiArray"
+      },
+      "/v0_nav/event": {
+        "messages": 6,
+        "type": "std_msgs/String"
+      },
+      "/v0_nav/heartbeat": {
+        "messages": 163,
+        "type": "std_msgs/Header"
+      },
+      "/v0_nav/origin_pose": {
+        "messages": 1,
+        "type": "geometry_msgs/PoseStamped"
+      },
+      "/v0_nav/status": {
+        "messages": 164,
+        "type": "std_msgs/String"
+      },
+      "/v0_nav/target_pose": {
+        "messages": 44,
+        "type": "geometry_msgs/PoseStamped"
+      },
+      "/v0_nav/watchdog": {
+        "messages": 164,
+        "type": "std_msgs/String"
+      },
+      "/vibration_data": {
+        "messages": 143,
+        "type": "std_msgs/UInt8MultiArray"
+      }
+    },
+    "first_state": {
+      "ros_s": 1793170579.1869364,
+      "armed": false,
+      "connected": true,
+      "mode": "STABILIZE"
+    },
+    "last_state": {
+      "ros_s": 1793170595.0316868,
+      "armed": true,
+      "connected": true,
+      "mode": "GUIDED"
+    },
+    "synthetic_sequences": {
+      "/sound_sensor/audio_raw": {
+        "messages": 143,
+        "missing_inside_epochs": 0,
+        "resets": 0
+      },
+      "/vibration_data": {
+        "messages": 143,
+        "missing_inside_epochs": 0,
+        "resets": 0
+      },
+      "/motor_mic/audio_raw": {
+        "messages": 143,
+        "missing_inside_epochs": 0,
+        "resets": 0
+      }
+    }
+  }
+]

@@ -1,0 +1,46 @@
+[
+  {
+    "case": "yaw",
+    "test_exit_code": 0,
+    "runtime": "/home/liqidun/github/indoor_nav_ws/.sitl_runtime/v0/20261028T150332-1362565",
+    "summaries": [
+      "docs/v0/evidence/20261028T150340-yaw/summary.json"
+    ],
+    "launcher_pid": 1362565,
+    "stop_exit_code": 0,
+    "ports_released": true
+  },
+  {
+    "case": "mode_exit",
+    "test_exit_code": 0,
+    "runtime": "/home/liqidun/github/indoor_nav_ws/.sitl_runtime/v0/20261028T150610-1365707",
+    "summaries": [
+      "docs/v0/evidence/20261028T150619-mode_exit/summary.json"
+    ],
+    "launcher_pid": 1365707,
+    "stop_exit_code": 0,
+    "ports_released": true
+  },
+  {
+    "case": "multi",
+    "test_exit_code": 0,
+    "runtime": "/home/liqidun/github/indoor_nav_ws/.sitl_runtime/v0/20261028T150842-1368541",
+    "summaries": [
+      "docs/v0/evidence/20261028T150850-multi/summary.json"
+    ],
+    "launcher_pid": 1368541,
+    "stop_exit_code": 0,
+    "ports_released": true
+  },
+  {
+    "case": "dry_run",
+    "test_exit_code": 0,
+    "runtime": "/home/liqidun/github/indoor_nav_ws/.sitl_runtime/v0/20261028T151132-1371748",
+    "summaries": [
+      "docs/v0/evidence/20261028T151140-dry_run/summary.json"
+    ],
+    "launcher_pid": 1371748,
+    "stop_exit_code": 0,
+    "ports_released": true
+  }
+]

@@ -1,0 +1,6 @@
+Traceback (most recent call last):
+  File "tools/v0_sitl_suite.py", line 107, in <module>
+    main()
+  File "tools/v0_sitl_suite.py", line 90, in main
+    raise RuntimeError('safe stop refused; leaving instance untouched, no next flight')
+RuntimeError: safe stop refused; leaving instance untouched, no next flight

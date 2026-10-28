@@ -1,6 +1,6 @@
 # 安全边界与尚不能证明的结论
 
-- 本交付是软件与仿真证据，不是物理安全认证。F2专项模拟/协议调查已取消；用户确认UWB经飞控GPS接口参与EKF。本轮仅恢复本地开发和隔离SITL，未获真机操作授权；实测范围见 `RESUME_REPORT_20261027.md`。R0及真实硬件/RC/场地检查不可由SITL替代。
+- 本交付是软件与仿真证据，不是物理安全认证。F2专项模拟/协议调查已取消；用户确认UWB经飞控GPS接口参与EKF。本轮仅恢复本地开发和隔离SITL，未获真机操作授权；最新实测及原始FAIL见 `FAST250_DYNAMIC_SITL_REPORT_20261028.md`。R0及真实硬件/RC/场地检查不可由SITL替代。
 - 生产代码不ARM/起飞/降落、不写FC参数、不切回GUIDED；gate是唯一FC位置目标及可选BRAKE模式请求出口，manager只给意图。人工切出GUIDED后锁存，明确DISARM/reset/start才可再次授权。
 - 默认exit_action=manual_takeover仅停发，不能称为刹停。显式brake_if_position_healthy仅在既有任务租约、独立定位/GPS/EKF健康、ARM/GUIDED及审计固件/参数新鲜时单次请求BRAKE；模式返回仍须实测mode/速度确认。定位失效、断链、配置/时钟异常不盲目切模式；室内不默认RTL。
 - gate沿用原watchdog进程并独占FC输出，独立接收定位；manager被kill/卡死不会由另一个发布者抢控制。gate自己死亡、Master/MAVROS死亡或CPU全阻塞时，不能保证FC动作，依赖预验证RC/FCU failsafe；没有硬实时或物理急停。示例SITL FS_GCS_ENABLE=0不构成真机失联保护模板。

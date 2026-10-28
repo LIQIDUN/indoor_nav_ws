@@ -1,0 +1,8 @@
+{
+  "armed_before": false,
+  "armed_after": false,
+  "connected": true,
+  "mode": "STABILIZE",
+  "sim_stopped_by_test": false,
+  "processes_exited": true
+}

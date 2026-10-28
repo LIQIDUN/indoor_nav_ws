@@ -18,6 +18,20 @@ def distribution(values):
             'rms': math.sqrt(sum(value * value for value in values) / len(values))}
 
 
+def reception_statistics(rows):
+    result = {}
+    for stream in sorted({row['stream'] for row in rows}):
+        samples = [row for row in rows if row['stream'] == stream]
+        intervals = [row['interval_s'] for row in samples if row['interval_s'] is not None]
+        duration = samples[-1]['mono_rx_s'] - samples[0]['mono_rx_s']
+        result[stream] = {'messages': len(samples), 'rate_hz': (len(samples)-1)/duration if duration > 0 else 0.,
+                          'callback_interval_s': distribution(intervals),
+                          'raw_header_age_s': distribution([row['ros_rx_s']-row['header_s'] for row in samples]),
+                          'raw_header_rewinds': sum(later['header_s'] < earlier['header_s'] for earlier, later in zip(samples, samples[1:])),
+                          'frames': sorted({row['frame'] for row in samples})}
+    return result
+
+
 def speed_statistics(rows, threshold):
     samples = [(row['mono_s'], math.hypot(*row['velocity'][:2])) for row in rows if 'velocity' in row]
     cumulative = longest = current = 0.
@@ -46,10 +60,13 @@ def analyze(directory):
     payload_sizes = defaultdict(set)
     velocity_rows = []
     current_status = {}
+    current_mode = ''
     with rosbag.Bag(str(directory / 'flight.bag')) as bag:
         for topic, message, stamp in bag.read_messages():
             counts[topic] += 1
             stamps[topic].append(stamp.to_sec())
+            if topic == '/mavros/state':
+                current_mode = message.mode
             if topic == '/v0_nav/status':
                 try:
                     current_status = json.loads(message.data)
@@ -58,12 +75,17 @@ def analyze(directory):
             if topic == '/mavros/local_position/velocity_local':
                 velocity_rows.append({'mono_s': stamp.to_sec(),
                                       'velocity': [message.twist.linear.x, message.twist.linear.y, message.twist.linear.z],
+                                      'mode': current_mode,
                                       'status': dict(current_status)})
             if topic in ('/sound_sensor/audio_raw', '/motor_mic/audio_raw', '/vibration_data') and message._type == 'std_msgs/UInt8MultiArray':
                 payload = bytes(message.data)
                 sequences[topic].append(int.from_bytes(payload[:8], 'little'))
                 payload_sizes[topic].add(len(payload))
     summary = {'bag_readable': True, 'topics': {}}
+    receptions = directory / 'receptions.jsonl'
+    if receptions.exists():
+        summary['driver_receptions'] = reception_statistics([json.loads(line) for line in receptions.read_text().splitlines()])
+        summary['reception_scope'] = 'driver callbacks only; production gate receipt times and raw diagnostics are in watchdog bag messages'
     for topic, count in counts.items():
         times = stamps[topic]
         data = {'messages': count, 'max_gap_s': max((later-earlier for earlier, later in zip(times, times[1:])), default=0),
@@ -85,10 +107,16 @@ def analyze(directory):
     summary['speed'] = {str(threshold): speed_statistics(active, threshold) for threshold in (.2, .3)}
     bag_active = [row for row in velocity_rows if row['status'].get('state') in ('HOLD_INITIAL', 'EXEC_WAYPOINT', 'DWELL', 'FINISH_HOLD')]
     summary['bag_velocity_speed'] = {str(threshold): speed_statistics(bag_active, threshold) for threshold in (.2, .3)}
+    summary['bag_velocity_by_fcu_mode'] = {mode: {str(threshold): speed_statistics([row for row in bag_active if row['mode'] == mode], threshold)
+                                                for threshold in (.2, .3)} for mode in sorted({row['mode'] for row in bag_active})}
     summary['bag_velocity_timing'] = 'ROS bag receipt time, measured velocity_local; telemetry speed uses monotonic samples; no continuous-time guarantee'
+    summary['bag_state_alignment_warning'] = 'last manager status can persist after manager death into LAND; use FC mode split, whose transition timing is limited by State message frequency'
     summary['bag_velocity_by_wp'] = {str(waypoint): speed_statistics([row for row in bag_active if row['status'].get('wp') == waypoint], .2)
                                      for waypoint in sorted({row['status'].get('wp') for row in bag_active if isinstance(row['status'].get('wp'), int)})}
     summary['brake_speed'] = speed_statistics([row for row in rows if row.get('mode') == 'BRAKE'], .2)
+    summary['truth_speed_by_fcu_mode'] = {mode: speed_statistics([dict(mono_s=row['mono_s'], velocity=row['truth_velocity']) for row in rows
+                                                               if row.get('mode') == mode and 'truth_velocity' in row], .2)
+                                         for mode in ('GUIDED', 'BRAKE')}
     summary['speed_by_state'] = {state: speed_statistics([row for row in rows if row.get('status', {}).get('state') == state], .2)
                                 for state in ('HOLD_INITIAL', 'EXEC_WAYPOINT', 'DWELL', 'FINISH_HOLD')}
     summary['gate_publish_gap_s'] = max((row.get('watchdog', {}).get('max_publish_gap_s', 0.) for row in rows), default=0.)

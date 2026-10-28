@@ -1,0 +1,197 @@
+[
+  {
+    "path": "docs/v0/evidence/20261026T133336-single/summary.json",
+    "result": "FAIL",
+    "sha256": "ce19b0ec0d4bfd8d7ee6a8be02f44158b3d926170669dde3e12865da588848df"
+  },
+  {
+    "path": "docs/v0/evidence/20261026T133905-single/summary.json",
+    "result": "FAIL",
+    "sha256": "da5d187ff7d9ecb78aa814f9b4a25072f96d8202a77ac08d021708ac58763176"
+  },
+  {
+    "path": "docs/v0/evidence/20261026T134629-single/summary.json",
+    "result": "FAIL",
+    "sha256": "9a7d97beb970344c3894bd916d223320991689b0012dacc9ee8263630c6ec15c"
+  },
+  {
+    "path": "docs/v0/evidence/20261026T134856-single/summary.json",
+    "result": "PASS",
+    "sha256": "368798497573cfd69f8586797e75549ea011f7fca2fd7d541e5dcb097ffee734"
+  },
+  {
+    "path": "docs/v0/evidence/20261026T142322-multi/summary.json",
+    "result": "PASS",
+    "sha256": "14f6bc0045842358fae84fd65a591f502dc7ef1be2ef6ca5d19eb5ef288f44ee"
+  },
+  {
+    "path": "docs/v0/evidence/20261026T143430-f3/summary.json",
+    "result": "PASS",
+    "sha256": "f925c226806ae02028b29f98e171b9c52b5a772d4d583a6df3c8296701667d27"
+  },
+  {
+    "path": "docs/v0/evidence/20261026T143848-link_fault/summary.json",
+    "result": "PASS",
+    "sha256": "852331340bfb550875b910a8feaa22e4a190b715d0fece64217477ed64eee603"
+  },
+  {
+    "path": "docs/v0/evidence/20261026T182505-single/summary.json",
+    "result": "PASS",
+    "sha256": "c6eb5557ec487316e2988c55954f49b07893bd78bfdc3fc22a88630332759ae8"
+  },
+  {
+    "path": "docs/v0/evidence/20261026T182532-multi/summary.json",
+    "result": "FAIL",
+    "sha256": "3fa2c12dbeaed228f8dfa552e36b2885607bf2b6aa24f4761d607d2f9cf39ec5"
+  },
+  {
+    "path": "docs/v0/evidence/20261026T193632-multi/summary.json",
+    "result": "FAIL",
+    "sha256": "378493e0eaac51900d39e8a64f459ea2171a25289e80938c0b678447be898de4"
+  },
+  {
+    "path": "docs/v0/evidence/20261026T200142-brake_probe/summary.json",
+    "result": "PASS",
+    "sha256": "ab1f737474527dda9a9ed17756c110828a86e05708409d2bc2037d7f71fa2bcb"
+  },
+  {
+    "path": "docs/v0/evidence/20261026T210621-single/summary.json",
+    "result": "PASS",
+    "sha256": "8a84d0b2a7e81b9e6ca771bc67f5ff44a311a3029526b54c6aba6829b7fd67fb"
+  },
+  {
+    "path": "docs/v0/evidence/20261026T210836-multi/summary.json",
+    "result": "PASS",
+    "sha256": "0b6bf7b8d60b60e87d85df6ad02b73736d83ce12eca6348052e2d95ff17b4445"
+  },
+  {
+    "path": "docs/v0/evidence/20261027T133310-abort/summary.json",
+    "result": "PASS",
+    "sha256": "6ad1a2e4ac80c8d1c19a0f5e46c65d357693b7776d12807ce8b0dec9d70ba623"
+  },
+  {
+    "path": "docs/v0/evidence/20261027T133524-manager_kill/summary.json",
+    "result": "PASS",
+    "sha256": "c40d59d10152b9b8065d418451d668464cd9b319796322780f73aedcca4c21f0"
+  },
+  {
+    "path": "docs/v0/evidence/20261027T133739-pose_loss/summary.json",
+    "result": "PASS",
+    "sha256": "a598be78556427a1555447ae4b30ffb7de983888b7fb59369b674bdd3f2a997a"
+  },
+  {
+    "path": "docs/v0/evidence/20261027T133952-mavros_loss/summary.json",
+    "result": "FAIL",
+    "sha256": "0ff14943979bfeeda703d89711ca3056c68304b8e7d4bdfa7bba339f7583f9ed"
+  },
+  {
+    "path": "docs/v0/evidence/20261027T134823-mavros_loss/summary.json",
+    "result": "FAIL",
+    "sha256": "21d537ec07e53e773cfff6af415e274512038be417cb3cb7a9be996c536c4f9a"
+  },
+  {
+    "path": "docs/v0/evidence/20261027T135535-single/summary.json",
+    "result": "PASS",
+    "sha256": "cb08c3531e1f7c0ae9725b45a827a8de7839ab2782505373c21345ad8b83ee2c"
+  },
+  {
+    "path": "docs/v0/evidence/20261027T135802-multi/summary.json",
+    "result": "PASS",
+    "sha256": "f5805c594feb77cd6b41d95a2107417b31b8160fd693636465aa760e9b96f441"
+  },
+  {
+    "path": "docs/v0/evidence/20261027T140035-yaw/summary.json",
+    "result": "PASS",
+    "sha256": "1496e38601390d857ef80444af93e7219c94059390035be6e022a5e47d77710b"
+  },
+  {
+    "path": "docs/v0/evidence/20261027T140309-altitude/summary.json",
+    "result": "PASS",
+    "sha256": "2fc03ede35a2785834cce6043dfd83bba11423283dcc97e74cfdab056636bcaf"
+  },
+  {
+    "path": "docs/v0/evidence/20261027T140528-mode_exit/summary.json",
+    "result": "PASS",
+    "sha256": "1f9c980613c732acfe020efd5439a58b248cbb5189c3ddac8292f28cc05a8cb4"
+  },
+  {
+    "path": "docs/v0/evidence/20261027T140743-gate_pause/summary.json",
+    "result": "PASS",
+    "sha256": "13cdb195637eb2124c5f8e4e73825508072dd83cdb62b28c14f5bf231ec54c78"
+  },
+  {
+    "path": "docs/v0/evidence/20261027T140956-manager_pause/summary.json",
+    "result": "PASS",
+    "sha256": "f6f3e4bf6eab572a8f62341b9ce56a99cf470e7a4746fe127a45e5a027061937"
+  },
+  {
+    "path": "docs/v0/evidence/20261027T141212-concurrent/summary.json",
+    "result": "PASS",
+    "sha256": "835deef17fc32647dbee24c09eb95668425abb86bea3b7a13992541a415b9688"
+  },
+  {
+    "path": "docs/v0/evidence/20261027T141427-f3_auto_bag/summary.json",
+    "result": "FAIL",
+    "sha256": "da909b2f1223e8ed82435a85c6d3169db10aa7131ddd221e9be2893cd9074352"
+  },
+  {
+    "path": "docs/v0/evidence/20261027T141646-distance_short/summary.json",
+    "result": "PASS",
+    "sha256": "086b7968add18fb27a73f14a89b9560cf8d2d7c3fa1cfe707ee9dbd71c0a2b93"
+  },
+  {
+    "path": "docs/v0/evidence/20261027T141901-distance_long/summary.json",
+    "result": "PASS",
+    "sha256": "999078b5137eeb7e79485d3603dce3af05b73181365c155c7658fcbe3e6f4b1b"
+  },
+  {
+    "path": "docs/v0/evidence/20261027T142119-finish_stop/summary.json",
+    "result": "PASS",
+    "sha256": "85596595fa5eea78a9ca40ddcde366b0f00fa79313a4cc5d3c8af0adb5fa5a07"
+  },
+  {
+    "path": "docs/v0/evidence/20261027T142344-manager_exit/summary.json",
+    "result": "PASS",
+    "sha256": "db404fa5f9c16b6edcd268a7052d17dc93993bd845c39259a27ba6f5ebb43d03"
+  },
+  {
+    "path": "docs/v0/evidence/20261027T142601-f3/summary.json",
+    "result": "FAIL",
+    "sha256": "560db0446affa6ad75393a704ccc23e65a0adfad9e2141a5c320c1b436e441d3"
+  },
+  {
+    "path": "docs/v0/evidence/20261027T142816-link_fault/summary.json",
+    "result": "PASS",
+    "sha256": "8e85732f4701fa62896c0119528a28be91f7aef44fc5cfcf1652b54857122f67"
+  },
+  {
+    "path": "docs/v0/evidence/20261027T143032-gate_kill/summary.json",
+    "result": "PASS",
+    "sha256": "729865c31190ef293fdcaa775c111819825ed2cd92e53fba0a467f1d9009f798"
+  },
+  {
+    "path": "docs/v0/evidence/20261027T143247-publisher_conflict/summary.json",
+    "result": "PASS",
+    "sha256": "5a7196f3756af60149ffd756c4884c5886a799a45b0f7322c769f46b06efac71"
+  },
+  {
+    "path": "docs/v0/evidence/20261027T143500-single/summary.json",
+    "result": "FAIL",
+    "sha256": "5266f7c2fdbed5cd4db115ff18282fa83cc1c737d1168f88db9782ea0cc75fd2"
+  },
+  {
+    "path": "docs/v0/evidence/20261027T143709-multi/summary.json",
+    "result": "PASS",
+    "sha256": "e242c9fd6f19dc20f21429f773173c6bc96a77892a0138e2b18e23537b388738"
+  },
+  {
+    "path": "docs/v0/evidence/20261027T143943-dry_run/summary.json",
+    "result": "PASS",
+    "sha256": "09a6d367a0f1e1feca59e66335c8e0f8098b2b1c03fd24487c569d43cd6e1bcc"
+  },
+  {
+    "path": "docs/v0/evidence/20261027T144135-mavros_loss/summary.json",
+    "result": "FAIL",
+    "sha256": "ec19f45014a576ddd2eb414e18f3341a68d8fe71634af1088d76773f643dee5f"
+  }
+]

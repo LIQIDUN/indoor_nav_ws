@@ -1,0 +1,146 @@
+[
+  {
+    "case": "multi",
+    "test_exit_code": 0,
+    "runtime": "/home/liqidun/github/indoor_nav_ws/.sitl_runtime/v0/20261028T142713-1321518",
+    "summaries": [
+      "docs/v0/evidence/20261028T142721-multi/summary.json"
+    ],
+    "launcher_pid": 1321518,
+    "stop_exit_code": 0,
+    "ports_released": true
+  },
+  {
+    "case": "single",
+    "test_exit_code": 0,
+    "runtime": "/home/liqidun/github/indoor_nav_ws/.sitl_runtime/v0/20261028T143004-1324825",
+    "summaries": [
+      "docs/v0/evidence/20261028T143012-single/summary.json"
+    ],
+    "launcher_pid": 1324825,
+    "stop_exit_code": 0,
+    "ports_released": true
+  },
+  {
+    "case": "yaw",
+    "test_exit_code": 1,
+    "runtime": "/home/liqidun/github/indoor_nav_ws/.sitl_runtime/v0/20261028T143237-1327802",
+    "summaries": [
+      "docs/v0/evidence/20261028T143245-yaw/summary.json"
+    ],
+    "launcher_pid": 1327802,
+    "stop_exit_code": 0,
+    "ports_released": true
+  },
+  {
+    "case": "altitude",
+    "test_exit_code": 0,
+    "runtime": "/home/liqidun/github/indoor_nav_ws/.sitl_runtime/v0/20261028T143509-1330752",
+    "summaries": [
+      "docs/v0/evidence/20261028T143517-altitude/summary.json"
+    ],
+    "launcher_pid": 1330752,
+    "stop_exit_code": 0,
+    "ports_released": true
+  },
+  {
+    "case": "mode_exit",
+    "test_exit_code": 1,
+    "runtime": "/home/liqidun/github/indoor_nav_ws/.sitl_runtime/v0/20261028T143745-1333885",
+    "summaries": [
+      "docs/v0/evidence/20261028T143753-mode_exit/summary.json"
+    ],
+    "launcher_pid": 1333885,
+    "stop_exit_code": 0,
+    "ports_released": true
+  },
+  {
+    "case": "abort",
+    "test_exit_code": 0,
+    "runtime": "/home/liqidun/github/indoor_nav_ws/.sitl_runtime/v0/20261028T144012-1336634",
+    "summaries": [
+      "docs/v0/evidence/20261028T144020-abort/summary.json"
+    ],
+    "launcher_pid": 1336634,
+    "stop_exit_code": 0,
+    "ports_released": true
+  },
+  {
+    "case": "manager_kill",
+    "test_exit_code": 0,
+    "runtime": "/home/liqidun/github/indoor_nav_ws/.sitl_runtime/v0/20261028T144243-1339522",
+    "summaries": [
+      "docs/v0/evidence/20261028T144252-manager_kill/summary.json"
+    ],
+    "launcher_pid": 1339522,
+    "stop_exit_code": 0,
+    "ports_released": true
+  },
+  {
+    "case": "gate_kill",
+    "test_exit_code": 0,
+    "runtime": "/home/liqidun/github/indoor_nav_ws/.sitl_runtime/v0/20261028T144517-1342477",
+    "summaries": [
+      "docs/v0/evidence/20261028T144525-gate_kill/summary.json"
+    ],
+    "launcher_pid": 1342477,
+    "stop_exit_code": 0,
+    "ports_released": true
+  },
+  {
+    "case": "pose_loss",
+    "test_exit_code": 0,
+    "runtime": "/home/liqidun/github/indoor_nav_ws/.sitl_runtime/v0/20261028T144748-1345499",
+    "summaries": [
+      "docs/v0/evidence/20261028T144757-pose_loss/summary.json"
+    ],
+    "launcher_pid": 1345499,
+    "stop_exit_code": 0,
+    "ports_released": true
+  },
+  {
+    "case": "mavros_loss",
+    "test_exit_code": 0,
+    "runtime": "/home/liqidun/github/indoor_nav_ws/.sitl_runtime/v0/20261028T145018-1348328",
+    "summaries": [
+      "docs/v0/evidence/20261028T145026-mavros_loss/summary.json"
+    ],
+    "launcher_pid": 1348328,
+    "stop_exit_code": 0,
+    "stop_method": "test stopped verified DISARMED simulation before closing replacement MAVROS",
+    "ports_released": true
+  },
+  {
+    "case": "concurrent",
+    "test_exit_code": 0,
+    "runtime": "/home/liqidun/github/indoor_nav_ws/.sitl_runtime/v0/20261028T145300-1351507",
+    "summaries": [
+      "docs/v0/evidence/20261028T145308-concurrent/summary.json"
+    ],
+    "launcher_pid": 1351507,
+    "stop_exit_code": 0,
+    "ports_released": true
+  },
+  {
+    "case": "f3",
+    "test_exit_code": 0,
+    "runtime": "/home/liqidun/github/indoor_nav_ws/.sitl_runtime/v0/20261028T145532-1354380",
+    "summaries": [
+      "docs/v0/evidence/20261028T145540-f3/summary.json"
+    ],
+    "launcher_pid": 1354380,
+    "stop_exit_code": 0,
+    "ports_released": true
+  },
+  {
+    "case": "f3_auto_bag",
+    "test_exit_code": 0,
+    "runtime": "/home/liqidun/github/indoor_nav_ws/.sitl_runtime/v0/20261028T145807-1357399",
+    "summaries": [
+      "docs/v0/evidence/20261028T145816-f3_auto_bag/summary.json"
+    ],
+    "launcher_pid": 1357399,
+    "stop_exit_code": 0,
+    "ports_released": true
+  }
+]

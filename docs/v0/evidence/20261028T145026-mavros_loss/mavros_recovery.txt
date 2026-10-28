@@ -1,0 +1,956 @@
+[WARN] [1793170282.166550487]: Could not retrive negate_measured_roll parameter value, using default (0)
+[WARN] [1793170282.166677575]: Could not retrive negate_measured_pitch parameter value, using default (0)
+[WARN] [1793170282.166792258]: Could not retrive negate_measured_yaw parameter value, using default (0)
+[WARN] [1793170282.167137750]: Could not retrive debounce_s parameter value, using default (4.000000)
+[WARN] [1793170282.167226513]: Could not retrive err_threshold_deg parameter value, using default (10.000000)
+[INFO] [1793170282.125714897]: FCU URL: udp://127.0.0.1:14672@
+[INFO] [1793170282.126733789]: udp0: Bind address: 127.0.0.1:14672
+[INFO] [1793170282.126767976]: GCS bridge disabled
+[INFO] [1793170282.131064947]: Plugin 3dr_radio loaded
+[INFO] [1793170282.131496577]: Plugin 3dr_radio initialized
+[INFO] [1793170282.131511476]: Plugin actuator_control blacklisted
+[INFO] [1793170282.133592225]: Plugin adsb loaded
+[INFO] [1793170282.134447038]: Plugin adsb initialized
+[INFO] [1793170282.134454042]: Plugin altitude blacklisted
+[INFO] [1793170282.134486806]: Plugin cam_imu_sync loaded
+[INFO] [1793170282.134657728]: Plugin cam_imu_sync initialized
+[INFO] [1793170282.134686645]: Plugin camera loaded
+[INFO] [1793170282.134850554]: Plugin camera initialized
+[INFO] [1793170282.134881323]: Plugin cellular_status loaded
+[INFO] [1793170282.135497633]: Plugin cellular_status initialized
+[INFO] [1793170282.135530707]: Plugin command loaded
+[INFO] [1793170282.136998574]: Plugin command initialized
+[INFO] [1793170282.137029073]: Plugin companion_process_status loaded
+[INFO] [1793170282.137554325]: Plugin companion_process_status initialized
+[INFO] [1793170282.137559876]: Plugin debug_value blacklisted
+[INFO] [1793170282.137589594]: Plugin distance_sensor loaded
+[INFO] [1793170282.139629673]: Plugin distance_sensor initialized
+[INFO] [1793170282.139654121]: Plugin esc_status loaded
+[INFO] [1793170282.139914016]: Plugin esc_status initialized
+[INFO] [1793170282.139935969]: Plugin esc_telemetry loaded
+[INFO] [1793170282.140078266]: Plugin esc_telemetry initialized
+[INFO] [1793170282.140106200]: Plugin fake_gps loaded
+[INFO] [1793170282.143783335]: Plugin fake_gps initialized
+[INFO] [1793170282.143789177]: Plugin ftp blacklisted
+[INFO] [1793170282.143816620]: Plugin geofence loaded
+[INFO] [1793170282.144667797]: Plugin geofence initialized
+[INFO] [1793170282.144753073]: Plugin global_position loaded
+[INFO] [1793170282.148745761]: Plugin global_position initialized
+[INFO] [1793170282.148795598]: Plugin gps_input loaded
+[INFO] [1793170282.149484689]: Plugin gps_input initialized
+[INFO] [1793170282.149543664]: Plugin gps_rtk loaded
+[INFO] [1793170282.150269316]: Plugin gps_rtk initialized
+[INFO] [1793170282.150310225]: Plugin gps_status loaded
+[INFO] [1793170282.151000358]: Plugin gps_status initialized
+[INFO] [1793170282.151057660]: Plugin guided_target loaded
+[INFO] [1793170282.152542980]: Plugin guided_target initialized
+[INFO] [1793170282.152560574]: Plugin hil blacklisted
+[INFO] [1793170282.152606344]: Plugin home_position loaded
+[INFO] [1793170282.153453833]: Plugin home_position initialized
+[INFO] [1793170282.153503439]: Plugin imu loaded
+[INFO] [1793170282.155482350]: Plugin imu initialized
+[INFO] [1793170282.155531896]: Plugin landing_target loaded
+[INFO] [1793170282.159634058]: Plugin landing_target initialized
+[INFO] [1793170282.159679066]: Plugin local_position loaded
+[INFO] [1793170282.161540348]: Plugin local_position initialized
+[INFO] [1793170282.161575867]: Plugin log_transfer loaded
+[INFO] [1793170282.162654937]: Plugin log_transfer initialized
+[INFO] [1793170282.162693903]: Plugin mag_calibration_status loaded
+[INFO] [1793170282.163029947]: Plugin mag_calibration_status initialized
+[INFO] [1793170282.163073211]: Plugin manual_control loaded
+[INFO] [1793170282.163970026]: Plugin manual_control initialized
+[INFO] [1793170282.164022107]: Plugin mocap_pose_estimate loaded
+[INFO] [1793170282.165132478]: Plugin mocap_pose_estimate initialized
+[INFO] [1793170282.165171294]: Plugin mount_control loaded
+[INFO] [1793170282.167246642]: Plugin mount_control initialized
+[INFO] [1793170282.167281540]: Plugin nav_controller_output loaded
+[INFO] [1793170282.167420200]: Plugin nav_controller_output initialized
+[INFO] [1793170282.167450879]: Plugin obstacle_distance loaded
+[INFO] [1793170282.168053021]: Plugin obstacle_distance initialized
+[INFO] [1793170282.168083921]: Plugin odom loaded
+[INFO] [1793170282.168962370]: Plugin odom initialized
+[INFO] [1793170282.168994022]: Plugin onboard_computer_status loaded
+[INFO] [1793170282.170065266]: Plug[WARN] [1793170282.200827705]: IMU: linear acceleration on RAW_IMU known on APM only.
+[WARN] [1793170282.200851161]: IMU: ~imu/data_raw stores unscaled raw acceleration report.
+[WARN] [1793170282.201033145]: PositionTargetGlobal failed because no origin
+[WARN] [1793170282.201212905]: PositionTargetGlobal failed because no origin
+[WARN] [1793170282.235891725]: PositionTargetGlobal failed because no origin
+[WARN] [1793170282.278560703]: PositionTargetGlobal failed because no origin
+[WARN] [1793170282.315951259]: PositionTargetGlobal failed because no origin
+[WARN] [1793170282.361729457]: PositionTargetGlobal failed because no origin
+[WARN] [1793170282.398148813]: PositionTargetGlobal failed because no origin
+[WARN] [1793170282.435065920]: PositionTargetGlobal failed because no origin
+[WARN] [1793170282.477275603]: PositionTargetGlobal failed because no origin
+[WARN] [1793170282.519758138]: PositionTargetGlobal failed because no origin
+[WARN] [1793170282.556640757]: PositionTargetGlobal failed because no origin
+[WARN] [1793170282.596455580]: PositionTargetGlobal failed because no origin
+[WARN] [1793170282.637818426]: PositionTargetGlobal failed because no origin
+[WARN] [1793170282.680359476]: PositionTargetGlobal failed because no origin
+[WARN] [1793170282.716326181]: PositionTargetGlobal failed because no origin
+[WARN] [1793170282.761871045]: PositionTargetGlobal failed because no origin
+[WARN] [1793170282.799481370]: PositionTargetGlobal failed because no origin
+[WARN] [1793170282.835857983]: PositionTargetGlobal failed because no origin
+[WARN] [1793170282.879242353]: PositionTargetGlobal failed because no origin
+[WARN] [1793170282.916983151]: PositionTargetGlobal failed because no origin
+[WARN] [1793170282.961916865]: PositionTargetGlobal failed because no origin
+[WARN] [1793170282.997361226]: PositionTargetGlobal failed because no origin
+[WARN] [1793170283.040594050]: PositionTargetGlobal failed because no origin
+[ERROR] [1793170283.048024108]: PR: Unknown parameter to get: SIM_SPEEDUP
+[WARN] [1793170283.084397946]: PositionTargetGlobal failed because no origin
+[WARN] [1793170283.115568750]: PositionTargetGlobal failed because no origin
+[WARN] [1793170283.160942711]: PositionTargetGlobal failed because no origin
+[WARN] [1793170283.198453903]: PositionTargetGlobal failed because no origin
+[WARN] [1793170283.242245315]: PositionTargetGlobal failed because no origin
+[WARN] [1793170283.286022358]: PositionTargetGlobal failed because no origin
+[WARN] [1793170283.317208853]: PositionTargetGlobal failed because no origin
+[WARN] [1793170283.357369299]: PositionTargetGlobal failed because no origin
+[WARN] [1793170283.399383342]: PositionTargetGlobal failed because no origin
+[WARN] [1793170283.439592303]: PositionTargetGlobal failed because no origin
+[WARN] [1793170283.478944737]: PositionTargetGlobal failed because no origin
+[WARN] [1793170283.519397863]: PositionTargetGlobal failed because no origin
+[ERROR] [1793170283.556810934]: PR: Unknown parameter to get: SIM_SPEEDUP
+[WARN] [1793170283.559492301]: PositionTargetGlobal failed because no origin
+[WARN] [1793170283.597504276]: PositionTargetGlobal failed because no origin
+[WARN] [1793170283.640528436]: PositionTargetGlobal failed because no origin
+[WARN] [1793170283.678932975]: PositionTargetGlobal failed because no origin
+[WARN] [1793170283.721795659]: PositionTargetGlobal failed because no origin
+[WARN] [1793170283.760345321]: PositionTargetGlobal failed because no origin
+[WARN] [1793170283.798681428]: PositionTargetGlobal failed because no origin
+[WARN] [1793170283.840093541]: PositionTargetGlobal failed because no origin
+[WARN] [1793170283.880944730]: PositionTargetGlobal failed because no origin
+[WARN] [1793170283.917722745]: PositionTargetGlobal failed because no origin
+[WARN] [1793170283.961418832]: PositionTargetGlobal failed because no origin
+[WARN] [1793170283.969572838]: CMD: Unexpected command 520, result 0
+in onboard_computer_status initialized
+[INFO] [1793170282.170120183]: Plugin param loaded
+[INFO] [1793170282.171199122]: Plugin param initialized
+[INFO] [1793170282.171237297]: Plugin play_tune loaded
+[INFO] [1793170282.172048776]: Plugin play_tune initialized
+[INFO] [1793170282.172056982]: Plugin px4flow blacklisted
+[INFO] [1793170282.172094264]: Plugin rallypoint loaded
+[INFO] [1793170282.173048531]: Plugin rallypoint initialized
+[INFO] [1793170282.173080504]: Plugin rangefinder loaded
+[INFO] [1793170282.173216669]: Plugin rangefinder initialized
+[INFO] [1793170282.173247108]: Plugin rc_io loaded
+[INFO] [1793170282.174149023]: Plugin rc_io initialized
+[INFO] [1793170282.174159072]: Plugin safety_area blacklisted
+[INFO] [1793170282.174191916]: Plugin setpoint_accel loaded
+[INFO] [1793170282.175156243]: Plugin setpoint_accel initialized
+[INFO] [1793170282.175208735]: Plugin setpoint_attitude loaded
+[INFO] [1793170282.179411131]: Plugin setpoint_attitude initialized
+[INFO] [1793170282.179484023]: Plugin setpoint_position loaded
+[INFO] [1793170282.185159688]: Plugin setpoint_position initialized
+[INFO] [1793170282.185213213]: Plugin setpoint_raw loaded
+[INFO] [1793170282.187566291]: Plugin setpoint_raw initialized
+[INFO] [1793170282.187615857]: Plugin setpoint_trajectory loaded
+[INFO] [1793170282.188691250]: Plugin setpoint_trajectory initialized
+[INFO] [1793170282.188733813]: Plugin setpoint_velocity loaded
+[INFO] [1793170282.189958666]: Plugin setpoint_velocity initialized
+[INFO] [1793170282.190021778]: Plugin sys_status loaded
+[INFO] [1793170282.192673018]: Plugin sys_status initialized
+[INFO] [1793170282.192725781]: Plugin sys_time loaded
+[INFO] [1793170282.194051410]: TM: Timesync mode: MAVLINK
+[INFO] [1793170282.194153990]: TM: Not publishing sim time
+[INFO] [1793170282.194489843]: Plugin sys_time initialized
+[INFO] [1793170282.194546083]: Plugin terrain loaded
+[INFO] [1793170282.194727265]: Plugin terrain initialized
+[INFO] [1793170282.194772684]: Plugin trajectory loaded
+[INFO] [1793170282.196107972]: Plugin trajectory initialized
+[INFO] [1793170282.196144192]: Plugin tunnel loaded
+[INFO] [1793170282.196892458]: Plugin tunnel initialized
+[INFO] [1793170282.196938658]: Plugin vfr_hud loaded
+[INFO] [1793170282.197079632]: Plugin vfr_hud initialized
+[INFO] [1793170282.197087908]: Plugin vibration blacklisted
+[INFO] [1793170282.197127094]: Plugin vision_pose_estimate loaded
+[INFO] [1793170282.198905545]: Plugin vision_pose_estimate initialized
+[INFO] [1793170282.198930383]: Plugin vision_speed_estimate blacklisted
+[INFO] [1793170282.198994889]: Plugin waypoint loaded
+[INFO] [1793170282.200136881]: Plugin waypoint initialized
+[INFO] [1793170282.200153644]: Plugin wheel_odometry blacklisted
+[INFO] [1793170282.200209973]: Plugin wind_estimation loaded
+[INFO] [1793170282.200380806]: Plugin wind_estimation initialized
+[INFO] [1793170282.200459108]: Built-in SIMD instructions: SSE, SSE2
+[INFO] [1793170282.200476662]: Built-in MAVLink package version: 2025.5.5
+[INFO] [1793170282.200496150]: Known MAVLink dialects: common ardupilotmega ASLUAV AVSSUAS all csAirLink cubepilot development icarous loweheiser matrixpilot paparazzi standard storm32 uAvionix ualberta
+[INFO] [1793170282.200511560]: MAVROS started. MY ID 1.240, TARGET ID 1.1
+[INFO] [1793170282.200591215]: udp0: Remote address: 127.0.0.1:46092
+[INFO] [1793170282.200765885]: RC_CHANNELS message detected!
+[INFO] [1793170282.200801194]: IMU: Raw IMU message used.
+[INFO] [1793170282.963743319]: CON: Got HEARTBEAT, connected. FCU: ArduPilot
+[INFO] [1793170282.995246541]: RC_CHANNELS message detected!
+[INFO] [1793170283.969844687]: GF: Using MISSION_ITEM_INT
+[INFO] [1793170283.969858253]: RP: Using MISSION_ITEM_INT
+[INFO] [1793170283.969872491]: WP: Using MISSION_ITEM_INT
+[INFO] [1793170283.969885426]: VER: 1.1: Capabilities         0x000000000000fbef
+[INFO] [1793170283.969898001]: VER: 1.1: Flight software:     040507ff (2a3dc4b7)
+[INFO] [1793170283.969905796]: VER: 1.1: Middleware software: 00000000 (        )
+[INFO] [1793170283.969913781]: VER: 1.1: OS software:         00[WARN] [1793170283.999117087]: PositionTargetGlobal failed because no origin
+[WARN] [1793170284.037342829]: PositionTargetGlobal failed because no origin
+[ERROR] [1793170284.076713910]: PR: Unknown parameter to get: SIM_SPEEDUP
+[WARN] [1793170284.080486480]: PositionTargetGlobal failed because no origin
+[WARN] [1793170284.119408646]: PositionTargetGlobal failed because no origin
+[WARN] [1793170284.158941011]: PositionTargetGlobal failed because no origin
+[WARN] [1793170284.195616516]: PositionTargetGlobal failed because no origin
+[WARN] [1793170284.240919368]: PositionTargetGlobal failed because no origin
+[WARN] [1793170284.279547804]: PositionTargetGlobal failed because no origin
+[WARN] [1793170284.319921195]: PositionTargetGlobal failed because no origin
+[ERROR] [1793170284.350160527]: PR: Unknown parameter to get: WPNAV_SPEED
+[WARN] [1793170284.358356344]: PositionTargetGlobal failed because no origin
+[WARN] [1793170284.396175193]: PositionTargetGlobal failed because no origin
+[WARN] [1793170284.439354885]: PositionTargetGlobal failed because no origin
+[WARN] [1793170284.483078043]: PositionTargetGlobal failed because no origin
+[WARN] [1793170284.517471980]: PositionTargetGlobal failed because no origin
+[WARN] [1793170284.561514800]: PositionTargetGlobal failed because no origin
+[ERROR] [1793170284.586109728]: PR: Unknown parameter to get: SIM_SPEEDUP
+[WARN] [1793170284.599784588]: PositionTargetGlobal failed because no origin
+[WARN] [1793170284.636689910]: PositionTargetGlobal failed because no origin
+[WARN] [1793170284.681384689]: PositionTargetGlobal failed because no origin
+[WARN] [1793170284.717699502]: PositionTargetGlobal failed because no origin
+[WARN] [1793170284.761668921]: PositionTargetGlobal failed because no origin
+[WARN] [1793170284.797749679]: PositionTargetGlobal failed because no origin
+[WARN] [1793170284.842456752]: PositionTargetGlobal failed because no origin
+[WARN] [1793170284.882343756]: PositionTargetGlobal failed because no origin
+[WARN] [1793170284.919354684]: PositionTargetGlobal failed because no origin
+[WARN] [1793170284.964187171]: PositionTargetGlobal failed because no origin
+[WARN] [1793170285.001868784]: PositionTargetGlobal failed because no origin
+[WARN] [1793170285.045290677]: PositionTargetGlobal failed because no origin
+[WARN] [1793170285.077855173]: PositionTargetGlobal failed because no origin
+[ERROR] [1793170285.093473393]: PR: Unknown parameter to get: SIM_SPEEDUP
+[WARN] [1793170285.120699572]: PositionTargetGlobal failed because no origin
+[WARN] [1793170285.158608566]: PositionTargetGlobal failed because no origin
+[WARN] [1793170285.200762573]: PositionTargetGlobal failed because no origin
+[WARN] [1793170285.239031518]: PositionTargetGlobal failed because no origin
+[WARN] [1793170285.279515183]: PositionTargetGlobal failed because no origin
+[WARN] [1793170285.322657161]: PositionTargetGlobal failed because no origin
+[WARN] [1793170285.358949661]: PositionTargetGlobal failed because no origin
+[WARN] [1793170285.401550025]: PositionTargetGlobal failed because no origin
+[WARN] [1793170285.440000373]: PositionTargetGlobal failed because no origin
+[WARN] [1793170285.481508752]: PositionTargetGlobal failed because no origin
+[WARN] [1793170285.519799892]: PositionTargetGlobal failed because no origin
+[WARN] [1793170285.557422269]: PositionTargetGlobal failed because no origin
+[ERROR] [1793170285.600681726]: PR: Unknown parameter to get: SIM_SPEEDUP
+[WARN] [1793170285.601047037]: PositionTargetGlobal failed because no origin
+[WARN] [1793170285.638602344]: PositionTargetGlobal failed because no origin
+[WARN] [1793170285.681578428]: PositionTargetGlobal failed because no origin
+[WARN] [1793170285.721186390]: PositionTargetGlobal failed because no origin
+[WARN] [1793170285.757434273]: PositionTargetGlobal failed because no origin
+[WARN] [1793170285.801877392]: PositionTargetGlobal failed because no origin
+[WARN] [1793170285.839519218]: PositionTargetGlobal failed because no origin
+[WARN] [1793170285.879246311]: PositionTargetGlobal failed because no origin
+[WARN] [1793170285.921782840]: PositionTargetGlobal failed because no origin
+[WARN] [1793170285.958879334]: PositionTargetGlobal failed because no origin
+[WARN] [1793170286.001562400]: PositionTargetGlobal failed because no origin
+[WARN] [1793170286.040877471]: PositionTargetGlobal failed because no origin
+[WARN] [1793170286.082958815]: PositionTargetGlobal failed because no origin
+[ERROR] [1793170286.107794171]: PR: Unknown parameter to get: SIM_SPEEDUP
+[WARN] [1793170286.119866621]: PositionTargetGlobal failed because no origin
+[WARN] [1793170286.161614056]: PositionTargetGlobal failed because no origin
+[WARN] [1793170286.199601063]: PositionTargetGlobal failed because no origin
+[WARN] [1793170286.242801384]: PositionTargetGlobal failed because no origin
+[WARN] [1793170286.281217687]: PositionTargetGlobal failed because no origin
+[WARN] [1793170286.320395972]: PositionTargetGlobal failed because no origin
+[ERROR] [1793170286.354063984]: PR: Unknown parameter to get: WPNAV_SPEED
+[WARN] [1793170286.358966354]: PositionTargetGlobal failed because no origin
+[WARN] [1793170286.403084271]: PositionTargetGlobal failed because no origin
+[WARN] [1793170286.439784644]: PositionTargetGlobal failed because no origin
+[WARN] [1793170286.481443405]: PositionTargetGlobal failed because no origin
+[WARN] [1793170286.524345076]: PositionTargetGlobal failed because no origin
+[WARN] [1793170286.561978205]: PositionTargetGlobal failed because no origin
+[WARN] [1793170286.604138852]: PositionTargetGlobal failed because no origin
+[ERROR] [1793170286.614044247]: PR: Unknown parameter to get: SIM_SPEEDUP
+[WARN] [1793170286.641863429]: PositionTargetGlobal failed because no origin
+[WARN] [1793170286.685221277]: PositionTargetGlobal failed because no origin
+[WARN] [1793170286.722361135]: PositionTargetGlobal failed because no origin
+[WARN] [1793170286.760046796]: PositionTargetGlobal failed because no origin
+[WARN] [1793170286.801870319]: PositionTargetGlobal failed because no origin
+[WARN] [1793170286.838864283]: PositionTargetGlobal failed because no origin
+[WARN] [1793170286.882836577]: PositionTargetGlobal failed because no origin
+[WARN] [1793170286.920490115]: PositionTargetGlobal failed because no origin
+[WARN] [1793170286.960157882]: PositionTargetGlobal failed because no origin
+[WARN] [1793170286.999435630]: PositionTargetGlobal failed because no origin
+[WARN] [1793170287.042628889]: PositionTargetGlobal failed because no origin
+[WARN] [1793170287.085694768]: PositionTargetGlobal failed because no origin
+[ERROR] [1793170287.121975455]: PR: Unknown parameter to get: SIM_SPEEDUP
+[WARN] [1793170287.122392687]: PositionTargetGlobal failed because no origin
+[WARN] [1793170287.162314227]: PositionTargetGlobal failed because no origin
+[WARN] [1793170287.200257450]: PositionTargetGlobal failed because no origin
+[WARN] [1793170287.243590339]: PositionTargetGlobal failed because no origin
+[WARN] [1793170287.287125431]: PositionTargetGlobal failed because no origin
+[WARN] [1793170287.323775507]: PositionTargetGlobal failed because no origin
+[WARN] [1793170287.363882079]: PositionTargetGlobal failed because no origin
+[WARN] [1793170287.403026728]: PositionTargetGlobal failed because no origin
+[WARN] [1793170287.441225166]: PositionTargetGlobal failed because no origin
+[WARN] [1793170287.482754786]: PositionTargetGlobal failed because no origin
+[WARN] [1793170287.524948610]: PositionTargetGlobal failed because no origin
+[WARN] [1793170287.562921369]: PositionTargetGlobal failed because no origin
+[WARN] [1793170287.600967991]: PositionTargetGlobal failed because no origin
+[ERROR] [1793170287.633239758]: PR: Unknown parameter to get: SIM_SPEEDUP
+[WARN] [1793170287.640417945]: PositionTargetGlobal failed because no origin
+[WARN] [1793170287.685118015]: PositionTargetGlobal failed because no origin
+[WARN] [1793170287.720946151]: PositionTargetGlobal failed because no origin
+[WARN] [1793170287.761939067]: PositionTargetGlobal failed because no origin
+[WARN] [1793170287.804405389]: PositionTargetGlobal failed because no origin
+[WARN] [1793170287.840556083]: PositionTargetGlobal failed because no origin
+[WARN] [1793170287.882488298]: PositionTargetGlobal failed because no origin
+[WARN] [1793170287.919655779]: PositionTargetGlobal failed because no origin
+[WARN] [1793170287.959972229]: PositionTargetGlobal failed because no origin
+[WARN] [1793170288.003053809]: PositionTargetGlobal failed because no origin
+[WARN] [1793170288.041403792]: PositionTargetGlobal failed because no origin
+[WARN] [1793170288.084023614]: PositionTargetGlobal failed because no origin
+[WARN] [1793170288.121529925]: PositionTargetGlobal failed because no origin
+[ERROR] [1793170288.142881573]: PR: Unknown parameter to get: SIM_SPEEDUP
+[WARN] [1793170288.160637333]: PositionTargetGlobal failed because no origin
+[WARN] [1793170288.206168770]: PositionTargetGlobal failed because no origin
+[WARN] [1793170288.243306194]: PositionTargetGlobal failed because no origin
+[WARN] [1793170288.280560906]: PositionTargetGlobal failed because no origin
+[WARN] [1793170288.323251404]: PositionTargetGlobal failed because no origin
+[ERROR] [1793170288.358738587]: PR: Unknown parameter to get: WPNAV_SPEED
+[WARN] [1793170288.363067521]: PositionTargetGlobal failed because no origin
+[WARN] [1793170288.405361508]: PositionTargetGlobal failed because no origin
+[WARN] [1793170288.440684191]: PositionTargetGlobal failed because no origin
+[WARN] [1793170288.484873636]: PositionTargetGlobal failed because no origin
+[WARN] [1793170288.522721012]: PositionTargetGlobal failed because no origin
+[WARN] [1793170288.560832862]: PositionTargetGlobal failed because no origin
+[WARN] [1793170288.604509790]: PositionTargetGlobal failed because no origin
+[WARN] [1793170288.641201276]: PositionTargetGlobal failed because no origin
+[ERROR] [1793170288.650850813]: PR: Unknown parameter to get: SIM_SPEEDUP
+[WARN] [1793170288.682347941]: PositionTargetGlobal failed because no origin
+[WARN] [1793170288.725085723]: PositionTargetGlobal failed because no origin
+[WARN] [1793170288.762652813]: PositionTargetGlobal failed because no origin
+[WARN] [1793170288.800317272]: PositionTargetGlobal failed because no origin
+[WARN] [1793170288.843658577]: PositionTargetGlobal failed because no origin
+[WARN] [1793170288.881121704]: PositionTargetGlobal failed because no origin
+[WARN] [1793170288.929769536]: PositionTargetGlobal failed because no origin
+[WARN] [1793170288.962655606]: PositionTargetGlobal failed because no origin
+[WARN] [1793170289.001441578]: PositionTargetGlobal failed because no origin
+[WARN] [1793170289.040666975]: PositionTargetGlobal failed because no origin
+[WARN] [1793170289.084917941]: PositionTargetGlobal failed because no origin
+[WARN] [1793170289.122844029]: PositionTargetGlobal failed because no origin
+[WARN] [1793170289.159820088]: PositionTargetGlobal failed because no origin
+[ERROR] [1793170289.160003836]: PR: Unknown parameter to get: SIM_SPEEDUP
+[WARN] [1793170289.202165095]: PositionTargetGlobal failed because no origin
+[WARN] [1793170289.240776797]: PositionTargetGlobal failed because no origin
+[WARN] [1793170289.283697114]: PositionTargetGlobal failed because no origin
+[WARN] [1793170289.321383906]: PositionTargetGlobal failed because no origin
+[WARN] [1793170289.365725117]: PositionTargetGlobal failed because no origin
+[WARN] [1793170289.403848329]: PositionTargetGlobal failed because no origin
+[WARN] [1793170289.440824479]: PositionTargetGlobal failed because no origin
+[WARN] [1793170289.479774480]: PositionTargetGlobal failed because no origin
+[WARN] [1793170289.524331752]: PositionTargetGlobal failed because no origin
+[WARN] [1793170289.564059495]: PositionTargetGlobal failed because no origin
+[WARN] [1793170289.602104344]: PositionTargetGlobal failed because no origin
+[WARN] [1793170289.645054308]: PositionTargetGlobal failed because no origin
+[ERROR] [1793170289.670094774]: PR: Unknown parameter to get: SIM_SPEEDUP
+[WARN] [1793170289.684516275]: PositionTargetGlobal failed because no origin
+[WARN] [1793170289.719615383]: PositionTargetGlobal failed because no origin
+[WARN] [1793170289.762143235]: PositionTargetGlobal failed because no origin
+[WARN] [1793170289.806114115]: PositionTargetGlobal failed because no origin
+[WARN] [1793170289.842299025]: PositionTargetGlobal failed because no origin
+[WARN] [1793170289.880225194]: PositionTargetGlobal failed because no origin
+[WARN] [1793170289.922740462]: PositionTargetGlobal failed because no origin
+[WARN] [1793170289.959856424]: PositionTargetGlobal failed because no origin
+[WARN] [1793170290.002604426]: PositionTargetGlobal failed because no origin
+[WARN] [1793170290.045092942]: PositionTargetGlobal failed because no origin
+[WARN] [1793170290.084162645]: PositionTargetGlobal failed because no origin
+[WARN] [1793170290.121949542]: PositionTargetGlobal failed because no origin
+[WARN] [1793170290.163025871]: PositionTargetGlobal failed because no origin
+[ERROR] [1793170290.177434397]: PR: Unknown parameter to get: SIM_SPEEDUP
+[WARN] [1793170290.205584964]: PositionTargetGlobal failed because no origin
+[WARN] [1793170290.243913215]: PositionTargetGlobal failed because no origin
+[WARN] [1793170290.282069110]: PositionTargetGlobal failed because no origin
+[WARN] [1793170290.322383827]: PositionTargetGlobal failed because no origin
+[ERROR] [1793170290.363281937]: PR: Unknown parameter to get: WPNAV_SPEED
+[WARN] [1793170290.366306994]: PositionTargetGlobal failed because no origin
+[WARN] [1793170290.404089843]: PositionTargetGlobal failed because no origin
+[WARN] [1793170290.446266252]: PositionTargetGlobal failed because no origin
+[WARN] [1793170290.482430823]: PositionTargetGlobal failed because no origin
+[WARN] [1793170290.525134628]: PositionTargetGlobal failed because no origin
+[WARN] [1793170290.569140406]: PositionTargetGlobal failed because no origin
+[WARN] [1793170290.601027373]: PositionTargetGlobal failed because no origin
+[WARN] [1793170290.644776541]: PositionTargetGlobal failed because no origin
+[WARN] [1793170290.683020198]: PositionTargetGlobal failed because no origin
+[ERROR] [1793170290.687452452]: PR: Unknown parameter to get: SIM_SPEEDUP
+[WARN] [1793170290.725297573]: PositionTargetGlobal failed because no origin
+[WARN] [1793170290.764182848]: PositionTargetGlobal failed because no origin
+[WARN] [1793170290.806626225]: PositionTargetGlobal failed because no origin
+[WARN] [1793170290.843334765]: PositionTargetGlobal failed because no origin
+[WARN] [1793170290.880942243]: PositionTargetGlobal failed because no origin
+[WARN] [1793170290.924372752]: PositionTargetGlobal failed because no origin
+[WARN] [1793170290.961865167]: PositionTargetGlobal failed because no origin
+[WARN] [1793170291.005017304]: PositionTargetGlobal failed because no origin
+[WARN] [1793170291.041443273]: PositionTargetGlobal failed because no origin
+[WARN] [1793170291.085943473]: PositionTargetGlobal failed because no origin
+[WARN] [1793170291.125651288]: PositionTargetGlobal failed because no origin
+[WARN] [1793170291.163593498]: PositionTargetGlobal failed because no origin
+[ERROR] [1793170291.196964342]: PR: Unknown parameter to get: SIM_SPEEDUP
+[WARN] [1793170291.204793746]: PositionTargetGlobal failed because no origin
+[WARN] [1793170291.244116562]: PositionTargetGlobal failed because no origin
+[WARN] [1793170291.285772228]: PositionTargetGlobal failed because no origin
+[WARN] [1793170291.322167267]: PositionTargetGlobal failed because no origin
+[WARN] [1793170291.365362498]: PositionTargetGlobal failed because no origin
+[WARN] [1793170291.403284528]: PositionTargetGlobal failed because no origin
+[WARN] [1793170291.446870219]: PositionTargetGlobal failed because no origin
+[WARN] [1793170291.484570478]: PositionTargetGlobal failed because no origin
+[WARN] [1793170291.521563300]: PositionTargetGlobal failed because no origin
+[WARN] [1793170291.564170978]: PositionTargetGlobal failed because no origin
+[WARN] [1793170291.600671983]: PositionTargetGlobal failed because no origin
+[WARN] [1793170291.644205562]: PositionTargetGlobal failed because no origin
+[WARN] [1793170291.682606985]: PositionTargetGlobal failed because no origin
+[ERROR] [1793170291.705325562]: PR: Unknown parameter to get: SIM_SPEEDUP
+[WARN] [1793170291.723904563]: PositionTargetGlobal failed because no origin
+[WARN] [1793170291.766443397]: PositionTargetGlobal failed because no origin
+[WARN] [1793170291.803421280]: PositionTargetGlobal failed because no origin
+[WARN] [1793170291.845453528]: PositionTargetGlobal failed because no origin
+[WARN] [1793170291.884674296]: PositionTargetGlobal failed because no origin
+[WARN] [1793170291.925393348]: PositionTargetGlobal failed because no origin
+[WARN] [1793170291.963161059]: PositionTargetGlobal failed because no origin
+[WARN] [1793170292.004753882]: PositionTargetGlobal failed because no origin
+[WARN] [1793170292.042492305]: PositionTargetGlobal failed because no origin
+[WARN] [1793170292.085886402]: PositionTargetGlobal failed because no origin
+[WARN] [1793170292.123463151]: PositionTargetGlobal failed because no origin
+[WARN] [1793170292.167026929]: PositionTargetGlobal failed because no origin
+[WARN] [1793170292.209796572]: PositionTargetGlobal failed because no origin
+[ERROR] [1793170292.212677848]: PR: Unknown parameter to get: SIM_SPEEDUP
+[WARN] [1793170292.241282168]: PositionTargetGlobal failed because no origin
+[WARN] [1793170292.285929724]: PositionTargetGlobal failed because no origin
+[WARN] [1793170292.322800119]: PositionTargetGlobal failed because no origin
+[WARN] [1793170292.362495791]: PositionTargetGlobal failed because no origin
+[ERROR] [1793170292.366561611]: PR: Unknown parameter to get: WPNAV_SPEED
+[WARN] [1793170292.404401242]: PositionTargetGlobal failed because no origin
+[WARN] [1793170292.446112825]: PositionTargetGlobal failed because no origin
+[WARN] [1793170292.486398444]: PositionTargetGlobal failed because no origin
+[WARN] [1793170292.523140569]: PositionTargetGlobal failed because no origin
+[WARN] [1793170292.567526206]: PositionTargetGlobal failed because no origin
+[WARN] [1793170292.604012894]: PositionTargetGlobal failed because no origin
+[WARN] [1793170292.641111091]: PositionTargetGlobal failed because no origin
+[WARN] [1793170292.685782634]: PositionTargetGlobal failed because no origin
+[ERROR] [1793170292.722738614]: PR: Unknown parameter to get: SIM_SPEEDUP
+[WARN] [1793170292.723482472]: PositionTargetGlobal failed because no origin
+[WARN] [1793170292.767291337]: PositionTargetGlobal failed because no origin
+[WARN] [1793170292.804472075]: PositionTargetGlobal failed because no origin
+[WARN] [1793170292.845911399]: PositionTargetGlobal failed because no origin
+[WARN] [1793170292.884397868]: PositionTargetGlobal failed because no origin
+[WARN] [1793170292.921210589]: PositionTargetGlobal failed because no origin
+[WARN] [1793170292.967410336]: PositionTargetGlobal failed because no origin
+[ERROR] [1793170293.230790802]: PR: Unknown parameter to get: SIM_SPEEDUP
+[WARN] [1793170295.406519954]: CMD: Unexpected command 11, result 0
+[WARN] [1793170310.971807885]: CON: Lost connection, HEARTBEAT timed out.
+000000 (        )
+[INFO] [1793170283.969932758]: VER: 1.1: Board hardware:      00000000
+[INFO] [1793170283.969942688]: VER: 1.1: VID/PID:             0000:0000
+[INFO] [1793170283.969951986]: VER: 1.1: UID:                 0000000000000000
+[INFO] [1793170292.964147177]: HP: requesting home position
+[INFO] [1793170292.970433920]: FCU: ArduCopter V4.5.7 (2a3dc4b7)
+[INFO] [1793170292.970588391]: FCU: a887c46f926f4e748eb27eb2db56f23a
+[INFO] [1793170292.970699196]: FCU: Frame: QUAD/X
+[INFO] [1793170293.674967358]: PR: parameters list received
+[INFO] [1793170297.970405306]: GF: mission received
+[INFO] [1793170297.970576068]: RP: mission received
+[INFO] [1793170297.970753413]: WP: mission received
+[INFO] [1793170299.747663045]: FCU: Disarming motors
+Error in XmlRpcClient::writeRequest: write error (Connection refused).
+Error in XmlRpcDispatch::work: couldn't find source iterator
+Error in XmlRpcClient::writeRequest: write error (Connection refused).
+Error in XmlRpcDispatch::work: couldn't find source iterator
+Error in XmlRpcClient::writeRequest: write error (Connection refused).
+Error in XmlRpcDispatch::work: couldn't find source iterator
+Error in XmlRpcClient::writeRequest: write error (Connection refused).
+Error in XmlRpcDispatch::work: couldn't find source iterator
+Error in XmlRpcClient::writeRequest: write error (Connection refused).
+Error in XmlRpcDispatch::work: couldn't find source iterator
+Error in XmlRpcClient::writeRequest: write error (Connection refused).
+Error in XmlRpcDispatch::work: couldn't find source iterator
+Error in XmlRpcClient::writeRequest: write error (Connection refused).
+Error in XmlRpcDispatch::work: couldn't find source iterator
+Error in XmlRpcClient::writeRequest: write error (Connection refused).
+Error in XmlRpcDispatch::work: couldn't find source iterator
+Error in XmlRpcClient::writeRequest: write error (Connection refused).
+Error in XmlRpcDispatch::work: couldn't find source iterator
+Error in XmlRpcClient::writeRequest: write error (Connection refused).
+Error in XmlRpcDispatch::work: couldn't find source iterator
+Error in XmlRpcClient::writeRequest: write error (Connection refused).
+Error in XmlRpcDispatch::work: couldn't find source iterator
+Error in XmlRpcClient::writeRequest: write error (Connection refused).
+Error in XmlRpcDispatch::work: couldn't find source iterator
+Error in XmlRpcClient::writeRequest: write error (Connection refused).
+Error in XmlRpcDispatch::work: couldn't find source iterator
+Error in XmlRpcClient::writeRequest: write error (Connection refused).
+Error in XmlRpcDispatch::work: couldn't find source iterator
+Error in XmlRpcClient::writeRequest: write error (Connection refused).
+Error in XmlRpcDispatch::work: couldn't find source iterator
+Error in XmlRpcClient::writeRequest: write error (Connection refused).
+Error in XmlRpcDispatch::work: couldn't find source iterator
+Error in XmlRpcClient::writeRequest: write error (Connection refused).
+Error in XmlRpcDispatch::work: couldn't find source iterator
+Error in XmlRpcClient::writeRequest: write error (Connection refused).
+Error in XmlRpcDispatch::work: couldn't find source iterator
+Error in XmlRpcClient::writeRequest: write error (Connection refused).
+Error in XmlRpcDispatch::work: couldn't find source iterator
+Error in XmlRpcClient::writeRequest: write error (Connection refused).
+Error in XmlRpcDispatch::work: couldn't find source iterator
+Error in XmlRpcClient::writeRequest: write error (Connection refused).
+Error in XmlRpcDispatch::work: couldn't find source iterator
+Error in XmlRpcClient::writeRequest: write error (Connection refused).
+Error in XmlRpcDispatch::work: couldn't find source iterator
+Error in XmlRpcClient::writeRequest: write error (Connection refused).
+Error in XmlRpcDispatch::work: couldn't find source iterator
+Error in XmlRpcClient::writeRequest: write error (Connection refused).
+Error in XmlRpcDispatch::work: couldn't find source iterator
+Error in XmlRpcClient::writeRequest: write error (Connection refused).
+Error in XmlRpcDispatch::work: couldn't find source iterator
+Error in XmlRpcClient::writeRequest: write error (Connection refused).
+Error in XmlRpcDispatch::work: couldn't find source iterator
+Error in XmlRpcClient::writeRequest: write error (Connection refused).
+Error in XmlRpcDispatch::work: couldn't find source iterator
+Error in XmlRpcClient::writeRequest: write error (Connection refused).
+Error in XmlRpcDispatch::work: couldn't find source iterator
+Error in XmlRpcClient::writeRequest: write error (Connection refused).
+Error in XmlRpcDispatch::work: couldn't find source iterator
+Error in XmlRpcClient::writeRequest: write error (Connection refused).
+Error in XmlRpcDispatch::work: couldn't find source iterator
+Error in XmlRpcClient::writeRequest: write error (Connection refused).
+Error in XmlRpcDispatch::work: couldn't find source iterator
+Error in XmlRpcClient::writeRequest: write error (Connection refused).
+Error in XmlRpcDispatch::work: couldn't find source iterator
+Error in XmlRpcClient::writeRequest: write error (Connection refused).
+Error in XmlRpcDispatch::work: couldn't find source iterator
+Error in XmlRpcClient::writeRequest: write error (Connection refused).
+Error in XmlRpcDispatch::work: couldn't find source iterator
+Error in XmlRpcClient::writeRequest: write error (Connection refused).
+Error in XmlRpcDispatch::work: couldn't find source iterator
+Error in XmlRpcClient::writeRequest: write error (Connection refused).
+Error in XmlRpcDispatch::work: couldn't find source iterator
+Error in XmlRpcClient::writeRequest: write error (Connection refused).
+Error in XmlRpcDispatch::work: couldn't find source iterator
+Error in XmlRpcClient::writeRequest: write error (Connection refused).
+Error in XmlRpcDispatch::work: couldn't find source iterator
+Error in XmlRpcClient::writeRequest: write error (Connection refused).
+Error in XmlRpcDispatch::work: couldn't find source iterator
+Error in XmlRpcClient::writeRequest: write error (Connection refused).
+Error in XmlRpcDispatch::work: couldn't find source iterator
+Error in XmlRpcClient::writeRequest: write error (Connection refused).
+Error in XmlRpcDispatch::work: couldn't find source iterator
+Error in XmlRpcClient::writeRequest: write error (Connection refused).
+Error in XmlRpcDispatch::work: couldn't find source iterator
+Error in XmlRpcClient::writeRequest: write error (Connection refused).
+Error in XmlRpcDispatch::work: couldn't find source iterator
+Error in XmlRpcClient::writeRequest: write error (Connection refused).
+Error in XmlRpcDispatch::work: couldn't find source iterator
+Error in XmlRpcClient::writeRequest: write error (Connection refused).
+Error in XmlRpcDispatch::work: couldn't find source iterator
+Error in XmlRpcClient::writeRequest: write error (Connection refused).
+Error in XmlRpcDispatch::work: couldn't find source iterator
+Error in XmlRpcClient::writeRequest: write error (Connection refused).
+Error in XmlRpcDispatch::work: couldn't find source iterator
+Error in XmlRpcClient::writeRequest: write error (Connection refused).
+Error in XmlRpcDispatch::work: couldn't find source iterator
+Error in XmlRpcClient::writeRequest: write error (Connection refused).
+Error in XmlRpcDispatch::work: couldn't find source iterator
+Error in XmlRpcClient::writeRequest: write error (Connection refused).
+Error in XmlRpcDispatch::work: couldn't find source iterator
+Error in XmlRpcClient::writeRequest: write error (Connection refused).
+Error in XmlRpcDispatch::work: couldn't find source iterator
+Error in XmlRpcClient::writeRequest: write error (Connection refused).
+Error in XmlRpcDispatch::work: couldn't find source iterator
+Error in XmlRpcClient::writeRequest: write error (Connection refused).
+Error in XmlRpcDispatch::work: couldn't find source iterator
+Error in XmlRpcClient::writeRequest: write error (Connection refused).
+Error in XmlRpcDispatch::work: couldn't find source iterator
+Error in XmlRpcClient::writeRequest: write error (Connection refused).
+Error in XmlRpcDispatch::work: couldn't find source iterator
+Error in XmlRpcClient::writeRequest: write error (Connection refused).
+Error in XmlRpcDispatch::work: couldn't find source iterator
+Error in XmlRpcClient::writeRequest: write error (Connection refused).
+Error in XmlRpcDispatch::work: couldn't find source iterator
+Error in XmlRpcClient::writeRequest: write error (Connection refused).
+Error in XmlRpcDispatch::work: couldn't find source iterator
+Error in XmlRpcClient::writeRequest: write error (Connection refused).
+Error in XmlRpcDispatch::work: couldn't find source iterator
+Error in XmlRpcClient::writeRequest: write error (Connection refused).
+Error in XmlRpcDispatch::work: couldn't find source iterator
+Error in XmlRpcClient::writeRequest: write error (Connection refused).
+Error in XmlRpcDispatch::work: couldn't find source iterator
+Error in XmlRpcClient::writeRequest: write error (Connection refused).
+Error in XmlRpcDispatch::work: couldn't find source iterator
+Error in XmlRpcClient::writeRequest: write error (Connection refused).
+Error in XmlRpcDispatch::work: couldn't find source iterator
+Error in XmlRpcClient::writeRequest: write error (Connection refused).
+Error in XmlRpcDispatch::work: couldn't find source iterator
+Error in XmlRpcClient::writeRequest: write error (Connection refused).
+Error in XmlRpcDispatch::work: couldn't find source iterator
+Error in XmlRpcClient::writeRequest: write error (Connection refused).
+Error in XmlRpcDispatch::work: couldn't find source iterator
+Error in XmlRpcClient::writeRequest: write error (Connection refused).
+Error in XmlRpcDispatch::work: couldn't find source iterator
+Error in XmlRpcClient::writeRequest: write error (Connection refused).
+Error in XmlRpcDispatch::work: couldn't find source iterator
+Error in XmlRpcClient::writeRequest: write error (Connection refused).
+Error in XmlRpcDispatch::work: couldn't find source iterator
+Error in XmlRpcClient::writeRequest: write error (Connection refused).
+Error in XmlRpcDispatch::work: couldn't find source iterator
+Error in XmlRpcClient::writeRequest: write error (Connection refused).
+Error in XmlRpcDispatch::work: couldn't find source iterator
+Error in XmlRpcClient::writeRequest: write error (Connection refused).
+Error in XmlRpcDispatch::work: couldn't find source iterator
+Error in XmlRpcClient::writeRequest: write error (Connection refused).
+Error in XmlRpcDispatch::work: couldn't find source iterator
+Error in XmlRpcClient::writeRequest: write error (Connection refused).
+Error in XmlRpcDispatch::work: couldn't find source iterator
+Error in XmlRpcClient::writeRequest: write error (Connection refused).
+Error in XmlRpcDispatch::work: couldn't find source iterator
+Error in XmlRpcClient::writeRequest: write error (Connection refused).
+Error in XmlRpcDispatch::work: couldn't find source iterator
+Error in XmlRpcClient::writeRequest: write error (Connection refused).
+Error in XmlRpcDispatch::work: couldn't find source iterator
+Error in XmlRpcClient::writeRequest: write error (Connection refused).
+Error in XmlRpcDispatch::work: couldn't find source iterator
+Error in XmlRpcClient::writeRequest: write error (Connection refused).
+Error in XmlRpcDispatch::work: couldn't find source iterator
+Error in XmlRpcClient::writeRequest: write error (Connection refused).
+Error in XmlRpcDispatch::work: couldn't find source iterator
+Error in XmlRpcClient::writeRequest: write error (Connection refused).
+Error in XmlRpcDispatch::work: couldn't find source iterator
+Error in XmlRpcClient::writeRequest: write error (Connection refused).
+Error in XmlRpcDispatch::work: couldn't find source iterator
+Error in XmlRpcClient::writeRequest: write error (Connection refused).
+Error in XmlRpcDispatch::work: couldn't find source iterator
+Error in XmlRpcClient::writeRequest: write error (Connection refused).
+Error in XmlRpcDispatch::work: couldn't find source iterator
+Error in XmlRpcClient::writeRequest: write error (Connection refused).
+Error in XmlRpcDispatch::work: couldn't find source iterator
+Error in XmlRpcClient::writeRequest: write error (Connection refused).
+Error in XmlRpcDispatch::work: couldn't find source iterator
+Error in XmlRpcClient::writeRequest: write error (Connection refused).
+Error in XmlRpcDispatch::work: couldn't find source iterator
+Error in XmlRpcClient::writeRequest: write error (Connection refused).
+Error in XmlRpcDispatch::work: couldn't find source iterator
+Error in XmlRpcClient::writeRequest: write error (Connection refused).
+Error in XmlRpcDispatch::work: couldn't find source iterator
+Error in XmlRpcClient::writeRequest: write error (Connection refused).
+Error in XmlRpcDispatch::work: couldn't find source iterator
+Error in XmlRpcClient::writeRequest: write error (Connection refused).
+Error in XmlRpcDispatch::work: couldn't find source iterator
+Error in XmlRpcClient::writeRequest: write error (Connection refused).
+Error in XmlRpcDispatch::work: couldn't find source iterator
+Error in XmlRpcClient::writeRequest: write error (Connection refused).
+Error in XmlRpcDispatch::work: couldn't find source iterator
+Error in XmlRpcClient::writeRequest: write error (Connection refused).
+Error in XmlRpcDispatch::work: couldn't find source iterator
+Error in XmlRpcClient::writeRequest: write error (Connection refused).
+Error in XmlRpcDispatch::work: couldn't find source iterator
+Error in XmlRpcClient::writeRequest: write error (Connection refused).
+Error in XmlRpcDispatch::work: couldn't find source iterator
+Error in XmlRpcClient::writeRequest: write error (Connection refused).
+Error in XmlRpcDispatch::work: couldn't find source iterator
+Error in XmlRpcClient::writeRequest: write error (Connection refused).
+Error in XmlRpcDispatch::work: couldn't find source iterator
+Error in XmlRpcClient::writeRequest: write error (Connection refused).
+Error in XmlRpcDispatch::work: couldn't find source iterator
+Error in XmlRpcClient::writeRequest: write error (Connection refused).
+Error in XmlRpcDispatch::work: couldn't find source iterator
+Error in XmlRpcClient::writeRequest: write error (Connection refused).
+Error in XmlRpcDispatch::work: couldn't find source iterator
+Error in XmlRpcClient::writeRequest: write error (Connection refused).
+Error in XmlRpcDispatch::work: couldn't find source iterator
+Error in XmlRpcClient::writeRequest: write error (Connection refused).
+Error in XmlRpcDispatch::work: couldn't find source iterator
+Error in XmlRpcClient::writeRequest: write error (Connection refused).
+Error in XmlRpcDispatch::work: couldn't find source iterator
+Error in XmlRpcClient::writeRequest: write error (Connection refused).
+Error in XmlRpcDispatch::work: couldn't find source iterator
+Error in XmlRpcClient::writeRequest: write error (Connection refused).
+Error in XmlRpcDispatch::work: couldn't find source iterator
+Error in XmlRpcClient::writeRequest: write error (Connection refused).
+Error in XmlRpcDispatch::work: couldn't find source iterator
+Error in XmlRpcClient::writeRequest: write error (Connection refused).
+Error in XmlRpcDispatch::work: couldn't find source iterator
+Error in XmlRpcClient::writeRequest: write error (Connection refused).
+Error in XmlRpcDispatch::work: couldn't find source iterator
+Error in XmlRpcClient::writeRequest: write error (Connection refused).
+Error in XmlRpcDispatch::work: couldn't find source iterator
+Error in XmlRpcClient::writeRequest: write error (Connection refused).
+Error in XmlRpcDispatch::work: couldn't find source iterator
+Error in XmlRpcClient::writeRequest: write error (Connection refused).
+Error in XmlRpcDispatch::work: couldn't find source iterator
+Error in XmlRpcClient::writeRequest: write error (Connection refused).
+Error in XmlRpcDispatch::work: couldn't find source iterator
+Error in XmlRpcClient::writeRequest: write error (Connection refused).
+Error in XmlRpcDispatch::work: couldn't find source iterator
+Error in XmlRpcClient::writeRequest: write error (Connection refused).
+Error in XmlRpcDispatch::work: couldn't find source iterator
+Error in XmlRpcClient::writeRequest: write error (Connection refused).
+Error in XmlRpcDispatch::work: couldn't find source iterator
+Error in XmlRpcClient::writeRequest: write error (Connection refused).
+Error in XmlRpcDispatch::work: couldn't find source iterator
+Error in XmlRpcClient::writeRequest: write error (Connection refused).
+Error in XmlRpcDispatch::work: couldn't find source iterator
+Error in XmlRpcClient::writeRequest: write error (Connection refused).
+Error in XmlRpcDispatch::work: couldn't find source iterator
+Error in XmlRpcClient::writeRequest: write error (Connection refused).
+Error in XmlRpcDispatch::work: couldn't find source iterator
+Error in XmlRpcClient::writeRequest: write error (Connection refused).
+Error in XmlRpcDispatch::work: couldn't find source iterator
+Error in XmlRpcClient::writeRequest: write error (Connection refused).
+Error in XmlRpcDispatch::work: couldn't find source iterator
+Error in XmlRpcClient::writeRequest: write error (Connection refused).
+Error in XmlRpcDispatch::work: couldn't find source iterator
+Error in XmlRpcClient::writeRequest: write error (Connection refused).
+Error in XmlRpcDispatch::work: couldn't find source iterator
+Error in XmlRpcClient::writeRequest: write error (Connection refused).
+Error in XmlRpcDispatch::work: couldn't find source iterator
+Error in XmlRpcClient::writeRequest: write error (Connection refused).
+Error in XmlRpcDispatch::work: couldn't find source iterator
+Error in XmlRpcClient::writeRequest: write error (Connection refused).
+Error in XmlRpcDispatch::work: couldn't find source iterator
+Error in XmlRpcClient::writeRequest: write error (Connection refused).
+Error in XmlRpcDispatch::work: couldn't find source iterator
+Error in XmlRpcClient::writeRequest: write error (Connection refused).
+Error in XmlRpcDispatch::work: couldn't find source iterator
+Error in XmlRpcClient::writeRequest: write error (Connection refused).
+Error in XmlRpcDispatch::work: couldn't find source iterator
+Error in XmlRpcClient::writeRequest: write error (Connection refused).
+Error in XmlRpcDispatch::work: couldn't find source iterator
+Error in XmlRpcClient::writeRequest: write error (Connection refused).
+Error in XmlRpcDispatch::work: couldn't find source iterator
+Error in XmlRpcClient::writeRequest: write error (Connection refused).
+Error in XmlRpcDispatch::work: couldn't find source iterator
+Error in XmlRpcClient::writeRequest: write error (Connection refused).
+Error in XmlRpcDispatch::work: couldn't find source iterator
+Error in XmlRpcClient::writeRequest: write error (Connection refused).
+Error in XmlRpcDispatch::work: couldn't find source iterator
+Error in XmlRpcClient::writeRequest: write error (Connection refused).
+Error in XmlRpcDispatch::work: couldn't find source iterator
+Error in XmlRpcClient::writeRequest: write error (Connection refused).
+Error in XmlRpcDispatch::work: couldn't find source iterator
+Error in XmlRpcClient::writeRequest: write error (Connection refused).
+Error in XmlRpcDispatch::work: couldn't find source iterator
+Error in XmlRpcClient::writeRequest: write error (Connection refused).
+Error in XmlRpcDispatch::work: couldn't find source iterator
+Error in XmlRpcClient::writeRequest: write error (Connection refused).
+Error in XmlRpcDispatch::work: couldn't find source iterator
+Error in XmlRpcClient::writeRequest: write error (Connection refused).
+Error in XmlRpcDispatch::work: couldn't find source iterator
+Error in XmlRpcClient::writeRequest: write error (Connection refused).
+Error in XmlRpcDispatch::work: couldn't find source iterator
+Error in XmlRpcClient::writeRequest: write error (Connection refused).
+Error in XmlRpcDispatch::work: couldn't find source iterator
+Error in XmlRpcClient::writeRequest: write error (Connection refused).
+Error in XmlRpcDispatch::work: couldn't find source iterator
+Error in XmlRpcClient::writeRequest: write error (Connection refused).
+Error in XmlRpcDispatch::work: couldn't find source iterator
+Error in XmlRpcClient::writeRequest: write error (Connection refused).
+Error in XmlRpcDispatch::work: couldn't find source iterator
+Error in XmlRpcClient::writeRequest: write error (Connection refused).
+Error in XmlRpcDispatch::work: couldn't find source iterator
+Error in XmlRpcClient::writeRequest: write error (Connection refused).
+Error in XmlRpcDispatch::work: couldn't find source iterator
+Error in XmlRpcClient::writeRequest: write error (Connection refused).
+Error in XmlRpcDispatch::work: couldn't find source iterator
+Error in XmlRpcClient::writeRequest: write error (Connection refused).
+Error in XmlRpcDispatch::work: couldn't find source iterator
+Error in XmlRpcClient::writeRequest: write error (Connection refused).
+Error in XmlRpcDispatch::work: couldn't find source iterator
+Error in XmlRpcClient::writeRequest: write error (Connection refused).
+Error in XmlRpcDispatch::work: couldn't find source iterator
+Error in XmlRpcClient::writeRequest: write error (Connection refused).
+Error in XmlRpcDispatch::work: couldn't find source iterator
+Error in XmlRpcClient::writeRequest: write error (Connection refused).
+Error in XmlRpcDispatch::work: couldn't find source iterator
+Error in XmlRpcClient::writeRequest: write error (Connection refused).
+Error in XmlRpcDispatch::work: couldn't find source iterator
+Error in XmlRpcClient::writeRequest: write error (Connection refused).
+Error in XmlRpcDispatch::work: couldn't find source iterator
+Error in XmlRpcClient::writeRequest: write error (Connection refused).
+Error in XmlRpcDispatch::work: couldn't find source iterator
+Error in XmlRpcClient::writeRequest: write error (Connection refused).
+Error in XmlRpcDispatch::work: couldn't find source iterator
+Error in XmlRpcClient::writeRequest: write error (Connection refused).
+Error in XmlRpcDispatch::work: couldn't find source iterator
+Error in XmlRpcClient::writeRequest: write error (Connection refused).
+Error in XmlRpcDispatch::work: couldn't find source iterator
+Error in XmlRpcClient::writeRequest: write error (Connection refused).
+Error in XmlRpcDispatch::work: couldn't find source iterator
+Error in XmlRpcClient::writeRequest: write error (Connection refused).
+Error in XmlRpcDispatch::work: couldn't find source iterator
+Error in XmlRpcClient::writeRequest: write error (Connection refused).
+Error in XmlRpcDispatch::work: couldn't find source iterator
+Error in XmlRpcClient::writeRequest: write error (Connection refused).
+Error in XmlRpcDispatch::work: couldn't find source iterator
+Error in XmlRpcClient::writeRequest: write error (Connection refused).
+Error in XmlRpcDispatch::work: couldn't find source iterator
+... logging to /home/liqidun/.ros/log/d6ad9002-d29b-11f1-bc59-710cf840f56d/roslaunch-liqidun-MS-Challenger-B650M-1349916.log
+Checking log directory for disk usage. This may take a while.
+Press Ctrl-C to interrupt
+Done checking log file disk usage. Usage is <1GB.
+]2;/opt/ros/noetic/share/mavros/launch/apm.launch
+[1mstarted roslaunch server http://127.0.0.1:35767/[0m
+
+SUMMARY
+========
+
+CLEAR PARAMETERS
+ * /mavros/
+
+PARAMETERS
+ * /mavros/cmd/use_comp_id_system_control: False
+ * /mavros/conn/heartbeat_mav_type: ONBOARD_CONTROLLER
+ * /mavros/conn/heartbeat_rate: 1.0
+ * /mavros/conn/system_time_rate: 1.0
+ * /mavros/conn/timeout: 10.0
+ * /mavros/conn/timesync_rate: 10.0
+ * /mavros/distance_sensor/rangefinder_pub/field_of_view: 0.0
+ * /mavros/distance_sensor/rangefinder_pub/frame_id: lidar
+ * /mavros/distance_sensor/rangefinder_pub/id: 0
+ * /mavros/distance_sensor/rangefinder_pub/send_tf: False
+ * /mavros/distance_sensor/rangefinder_pub/sensor_position/x: 0.0
+ * /mavros/distance_sensor/rangefinder_pub/sensor_position/y: 0.0
+ * /mavros/distance_sensor/rangefinder_pub/sensor_position/z: -0.1
+ * /mavros/distance_sensor/rangefinder_sub/id: 1
+ * /mavros/distance_sensor/rangefinder_sub/orientation: PITCH_270
+ * /mavros/distance_sensor/rangefinder_sub/subscriber: True
+ * /mavros/fake_gps/eph: 2.0
+ * /mavros/fake_gps/epv: 2.0
+ * /mavros/fake_gps/fix_type: 3
+ * /mavros/fake_gps/geo_origin/alt: 408.0
+ * /mavros/fake_gps/geo_origin/lat: 47.3667
+ * /mavros/fake_gps/geo_origin/lon: 8.55
+ * /mavros/fake_gps/gps_id: 4
+ * /mavros/fake_gps/gps_rate: 5.0
+ * /mavros/fake_gps/horiz_accuracy: 0.5
+ * /mavros/fake_gps/mocap_transform: False
+ * /mavros/fake_gps/mocap_withcovariance: False
+ * /mavros/fake_gps/satellites_visible: 6
+ * /mavros/fake_gps/speed_accuracy: 0.0
+ * /mavros/fake_gps/tf/child_frame_id: fix
+ * /mavros/fake_gps/tf/frame_id: map
+ * /mavros/fake_gps/tf/listen: False
+ * /mavros/fake_gps/tf/rate_limit: 10.0
+ * /mavros/fake_gps/tf/send: False
+ * /mavros/fake_gps/use_hil_gps: True
+ * /mavros/fake_gps/use_mocap: True
+ * /mavros/fake_gps/use_vision: False
+ * /mavros/fake_gps/vert_accuracy: 0.5
+ * /mavros/fcu_protocol: v2.0
+ * /mavros/fcu_url: udp://127.0.0.1:1...
+ * /mavros/gcs_url: 
+ * /mavros/global_position/child_frame_id: base_link
+ * /mavros/global_position/frame_id: map
+ * /mavros/global_position/gps_uere: 1.0
+ * /mavros/global_position/rot_covariance: 99999.0
+ * /mavros/global_position/tf/child_frame_id: base_link
+ * /mavros/global_position/tf/frame_id: map
+ * /mavros/global_position/tf/global_frame_id: earth
+ * /mavros/global_position/tf/send: False
+ * /mavros/global_position/use_relative_alt: True
+ * /mavros/guided_target/tf/child_frame_id: target_position
+ * /mavros/guided_target/tf/frame_id: map
+ * /mavros/guided_target/tf/listen: False
+ * /mavros/guided_target/tf/rate_limit: 50.0
+ * /mavros/image/frame_id: px4flow
+ * /mavros/imu/angular_velocity_stdev: 0.0003490659 // 0...
+ * /mavros/imu/frame_id: base_link
+ * /mavros/imu/linear_acceleration_stdev: 0.0003
+ * /mavros/imu/magnetic_stdev: 0.0
+ * /mavros/imu/orientation_stdev: 1.0
+ * /mavros/landing_target/camera/fov_x: 2.0071286398
+ * /mavros/landing_target/camera/fov_y: 2.0071286398
+ * /mavros/landing_target/image/height: 480
+ * /mavros/landing_target/image/width: 640
+ * /mavros/landing_target/land_target_type: VISION_FIDUCIAL
+ * /mavros/landing_target/listen_lt: False
+ * /mavros/landing_target/mav_frame: LOCAL_NED
+ * /mavros/landing_target/target_size/x: 0.3
+ * /mavros/landing_target/target_size/y: 0.3
+ * /mavros/landing_target/tf/child_frame_id: camera_center
+ * /mavros/landing_target/tf/frame_id: landing_target
+ * /mavros/landing_target/tf/listen: False
+ * /mavros/landing_target/tf/rate_limit: 10.0
+ * /mavros/landing_target/tf/send: True
+ * /mavros/local_position/frame_id: map
+ * /mavros/local_position/tf/child_frame_id: base_link
+ * /mavros/local_position/tf/frame_id: map
+ * /mavros/local_position/tf/send: False
+ * /mavros/local_position/tf/send_fcu: False
+ * /mavros/mission/pull_after_gcs: True
+ * /mavros/mission/use_mission_item_int: True
+ * /mavros/mocap/use_pose: True
+ * /mavros/mocap/use_tf: False
+ * /mavros/mount/debounce_s: 4.0
+ * /mavros/mount/err_threshold_deg: 10.0
+ * /mavros/mount/negate_measured_pitch: False
+ * /mavros/mount/negate_measured_roll: False
+ * /mavros/mount/negate_measured_yaw: False
+ * /mavros/odometry/estimator_type: 3
+ * /mavros/odometry/frame_tf/desired_frame: ned
+ * /mavros/plugin_blacklist: ['actuator_contro...
+ * /mavros/plugin_whitelist: []
+ * /mavros/px4flow/frame_id: px4flow
+ * /mavros/px4flow/ranger_fov: 0.118682
+ * /mavros/px4flow/ranger_max_range: 5.0
+ * /mavros/px4flow/ranger_min_range: 0.3
+ * /mavros/safety_area/p1/x: 1.0
+ * /mavros/safety_area/p1/y: 1.0
+ * /mavros/safety_area/p1/z: 1.0
+ * /mavros/safety_area/p2/x: -1.0
+ * /mavros/safety_area/p2/y: -1.0
+ * /mavros/safety_area/p2/z: -1.0
+ * /mavros/setpoint_accel/send_force: False
+ * /mavros/setpoint_attitude/reverse_thrust: False
+ * /mavros/setpoint_attitude/tf/child_frame_id: target_attitude
+ * /mavros/setpoint_attitude/tf/frame_id: map
+ * /mavros/setpoint_attitude/tf/listen: False
+ * /mavros/setpoint_attitude/tf/rate_limit: 50.0
+ * /mavros/setpoint_attitude/use_quaternion: False
+ * /mavros/setpoint_position/mav_frame: LOCAL_NED
+ * /mavros/setpoint_position/tf/child_frame_id: target_position
+ * /mavros/setpoint_position/tf/frame_id: map
+ * /mavros/setpoint_position/tf/listen: False
+ * /mavros/setpoint_position/tf/rate_limit: 50.0
+ * /mavros/setpoint_raw/thrust_scaling: 1.0
+ * /mavros/setpoint_velocity/mav_frame: LOCAL_NED
+ * /mavros/startup_px4_usb_quirk: False
+ * /mavros/sys/disable_diag: False
+ * /mavros/sys/min_voltage: 10.0
+ * /mavros/target_component_id: 1
+ * /mavros/target_system_id: 1
+ * /mavros/tdr_radio/low_rssi: 40
+ * /mavros/time/time_ref_source: fcu
+ * /mavros/time/timesync_avg_alpha: 0.6
+ * /mavros/time/timesync_mode: MAVLINK
+ * /mavros/vibration/frame_id: base_link
+ * /mavros/vision_pose/tf/child_frame_id: vision_estimate
+ * /mavros/vision_pose/tf/frame_id: map
+ * /mavros/vision_pose/tf/listen: False
+ * /mavros/vision_pose/tf/rate_limit: 10.0
+ * /mavros/vision_speed/listen_twist: True
+ * /mavros/vision_speed/twist_cov: True
+ * /mavros/wheel_odometry/child_frame_id: base_link
+ * /mavros/wheel_odometry/count: 2
+ * /mavros/wheel_odometry/frame_id: map
+ * /mavros/wheel_odometry/send_raw: True
+ * /mavros/wheel_odometry/send_twist: False
+ * /mavros/wheel_odometry/tf/child_frame_id: base_link
+ * /mavros/wheel_odometry/tf/frame_id: map
+ * /mavros/wheel_odometry/tf/send: True
+ * /mavros/wheel_odometry/use_rpm: False
+ * /mavros/wheel_odometry/vel_error: 0.1
+ * /mavros/wheel_odometry/wheel0/radius: 0.05
+ * /mavros/wheel_odometry/wheel0/x: 0.0
+ * /mavros/wheel_odometry/wheel0/y: -0.15
+ * /mavros/wheel_odometry/wheel1/radius: 0.05
+ * /mavros/wheel_odometry/wheel1/x: 0.0
+ * /mavros/wheel_odometry/wheel1/y: 0.15
+ * /rosdistro: noetic
+ * /rosversion: 1.17.4
+
+NODES
+  /
+    mavros (mavros/mavros_node)
+
+[1mROS_MASTER_URI=http://127.0.0.1:11421[0m
+]2;/opt/ros/noetic/share/mavros/launch/apm.launch http://127.0.0.1:11421
+[1mprocess[mavros-1]: started with pid [1349950][0m
+[mavros-1] killing on exit
+shutting down processing monitor...
+... shutting down processing monitor complete
+[1mdone[0m

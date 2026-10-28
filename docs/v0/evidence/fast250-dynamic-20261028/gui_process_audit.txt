@@ -1,0 +1,29 @@
+2026-10-28T14:40:49+08:00
+DISPLAY=:1 XAUTHORITY=/run/user/1000/gdm/Xauthority
+1321471 3254283 Wed Oct 28 14:27:13 2026 Ss   /bin/bash -lc source /opt/ros/noetic/setup.bash; source devel/setup.bash; export ROS_MASTER_URI=http://127.0.0.1:11421 ROS_IP=127.0.0.1 V0_SITL_GUI=true; python3 tools/v0_sitl_suite.py --sitl --execute --cases multi single yaw altitude mode_exit abort manager_kill gate_kill pose_loss mavros_loss concurrent f3 f3_auto_bag > /tmp/v0_fast250_acceptance_suite_20261028.txt 2>&1; tail -35 /tmp/v0_fast250_acceptance_suite_20261028.txt
+1321517 1321471 Wed Oct 28 14:27:13 2026 S    python3 tools/v0_sitl_suite.py --sitl --execute --cases multi single yaw altitude mode_exit abort manager_kill gate_kill pose_loss mavros_loss concurrent f3 f3_auto_bag
+1336705 1336683 Wed Oct 28 14:40:12 2026 Ssl  /usr/bin/python3 /opt/ros/noetic/bin/rosmaster --core -p 11421 -w 3 __log:=/home/liqidun/github/indoor_nav_ws/.sitl_runtime/v0/20261028T144012-1336634/ros_logs/6d45c93c-d29a-11f1-bc59-710cf840f56d/master.log
+1336758 1336634 Wed Oct 28 14:40:13 2026 Sl   /home/liqidun/github/ardupilot/build/sitl/bin/arducopter -S --model gazebo --speedup 1 --defaults /home/liqidun/github/ardupilot/Tools/autotest/default_params/copter.parm,/home/liqidun/github/ardupilot/Tools/autotest/default_params/gazebo-iris.parm,/home/liqidun/github/indoor_nav_ws/src/indoor_nav/config/v0_sitl_gps.parm --home=-35.363261,149.165230,584,0 -I0
+1336835 1336759 Wed Oct 28 14:40:13 2026 Ss   /bin/sh /opt/ros/noetic/lib/gazebo_ros/gzserver --verbose -e ode /home/liqidun/github/indoor_nav_ws/.sitl_runtime/v0/20261028T144012-1336634/flight.world __name:=gazebo __log:=/home/liqidun/github/indoor_nav_ws/.sitl_runtime/v0/20261028T144012-1336634/ros_logs/6d45c93c-d29a-11f1-bc59-710cf840f56d/gazebo-1.log
+1336837 1336759 Wed Oct 28 14:40:14 2026 Ss   /bin/sh /opt/ros/noetic/lib/gazebo_ros/gzclient --verbose __name:=gazebo_gui __log:=/home/liqidun/github/indoor_nav_ws/.sitl_runtime/v0/20261028T144012-1336634/ros_logs/6d45c93c-d29a-11f1-bc59-710cf840f56d/gazebo_gui-2.log
+1336845 1336761 Wed Oct 28 14:40:14 2026 Ssl  /opt/ros/noetic/lib/mavros/mavros_node __name:=mavros __log:=/home/liqidun/github/indoor_nav_ws/.sitl_runtime/v0/20261028T144012-1336634/ros_logs/6d45c93c-d29a-11f1-bc59-710cf840f56d/mavros-1.log
+1336910 1336837 Wed Oct 28 14:40:14 2026 SLl  gzclient --verbose -g /opt/ros/noetic/lib/libgazebo_ros_paths_plugin.so -g /opt/ros/noetic/lib/libgazebo_ros_api_plugin.so __name:=gazebo_gui __log:=/home/liqidun/github/indoor_nav_ws/.sitl_runtime/v0/20261028T144012-1336634/ros_logs/6d45c93c-d29a-11f1-bc59-710cf840f56d/gazebo_gui-2.log
+1336917 1336835 Wed Oct 28 14:40:14 2026 SLl  gzserver --verbose -e ode /home/liqidun/github/indoor_nav_ws/.sitl_runtime/v0/20261028T144012-1336634/flight.world -s /opt/ros/noetic/lib/libgazebo_ros_paths_plugin.so -s /opt/ros/noetic/lib/libgazebo_ros_api_plugin.so __name:=gazebo __log:=/home/liqidun/github/indoor_nav_ws/.sitl_runtime/v0/20261028T144012-1336634/ros_logs/6d45c93c-d29a-11f1-bc59-710cf840f56d/gazebo-1.log
+2391064    4185 Wed Oct 14 20:13:15 2026 Ssl  /opt/ros/noetic/lib/mavros/mavros_node __name:=mavros __log:=/home/liqidun/.ros/log/9d6e55e8-c7c8-11f1-bc59-710cf840f56d/mavros-1.log
+3263919    4185 Thu Oct 15 14:52:11 2026 Ssl  /opt/ros/noetic/lib/mavros/mavros_node __name:=mavros __log:=/home/liqidun/.ros/log/ed8fcd6c-c864-11f1-bc59-710cf840f56d/mavros-1.log
+udp   UNCONN 768    0                        127.0.0.1:9002        0.0.0.0:*     users:(("gzserver",pid=1336917,fd=103))                                        
+udp   UNCONN 0      0                          0.0.0.0:9003        0.0.0.0:*     users:(("arducopter",pid=1336758,fd=8))                                        
+udp   UNCONN 0      0                        127.0.0.1:14672       0.0.0.0:*     users:(("mavros_node",pid=1336845,fd=13))                                      
+tcp   LISTEN 0      5                          0.0.0.0:5760        0.0.0.0:*     users:(("arducopter",pid=1336758,fd=9))                                        
+tcp   LISTEN 0      4096                       0.0.0.0:11455       0.0.0.0:*     users:(("gzserver",pid=1336917,fd=7))                                          
+tcp   LISTEN 0      128                      127.0.0.1:11421       0.0.0.0:*     users:(("rosmaster",pid=1336705,fd=4))                                         
+     0xb600006 "gazebo": ("gazebo" "gazebo")  576x320+4960+1888  +4960+1888
+        0xb600016 "Gazebo": ("gazebo" "gazebo")  1024x768+20+90  +100+1011
+ 14:40:49 up 20 days,  1:47,  1 user,  load average: 2.09, 2.09, 1.95
+some avg10=0.04 avg60=0.16 avg300=0.17 total=5270544346
+full avg10=0.00 avg60=0.00 avg300=0.00 total=0
+some avg10=0.00 avg60=0.09 avg300=0.09 total=1187483863
+full avg10=0.00 avg60=0.08 avg300=0.07 total=1125144415
+Filesystem      Size  Used Avail Use% Mounted on
+/dev/nvme0n1p5  246G  207G   26G  90% /
+/dev/nvme0n1p5  246G  207G   26G  90% /

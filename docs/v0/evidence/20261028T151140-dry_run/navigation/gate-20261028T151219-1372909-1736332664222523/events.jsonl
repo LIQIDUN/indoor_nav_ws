@@ -1,0 +1,1 @@
+{"event": "GATE_SHUTDOWN", "wall_s": 1793171541.0385914, "ros_s": 1793171541.0385945, "mono_s": 1736334.032577105, "warning": "no guaranteed FCU action if the sole outlet exits; RC/FCU failsafe required"}
