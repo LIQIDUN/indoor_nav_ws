@@ -1,8 +1,8 @@
 # ArduCopter V0 相对航点
 
-**默认只读；已获本地开发/隔离SITL恢复授权，未获任何真机操作授权。**
+**默认只读；SITL仍暂停。2026-10-28仅授权源码研究、修改与离线测试，未获任何真机操作授权。**
 
-2026-10-26范围修订见 `DEVELOPMENT_PLAN_REVISION_20261026.md`：用户确认UWB经飞控GPS接口提供定位；F2专项模拟及协议调查已取消。恢复后的实现、原始失败、故障矩阵和放行边界见 `RESUME_REPORT_20261027.md`，不能以旧暂停报告代替当前结果。没有操作真机。
+2026-10-26范围修订见 `DEVELOPMENT_PLAN_REVISION_20261026.md`：用户确认UWB经飞控GPS接口提供定位；F2专项模拟及协议调查已取消。10月27日暂停快照、原始失败和放行边界见 `PAUSE_REPORT_20261027.md`。10月28日参考Fast250的接收时间改造、离线对照与未复飞边界见 `FAST250_RECEIPT_TIME_REVIEW_20261028.md`。没有操作真机。
 
 这是 `indoor_nav` 包的增量模式，不取代旧 ExternalNav。manager只发布任务意图 `/v0_nav/target_pose`；现有 `v0_nav_health.py` 作为gate，是唯一 `/mavros/setpoint_position/local` 发布者及可选BRAKE模式请求出口。gate独立观察定位、EKF、任务租约、时间和ROS图，失效后锁存；不是第二个无协调控制发布者。生产节点不 ARM/起降、不写FC参数、不管理rosbag/音频进程。
 
@@ -102,6 +102,12 @@ rosservice call /indoor_nav/calibrate '{}'
 
 全部安全缺省值见 `indoor_nav/v0.py:SAFETY_DEFAULTS`，可在 `safety` 内显式覆盖：state/GPS/EKF新鲜度、速度/pose新鲜度、跳点、持续超速、悬停窗口/范围/角度、initial hold、ROS/墙钟偏差、周期/watchdog期限、冻结一致性。限制不是物理防护。软件 fence 检查所有目标和飞行当前位置。小于检测门槛的原点变化仍可能漏检。
 
+位姿、速度、state与任务指令的新配置集中在 `msg_timeout`，单位秒，代码缺省均0.5。样例pose/velocity/command为0.5，state显式3.0以兼容约1Hz心跳；应按实测频率选值，不要把state的0.5秒缺省直接用于1Hz输入。legacy `safety.pose_timeout_s / velocity_timeout_s / state_timeout_s / command_timeout_s` 仍可读；两处同时配置且值不同会拒绝加载，不静默覆盖。旧YAML的0.35秒pose门槛仍是0.35。
+
+Fast250式新鲜度以回调的ROS接收时间计算，不把原始header的偏移、重复或单次回退作为接收拒绝门槛；保留monotonic接收间隔上界，避免ROS暂停掩盖真实断流。原始stamp保存在状态的 `header_stamps_s`，诊断在 `stamp_diagnostics`，接收时刻在 `rx_ros_s`；这些是最新快照，逐消息分析应保留原始MAVROS topic录包。pose frame仍只接受已审计的 `map`，velocity仍兼容已审计插件的 `map/base_link` 标签，不改变ENU数值。
+
+`POSE_FRAME_INVALID` 表示坐标系错误，`POSE_RX_TIMEOUT` 表示消息接收超时；`RAW_STAMP_REWIND / OFFSET / REPEAT / INVALID` 是原始消息头诊断，不自行重建时间同步。ROS时间未初始化禁止启动；归零/倒退清空旧接收状态，活动任务锁存中止，不重捕获原点续飞。断链清空旧pose/velocity/GPS/EKF，重新连接仍须新消息及人工授权。回调持续不能证明真实物理定位正确，GPS/EKF、跳点、原点和冻结一致性检查保留。
+
 必须先观测 `/mavros/global_position/gp_origin`，任何后续原点变化锁存中止（包括pose未跳变时）。该通知不覆盖所有EKF内部reset；仍需上游真实reset证据。Copter4.5.7实际通过既有 `/mavlink/from` 的 `mavros_msgs/Mavlink`、msg193 EKF_STATUS_REPORT提供健康；生产仅接收CRC有效、sysid/compid=1/1的固定消息，使用标准库struct解码并检查flags/ratios，不引入pymavlink或新连接。通用msg230的estimator_status可能完全不出数，不能臆造健康值。
 
 `speed_xy_mps` 是**对人工预设 FCU 限速的上界要求**，不是插值速度控制：Copter4.5.7 必须 `20 <= WPNAV_SPEED <= 100*speed_xy_mps`。速度/垂直/加速度/Guided选项/源参数定期只读复核；缺失、过期、未知固件拒绝开始/撤销任务。UP/DN默认≤20cm/s，ACCEL默认≤100cm/s²，GUID_OPTIONS=0，EKF3/源GPS必须匹配。实际速度持续超限中止；短尖峰不立即 freeze。真机不自动改参数，未知新固件需新增审计和实测 profile。
@@ -135,7 +141,7 @@ rosservice call /v0_nav/reset '{}'  # 仅连接正常、DISARM、非活动状态
 
 订阅State、map PoseStamped、指定velocity_local TwistStamped、raw/fix NavSatFix、gp_origin及既有MAVROS的msg193转发。manager读取ParamGet/VehicleInfoGet并记录固件/参数；gate独立检查关键导航反馈。GPS fix本身不能证明真实UWB链所有质量属性，须R0现场检查；不再开发专项adapter。冻结检测不能识别所有同源共同冻结。
 
-每次实例创建独立证据目录：原始YAML、绝对路径和SHA256、Git/dirty、源类型、固件版本/FC参数、wall/ROS/monotonic事件。默认 `~/.ros/v0_nav`，可 `evidence_dir:=...`。任务节点只持久化稀疏事件，遥测由已有采集系统录制；测试驱动另存实际位姿/真值/目标/速度/模式/echo/bag。ROS时间用于对齐，monotonic用于期限；主循环用墙钟等待，暂停 `/clock` 不会让 watchdog 静止。
+每次实例创建独立证据目录：原始YAML、绝对路径和SHA256、Git/dirty、源类型、固件版本/FC参数、wall/ROS/monotonic事件。默认 `~/.ros/v0_nav`，可 `evidence_dir:=...`。任务节点只持久化稀疏事件，遥测由已有采集系统录制；测试驱动另存实际位姿/真值/目标/速度/模式/echo/bag。ROS接收时间用于消息新鲜度与录包对齐，monotonic用于任务期限、周期和接收停流兜底；主循环用墙钟等待，暂停 `/clock` 不会让 watchdog 线程静止，但不等于所有时钟异常都可被检出。
 
 ## 采集并行与录包
 

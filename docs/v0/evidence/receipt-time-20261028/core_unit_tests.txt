@@ -1,0 +1,14 @@
+test_box (test_core.TestCore) ... ok
+test_eop (test_core.TestCore) ... ok
+test_gate_jump_and_timeout (test_core.TestCore) ... ok
+test_ground_bias (test_core.TestCore) ... ok
+test_outlier_reference (test_core.TestCore) ... ok
+test_step_limiter (test_core.TestCore) ... ok
+test_tag_extrinsic_rotates_with_aircraft_yaw (test_core.TestCore) ... ok
+test_transform_roundtrip (test_core.TestCore) ... ok
+test_yaw_rotation (test_core.TestCore) ... ok
+
+----------------------------------------------------------------------
+Ran 9 tests in 0.000s
+
+OK

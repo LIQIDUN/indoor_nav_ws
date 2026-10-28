@@ -8,7 +8,7 @@ from unittest.mock import Mock, patch
 
 from test_pipeline_ros_messages import ROS
 from test_v0 import config, feed
-from indoor_nav.v0 import Health
+from indoor_nav.v0 import ControlLease, Health
 
 if ROS:
     from geometry_msgs.msg import PoseStamped
@@ -25,9 +25,11 @@ class GateROS(unittest.TestCase):
         self.gate = gate_module.Watchdog.__new__(gate_module.Watchdog)
         self.gate.config = config()
         self.gate.health = Health(self.gate.config)
+        self.gate.lease = ControlLease()
         feed(self.gate.health, 3.)
         self.gate.health.update_ekf_origin((1., 2., 3.))
         self.gate.graph_time = self.gate.received = self.gate.status_time = self.gate.target_time = 3.
+        self.gate.rx_ros = dict(heartbeat=103., status=103., target=103.)
         self.gate.graph_reason = ''
         self.gate.previous_mono = None
         self.gate.enabled = True
@@ -50,7 +52,7 @@ class GateROS(unittest.TestCase):
     def test_independent_pose_validation(self):
         self.assertEqual(self.gate.fault(3., 103.), '')
         self.gate.health.pose_time = 2.
-        self.assertEqual(self.gate.fault(3., 103.), 'POSE_STALE')
+        self.assertEqual(self.gate.fault(3., 103.), 'POSE_RX_TIMEOUT')
 
     def test_manager_healthy_cannot_mask_gate_graph_or_config_failure(self):
         self.gate.graph_reason = 'OTHER_CONTROL_PUBLISHER'
@@ -69,7 +71,7 @@ class GateROS(unittest.TestCase):
     def test_no_blind_mode_request_or_dry_run_control(self):
         self.gate.config['control']['exit_action'] = 'brake_if_position_healthy'
         with patch.object(gate_module.rospy, 'ServiceProxy') as proxy:
-            self.gate.revoke_action('POSE_STALE', False)
+            self.gate.revoke_action('POSE_RX_TIMEOUT', False)
             self.gate.enabled = False
             self.gate.revoke_action('MISSION_HEARTBEAT_TIMEOUT', True)
             proxy.assert_not_called()

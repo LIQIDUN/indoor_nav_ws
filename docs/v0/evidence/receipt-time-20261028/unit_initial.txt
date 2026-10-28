@@ -1,0 +1,49 @@
+test_cardinal_yaws_and_z_up (test_v0.Coordinates) ... ok
+test_invalid_quaternion (test_v0.Coordinates) ... ok
+test_nonfinite_position (test_v0.Coordinates) ... ok
+test_quaternion_normalization_and_wrap (test_v0.Coordinates) ... ok
+test_ekf_report_wire_layout_and_mavlink2_truncation (test_v0.FcuLimits) ... ok
+test_units (test_v0.FcuLimits) ... ok
+test_unknown_versions_and_parameters (test_v0.FcuLimits) ... ok
+test_abort_stop_id_change_and_explicit_reset (test_v0.Leases) ... ok
+test_healthy_program_loss_requests_one_guarded_exit (test_v0.Leases) ... ok
+test_manual_mode_exit_is_never_overridden (test_v0.Leases) ... ok
+test_position_or_link_loss_never_blindly_brakes (test_v0.Leases) ... ok
+test_restart_cannot_acquire_live_mission (test_v0.Leases) ... ok
+test_ekf_origin_change_latches_even_without_pose_jump (test_v0.NavigationHealth) ... ok
+test_freeze_requires_sustained_velocity_not_single_spike (test_v0.NavigationHealth) ... ok
+test_jump_nan_quaternion_and_frames (test_v0.NavigationHealth) ... ok
+test_mavros_1201_velocity_local_enu_with_child_label (test_v0.NavigationHealth) ... ok
+test_stale_pose_and_duplicate_stamp (test_v0.NavigationHealth) ... ok
+test_stationary_not_freeze (test_v0.NavigationHealth) ... ok
+test_upstream_is_explicit_not_required_by_gps_source_name (test_v0.NavigationHealth) ... ok
+test_bad_schemas (test_v0.Schema) ... ok
+test_duplicate_yaml_keys (test_v0.Schema) ... ok
+test_launch_is_navigation_only (test_v0.Schema) ... ok
+test_no_production_unsafe_apis (test_v0.Schema) ... ok
+test_sample_and_defaults (test_v0.Schema) ... ok
+test_arrival_continuous_stability_and_dwell_reset (test_v0.StateMachine) ... ok
+test_clock_and_cycle_faults (test_v0.StateMachine) ... ok
+test_disarm_disconnect_ekf_and_watchdog (test_v0.StateMachine) ... ok
+test_double_start_and_latched_abort (test_v0.StateMachine) ... ok
+test_fence_and_sustained_overspeed (test_v0.StateMachine) ... ok
+test_fixed_origin_despite_yaw_change (test_v0.StateMachine) ... ok
+test_mode_exit_and_no_resume (test_v0.StateMachine) ... ok
+test_normal_finish_does_not_stop_hold (test_v0.StateMachine) ... ok
+test_pose_stale (test_v0.StateMachine) ... ok
+test_timeout (test_v0.StateMachine) ... ok
+test_existing_formal_results_have_no_invented_outcomes (test_v0_evidence.AltitudeEvidence) ... ok
+test_fmt_units_and_home_origin_distinction (test_v0_evidence.AltitudeEvidence) ... ok
+test_truncated_packet_never_becomes_pass_evidence (test_v0_evidence.AltitudeEvidence) ... ok
+test_combined_graph_failures_and_invalid_limits_never_authorize_mode (test_v0_gate_ros.GateROS) ... ok
+test_independent_pose_validation (test_v0_gate_ros.GateROS) ... ok
+test_invalid_targets_and_time (test_v0_gate_ros.GateROS) ... ok
+test_malformed_status_cannot_refresh_authorization (test_v0_gate_ros.GateROS) ... ok
+test_manager_healthy_cannot_mask_gate_graph_or_config_failure (test_v0_gate_ros.GateROS) ... ok
+test_no_blind_mode_request_or_dry_run_control (test_v0_gate_ros.GateROS) ... ok
+test_only_explicit_healthy_exit_requests_brake (test_v0_gate_ros.GateROS) ... ok
+
+----------------------------------------------------------------------
+Ran 44 tests in 0.379s
+
+OK

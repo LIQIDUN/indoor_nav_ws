@@ -49,7 +49,8 @@ def bounded(mapping, key, lower, upper):
 
 
 SAFETY_DEFAULTS = {
-    'state_timeout_s': 3.0, 'velocity_timeout_s': 0.5,
+    'pose_timeout_s': 0.5, 'state_timeout_s': 0.5, 'velocity_timeout_s': 0.5,
+    'command_timeout_s': 0.5,
     'gps_timeout_s': 3.0, 'ekf_timeout_s': 3.0,
     'future_tolerance_s': 0.1, 'jump_distance_m': 0.35,
     'overspeed_duration_s': 0.8, 'max_speed_z_mps': 0.20,
@@ -62,12 +63,14 @@ SAFETY_DEFAULTS = {
     'watchdog_timeout_s': 0.6,
 }
 
+MSG_TIMEOUT_DEFAULTS = dict(pose_timeout=.5, velocity_timeout=.5, state_timeout=.5, command_timeout=.5)
+
 
 def validate_config(config):
     config = copy.deepcopy(config)
     fields(config, ('schema_version', 'mission_id', 'navigation', 'reference',
                     'start_policy', 'control', 'motion', 'arrival', 'safety',
-                    'waypoints', 'finish'))
+                    'waypoints', 'finish'), ('msg_timeout',))
     if type(config['schema_version']) is not int or config['schema_version'] != 1:
         raise ConfigError('unsupported schema_version')
     if not isinstance(config['mission_id'], str) or not re.fullmatch(r'[A-Za-z0-9_.-]{1,80}', config['mission_id']):
@@ -110,12 +113,21 @@ def validate_config(config):
                               ('stable_time_s', .2, 10), ('max_waypoint_time_s', 1, 120)):
         bounded(arrival, key, lower, upper)
     safety = config['safety']
-    required = ('max_offset_xy_m', 'max_offset_z_m', 'pose_timeout_s',
+    required = ('max_offset_xy_m', 'max_offset_z_m',
                 'abort_on_mode_change', 'abort_on_localization_loss', 'prevent_auto_resume')
     fields(safety, required, SAFETY_DEFAULTS)
-    for key in required[3:]:
+    for key in required[2:]:
         if safety[key] is not True:
             raise ConfigError('mandatory safety policy: ' + key)
+    timeouts = config.setdefault('msg_timeout', {})
+    fields(timeouts, (), MSG_TIMEOUT_DEFAULTS)
+    for key, default in MSG_TIMEOUT_DEFAULTS.items():
+        legacy = key + '_s'
+        if key in timeouts and legacy in safety and timeouts[key] != safety[legacy]:
+            raise ConfigError('conflicting timeout: msg_timeout.' + key + ' / safety.' + legacy)
+        timeouts.setdefault(key, safety.get(legacy, default))
+        bounded(timeouts, key, .1, 10 if key == 'state_timeout' else 1)
+        safety[legacy] = timeouts[key]
     for key, value in SAFETY_DEFAULTS.items():
         safety.setdefault(key, value)
         bounded(safety, key, .001, 10)
@@ -234,6 +246,66 @@ class Health:
         self.velocity_history = deque()
         self.fault = ''
         self.ekf_origin = None
+        self.rx_ros = {}
+        self.header_stamps = {}
+        self.stamp_diagnostics = {}
+        self.last_rx_ros = None
+        self.clock_reset_pending = False
+
+    def clear_receptions(self):
+        self.pose = self.velocity = None
+        self.pose_time = self.pose_stamp = self.velocity_time = None
+        self.state, self.state_time = (False, False, ''), None
+        self.gps_time = self.ekf_time = self.upstream_time = None
+        self.gps_ok = self.ekf_ok = self.upstream_ok = False
+        self.rx_ros.clear()
+        self.header_stamps.clear()
+        self.stamp_diagnostics.clear()
+        self.history.clear()
+        self.velocity_history.clear()
+
+    def observe_clock(self, ros_now):
+        if not finite_number(ros_now) or ros_now <= 0:
+            if self.last_rx_ros is not None:
+                self.clear_receptions()
+                self.clock_reset_pending = True
+            self.last_rx_ros = None
+            return False
+        if self.last_rx_ros is not None and ros_now < self.last_rx_ros - 1e-6:
+            self.clear_receptions()
+            self.clock_reset_pending = True
+        self.last_rx_ros = ros_now
+        return True
+
+    def receive(self, name, stamp, now, ros_now):
+        if not self.observe_clock(ros_now) or not finite_number(now):
+            return False
+        if name != 'state' and not self.state[0]:
+            return False
+        previous = self.header_stamps.get(name)
+        self.rx_ros[name] = ros_now
+        self.header_stamps[name] = stamp if finite_number(stamp) else None
+        if not finite_number(stamp) or stamp <= 0:
+            diagnostic = 'RAW_STAMP_INVALID'
+        elif previous is not None and stamp < previous:
+            diagnostic = 'RAW_STAMP_REWIND'
+        elif stamp == previous:
+            diagnostic = 'RAW_STAMP_REPEAT'
+        elif not -self.cfg['future_tolerance_s'] <= ros_now - stamp <= self.cfg.get(name + '_timeout_s', 3.):
+            diagnostic = 'RAW_STAMP_OFFSET'
+        else:
+            diagnostic = ''
+        self.stamp_diagnostics[name] = diagnostic
+        return True
+
+    def update_state(self, connected, armed, mode, stamp, now, ros_now):
+        if not self.observe_clock(ros_now):
+            return
+        if not connected or not self.state[0]:
+            self.clear_receptions()
+        self.state = (connected, armed, mode)
+        if self.receive('state', stamp, now, ros_now):
+            self.state_time = now
 
     def update_ekf_origin(self, origin):
         if len(origin) != 3 or not all(finite_number(value) for value in origin):
@@ -245,17 +317,15 @@ class Health:
         self.ekf_origin = tuple(origin)
 
     def update_pose(self, position, quaternion, stamp, now, ros_now, frame):
+        if not self.receive('pose', stamp, now, ros_now):
+            return
         try:
             normalized = normalized_quaternion(quaternion)
-            if len(position) != 3 or not all(finite_number(value) for value in (*position, stamp, now, ros_now)):
+            if len(position) != 3 or not all(finite_number(value) for value in position):
                 raise ValueError('NONFINITE_POSE')
-            if frame != 'map' or stamp <= 0 or ros_now - stamp > self.cfg['pose_timeout_s'] or stamp - ros_now > self.cfg['future_tolerance_s']:
-                raise ValueError('POSE_FRAME_OR_STAMP')
-            if self.pose_stamp is not None:
-                if stamp < self.pose_stamp:
-                    raise ValueError('POSE_STAMP_REWIND')
-                if stamp == self.pose_stamp:
-                    return
+            if frame != 'map':
+                raise ValueError('POSE_FRAME_INVALID')
+            if self.pose is not None:
                 distance = math.dist(position, self.pose[0])
                 if distance > self.cfg['jump_distance_m']:
                     raise ValueError('POSE_JUMP')
@@ -271,8 +341,13 @@ class Health:
             self.fault = str(error)
 
     def update_velocity(self, velocity, stamp, now, ros_now, frame):
-        if frame not in ('map', 'base_link') or not all(finite_number(value) for value in (*velocity, stamp)) or stamp <= 0 or not -self.cfg['future_tolerance_s'] <= ros_now - stamp <= self.cfg['velocity_timeout_s']:
-            self.fault = 'VELOCITY_FRAME_OR_STAMP'
+        if not self.receive('velocity', stamp, now, ros_now):
+            return
+        if frame not in ('map', 'base_link'):
+            self.fault = 'VELOCITY_FRAME_INVALID'
+            return
+        if len(velocity) != 3 or not all(finite_number(value) for value in velocity):
+            self.fault = 'NONFINITE_VELOCITY'
             return
         self.velocity, self.velocity_time = tuple(velocity), now
         self.velocity_history.append((now, tuple(velocity)))
@@ -280,26 +355,30 @@ class Health:
         while len(self.velocity_history) > 1 and now - self.velocity_history[1][0] > duration:
             self.velocity_history.popleft()
 
+    def receipt_expired(self, name, now, ros_now):
+        received = self.rx_ros.get(name)
+        steady = getattr(self, name + '_time')
+        timeout = self.cfg[name + '_timeout_s']
+        return (received is None or steady is None or not 0 <= ros_now - received <= timeout or
+                not 0 <= now - steady <= timeout)
+
     def reason(self, now, ros_now):
+        if not self.observe_clock(ros_now):
+            return 'ROS_TIME_UNINITIALIZED'
+        if self.clock_reset_pending:
+            return 'ROS_CLOCK_RESET'
         if self.fault:
             return self.fault
         connected, armed, mode = self.state
-        for stamp, timeout, reason in (
-                (self.state_time, self.cfg['state_timeout_s'], 'STATE_STALE'),
-                (self.pose_time, self.cfg['pose_timeout_s'], 'POSE_STALE'),
-                (self.velocity_time, self.cfg['velocity_timeout_s'], 'VELOCITY_STALE'),
-                (self.gps_time, self.cfg['gps_timeout_s'], 'GPS_STALE'),
-                (self.ekf_time, self.cfg['ekf_timeout_s'], 'EKF_STALE')):
-            if stamp is None or now - stamp > timeout:
-                return reason
         if not connected:
             return 'DISCONNECTED'
+        for name in ('state', 'pose', 'velocity', 'gps', 'ekf'):
+            if self.receipt_expired(name, now, ros_now):
+                return name.upper() + '_RX_TIMEOUT'
         if not armed:
             return 'DISARMED'
         if mode != 'GUIDED':
             return 'MODE_LOST'
-        if not -self.cfg['future_tolerance_s'] <= ros_now - self.pose_stamp <= self.cfg['pose_timeout_s']:
-            return 'POSE_HEADER_STALE'
         if not self.gps_ok or not self.ekf_ok:
             return 'GPS_EKF_UNHEALTHY'
         if self.require_upstream and (not self.upstream_ok or self.upstream_time is None or now - self.upstream_time > self.cfg['upstream_timeout_s']):
@@ -332,7 +411,7 @@ class ControlLease:
         self.observed_idle = False
 
     def step(self, state, mission_id, armed, mode, fault, can_brake):
-        if state == 'IDLE' and not armed:
+        if state == 'IDLE' and not armed and not fault:
             self.owner, self.revoked, self.reason = None, False, ''
             self.observed_idle = True
         if self.revoked:

@@ -13,15 +13,16 @@ start_policy:
 control: {dry_run_default: true, setpoint_rate_hz: 10.0, yaw_policy: hold_initial_yaw, exit_action: manual_takeover}
 motion: {speed_xy_mps: 0.20, max_speed_xy_mps: 0.30, speed_enforcement: verify_fcu_limit}
 arrival: {xy_tolerance_m: 0.12, z_tolerance_m: 0.08, stable_time_s: 1.5, max_waypoint_time_s: 15.0}
+msg_timeout:
+  pose_timeout: 0.5       # Seconds since reception; default 0.5, not header age.
+  velocity_timeout: 0.5   # Seconds since reception; default 0.5.
+  state_timeout: 3.0      # Seconds; default 0.5, explicitly 3.0 for ~1 Hz FC heartbeat.
+  command_timeout: 0.5    # Seconds since manager target/status/heartbeat; default 0.5.
 safety:
   max_offset_xy_m: 0.80
   max_offset_z_m: 0.20
-  pose_timeout_s: 0.35
-  state_timeout_s: 3.0
-  velocity_timeout_s: 0.5
   gps_timeout_s: 3.0
   ekf_timeout_s: 3.0
-  future_tolerance_s: 0.1
   jump_distance_m: 0.35
   overspeed_duration_s: 0.8
   max_speed_z_mps: 0.20

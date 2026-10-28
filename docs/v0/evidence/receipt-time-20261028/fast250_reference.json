@@ -1,0 +1,13 @@
+{
+  "repository": "https://github.com/ZJU-FAST-Lab/Fast-Drone-250",
+  "commit": "8ff64274b161bb829653faf5946656658e7e2c9f",
+  "retrieved_date": "2026-10-28",
+  "sha256": {
+    "src/realflight_modules/px4ctrl/src/input.cpp": "9317e3eff38d30c2293aad5f560b7716a07ff67c54ce6cf5429bdea7923625a9",
+    "src/realflight_modules/px4ctrl/src/input.h": "b274a5fbafa363abc277856ed4fcad8f6ccecd95b643dcbe56bc2c05c918cf90",
+    "src/realflight_modules/px4ctrl/src/PX4CtrlFSM.cpp": "26edac32ca14c96a67054d867f3b8856269225cac1a310de28eef20b5efaf008",
+    "src/realflight_modules/px4ctrl/src/px4ctrl_node.cpp": "8d987d397d70d2c46509885e931c0c30b0110d5fa91f4d10f8d14dd98c981257",
+    "src/realflight_modules/px4ctrl/config/ctrl_param_fpv.yaml": "50f71876ccdc8abee699e4d156fd27a010c840b2fbaa1950f269679b53e09e36"
+  },
+  "scope": "Read and map receipt-time communication patterns only. No PX4 OFFBOARD, attitude controller, auto takeoff/landing or 100 Hz loop transplanted."
+}

@@ -22,9 +22,11 @@ def config():
 
 
 def feed(health, now, position=(10., 20., 1.), velocity=(0., 0., 0.), yaw=0.):
-    health.state, health.state_time = (True, True, 'GUIDED'), now
+    health.update_state(True, True, 'GUIDED', 100 + now, now, 100 + now)
     health.gps_ok = health.ekf_ok = True
     health.gps_time = health.ekf_time = now
+    health.receive('gps', 100 + now, now, 100 + now)
+    health.receive('ekf', 100 + now, now, 100 + now)
     health.update_pose(position, yaw_quaternion(yaw), 100 + now, now, 100 + now, 'map')
     health.update_velocity(velocity, 100 + now, now, 100 + now, 'map')
 
@@ -163,15 +165,15 @@ class NavigationHealth(unittest.TestCase):
 
     def test_stale_pose_and_duplicate_stamp(self):
         self.health.update_pose((10., 20., 1.), (0, 0, 0, 1), 103., 3.3, 103.3, 'map')
-        self.assertEqual(self.health.pose_time, 3.)
-        self.assertEqual(self.health.reason(3.4, 103.4), 'POSE_STALE')
+        self.assertEqual(self.health.pose_time, 3.3)
+        self.assertEqual(self.health.stamp_diagnostics['pose'], 'RAW_STAMP_REPEAT')
+        self.health.update_state(True, True, 'GUIDED', 103.9, 3.9, 103.9)
+        self.assertEqual(self.health.reason(3.9, 103.9), 'POSE_RX_TIMEOUT')
 
     def test_jump_nan_quaternion_and_frames(self):
         cases = [((11., 20., 1.), (0, 0, 0, 1), 103.1, 'map'),
                  ((10., 20., 1.), (0, 0, 0, 0), 103.1, 'map'),
                  ((math.nan, 20., 1.), (0, 0, 0, 1), 103.1, 'map'),
-                 ((10., 20., 1.), (0, 0, 0, 1), 104., 'map'),
-                 ((10., 20., 1.), (0, 0, 0, 1), 102.9, 'map'),
                  ((10., 20., 1.), (0, 0, 0, 1), 103.1, 'odom')]
         for position, quat, stamp, frame in cases:
             health = copy.deepcopy(self.health)
@@ -199,7 +201,7 @@ class NavigationHealth(unittest.TestCase):
         self.assertEqual(self.health.velocity, (.05, .02, .01))
         self.assertEqual(self.health.fault, '')
         self.health.update_velocity((0, 0, 0), 103.2, 3.2, 103.2, 'unknown')
-        self.assertEqual(self.health.fault, 'VELOCITY_FRAME_OR_STAMP')
+        self.assertEqual(self.health.fault, 'VELOCITY_FRAME_INVALID')
 
 
 class Leases(unittest.TestCase):
@@ -213,7 +215,7 @@ class Leases(unittest.TestCase):
         self.assertEqual(self.lease.step('EXEC_WAYPOINT', 'test', True, 'GUIDED', '', True), (False, False))
 
     def test_position_or_link_loss_never_blindly_brakes(self):
-        for reason in ('POSE_STALE', 'DISCONNECTED', 'GPS_EKF_UNHEALTHY'):
+        for reason in ('POSE_RX_TIMEOUT', 'DISCONNECTED', 'GPS_EKF_UNHEALTHY'):
             with self.subTest(reason=reason):
                 lease = ControlLease()
                 lease.step('IDLE', 'test', False, 'STABILIZE', '', False)
@@ -313,8 +315,8 @@ class StateMachine(unittest.TestCase):
         self.assertEqual(self.mission.reason, 'WAYPOINT_TIMEOUT')
 
     def test_pose_stale(self):
-        self.mission.tick(3.4, 103.4, self.health)
-        self.assertEqual(self.mission.reason, 'POSE_STALE')
+        self.mission.tick(3.6, 103.6, self.health)
+        self.assertEqual(self.mission.reason, 'POSE_RX_TIMEOUT')
 
     def test_fence_and_sustained_overspeed(self):
         self.advance(3.1, position=(10., 20., 1.21))
@@ -326,11 +328,11 @@ class StateMachine(unittest.TestCase):
         self.assertEqual(self.mission.reason, 'SUSTAINED_OVERSPEED')
 
     def test_clock_and_cycle_faults(self):
-        for now, ros_now, expected in ((3.1, 102.9, 'ROS_CLOCK_ANOMALY'),
-                                        (3.1, 104., 'POSE_HEADER_STALE'),
-                                        (3.6, 103.6, 'POSE_STALE')):
+        for now, ros_now, expected in ((3.1, 102.9, 'ROS_CLOCK_RESET'),
+                                        (3.1, 104., 'POSE_RX_TIMEOUT'),
+                                        (3.6, 103.6, 'POSE_RX_TIMEOUT')):
             mission = copy.deepcopy(self.mission)
-            mission.tick(now, ros_now, self.health)
+            mission.tick(now, ros_now, copy.deepcopy(self.health))
             self.assertEqual(mission.reason, expected)
 
     def test_normal_finish_does_not_stop_hold(self):

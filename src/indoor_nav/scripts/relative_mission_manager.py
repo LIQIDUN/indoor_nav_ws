@@ -101,8 +101,8 @@ class RelativeMissionManager:
 
     def state_cb(self, message):
         with self.lock:
-            self.health.state = (message.connected, message.armed, message.mode)
-            self.health.state_time = time.monotonic()
+            self.health.update_state(message.connected, message.armed, message.mode,
+                                     message.header.stamp.to_sec(), time.monotonic(), rospy.get_time())
             if self.mission.state in Mission.ACTIVE and (not message.connected or not message.armed or message.mode != 'GUIDED'):
                 self.mission.abort(time.monotonic(), 'FCU_STATE_CHANGED')
 
@@ -121,26 +121,26 @@ class RelativeMissionManager:
                                         message.header.stamp.to_sec(), time.monotonic(),
                                         rospy.get_time(), message.header.frame_id)
 
-    def valid_stamp(self, stamp, timeout):
-        age = rospy.get_time() - stamp.to_sec()
-        return stamp.to_sec() > 0 and -.1 <= age <= timeout
-
     def gps_cb(self, message):
         with self.lock:
-            self.health.gps_time = time.monotonic()
+            now = time.monotonic()
+            if not self.health.receive('gps', message.header.stamp.to_sec(), now, rospy.get_time()):
+                return
+            self.health.gps_time = now
             self.health.gps_ok = (message.status.status >= 0 and
-                                  all(math.isfinite(value) for value in (message.latitude, message.longitude, message.altitude)) and
-                                  self.valid_stamp(message.header.stamp, self.config['safety']['gps_timeout_s']))
+                                  all(math.isfinite(value) for value in (message.latitude, message.longitude, message.altitude)))
 
     def ekf_cb(self, message):
         with self.lock:
-            self.health.ekf_time = time.monotonic()
+            now = time.monotonic()
+            if not self.health.receive('ekf', message.header.stamp.to_sec(), now, rospy.get_time()):
+                return
+            self.health.ekf_time = now
             self.health.ekf_ok = (message.attitude_status_flag and message.velocity_horiz_status_flag and
                                  message.velocity_vert_status_flag and message.pos_horiz_abs_status_flag and
                                  (message.pos_vert_abs_status_flag or message.pos_vert_agl_status_flag) and
                                  not message.const_pos_mode_status_flag and not message.gps_glitch_status_flag and
-                                 not message.accel_error_status_flag and
-                                 self.valid_stamp(message.header.stamp, self.config['safety']['ekf_timeout_s']))
+                                 not message.accel_error_status_flag)
 
     def upstream_cb(self, message):
         with self.lock:
@@ -154,10 +154,13 @@ class RelativeMissionManager:
         if message.msgid != 193 or (message.sysid, message.compid) != (1, 1) or message.framing_status != Mavlink.FRAMING_OK:
             return
         with self.lock:
+            now = time.monotonic()
+            if not self.health.receive('ekf', message.header.stamp.to_sec(), now, rospy.get_time()):
+                return
+            self.health.ekf_time = now
             try:
                 self.ekf_report = decode_ekf_report(message.payload64, message.len)
-                self.health.ekf_ok = self.ekf_report['healthy'] and self.valid_stamp(message.header.stamp, self.config['safety']['ekf_timeout_s'])
-                self.health.ekf_time = time.monotonic()
+                self.health.ekf_ok = self.ekf_report['healthy']
             except (ValueError, TypeError, OverflowError):
                 self.health.ekf_ok = False
 
@@ -230,7 +233,9 @@ class RelativeMissionManager:
     def start(self, _request):
         with self.lock:
             now = time.monotonic()
-            success, reason = self.mission.start(now, rospy.get_time(), self.health, self.external_reason(now))
+            ros_now = rospy.get_time()
+            self.check_clock(now, ros_now)
+            success, reason = self.mission.start(now, ros_now, self.health, self.external_reason(now))
             self.record('START_ACCEPTED' if success else 'START_REJECTED', reason=reason, fcu=self.snapshot)
             if success:
                 self.origin_pub.publish(self.pose_message(self.mission.origin))
@@ -267,6 +272,7 @@ class RelativeMissionManager:
             began = time.monotonic()
             with self.lock:
                 now, ros_now = time.monotonic(), rospy.get_time()
+                self.check_clock(now, ros_now)
                 self.mission.tick(now, ros_now, self.health, self.external_reason(now))
                 for event in self.mission.events[self.event_index:]:
                     self.record('TRANSITION', **event)
@@ -289,9 +295,20 @@ class RelativeMissionManager:
                           'limit_age_s': None if self.limit_time is None else now - self.limit_time,
                           'pose_age_s': None if self.health.pose_time is None else now - self.health.pose_time,
                           'max_publish_gap_s': self.max_publish_gap}
+                status.update(rx_ros_s=dict(self.health.rx_ros), header_stamps_s=dict(self.health.header_stamps),
+                              stamp_diagnostics=dict(self.health.stamp_diagnostics))
                 status['ekf_report'] = self.ekf_report
                 self.status_pub.publish(String(data=json.dumps(status)))
             self.closed.wait(max(0., period - (time.monotonic() - began)))
+
+    def check_clock(self, now, ros_now):
+        self.health.observe_clock(ros_now)
+        if self.health.clock_reset_pending:
+            if self.mission.state in Mission.ACTIVE:
+                self.mission.abort(now, 'ROS_CLOCK_RESET')
+            self.watchdog_time = None
+            self.health.clock_reset_pending = False
+            self.record('ROS_CLOCK_RESET', action='clear received telemetry; active task cannot resume')
 
     def shutdown(self):
         self.closed.set()

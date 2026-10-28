@@ -1,0 +1,123 @@
+{
+  "baseline_commit": "af681a7cedf1e5dc532355aa5d261b11f1948437",
+  "baseline_source_sha256": "3063e05962fa0064d6519d3499aaa017d5183b7fe121fe13d614a913c1a3ba44",
+  "current_source_sha256": "79e3dc3a39635ef3e36790cda943338ddac61a159ada10f5766197fc0e0258bf",
+  "method": "offline read-only bag traversal; legacy YAML deadlines unchanged; no ROS master, player, publishers, service calls or aircraft control",
+  "runs": [
+    {
+      "run": "20261027T143500-single",
+      "historical_result": "FAIL",
+      "historical_error": "start refused: POSE_FRAME_OR_STAMP",
+      "bag_sha256": "c2b09607e6e8b188b30f5ec81d03e5c1a604c169b3ea6252ef6346f89dd8021a",
+      "mission_yaml_sha256": "a33ece24a169c6a753898ccb91f65ae7835a47f7ec3d12037ad226cc3560fbf3",
+      "original_pose_timeout_s": 0.35,
+      "comparison_pose_timeout_s": 0.35,
+      "frames": {
+        "map": 447
+      },
+      "first_legacy_pose_fault": {
+        "reason": "POSE_FRAME_OR_STAMP",
+        "received_ros_s": 1793082948.0157876,
+        "header_stamp_s": 1793082947.523464,
+        "header_age_s": 0.492323637008667,
+        "frame": "map",
+        "task_state": "IDLE"
+      },
+      "first_current_pose_fault": null,
+      "stamp_diagnostics": {
+        "": 430,
+        "RAW_STAMP_OFFSET": 17
+      },
+      "raw_stamp_rewinds": [],
+      "header_age_range_s": [
+        5.340576171875e-05,
+        0.492323637008667
+      ],
+      "max_bag_receipt_gap_s": 0.5287787914276123,
+      "max_active_bag_receipt_gap_s": 0.0,
+      "bag_receipt_gaps_exceeding_s": {
+        "0.35": 1,
+        "0.5": 1
+      },
+      "interpretation": "Pose callback comparison only, not mission PASS. Bag receipt time is not the original node callback time; data delivery/EKF quality and physical correctness are not inferred from header diagnostics."
+    },
+    {
+      "run": "20261027T144135-mavros_loss",
+      "historical_result": "FAIL",
+      "historical_error": "start refused: POSE_STAMP_REWIND",
+      "bag_sha256": "46916ecae4cd3fc1948da247f4974a4e3f70f5b56daa5ca38a861ff9a7ef934a",
+      "mission_yaml_sha256": "29b2c9011360f1a6ba1d230ca4fce91bb22ff13c1cc07f62136abe969f6e80b9",
+      "original_pose_timeout_s": 0.35,
+      "comparison_pose_timeout_s": 0.35,
+      "frames": {
+        "map": 448
+      },
+      "first_legacy_pose_fault": {
+        "reason": "POSE_STAMP_REWIND",
+        "received_ros_s": 1793083342.0894287,
+        "header_stamp_s": 1793083342.0167236,
+        "header_age_s": 0.07270503044128418,
+        "frame": "map",
+        "task_state": "IDLE"
+      },
+      "first_current_pose_fault": null,
+      "stamp_diagnostics": {
+        "": 447,
+        "RAW_STAMP_REWIND": 1
+      },
+      "raw_stamp_rewinds": [
+        {
+          "received_ros_s": 1793083342.0894287,
+          "rewind_s": 0.03154182434082031,
+          "previous_stamp_s": 1793083342.0482655,
+          "stamp_s": 1793083342.0167236
+        }
+      ],
+      "header_age_range_s": [
+        7.009506225585938e-05,
+        0.10632538795471191
+      ],
+      "max_bag_receipt_gap_s": 0.04742240905761719,
+      "max_active_bag_receipt_gap_s": 0.0,
+      "bag_receipt_gaps_exceeding_s": {},
+      "interpretation": "Pose callback comparison only, not mission PASS. Bag receipt time is not the original node callback time; data delivery/EKF quality and physical correctness are not inferred from header diagnostics."
+    },
+    {
+      "run": "20261026T193632-multi",
+      "historical_result": "FAIL",
+      "historical_error": "navigation aborted: {\"state\": \"ABORT_LATCHED\", \"mission_id\": \"20261026T193632-multi\", \"wp\": 3, \"reason\": \"POSE_STALE\", \"health\": \"POSE_STALE\", \"gate\": \"\", \"control_enabled\": true, \"evidence_dir\": \"/home/liqidun/github/indoor_nav_ws/docs/v0/evidence/20261026T193632-multi/navigation/20261026T193633-3581415-1579386495105247\", \"pose_age_s\": 0.4204192089382559, \"max_publish_gap_s\": 0.10051576606929302, \"ekf_report\": {\"flags\": 831, \"ratios\": [0.010611471720039845, 0.011630156077444553, 0.00027675440651364625, 0.014337463304400444, 0.0], \"healthy\": true}}",
+      "bag_sha256": "0f293737464ab3b538e76414a5e65259705c0de604e5c39f543b1119df1c51d8",
+      "mission_yaml_sha256": "7f048ea66710c68c23a093513c4b10b4d7a85bc49ca2da63d2ec4a1384eef448",
+      "original_pose_timeout_s": 0.35,
+      "comparison_pose_timeout_s": 0.35,
+      "frames": {
+        "map": 992
+      },
+      "first_legacy_pose_fault": {
+        "reason": "POSE_FRAME_OR_STAMP",
+        "received_ros_s": 1793014628.3142571,
+        "header_stamp_s": 1793014627.2570863,
+        "header_age_s": 1.0571708679199219,
+        "frame": "map",
+        "task_state": "ABORT_LATCHED"
+      },
+      "first_current_pose_fault": null,
+      "stamp_diagnostics": {
+        "": 972,
+        "RAW_STAMP_OFFSET": 20
+      },
+      "raw_stamp_rewinds": [],
+      "header_age_range_s": [
+        -0.0016117095947265625,
+        1.0571708679199219
+      ],
+      "max_bag_receipt_gap_s": 1.0951557159423828,
+      "max_active_bag_receipt_gap_s": 0.04688835144042969,
+      "bag_receipt_gaps_exceeding_s": {
+        "0.35": 1,
+        "0.5": 1
+      },
+      "interpretation": "Pose callback comparison only, not mission PASS. Bag receipt time is not the original node callback time; data delivery/EKF quality and physical correctness are not inferred from header diagnostics."
+    }
+  ]
+}

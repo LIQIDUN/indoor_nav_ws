@@ -1,0 +1,143 @@
+{
+  "generated_at": "2026-10-28T13:29:46.905927+08:00",
+  "baseline_commit": "af681a7cedf1e5dc532355aa5d261b11f1948437",
+  "branch": "feat/arducopter-v0-relative-waypoints",
+  "git_dirty": true,
+  "scope": "source changes, offline unit tests and read-only historical bag comparison; experiments remain paused",
+  "source_sha256": {
+    "src/indoor_nav/src/indoor_nav/v0.py": "9ee22c8a9304f742eb723ccab3a3d92cd5683be734d43afdd5e23266711a2bb5",
+    "src/indoor_nav/scripts/relative_mission_manager.py": "170a0a504e953477dab9f17ace7dbe054e26cf1bb901f6a3cdfd2def8eb217e3",
+    "src/indoor_nav/scripts/v0_nav_health.py": "2e5f830937d570d88421e4349d2cb6a4b0832771fe7dc74377be794ae2b5fb06",
+    "src/indoor_nav/config/mission_v0.yaml": "f33c125f3c3e9b0e89050b4a6ee5d4ec6050bce4a8ced49181aa989b16efa21b",
+    "tests/test_v0.py": "eb03c39d43126168eb54ff0f409b3f248d924c3ed1005c2b362eb9886abdbcd0",
+    "tests/test_v0_gate_ros.py": "ad8a6dc8e019c07ccceffc18215e3dedd96b9bcf7ebdd09646d2ad840fec0df9",
+    "tests/test_v0_receipt_time.py": "8465898cb8e1a6b1596adb355db1f5874b185a81e3d0e6b54c96fe48dcc5ce8e",
+    "tests/test_v0_receipt_ros.py": "513f08d139bb9f7903a6ee24b4c28fd0f26e525f757982856ba905641114efbb",
+    "tools/v0_replay_receipt_time.py": "1937e9ff2ead96055408643a661a64efe86be1e7b5431223cc9ad8d13df668d3",
+    "docs/v0/README.md": "a390f99c80a9717a4c2c5d1adbc6b04bcf81ba9568e342ba8eefa3cf2caa9db2",
+    "docs/v0/SAFETY_AND_LIMITATIONS.md": "c4eb4d570acea2f1c027d484b394ef4604b96e22d526e0f07f8ee1c63ff778a4",
+    "docs/v0/FAST250_RECEIPT_TIME_REVIEW_20261028.md": "4a2430d75ae6631bfca544bcabe6fe86cf4b8b2824c7f8d6d9b2355029a0ebd7"
+  },
+  "reference_commit": "8ff64274b161bb829653faf5946656658e7e2c9f",
+  "tests": [
+    {
+      "command": "python3 -m unittest discover -s tests -p 'test_v0*.py' -v",
+      "result": "PASS",
+      "tests": 66,
+      "exit_code": 0,
+      "log": "v0_unit_tests_final.txt",
+      "log_sha256": "215ab13f911c2a1776f59b7eddd261d47a4bc1fea07f5f2faa0fe53b8d12d490"
+    },
+    {
+      "command": "python3 -m unittest discover -s tests -v",
+      "result": "PASS",
+      "tests": 144,
+      "exit_code": 0,
+      "log": "all_unit_tests_final.txt",
+      "log_sha256": "a3f1c899b3c514fc21b78ed73a0f85186df47b2341abae2d5e3d4b50b9a99300"
+    },
+    {
+      "command": "python3 -m unittest discover -s src/indoor_nav/test -v",
+      "result": "PASS",
+      "tests": 9,
+      "exit_code": 0,
+      "log": "core_unit_tests.txt",
+      "log_sha256": "94b79ef62404714bcfab3da17d347c69f9b9468aa18e67165f3d392d6f319618"
+    }
+  ],
+  "v0_count_included_in_all_tests": true,
+  "static_checks": {
+    "python_ast": "PASS",
+    "launch_xml": "PASS",
+    "git_diff_check": "PASS",
+    "historical_tracked_evidence_unchanged": "PASS"
+  },
+  "historical_inputs": [
+    {
+      "path": "docs/v0/evidence/20261027T143500-single/summary.json",
+      "sha256": "5266f7c2fdbed5cd4db115ff18282fa83cc1c737d1168f88db9782ea0cc75fd2",
+      "matches_head": true
+    },
+    {
+      "path": "docs/v0/evidence/20261027T143500-single/mission.yaml",
+      "sha256": "a33ece24a169c6a753898ccb91f65ae7835a47f7ec3d12037ad226cc3560fbf3",
+      "matches_head": true
+    },
+    {
+      "path": "docs/v0/evidence/20261027T144135-mavros_loss/summary.json",
+      "sha256": "ec19f45014a576ddd2eb414e18f3341a68d8fe71634af1088d76773f643dee5f",
+      "matches_head": true
+    },
+    {
+      "path": "docs/v0/evidence/20261027T144135-mavros_loss/mission.yaml",
+      "sha256": "29b2c9011360f1a6ba1d230ca4fce91bb22ff13c1cc07f62136abe969f6e80b9",
+      "matches_head": true
+    },
+    {
+      "path": "docs/v0/evidence/20261026T193632-multi/summary.json",
+      "sha256": "378493e0eaac51900d39e8a64f459ea2171a25289e80938c0b678447be898de4",
+      "matches_head": true
+    },
+    {
+      "path": "docs/v0/evidence/20261026T193632-multi/mission.yaml",
+      "sha256": "7f048ea66710c68c23a093513c4b10b4d7a85bc49ca2da63d2ec4a1384eef448",
+      "matches_head": true
+    }
+  ],
+  "historical_bag_comparison": {
+    "result": "ANALYSIS_COMPLETED_NOT_FLIGHT_PASS",
+    "command": "python3 tools/v0_replay_receipt_time.py --output docs/v0/evidence/receipt-time-20261028/historical_bag_comparison_final.json",
+    "output": "historical_bag_comparison_final.json",
+    "raw_bag_hashes_unchanged_between_replays": true
+  },
+  "not_run": [
+    "SITL",
+    "rosbag play",
+    "hardware/flight",
+    "catkin build",
+    "real acoustic integration"
+  ],
+  "control_outlet": "unchanged single Control Gate; no automatic ARM/takeoff/land/Guided re-entry",
+  "artifacts": {
+    "all_unit_tests.txt": {
+      "bytes": 12162,
+      "sha256": "eff1c3ac3672a245afb465f3b1ccb79a144201388b09865a5420dbac463c34d1"
+    },
+    "all_unit_tests_final.txt": {
+      "bytes": 12481,
+      "sha256": "a3f1c899b3c514fc21b78ed73a0f85186df47b2341abae2d5e3d4b50b9a99300"
+    },
+    "core_unit_tests.txt": {
+      "bytes": 541,
+      "sha256": "94b79ef62404714bcfab3da17d347c69f9b9468aa18e67165f3d392d6f319618"
+    },
+    "fast250_reference.json": {
+      "bytes": 957,
+      "sha256": "90589827158af10b6dd9be9e35bdd9314756b7e8d5b1e81875c65dde0c32ff0c"
+    },
+    "historical_bag_comparison.json": {
+      "bytes": 5354,
+      "sha256": "4564b5b2dee0209532fb94a885ad1cac614e78928872f161d42b24ccf6e13e18"
+    },
+    "historical_bag_comparison_final.json": {
+      "bytes": 5354,
+      "sha256": "7c40808f74629563ee4da7300b8005fb8509b282c04844f0f4dd353735a31f66"
+    },
+    "unit_initial.txt": {
+      "bytes": 3142,
+      "sha256": "00bdc9f41e6fc9dd0f1dc550e3914c9952f1e73000dfa8b5cd4b04a52932bf5a"
+    },
+    "unit_iteration2_failed.txt": {
+      "bytes": 6234,
+      "sha256": "1824bbc89d4ffa7591e26aa35d93e02e92c79c5edb4e0984220efd6a71a51bc6"
+    },
+    "v0_unit_tests.txt": {
+      "bytes": 5088,
+      "sha256": "d4d91a8fe6abd4c757baac3855356a0f203bfd71236f65b8e2f5d72d3620ce2b"
+    },
+    "v0_unit_tests_final.txt": {
+      "bytes": 5407,
+      "sha256": "215ab13f911c2a1776f59b7eddd261d47a4bc1fea07f5f2faa0fe53b8d12d490"
+    }
+  }
+}
