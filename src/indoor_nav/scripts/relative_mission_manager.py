@@ -18,7 +18,8 @@ from sensor_msgs.msg import NavSatFix
 from std_msgs.msg import Bool, Header, String
 from std_srvs.srv import Trigger, TriggerResponse
 
-from indoor_nav.v0 import Health, Mission, decode_ekf_report, load_config, verify_fcu_limits, yaw_quaternion
+from indoor_nav.v0 import (Health, Mission, decode_ekf_report, load_config, performance_bounds,
+                           performance_diagnostics, verify_fcu_limits, yaw_quaternion)
 
 
 class RelativeMissionManager:
@@ -192,9 +193,11 @@ class RelativeMissionManager:
                 parameters = {}
                 for name in names:
                     reply = get_param(name)
-                    if not reply.success:
+                    if not reply.success and (name not in performance_bounds(self.config) or
+                                              self.config['motion']['speed_enforcement'] == 'verify_fcu_limit'):
                         raise ValueError('missing FCU parameter: ' + name)
-                    parameters[name] = reply.value.integer if reply.value.integer != 0 else reply.value.real
+                    value = reply.value.integer if reply.value.integer != 0 else reply.value.real
+                    parameters[name] = value if reply.success and math.isfinite(value) else None
                 verify_fcu_limits(version, parameters, self.config)
                 if self.config['navigation']['source'] == 'fc_ekf_sitl_gps':
                     if not rospy.get_param('/v0_sitl/isolated', False) or rospy.get_param('/mavros/fcu_url', '') != 'udp://127.0.0.1:14672@':
@@ -202,8 +205,10 @@ class RelativeMissionManager:
                     if not get_param('SIM_SPEEDUP').success:
                         raise ValueError('SIM_SPEEDUP missing')
                 snapshot = {'firmware': list(version), 'custom_version': vehicle.flight_custom_version,
-                            'parameters': parameters}
+                            'parameters': parameters, 'performance_diagnostics': performance_diagnostics(parameters, self.config)}
                 with self.lock:
+                    if snapshot != self.snapshot:
+                        self.record('FCU_PARAMETER_SNAPSHOT', **snapshot)
                     self.snapshot, self.limit_time, self.limit_error = snapshot, time.monotonic(), ''
             except (ValueError, rospy.ROSException, rospy.ServiceException, OSError) as error:
                 with self.lock:
@@ -275,7 +280,7 @@ class RelativeMissionManager:
                 self.check_clock(now, ros_now)
                 self.mission.tick(now, ros_now, self.health, self.external_reason(now))
                 for event in self.mission.events[self.event_index:]:
-                    self.record('TRANSITION', **event)
+                    self.record('WARNING' if event.get('severity') == 'WARNING' else 'TRANSITION', **event)
                 self.event_index = len(self.mission.events)
                 if self.mission.target is not None and self.mission.state in Mission.ACTIVE:
                     message = self.pose_message(self.mission.target)
@@ -298,6 +303,10 @@ class RelativeMissionManager:
                 status.update(rx_ros_s=dict(self.health.rx_ros), header_stamps_s=dict(self.health.header_stamps),
                               stamp_diagnostics=dict(self.health.stamp_diagnostics))
                 status['ekf_report'] = self.ekf_report
+                status.update(warnings=list(self.mission.warnings.values()),
+                              speed=self.health.current_speed(), speed_peaks=self.health.speed_peaks,
+                              fcu_parameters=self.snapshot.get('parameters', {}),
+                              performance_diagnostics=self.snapshot.get('performance_diagnostics', []))
                 self.status_pub.publish(String(data=json.dumps(status)))
             self.closed.wait(max(0., period - (time.monotonic() - began)))
 

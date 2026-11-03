@@ -1,5 +1,31 @@
 # ArduCopter V0 相对航点
 
+## 2026-11-03 V0-Research 与机载入口
+
+严格 `mission_v0.yaml` 原样保留。新增 `mission_v0_level.yaml` 是严格门控的左向定高方形参考；
+`mission_v0_research.yaml` 使用相同左向航点，但关闭软件稳定悬停历史要求、将超速与航点超时降为去重告警、只记录 WPNAV 性能参数。
+定位、姿态、围栏、控制租约、飞手接管及固件/接口联锁仍保留。不得把 level 与 research 混为一谈。
+原严格样例是正右向方形，新文件是负右向（左向）方形；并非同一水平任务。
+
+详见 `V0_RESEARCH_UPGRADE.md`、`V0_RESEARCH_DEPLOYMENT.md` 与 `V0_RESEARCH_VALIDATION_20261103.md`。
+以下历史测试命令和报告不代表本次科研版已完成全部动态或真实飞机验收。
+
+```bash
+source /opt/ros/noetic/setup.bash
+source devel/setup.bash
+# USB 一键入口默认只读，默认严格 level 配置；不 ARM、不切模式、不起飞。
+# 若采集系统已启动 MAVROS，必须追加 start_mavros:=false。
+roslaunch indoor_nav indoor_nav_real_v0.launch enable_control:=false dry_run:=true
+# 选择科研版仍需显式指定任务；已有 MAVROS 的示例：
+roslaunch indoor_nav indoor_nav_real_v0.launch start_mavros:=false \
+  mission_file:="$(rospack find indoor_nav)/config/mission_v0_research.yaml" \
+  enable_control:=false dry_run:=true
+```
+
+新增入口可启动唯一 USB MAVROS，并在连接/重连后请求 EXTENDED_STATUS/POSITION/EXTRA1/EXTRA3/RAW_SENSORS。
+请求服务无 success 字段；调用完成不证明实际频率达标，需测 `rostopic hz`。
+导航入口 `indoor_nav_v0.launch` 仍不启动 MAVROS，`mission_file/evidence_dir/pose_topic` 透传至两个节点。
+
 **默认只读；2026-10-28已另行获准恢复隔离SITL动态测试，未获任何真机操作授权。**
 
 2026-10-26范围修订见 `DEVELOPMENT_PLAN_REVISION_20261026.md`：用户确认UWB经飞控GPS接口提供定位；F2专项模拟及协议调查已取消。10月27日暂停快照见 `PAUSE_REPORT_20261027.md`。10月28日Fast250离线改造见 `FAST250_RECEIPT_TIME_REVIEW_20261028.md`，恢复后的GUI飞行、失败与安全边界见 `FAST250_DYNAMIC_SITL_REPORT_20261028.md`。历史报告按当时状态保留，没有操作真机。
@@ -110,7 +136,9 @@ Fast250式新鲜度以回调的ROS接收时间计算，不把原始header的偏�
 
 必须先观测 `/mavros/global_position/gp_origin`，任何后续原点变化锁存中止（包括pose未跳变时）。该通知不覆盖所有EKF内部reset；仍需上游真实reset证据。Copter4.5.7实际通过既有 `/mavlink/from` 的 `mavros_msgs/Mavlink`、msg193 EKF_STATUS_REPORT提供健康；生产仅接收CRC有效、sysid/compid=1/1的固定消息，使用标准库struct解码并检查flags/ratios，不引入pymavlink或新连接。通用msg230的estimator_status可能完全不出数，不能臆造健康值。
 
-`speed_xy_mps` 是**对人工预设 FCU 限速的上界要求**，不是插值速度控制：Copter4.5.7 必须 `20 <= WPNAV_SPEED <= 100*speed_xy_mps`。速度/垂直/加速度/Guided选项/源参数定期只读复核；缺失、过期、未知固件拒绝开始/撤销任务。UP/DN默认≤20cm/s，ACCEL默认≤100cm/s²，GUID_OPTIONS=0，EKF3/源GPS必须匹配。实际速度持续超限中止；短尖峰不立即 freeze。真机不自动改参数，未知新固件需新增审计和实测 profile。
+**严格配置**的 `speed_xy_mps` 是对人工预设 FCU 限速的上界要求，不是插值速度控制：Copter4.5.7 必须 `20 <= WPNAV_SPEED <= 100*speed_xy_mps`。UP/DN默认≤20cm/s，ACCEL默认≤100cm/s²；持续超速中止。科研配置 `speed_enforcement: record_fcu_limits` 不强制这些性能范围，保留只读快照和越出严格基线的诊断；`overspeed_action: warn` 不因持续超速本身撤销任务。两种配置仍要求 GUID_OPTIONS=0、EKF3/GPS来源匹配、固件4.5.7及新鲜接口快照。任何模式都不自动改FC参数。
+
+策略缺省兼容旧版：`start_policy.require_stable_hover: true`、`motion.overspeed_action: abort`、`arrival.timeout_action: abort`。科研版分别使用 false / warn / warn_and_wait。超时不会跳点；必须满足 XY/Z 连续到达和 hold_s 才推进。`/v0_nav/status` 增加 warnings、speed、speed_peaks、fcu_parameters、performance_diagnostics；峰值覆盖节点启动/显式reset后的有效速度回调，不是硬件极限。超速每任务最多一条告警、超时每航点最多一条；当前速度与历史告警应分开读。
 
 实测WPNAV_SPEED=20cm/s时位置修正仍有约0.266m/s短时峰值，因此**0.20不是实际速度的严格瞬时上限**；本轮验证的是FC参数生效及0.30m/s实测监测门槛。若实验要求任何时刻≤0.20m/s，当前V0不满足，不能仅修改YAML宣称实现。
 

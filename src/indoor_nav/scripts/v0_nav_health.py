@@ -265,6 +265,7 @@ class Watchdog:
                     'mode': self.health.state[2], 'max_publish_gap_s': self.max_publish_gap,
                     'rx_ros_s': dict(self.health.rx_ros), 'header_stamps_s': dict(self.health.header_stamps),
                     'stamp_diagnostics': dict(self.health.stamp_diagnostics),
+                    'speed': self.health.current_speed(), 'speed_peaks': self.health.speed_peaks,
                     'target_rx_ros_s': self.rx_ros.get('target'),
                     'target_header_stamp_s': None if self.target is None else self.target.header.stamp.to_sec()})))
                 self.previous_ros, self.previous_mono = ros_now, now

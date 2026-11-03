@@ -84,7 +84,8 @@ def validate_config(config):
     }
     for section, values in expected.items():
         fields(config[section], values)
-        if any(type(config[section][key]) is not type(value) or config[section][key] != value
+        if any(type(config[section][key]) is not type(value) or
+               (key != 'require_stable_hover' and config[section][key] != value)
                for key, value in values.items()):
             raise ConfigError('unsupported policy: ' + section)
     fields(config['navigation'], ('vehicle', 'source'), ('require_upstream_health',))
@@ -102,13 +103,19 @@ def validate_config(config):
         raise ConfigError('V0 requires safe defaults and initial yaw')
     bounded(config['control'], 'setpoint_rate_hz', 5, 10)
     motion = config['motion']
-    fields(motion, ('speed_xy_mps', 'max_speed_xy_mps', 'speed_enforcement'))
+    fields(motion, ('speed_xy_mps', 'max_speed_xy_mps', 'speed_enforcement'), ('overspeed_action',))
+    motion.setdefault('overspeed_action', 'abort')
+    if motion['overspeed_action'] not in ('abort', 'warn'):
+        raise ConfigError('unsupported overspeed_action')
     bounded(motion, 'speed_xy_mps', 0.2, 0.5)
     bounded(motion, 'max_speed_xy_mps', motion['speed_xy_mps'], 0.6)
-    if motion['speed_enforcement'] != 'verify_fcu_limit':
+    if motion['speed_enforcement'] not in ('verify_fcu_limit', 'record_fcu_limits'):
         raise ConfigError('unsupported speed enforcement')
     arrival = config['arrival']
-    fields(arrival, ('xy_tolerance_m', 'z_tolerance_m', 'stable_time_s', 'max_waypoint_time_s'))
+    fields(arrival, ('xy_tolerance_m', 'z_tolerance_m', 'stable_time_s', 'max_waypoint_time_s'), ('timeout_action',))
+    arrival.setdefault('timeout_action', 'abort')
+    if arrival['timeout_action'] not in ('abort', 'warn_and_wait'):
+        raise ConfigError('unsupported timeout_action')
     for key, lower, upper in (('xy_tolerance_m', .01, .2), ('z_tolerance_m', .01, .15),
                               ('stable_time_s', .2, 10), ('max_waypoint_time_s', 1, 120)):
         bounded(arrival, key, lower, upper)
@@ -197,20 +204,32 @@ def relative_target(origin, yaw, waypoint):
             origin[2] + upward)
 
 
+def performance_bounds(config):
+    return {'WPNAV_SPEED': (20, config['motion']['speed_xy_mps'] * 100),
+              'WPNAV_SPEED_UP': (10, config['safety']['max_speed_z_mps'] * 100),
+              'WPNAV_SPEED_DN': (10, config['safety']['max_speed_z_mps'] * 100),
+              'WPNAV_ACCEL': (50, 100), 'WPNAV_ACCEL_Z': (50, 100)}
+
+
+def performance_diagnostics(parameters, config):
+    return ['FCU performance outside strict baseline: {}={}'.format(key, parameters.get(key))
+            for key, (lower, upper) in performance_bounds(config).items()
+            if not finite_number(parameters.get(key)) or not lower <= parameters[key] <= upper + 1e-5]
+
+
 def verify_fcu_limits(version, parameters, config):
     if tuple(version) != (4, 5, 7):
         raise ValueError('unsupported firmware/units; only audited Copter 4.5.7')
-    bounds = {'WPNAV_SPEED': (20, config['motion']['speed_xy_mps'] * 100),
-              'WPNAV_SPEED_UP': (10, config['safety']['max_speed_z_mps'] * 100),
-              'WPNAV_SPEED_DN': (10, config['safety']['max_speed_z_mps'] * 100),
-              'WPNAV_ACCEL': (50, 100), 'WPNAV_ACCEL_Z': (50, 100),
-              'GUID_OPTIONS': (0, 0), 'AHRS_EKF_TYPE': (3, 3),
+    bounds = {'GUID_OPTIONS': (0, 0), 'AHRS_EKF_TYPE': (3, 3),
               'EK3_ENABLE': (1, 1), 'EK3_SRC1_POSXY': (3, 3)}
+    if config['motion']['speed_enforcement'] == 'verify_fcu_limit':
+        bounds.update(performance_bounds(config))
     for key, (lower, upper) in bounds.items():
         value = parameters.get(key)
         if not finite_number(value) or not lower <= value <= upper + 1e-5:
             raise ValueError('FCU limit/source mismatch: {}={}'.format(key, value))
-    return parameters['WPNAV_SPEED'] / 100.
+    speed = parameters.get('WPNAV_SPEED')
+    return speed / 100. if finite_number(speed) else None
 
 
 def decode_ekf_report(payload64, length):
@@ -244,6 +263,7 @@ class Health:
         self.upstream_ok = False
         self.history = deque()
         self.velocity_history = deque()
+        self.speed_peaks = {'xy_mps': 0., 'z_mps': 0., 'norm_mps': 0.}
         self.fault = ''
         self.ekf_origin = None
         self.rx_ros = {}
@@ -335,7 +355,9 @@ class Health:
             duration = max(self.cfg['hover_time_s'], self.cfg['freeze_window_s'])
             while len(self.history) > 1 and now - self.history[1][0] > duration:
                 self.history.popleft()
-            if abs(normalized[0]) ** 2 + abs(normalized[1]) ** 2 > math.sin(self.cfg['max_tilt_rad'] / 2) ** 2:
+            tilt_component = normalized[0] ** 2 + normalized[1] ** 2
+            tilt_limit = math.sin(self.cfg['max_tilt_rad'] / 2) ** 2
+            if tilt_component > tilt_limit and not math.isclose(tilt_component, tilt_limit, rel_tol=0., abs_tol=1e-12):
                 raise ValueError('EXCESSIVE_TILT')
         except (ValueError, TypeError, OverflowError) as error:
             self.fault = str(error)
@@ -350,10 +372,18 @@ class Health:
             self.fault = 'NONFINITE_VELOCITY'
             return
         self.velocity, self.velocity_time = tuple(velocity), now
+        for key, value in self.current_speed().items():
+            self.speed_peaks[key] = max(self.speed_peaks[key], value)
         self.velocity_history.append((now, tuple(velocity)))
         duration = max(self.cfg['hover_time_s'], self.cfg['freeze_window_s'])
         while len(self.velocity_history) > 1 and now - self.velocity_history[1][0] > duration:
             self.velocity_history.popleft()
+
+    def current_speed(self):
+        if self.velocity is None:
+            return {}
+        return {'xy_mps': math.hypot(*self.velocity[:2]), 'z_mps': abs(self.velocity[2]),
+                'norm_mps': math.hypot(*self.velocity)}
 
     def receipt_expired(self, name, now, ros_now):
         received = self.rx_ros.get(name)
@@ -455,6 +485,15 @@ class Mission:
         self.waypoint_time = None
         self.stable_since = None
         self.overspeed_since = None
+        self.warnings = {}
+
+    def warn(self, reason, now):
+        key = '{}:{}'.format(reason, self.index) if reason == 'WAYPOINT_TIMEOUT' else reason
+        if key not in self.warnings:
+            event = {'state': self.state, 'wp': self.index, 'reason': reason,
+                     'mono': now, 'severity': 'WARNING'}
+            self.warnings[key] = event
+            self.events.append(event)
 
     def transition(self, state, now, reason=''):
         self.state, self.reason, self.phase_time = state, reason, now
@@ -465,7 +504,7 @@ class Mission:
             return False, 'explicit reset/re-authorization required'
         self.transition('WAIT_FOR_READY', now)
         reason = external_reason or health.reason(now, ros_now)
-        if reason or not health.stable_hover(now):
+        if reason or (self.config['start_policy']['require_stable_hover'] and not health.stable_hover(now)):
             self.transition('IDLE', now, reason or 'HOVER_NOT_STABLE')
             return False, self.reason
         self.transition('CAPTURE_ORIGIN', now)
@@ -506,7 +545,10 @@ class Mission:
                          abs(health.velocity[2]) > safety['max_speed_z_mps'])
             self.overspeed_since = (now if self.overspeed_since is None else self.overspeed_since) if overspeed else None
             if self.overspeed_since is not None and now - self.overspeed_since >= safety['overspeed_duration_s']:
-                reason = reason or 'SUSTAINED_OVERSPEED'
+                if self.config['motion']['overspeed_action'] == 'abort':
+                    reason = reason or 'SUSTAINED_OVERSPEED'
+                else:
+                    self.warn('SUSTAINED_OVERSPEED', now)
         if reason:
             self.abort(now, reason)
             return
@@ -518,8 +560,10 @@ class Mission:
             return
         arrival = self.config['arrival']
         if now - self.waypoint_time > arrival['max_waypoint_time_s'] + (self.config['waypoints'][self.index]['hold_s'] if self.state == 'DWELL' else 0):
-            self.abort(now, 'WAYPOINT_TIMEOUT')
-            return
+            if arrival['timeout_action'] == 'abort':
+                self.abort(now, 'WAYPOINT_TIMEOUT')
+                return
+            self.warn('WAYPOINT_TIMEOUT', now)
         position = health.pose[0]
         inside = (math.hypot(position[0] - self.target[0], position[1] - self.target[1]) <= arrival['xy_tolerance_m'] and
                   abs(position[2] - self.target[2]) <= arrival['z_tolerance_m'])

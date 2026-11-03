@@ -1,0 +1,48 @@
+# ArduCopter V0 YAML 契约示例（供 Codex 最终实现并保持一致）
+# 目前只是设计样例，不表示原 indoor_nav_ws 已支持该 schema。
+# 坐标单位 m；速度 m/s；时间 s。所有点相对一次冻结的任务起点和初始 yaw。
+schema_version: 1
+mission_id: uav_acoustic_relative_v0_001
+navigation:
+  vehicle: ArduCopter
+  source: fc_ekf_fake_gps   # 输入源来自飞控 EKF；此字段不自动生成 Fake GPS
+reference:
+  origin: pose_at_mission_start
+  heading: yaw_at_mission_start
+  axes: forward_right_up    # x 前，y 右，z 上
+start_policy:
+  require_operator_start: true
+  require_manual_takeoff: true
+  require_stable_hover: true
+  require_guided_mode: true # V0 默认飞手先切换并确认 Guided，软件不强制抢模式
+  auto_arm: false
+  auto_takeoff: false
+  auto_land: false
+control:
+  dry_run_default: true     # 真机初次安全默认：不实际发送 Guided 运动目标
+  setpoint_rate_hz: 10.0
+  yaw_policy: hold_initial_yaw
+motion:
+  speed_xy_mps: 0.20
+  max_speed_xy_mps: 0.30
+  speed_enforcement: verify_fcu_limit  # 必须检查固件实际支持的参数及单位
+arrival:
+  xy_tolerance_m: 0.12
+  z_tolerance_m: 0.08
+  stable_time_s: 1.5
+  max_waypoint_time_s: 15.0
+safety:
+  max_offset_xy_m: 0.80
+  max_offset_z_m: 0.20
+  pose_timeout_s: 0.35     # 实测后标定
+  abort_on_mode_change: true
+  abort_on_localization_loss: true
+  prevent_auto_resume: true
+waypoints:
+  - {id: initial_hold, x: 0.00, y: 0.00, z: 0.00, hold_s: 3.0}
+  - {id: forward,      x: 0.30, y: 0.00, z: 0.00, hold_s: 4.0}
+  - {id: right,        x: 0.30, y: 0.30, z: 0.00, hold_s: 4.0}
+  - {id: backward,     x: 0.00, y: 0.30, z: 0.00, hold_s: 4.0}
+  - {id: return,       x: 0.00, y: 0.00, z: 0.00, hold_s: 5.0}
+finish:
+  action: hold_and_wait_pilot

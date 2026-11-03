@@ -38,6 +38,7 @@ def main():
     parser.add_argument('--sitl', action='store_true', required=True)
     parser.add_argument('--execute', action='store_true', required=True)
     parser.add_argument('--cases', nargs='+', required=True)
+    parser.add_argument('--mission-file', type=Path, default=ROOT / 'src/indoor_nav/config/mission_v0.yaml')
     args = parser.parse_args()
     if os.environ.get('ROS_MASTER_URI') != MASTER:
         raise RuntimeError('wrong master; source the ROS workspace and set the isolated master')
@@ -72,7 +73,8 @@ def main():
             time.sleep(6)
             before = set((ROOT / 'docs/v0/evidence').glob('*/summary.json'))
             with (directory / ('{:02d}-{}-test.txt'.format(index, case))).open('x') as output:
-                test = subprocess.run(['python3', str(ROOT / 'tools/v0_sitl_test.py'), '--sitl', '--execute', '--case', case],
+                test = subprocess.run(['python3', str(ROOT / 'tools/v0_sitl_test.py'), '--sitl', '--execute', '--case', case,
+                                       '--mission-file', str(args.mission_file.expanduser().resolve())],
                                       cwd=ROOT, stdout=output, stderr=subprocess.STDOUT, timeout=240)
             created = set((ROOT / 'docs/v0/evidence').glob('*/summary.json')) - before
             row = {'case': case, 'test_exit_code': test.returncode, 'runtime': str(runtime),

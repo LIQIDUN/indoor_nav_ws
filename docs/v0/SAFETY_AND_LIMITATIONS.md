@@ -1,5 +1,8 @@
 # 安全边界与尚不能证明的结论
 
+- 2026-11-03 科研策略差异见 `V0_RESEARCH_UPGRADE.md`，本次本地验证见 `V0_RESEARCH_VALIDATION_20261103.md`。严格 YAML 字节保持不变。research 不强制悬停历史、不因持续超速本身中止、航点超时等待、WPNAV 性能参数仅诊断；这些不是放弃飞手悬停确认或证明高速运动安全。GUID_OPTIONS/EKF来源/固件与通信、定位、围栏、倾角、租约保护仍强制。
+- 持续位姿/速度冻结不一致仍是硬联锁：现有1.5秒窗口需要全窗口速度超阈值且位置几乎不动，单次速度尖峰不满足。没有独立证据可将持续矛盾视为无害，故本次不放宽跳点/冻结阈值、不绕过GPS/EKF健康。Manager与Watchdog共同使用同一个Health实现和同一份YAML哈希。
+- 新 USB 入口默认只读并默认严格 level 配置；已有 MAVROS 必须 start_mavros:=false。stream 请求只复用 MAVROS 服务，不新开串口、不产生控制输出。服务无 success/频率确认语义；五组请求、重连与软件回归不能代替真实链路长期话题频率验收。
 - 本交付是软件与仿真证据，不是物理安全认证。F2专项模拟/协议调查已取消；用户确认UWB经飞控GPS接口参与EKF。本轮仅恢复本地开发和隔离SITL，未获真机操作授权；最新实测及原始FAIL见 `FAST250_DYNAMIC_SITL_REPORT_20261028.md`。R0及真实硬件/RC/场地检查不可由SITL替代。
 - 生产代码不ARM/起飞/降落、不写FC参数、不切回GUIDED；gate是唯一FC位置目标及可选BRAKE模式请求出口，manager只给意图。人工切出GUIDED后锁存，明确DISARM/reset/start才可再次授权。
 - 默认exit_action=manual_takeover仅停发，不能称为刹停。显式brake_if_position_healthy仅在既有任务租约、独立定位/GPS/EKF健康、ARM/GUIDED及审计固件/参数新鲜时单次请求BRAKE；模式返回仍须实测mode/速度确认。定位失效、断链、配置/时钟异常不盲目切模式；室内不默认RTL。

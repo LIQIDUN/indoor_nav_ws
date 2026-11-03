@@ -249,7 +249,10 @@ class FlightTest:
                       'git_dirty': bool(subprocess.check_output(['git', '-C', str(ROOT), 'status', '--porcelain'], text=True).strip()),
                       'sha256': {str(path.relative_to(ROOT)): hashlib.sha256(path.read_bytes()).hexdigest() for path in inputs},
                       'runtime': verified['runtime'], 'original_hover_gate': {'truth_z_gt_m': .85, 'speed_norm_lt_mps': .06, 'timeout_s': 35}}
-        config = yaml.safe_load((ROOT / 'src/indoor_nav/config/mission_v0.yaml').read_text())
+        template = self.args.mission_file.expanduser().resolve()
+        raw_template = template.read_bytes()
+        self.inputs['mission_template'] = {'path': str(template), 'sha256': hashlib.sha256(raw_template).hexdigest()}
+        config = yaml.safe_load(raw_template.decode())
         config['navigation']['source'] = 'fc_ekf_sitl_gps'
         config['control']['exit_action'] = 'brake_if_position_healthy'
         config['mission_id'] = self.directory.name
@@ -631,6 +634,7 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument('--sitl', action='store_true', required=True)
     parser.add_argument('--execute', action='store_true', required=True)
+    parser.add_argument('--mission-file', type=Path, default=ROOT / 'src/indoor_nav/config/mission_v0.yaml')
     parser.add_argument('--case', choices=('dry_run', 'single', 'multi', 'yaw', 'altitude', 'distance_short', 'distance_long',
                         'finish_stop', 'f3', 'f3_auto_bag', 'link_fault', 'brake_probe', 'abort', 'manager_kill',
                         'manager_exit', 'manager_pause', 'mavros_loss', 'pose_loss', 'concurrent', 'gate_pause',

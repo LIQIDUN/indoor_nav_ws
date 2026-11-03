@@ -1,0 +1,34 @@
+<launch>
+  <arg name="fcu_url" default="/dev/ttyACM0:115200"/>
+  <arg name="gcs_url" default=""/>
+  <arg name="start_mavros" default="true"/>
+  <arg name="configure_streams" default="true"/>
+  <arg name="mission_file" default="$(find indoor_nav)/config/mission_v0_level.yaml"/>
+  <arg name="enable_control" default="false"/>
+  <arg name="dry_run" default="true"/>
+  <arg name="evidence_dir" default="$(env HOME)/.ros/v0_nav"/>
+  <arg name="pose_topic" default="/mavros/local_position/pose"/>
+  <group if="$(arg start_mavros)">
+    <include file="$(find mavros)/launch/apm.launch">
+      <arg name="fcu_url" value="$(arg fcu_url)"/>
+      <arg name="gcs_url" value="$(arg gcs_url)"/>
+    </include>
+  </group>
+  <node if="$(arg configure_streams)" pkg="indoor_nav" type="v0_request_streams.py"
+        name="v0_request_streams" output="screen" respawn="false">
+    <param name="connection_settle_s" value="2.0"/>
+    <param name="retry_s" value="5.0"/>
+    <param name="extended_status_hz" value="5"/>
+    <param name="position_hz" value="10"/>
+    <param name="extra1_hz" value="10"/>
+    <param name="extra3_hz" value="5"/>
+    <param name="raw_sensors_hz" value="10"/>
+  </node>
+  <include file="$(find indoor_nav)/launch/indoor_nav_v0.launch">
+    <arg name="mission_file" value="$(arg mission_file)"/>
+    <arg name="enable_control" value="$(arg enable_control)"/>
+    <arg name="dry_run" value="$(arg dry_run)"/>
+    <arg name="evidence_dir" value="$(arg evidence_dir)"/>
+    <arg name="pose_topic" value="$(arg pose_topic)"/>
+  </include>
+</launch>
