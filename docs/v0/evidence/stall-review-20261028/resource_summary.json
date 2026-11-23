@@ -1,0 +1,86 @@
+{
+  "derived_on": "2026-11-23",
+  "source_path": "docs/v0/evidence/stall-review-20261028/resource_analysis.json",
+  "source_sha256": "41146047d2e369b41b7a41b57741a259274b1c2a54b3d1ac7efc14a7beb75524",
+  "source_storage": "local_only",
+  "scope": "Historical SITL observations; no new run; main-thread scheduling only; no confirmed root cause.",
+  "observations": [
+    {
+      "gui": "false",
+      "evidence": "docs/v0/evidence/20261028T180821-yaw",
+      "scope": "Only bag pose coverage; shutdown samples excluded. CPU is host-wide 0-100%; process CPU uses one-core 100%. schedstat covers main thread, not all worker threads.",
+      "host_cpu_percent_flight_max": 44.1,
+      "host_cpu_percent_near_gap_range": [
+        14.1,
+        17.4
+      ],
+      "process_cpu_percent_near_gap_peaks": {
+        "arducopter": 8.0,
+        "mavproxy.py": 15.9,
+        "mavros_node": 8.0,
+        "gzserver": 23.9,
+        "python3": 15.9
+      },
+      "minimum_interval_rtf_during_flight": {
+        "before": {
+          "wall_s": 1793182159.658457,
+          "monotonic_s": 1746952.652432448,
+          "line": "1.00,        64.331000,        64.283660, F",
+          "displayed_rtf": 1.0,
+          "sim_s": 64.331,
+          "real_s": 64.28366,
+          "paused": "F"
+        },
+        "after": {
+          "wall_s": 1793182160.181728,
+          "monotonic_s": 1746953.175703021,
+          "line": "0.99,        64.351000,        64.806888, F",
+          "displayed_rtf": 0.99,
+          "sim_s": 64.351,
+          "real_s": 64.806888,
+          "paused": "F"
+        },
+        "interval_rtf": 0.03822425405367431
+      }
+    },
+    {
+      "gui": "true",
+      "evidence": "docs/v0/evidence/20261028T180543-yaw",
+      "scope": "Only bag pose coverage; shutdown samples excluded. CPU is host-wide 0-100%; process CPU uses one-core 100%. schedstat covers main thread, not all worker threads.",
+      "host_cpu_percent_flight_max": 57.4,
+      "host_cpu_percent_near_gap_range": [
+        19.7,
+        24.6
+      ],
+      "process_cpu_percent_near_gap_peaks": {
+        "arducopter": 7.9,
+        "mavproxy.py": 15.9,
+        "mavros_node": 8.0,
+        "gzserver": 38.4,
+        "gzclient": 27.8,
+        "python3": 15.9
+      },
+      "minimum_interval_rtf_during_flight": {
+        "before": {
+          "wall_s": 1793182010.6905808,
+          "monotonic_s": 1746803.684555918,
+          "line": "1.00,        70.528000,        70.494472, F",
+          "displayed_rtf": 1.0,
+          "sim_s": 70.528,
+          "real_s": 70.494472,
+          "paused": "F"
+        },
+        "after": {
+          "wall_s": 1793182010.892652,
+          "monotonic_s": 1746803.886626995,
+          "line": "1.00,        70.725000,        70.696495, F",
+          "displayed_rtf": 1.0,
+          "sim_s": 70.725,
+          "real_s": 70.696495,
+          "paused": "F"
+        },
+        "interval_rtf": 0.975136494359511
+      }
+    }
+  ]
+}

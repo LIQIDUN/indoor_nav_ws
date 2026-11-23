@@ -1,0 +1,28 @@
+{
+  "timestamp": "2026-10-28T18:18:01.245883+08:00",
+  "old_manifest": "docs/v0/evidence/fast250-dynamic-archive-20261028-verified/manifest.json",
+  "old_manifest_sha256": "87b94e3e3355d013e1ae57595f6ec4c0f85a597c537df4fd02fe27b1d2ee37fd",
+  "historical_files_verified": 160,
+  "historical_files_unchanged": true,
+  "source_config_comparisons": [
+    {
+      "evidence": "docs/v0/evidence/20261028T180821-yaw",
+      "same_runtime_source_sha256": true,
+      "same_fcu_parameters": true,
+      "same_hover_gate": true,
+      "same_mission_except_id": true
+    },
+    {
+      "evidence": "docs/v0/evidence/20261028T180543-yaw",
+      "same_runtime_source_sha256": true,
+      "same_fcu_parameters": true,
+      "same_hover_gate": true,
+      "same_mission_except_id": true
+    }
+  ],
+  "original_bag_analysis_gap_crosschecks": "PASS",
+  "notes": [
+    "observe.py is preserved byte-for-byte as executed; its non-PASS exit text says incomplete even when results.json confirms cleanup complete.",
+    "Only new report/observation artifacts were added; no production code changes."
+  ]
+}

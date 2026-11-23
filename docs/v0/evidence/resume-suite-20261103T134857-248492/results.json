@@ -1,0 +1,13 @@
+[
+  {
+    "case": "single",
+    "test_exit_code": 0,
+    "runtime": "/home/liqidun/github/indoor_nav_ws/.sitl_runtime/v0/20261103T134857-248493",
+    "summaries": [
+      "docs/v0/evidence/20261103T134906-single/summary.json"
+    ],
+    "launcher_pid": 248493,
+    "stop_exit_code": 0,
+    "ports_released": true
+  }
+]

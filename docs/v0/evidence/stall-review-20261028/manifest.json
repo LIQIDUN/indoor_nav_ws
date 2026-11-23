@@ -1,0 +1,1200 @@
+{
+  "self_excluded": true,
+  "base_commit": "dcf3919d6b14d5531e4044c892bc4572e8875ffd",
+  "no_production_changes": true,
+  "new_trials": {
+    "gui_true": "PASS",
+    "gui_false": "FAIL"
+  },
+  "note": "Original failures and all binaries preserved locally. No Git commit, staging, rewrite or push in this review. Binary existence and hashes do not imply Git archival.",
+  "files": [
+    {
+      "path": ".sitl_runtime/v0/20261028T143237-1327802/arducopter.log",
+      "bytes": 5205,
+      "sha256": "99e2741b7ffba638bea12775aa87f681574d3ff074d12726352d510cf131136a",
+      "local_binary": false
+    },
+    {
+      "path": ".sitl_runtime/v0/20261028T143237-1327802/ardupilot_commit.txt",
+      "bytes": 41,
+      "sha256": "c0811cbbf84045dd3e6755b9c50c24dfc3e07379ef69e4aed5443d05c08a015c",
+      "local_binary": false
+    },
+    {
+      "path": ".sitl_runtime/v0/20261028T143237-1327802/eeprom.bin",
+      "bytes": 16384,
+      "sha256": "b7800da3e1b5f4be6e6f697a995ccb1fba1cad2fb656d0439f23db85bc78d34a",
+      "local_binary": true
+    },
+    {
+      "path": ".sitl_runtime/v0/20261028T143237-1327802/flight.world",
+      "bytes": 3349,
+      "sha256": "e0174649595416d5106166a5054685395a43bc9b45ce84472e5b6a04b3c539e4",
+      "local_binary": false
+    },
+    {
+      "path": ".sitl_runtime/v0/20261028T143237-1327802/gazebo.log",
+      "bytes": 110251,
+      "sha256": "96531b996ae9e878fca3e0abbfcd5525c42b126d5265ca326dcff36fafbfae0c",
+      "local_binary": false
+    },
+    {
+      "path": ".sitl_runtime/v0/20261028T143237-1327802/gui.txt",
+      "bytes": 20,
+      "sha256": "3d7e59ea5aa39055c3d3b7260d3391ad97a85ff6bdfbd7c234068627ddce9638",
+      "local_binary": false
+    },
+    {
+      "path": ".sitl_runtime/v0/20261028T143237-1327802/inputs.sha256",
+      "bytes": 701,
+      "sha256": "5c90a006d4fce51f33e15c00d005a35ca6611d4ea5699097763d4ddae72e7150",
+      "local_binary": false
+    },
+    {
+      "path": ".sitl_runtime/v0/20261028T143237-1327802/logs/00000001.BIN",
+      "bytes": 2797568,
+      "sha256": "036da4530af460dbd650f65537390788ffdd931a7dc73f702a0dc54ade9966de",
+      "local_binary": true
+    },
+    {
+      "path": ".sitl_runtime/v0/20261028T143237-1327802/mav.parm",
+      "bytes": 37777,
+      "sha256": "d91670f39e23f1126f54c0726086982c411645d0b56385f41a4b4c8e971a1075",
+      "local_binary": false
+    },
+    {
+      "path": ".sitl_runtime/v0/20261028T143237-1327802/mav.tlog",
+      "bytes": 1768063,
+      "sha256": "da646866e90851f060074dce098dcfdd86af5e914997184b7cdba66bfff72d16",
+      "local_binary": true
+    },
+    {
+      "path": ".sitl_runtime/v0/20261028T143237-1327802/mav.tlog.raw",
+      "bytes": 1387992,
+      "sha256": "c7ecba3450f247ec885ca4184528e94a619243a8ee1ebcc7995259a3696262ae",
+      "local_binary": true
+    },
+    {
+      "path": ".sitl_runtime/v0/20261028T143237-1327802/mavproxy.log",
+      "bytes": 2699,
+      "sha256": "f7e0a4cef7cd65329644e8cccda4234ad3c27ada9c5a4bd1c3a1a120a04aa45f",
+      "local_binary": false
+    },
+    {
+      "path": ".sitl_runtime/v0/20261028T143237-1327802/mavros.log",
+      "bytes": 42276,
+      "sha256": "ff0b1d8aa67d36570e0e619fe9e648c30cd9e46053fcfb02338a2f94c37ed977",
+      "local_binary": false
+    },
+    {
+      "path": ".sitl_runtime/v0/20261028T143745-1333885/arducopter.log",
+      "bytes": 5205,
+      "sha256": "99e2741b7ffba638bea12775aa87f681574d3ff074d12726352d510cf131136a",
+      "local_binary": false
+    },
+    {
+      "path": ".sitl_runtime/v0/20261028T143745-1333885/ardupilot_commit.txt",
+      "bytes": 41,
+      "sha256": "c0811cbbf84045dd3e6755b9c50c24dfc3e07379ef69e4aed5443d05c08a015c",
+      "local_binary": false
+    },
+    {
+      "path": ".sitl_runtime/v0/20261028T143745-1333885/eeprom.bin",
+      "bytes": 16384,
+      "sha256": "0c34d21c14d8ee4e99202fe1f1570eb035d5532e16a90044517904aa2b9360b6",
+      "local_binary": true
+    },
+    {
+      "path": ".sitl_runtime/v0/20261028T143745-1333885/flight.world",
+      "bytes": 3349,
+      "sha256": "e0174649595416d5106166a5054685395a43bc9b45ce84472e5b6a04b3c539e4",
+      "local_binary": false
+    },
+    {
+      "path": ".sitl_runtime/v0/20261028T143745-1333885/gazebo.log",
+      "bytes": 109585,
+      "sha256": "fd290c87d1bad7a7bd9d2fab95942c7c1a62eac3af805e8a884f1681a6e80e63",
+      "local_binary": false
+    },
+    {
+      "path": ".sitl_runtime/v0/20261028T143745-1333885/gui.txt",
+      "bytes": 20,
+      "sha256": "3d7e59ea5aa39055c3d3b7260d3391ad97a85ff6bdfbd7c234068627ddce9638",
+      "local_binary": false
+    },
+    {
+      "path": ".sitl_runtime/v0/20261028T143745-1333885/inputs.sha256",
+      "bytes": 701,
+      "sha256": "022e819260d0fb2bbd01402c4ca121c68b35abd596aeab4843d3f026568fa888",
+      "local_binary": false
+    },
+    {
+      "path": ".sitl_runtime/v0/20261028T143745-1333885/logs/00000001.BIN",
+      "bytes": 2572288,
+      "sha256": "d1e349702dfe92fec73eebb4120d748cf8de307a153277952306498d53778cf8",
+      "local_binary": true
+    },
+    {
+      "path": ".sitl_runtime/v0/20261028T143745-1333885/mav.parm",
+      "bytes": 37777,
+      "sha256": "e0bbfe3510ca896cabef0697e4c6423b43374baf44a267058447dc4f0ba6d367",
+      "local_binary": false
+    },
+    {
+      "path": ".sitl_runtime/v0/20261028T143745-1333885/mav.tlog",
+      "bytes": 1621512,
+      "sha256": "b69289216e4c9481aac81c491ff22869ab9a7fc99ae73d55a01992527ee73f9b",
+      "local_binary": true
+    },
+    {
+      "path": ".sitl_runtime/v0/20261028T143745-1333885/mav.tlog.raw",
+      "bytes": 1269695,
+      "sha256": "fb2504167233c7b562c9148b07c1d52b86b5b534eb54143d662a2a16e5b96a4c",
+      "local_binary": true
+    },
+    {
+      "path": ".sitl_runtime/v0/20261028T143745-1333885/mavproxy.log",
+      "bytes": 2658,
+      "sha256": "cf8f47558a056d519b20b9bbab741065086773e4b6bd7b5979667b2783ceaf3b",
+      "local_binary": false
+    },
+    {
+      "path": ".sitl_runtime/v0/20261028T143745-1333885/mavros.log",
+      "bytes": 20645,
+      "sha256": "2578dfac9629feefee926125a9b893aeb907ce971e4e2e95c421b5a82a7b46d9",
+      "local_binary": false
+    },
+    {
+      "path": ".sitl_runtime/v0/20261028T150332-1362565/arducopter.log",
+      "bytes": 5205,
+      "sha256": "99e2741b7ffba638bea12775aa87f681574d3ff074d12726352d510cf131136a",
+      "local_binary": false
+    },
+    {
+      "path": ".sitl_runtime/v0/20261028T150332-1362565/ardupilot_commit.txt",
+      "bytes": 41,
+      "sha256": "c0811cbbf84045dd3e6755b9c50c24dfc3e07379ef69e4aed5443d05c08a015c",
+      "local_binary": false
+    },
+    {
+      "path": ".sitl_runtime/v0/20261028T150332-1362565/eeprom.bin",
+      "bytes": 16384,
+      "sha256": "74713c80a9f66c1c0df37a41835ce2662d260f671fc8402c5e45ec4d6023f014",
+      "local_binary": true
+    },
+    {
+      "path": ".sitl_runtime/v0/20261028T150332-1362565/flight.world",
+      "bytes": 3349,
+      "sha256": "e0174649595416d5106166a5054685395a43bc9b45ce84472e5b6a04b3c539e4",
+      "local_binary": false
+    },
+    {
+      "path": ".sitl_runtime/v0/20261028T150332-1362565/gazebo.log",
+      "bytes": 109457,
+      "sha256": "5a24063fc51e16bd8130d2adbafbd9278750e38f1e0a452c64abf044d8831de6",
+      "local_binary": false
+    },
+    {
+      "path": ".sitl_runtime/v0/20261028T150332-1362565/gui.txt",
+      "bytes": 20,
+      "sha256": "3d7e59ea5aa39055c3d3b7260d3391ad97a85ff6bdfbd7c234068627ddce9638",
+      "local_binary": false
+    },
+    {
+      "path": ".sitl_runtime/v0/20261028T150332-1362565/inputs.sha256",
+      "bytes": 701,
+      "sha256": "b427a5df6ef71eac778c9f0a63ddaca18839efcbc4f45444ec72202e68786ff1",
+      "local_binary": false
+    },
+    {
+      "path": ".sitl_runtime/v0/20261028T150332-1362565/logs/00000001.BIN",
+      "bytes": 3100672,
+      "sha256": "047e2796ed4c2296a8ed380447a17daaa8fa0635ca125ad28908a00ee70ac951",
+      "local_binary": true
+    },
+    {
+      "path": ".sitl_runtime/v0/20261028T150332-1362565/mav.parm",
+      "bytes": 37777,
+      "sha256": "e0bbfe3510ca896cabef0697e4c6423b43374baf44a267058447dc4f0ba6d367",
+      "local_binary": false
+    },
+    {
+      "path": ".sitl_runtime/v0/20261028T150332-1362565/mav.tlog",
+      "bytes": 1988143,
+      "sha256": "0c31a4ab9a6f87edbf24f072bc8b5b2bd9dacab2af66ce29db20c4e7378be782",
+      "local_binary": true
+    },
+    {
+      "path": ".sitl_runtime/v0/20261028T150332-1362565/mav.tlog.raw",
+      "bytes": 1557936,
+      "sha256": "5b038fba796596685bea23731b8991a8376c5f86f17221fbf8d7318343a9068b",
+      "local_binary": true
+    },
+    {
+      "path": ".sitl_runtime/v0/20261028T150332-1362565/mavproxy.log",
+      "bytes": 2948,
+      "sha256": "7dd330b39b8b726a65b65d7f255cad3d4c36f87d734cdcc14373bac328316b49",
+      "local_binary": false
+    },
+    {
+      "path": ".sitl_runtime/v0/20261028T150332-1362565/mavros.log",
+      "bytes": 20410,
+      "sha256": "c6da93b98b525dde3c9c124b2a7713d63017e69eb8a3c75d07f03d2f34a03045",
+      "local_binary": false
+    },
+    {
+      "path": ".sitl_runtime/v0/20261028T150610-1365707/arducopter.log",
+      "bytes": 5205,
+      "sha256": "99e2741b7ffba638bea12775aa87f681574d3ff074d12726352d510cf131136a",
+      "local_binary": false
+    },
+    {
+      "path": ".sitl_runtime/v0/20261028T150610-1365707/ardupilot_commit.txt",
+      "bytes": 41,
+      "sha256": "c0811cbbf84045dd3e6755b9c50c24dfc3e07379ef69e4aed5443d05c08a015c",
+      "local_binary": false
+    },
+    {
+      "path": ".sitl_runtime/v0/20261028T150610-1365707/eeprom.bin",
+      "bytes": 16384,
+      "sha256": "071166232c87c789c7c5064a4b30fab275a5bfcd9b902471533eb4c1fd957a7d",
+      "local_binary": true
+    },
+    {
+      "path": ".sitl_runtime/v0/20261028T150610-1365707/flight.world",
+      "bytes": 3349,
+      "sha256": "e0174649595416d5106166a5054685395a43bc9b45ce84472e5b6a04b3c539e4",
+      "local_binary": false
+    },
+    {
+      "path": ".sitl_runtime/v0/20261028T150610-1365707/gazebo.log",
+      "bytes": 109274,
+      "sha256": "4f1a0ae2737192c3023f899f2f19d923f141129724b5ea1193ce1ab5b4e032c9",
+      "local_binary": false
+    },
+    {
+      "path": ".sitl_runtime/v0/20261028T150610-1365707/gui.txt",
+      "bytes": 20,
+      "sha256": "3d7e59ea5aa39055c3d3b7260d3391ad97a85ff6bdfbd7c234068627ddce9638",
+      "local_binary": false
+    },
+    {
+      "path": ".sitl_runtime/v0/20261028T150610-1365707/inputs.sha256",
+      "bytes": 701,
+      "sha256": "a9f384d7faf6264aad6b31443130d815adb7f906abe26f4146c1fad504ae0d0f",
+      "local_binary": false
+    },
+    {
+      "path": ".sitl_runtime/v0/20261028T150610-1365707/logs/00000001.BIN",
+      "bytes": 2772992,
+      "sha256": "fff85055f7a02e0a497b08994333ca443c14ace43a0fa062a9e3f054ac75554b",
+      "local_binary": true
+    },
+    {
+      "path": ".sitl_runtime/v0/20261028T150610-1365707/mav.parm",
+      "bytes": 37777,
+      "sha256": "8fdc7811f60a9114502610b35e514d175d33cf4dd48baeb4cf0b47fcabc3ae4c",
+      "local_binary": false
+    },
+    {
+      "path": ".sitl_runtime/v0/20261028T150610-1365707/mav.tlog",
+      "bytes": 1755748,
+      "sha256": "48ef203c06d51479d7521a94daf039b8382d474ff2f8c53897011e6723094ae9",
+      "local_binary": true
+    },
+    {
+      "path": ".sitl_runtime/v0/20261028T150610-1365707/mav.tlog.raw",
+      "bytes": 1377833,
+      "sha256": "e0bb3f27d2ea47ed99cfac7b8dba30657300ecf07fa236b716dc3905cf3d85e6",
+      "local_binary": true
+    },
+    {
+      "path": ".sitl_runtime/v0/20261028T150610-1365707/mavproxy.log",
+      "bytes": 2954,
+      "sha256": "4dfa20afbc451821da7b34f87bba2adf6374a00dfdee27ef34d8cd9cfe79db8b",
+      "local_binary": false
+    },
+    {
+      "path": ".sitl_runtime/v0/20261028T150610-1365707/mavros.log",
+      "bytes": 20496,
+      "sha256": "014ac2de87d3b52cb967dbf96a9e6e4f7ac154e99218dd185264f5534f1b59fd",
+      "local_binary": false
+    },
+    {
+      "path": ".sitl_runtime/v0/20261028T180535-1501339/arducopter.log",
+      "bytes": 5205,
+      "sha256": "99e2741b7ffba638bea12775aa87f681574d3ff074d12726352d510cf131136a",
+      "local_binary": false
+    },
+    {
+      "path": ".sitl_runtime/v0/20261028T180535-1501339/ardupilot_commit.txt",
+      "bytes": 41,
+      "sha256": "c0811cbbf84045dd3e6755b9c50c24dfc3e07379ef69e4aed5443d05c08a015c",
+      "local_binary": false
+    },
+    {
+      "path": ".sitl_runtime/v0/20261028T180535-1501339/eeprom.bin",
+      "bytes": 16384,
+      "sha256": "95a81ee80c5e77fdf337a9e659fa799733fbe6c2e7de6a4a5008baf1758dc720",
+      "local_binary": true
+    },
+    {
+      "path": ".sitl_runtime/v0/20261028T180535-1501339/flight.world",
+      "bytes": 3349,
+      "sha256": "e0174649595416d5106166a5054685395a43bc9b45ce84472e5b6a04b3c539e4",
+      "local_binary": false
+    },
+    {
+      "path": ".sitl_runtime/v0/20261028T180535-1501339/gazebo.log",
+      "bytes": 104561,
+      "sha256": "d7973ec93a0585dc9ec4261b0b4bcfdb07ebcd558e4f5ee40b3f36591c294299",
+      "local_binary": false
+    },
+    {
+      "path": ".sitl_runtime/v0/20261028T180535-1501339/gui.txt",
+      "bytes": 20,
+      "sha256": "3d7e59ea5aa39055c3d3b7260d3391ad97a85ff6bdfbd7c234068627ddce9638",
+      "local_binary": false
+    },
+    {
+      "path": ".sitl_runtime/v0/20261028T180535-1501339/inputs.sha256",
+      "bytes": 701,
+      "sha256": "80a43ea0161ee567e9f99779913adb30ce6f79a753ad4cea9d3f693a4e4d8b35",
+      "local_binary": false
+    },
+    {
+      "path": ".sitl_runtime/v0/20261028T180535-1501339/logs/00000001.BIN",
+      "bytes": 3100672,
+      "sha256": "4fb6af84c5f3a9b23145231ae9e532c65f28709a7384ecff5628df41881fd648",
+      "local_binary": true
+    },
+    {
+      "path": ".sitl_runtime/v0/20261028T180535-1501339/mav.parm",
+      "bytes": 37777,
+      "sha256": "e0bbfe3510ca896cabef0697e4c6423b43374baf44a267058447dc4f0ba6d367",
+      "local_binary": false
+    },
+    {
+      "path": ".sitl_runtime/v0/20261028T180535-1501339/mav.tlog",
+      "bytes": 1987941,
+      "sha256": "b01e716e3a8fb1b8507752685a954ffffc4e3ed111cb64d8daa919cf6c73104a",
+      "local_binary": true
+    },
+    {
+      "path": ".sitl_runtime/v0/20261028T180535-1501339/mav.tlog.raw",
+      "bytes": 1561580,
+      "sha256": "77efa1b823f13d8a043413f005bebf138812323eeb685eeb502930748f18e179",
+      "local_binary": true
+    },
+    {
+      "path": ".sitl_runtime/v0/20261028T180535-1501339/mavproxy.log",
+      "bytes": 3022,
+      "sha256": "ee31c338deb9310b2530211666a4f3d3ad99f55a79570ae97ab4367f24e772c4",
+      "local_binary": false
+    },
+    {
+      "path": ".sitl_runtime/v0/20261028T180535-1501339/mavros.log",
+      "bytes": 20483,
+      "sha256": "fc3f220e06d10bfe55a8cec4cf868369d53e7c42c1fbd92670b95b1d9de649bc",
+      "local_binary": false
+    },
+    {
+      "path": ".sitl_runtime/v0/20261028T180813-1504416/arducopter.log",
+      "bytes": 5205,
+      "sha256": "99e2741b7ffba638bea12775aa87f681574d3ff074d12726352d510cf131136a",
+      "local_binary": false
+    },
+    {
+      "path": ".sitl_runtime/v0/20261028T180813-1504416/ardupilot_commit.txt",
+      "bytes": 41,
+      "sha256": "c0811cbbf84045dd3e6755b9c50c24dfc3e07379ef69e4aed5443d05c08a015c",
+      "local_binary": false
+    },
+    {
+      "path": ".sitl_runtime/v0/20261028T180813-1504416/eeprom.bin",
+      "bytes": 16384,
+      "sha256": "3948df424d53a00487aca52fd2e2614c317124212670159d26567514ccda2b54",
+      "local_binary": true
+    },
+    {
+      "path": ".sitl_runtime/v0/20261028T180813-1504416/flight.world",
+      "bytes": 3349,
+      "sha256": "e0174649595416d5106166a5054685395a43bc9b45ce84472e5b6a04b3c539e4",
+      "local_binary": false
+    },
+    {
+      "path": ".sitl_runtime/v0/20261028T180813-1504416/gazebo.log",
+      "bytes": 12932,
+      "sha256": "629edc45fc33b7fd342799fefa80683c6e30444b9d512f67594e43407ca90276",
+      "local_binary": false
+    },
+    {
+      "path": ".sitl_runtime/v0/20261028T180813-1504416/gui.txt",
+      "bytes": 19,
+      "sha256": "ed07d73090e12229837d4b8333bc2f8ad119c211210e29b42588bf09b5fe2d08",
+      "local_binary": false
+    },
+    {
+      "path": ".sitl_runtime/v0/20261028T180813-1504416/inputs.sha256",
+      "bytes": 701,
+      "sha256": "0ce77a17c4d31cfc993550459fb670a0a5cd0e327c87f3eaee5eb687c8503f8c",
+      "local_binary": false
+    },
+    {
+      "path": ".sitl_runtime/v0/20261028T180813-1504416/logs/00000001.BIN",
+      "bytes": 2981888,
+      "sha256": "242de609cf34f270c8451da283e36900101b2860320678b805e6ce6f07301f71",
+      "local_binary": true
+    },
+    {
+      "path": ".sitl_runtime/v0/20261028T180813-1504416/mav.parm",
+      "bytes": 31827,
+      "sha256": "9780c8edfbb45fa3e35b0f10f0af3d7aff4d5e36cbc3f6282b3178faf419f804",
+      "local_binary": false
+    },
+    {
+      "path": ".sitl_runtime/v0/20261028T180813-1504416/mav.tlog",
+      "bytes": 1849328,
+      "sha256": "b4230ea37b251c2c663cdacf85be0d9fe56930dc25677bb72ecef9954ef0de16",
+      "local_binary": true
+    },
+    {
+      "path": ".sitl_runtime/v0/20261028T180813-1504416/mav.tlog.raw",
+      "bytes": 1400008,
+      "sha256": "990abebd64542a7a41837f58ee9f1c82a5c1886a0a24ee3ce7025ebae9d36254",
+      "local_binary": true
+    },
+    {
+      "path": ".sitl_runtime/v0/20261028T180813-1504416/mavproxy.log",
+      "bytes": 2745,
+      "sha256": "633810ec910123d6744a55545fbbc661ef648b65efdf8c10118957fde23b6703",
+      "local_binary": false
+    },
+    {
+      "path": ".sitl_runtime/v0/20261028T180813-1504416/mavros.log",
+      "bytes": 19185,
+      "sha256": "e3dcc14901c8121030d91273f48449123d00ab06f11d519e0413680b6b0117a0",
+      "local_binary": false
+    },
+    {
+      "path": "docs/v0/SITL_STALL_REVIEW_20261028.md",
+      "bytes": 8175,
+      "sha256": "f06e3bdeff6d1eca2105b85c83a72ab67735a4782add504651633e8989e544b4",
+      "local_binary": false
+    },
+    {
+      "path": "docs/v0/evidence/20261028T143245-yaw/bag_analysis.json",
+      "bytes": 8133,
+      "sha256": "a708eb2cffcafa03107592c1e1cac70ce25e21878f5437195cd185eb64433fff",
+      "local_binary": false
+    },
+    {
+      "path": "docs/v0/evidence/20261028T143245-yaw/cleanup.json",
+      "bytes": 150,
+      "sha256": "72c3112f9ef0f929d10a5e68e6e9870d530a7ea2c336071e79e9bd55d83dfc2c",
+      "local_binary": false
+    },
+    {
+      "path": "docs/v0/evidence/20261028T143245-yaw/events.jsonl",
+      "bytes": 2316,
+      "sha256": "b9f260b7f47c86afc1ae2b7d497909d79f6a85be64898a6a3ea91eb653a300c3",
+      "local_binary": false
+    },
+    {
+      "path": "docs/v0/evidence/20261028T143245-yaw/flight.bag",
+      "bytes": 2833170,
+      "sha256": "f1e544652d6ff8db206903353c0b94f591c5566822dbd80083b6c53cc0be5880",
+      "local_binary": true
+    },
+    {
+      "path": "docs/v0/evidence/20261028T143245-yaw/inputs.json",
+      "bytes": 1644,
+      "sha256": "f1724a0f0c444885f2f3127a4beeb5006829cb162f3c116052a4ca1ec0da1cdf",
+      "local_binary": false
+    },
+    {
+      "path": "docs/v0/evidence/20261028T143245-yaw/mission.yaml",
+      "bytes": 1533,
+      "sha256": "cd35fbef774ba58b6f0c3592bdc090b177e131c1fa9547e3f2df408966252a4a",
+      "local_binary": false
+    },
+    {
+      "path": "docs/v0/evidence/20261028T143245-yaw/navigation/20261028T143325-1328908-1733998436193690/events.jsonl",
+      "bytes": 3286,
+      "sha256": "f03f89cab20e141122cd82c133f2cfac9a8e7fa5cdd471e7790d84b8a82ccaaf",
+      "local_binary": false
+    },
+    {
+      "path": "docs/v0/evidence/20261028T143245-yaw/navigation/20261028T143325-1328908-1733998436193690/loaded.yaml",
+      "bytes": 1533,
+      "sha256": "cd35fbef774ba58b6f0c3592bdc090b177e131c1fa9547e3f2df408966252a4a",
+      "local_binary": false
+    },
+    {
+      "path": "docs/v0/evidence/20261028T143245-yaw/navigation/20261028T143325-1328908-1733998436193690/provenance.json",
+      "bytes": 830,
+      "sha256": "1d8e6dbbb80df0f9e2b4f54892f1f9e2b724d648a36be3b6707cf51eccbd70af",
+      "local_binary": false
+    },
+    {
+      "path": "docs/v0/evidence/20261028T143245-yaw/navigation/gate-20261028T143325-1328909-1733998412415438/events.jsonl",
+      "bytes": 477,
+      "sha256": "253c7ca2210de670d193c5d9dec1e38faa60fd907ec7f7a68e5a4995912eda75",
+      "local_binary": false
+    },
+    {
+      "path": "docs/v0/evidence/20261028T143245-yaw/navigation.txt",
+      "bytes": 1499,
+      "sha256": "bd66d92a9a66d4c2e99586195e46722df8dfac9f70089142b5fd16d0c3202240",
+      "local_binary": false
+    },
+    {
+      "path": "docs/v0/evidence/20261028T143245-yaw/receptions.jsonl",
+      "bytes": 223983,
+      "sha256": "80d0b0d386e1666be0eb1c2ab7149d827f4527b604f67cdb582c9d6ec86d372d",
+      "local_binary": false
+    },
+    {
+      "path": "docs/v0/evidence/20261028T143245-yaw/rosbag.txt",
+      "bytes": 1447,
+      "sha256": "a3ad7cb69a6dd2c5752549d6b0a15da6909340036a952a1a48c2f8d63c6c0f72",
+      "local_binary": false
+    },
+    {
+      "path": "docs/v0/evidence/20261028T143245-yaw/summary.json",
+      "bytes": 1595,
+      "sha256": "ed9079ceebbbe47defc3c03a68b8d8dc65c61c4bcdeda22dd20ad76ac996db64",
+      "local_binary": false
+    },
+    {
+      "path": "docs/v0/evidence/20261028T143245-yaw/telemetry.jsonl",
+      "bytes": 358936,
+      "sha256": "d52f072bb0c1b93b314980d1d3792f16e042a77bc0c5e052b43f3e911e305bb5",
+      "local_binary": false
+    },
+    {
+      "path": "docs/v0/evidence/20261028T143753-mode_exit/bag_analysis.json",
+      "bytes": 9173,
+      "sha256": "2dc3c53779d773a34638318c3287546afc4bf32b0f3ba486599e319724656fe2",
+      "local_binary": false
+    },
+    {
+      "path": "docs/v0/evidence/20261028T143753-mode_exit/cleanup.json",
+      "bytes": 150,
+      "sha256": "72c3112f9ef0f929d10a5e68e6e9870d530a7ea2c336071e79e9bd55d83dfc2c",
+      "local_binary": false
+    },
+    {
+      "path": "docs/v0/evidence/20261028T143753-mode_exit/events.jsonl",
+      "bytes": 2362,
+      "sha256": "994ea6d2aa52ac89524109188fda9ad3e8daa75e202acbfd1f9bc6795b8d265d",
+      "local_binary": false
+    },
+    {
+      "path": "docs/v0/evidence/20261028T143753-mode_exit/flight.bag",
+      "bytes": 2264666,
+      "sha256": "842c55783809e4d264ec122fc796a4c5be25b0708f85886bfeb6e6cf100fe398",
+      "local_binary": true
+    },
+    {
+      "path": "docs/v0/evidence/20261028T143753-mode_exit/inputs.json",
+      "bytes": 1644,
+      "sha256": "9a70cc35d8f61ccd968919de21ab7f6d04983e6206ae5180d81bc428f049ebc4",
+      "local_binary": false
+    },
+    {
+      "path": "docs/v0/evidence/20261028T143753-mode_exit/mission.yaml",
+      "bytes": 1701,
+      "sha256": "67ef07778368e8ee08adcf12d05c6074a2a916612fdd84a32bb66c2214e5d983",
+      "local_binary": false
+    },
+    {
+      "path": "docs/v0/evidence/20261028T143753-mode_exit/navigation/20261028T143832-1335065-1734305881166563/events.jsonl",
+      "bytes": 3341,
+      "sha256": "6569857ef8f9e01cd28b59f4a61158b27a7b7bb82c9680b84d57a4f1c3d72173",
+      "local_binary": false
+    },
+    {
+      "path": "docs/v0/evidence/20261028T143753-mode_exit/navigation/20261028T143832-1335065-1734305881166563/loaded.yaml",
+      "bytes": 1701,
+      "sha256": "67ef07778368e8ee08adcf12d05c6074a2a916612fdd84a32bb66c2214e5d983",
+      "local_binary": false
+    },
+    {
+      "path": "docs/v0/evidence/20261028T143753-mode_exit/navigation/20261028T143832-1335065-1734305881166563/provenance.json",
+      "bytes": 836,
+      "sha256": "99fab1022ce21847b828633940f3997bb0a1ea166b5bf38d96e0704788d0015b",
+      "local_binary": false
+    },
+    {
+      "path": "docs/v0/evidence/20261028T143753-mode_exit/navigation/gate-20261028T143832-1335066-1734305860214107/events.jsonl",
+      "bytes": 467,
+      "sha256": "e2891adeb5cb1a41c1c5a67a40b0be6f928f35d0d3ddcb155aafa1900b9525a9",
+      "local_binary": false
+    },
+    {
+      "path": "docs/v0/evidence/20261028T143753-mode_exit/navigation.txt",
+      "bytes": 1499,
+      "sha256": "60cd0836d75638c0532713312e3cb10f76d300a4205b104c205a9977fbb19686",
+      "local_binary": false
+    },
+    {
+      "path": "docs/v0/evidence/20261028T143753-mode_exit/receptions.jsonl",
+      "bytes": 179940,
+      "sha256": "d1529ab52e53e61eeb919600168492740404a7f1d631bcb909f1264212643be0",
+      "local_binary": false
+    },
+    {
+      "path": "docs/v0/evidence/20261028T143753-mode_exit/rosbag.txt",
+      "bytes": 1453,
+      "sha256": "276e5db1c27ddfafb0672516c0e8905b940858fec6511b91026d62d1e9be37fb",
+      "local_binary": false
+    },
+    {
+      "path": "docs/v0/evidence/20261028T143753-mode_exit/summary.json",
+      "bytes": 1651,
+      "sha256": "0ada126299756160d43a4f3851230e2b16c4f038210c7b7cd9c972dd52b2186f",
+      "local_binary": false
+    },
+    {
+      "path": "docs/v0/evidence/20261028T143753-mode_exit/telemetry.jsonl",
+      "bytes": 379201,
+      "sha256": "fdeca523d821cfcbe2c61ce573c1ce773d22a5f90a914ebd2f7bac0ad12f6e93",
+      "local_binary": false
+    },
+    {
+      "path": "docs/v0/evidence/20261028T150340-yaw/bag_analysis.json",
+      "bytes": 11328,
+      "sha256": "b74901e40df4b11f64aa171fb29b4f316f674cb652cb85901a0580c7570637bb",
+      "local_binary": false
+    },
+    {
+      "path": "docs/v0/evidence/20261028T150340-yaw/cleanup.json",
+      "bytes": 150,
+      "sha256": "72c3112f9ef0f929d10a5e68e6e9870d530a7ea2c336071e79e9bd55d83dfc2c",
+      "local_binary": false
+    },
+    {
+      "path": "docs/v0/evidence/20261028T150340-yaw/events.jsonl",
+      "bytes": 3298,
+      "sha256": "a0bc32dc6ba9123385ab7768b0bb22bfb437c006f4eceebf29f8036453d8fd8a",
+      "local_binary": false
+    },
+    {
+      "path": "docs/v0/evidence/20261028T150340-yaw/flight.bag",
+      "bytes": 3668310,
+      "sha256": "69de2f2d3f6af58f51f2ad0702bda013bc7b0952bb2e0a2f55293e3bcda4850e",
+      "local_binary": true
+    },
+    {
+      "path": "docs/v0/evidence/20261028T150340-yaw/inputs.json",
+      "bytes": 1644,
+      "sha256": "1c10ee84b7956634ae8ead461f446067787a9700f578329945d711ef5624d601",
+      "local_binary": false
+    },
+    {
+      "path": "docs/v0/evidence/20261028T150340-yaw/mission.yaml",
+      "bytes": 1533,
+      "sha256": "498d41f2c3b0dc0c42d67aecb1263b2c699cb86700556ebedd8b455edea0423d",
+      "local_binary": false
+    },
+    {
+      "path": "docs/v0/evidence/20261028T150340-yaw/navigation/20261028T150419-1363751-1735852980120564/events.jsonl",
+      "bytes": 4268,
+      "sha256": "d22a88d841516ec4ed9d9d05aa0b01761e4322abae1a7d620c5c4daed4b98dd6",
+      "local_binary": false
+    },
+    {
+      "path": "docs/v0/evidence/20261028T150340-yaw/navigation/20261028T150419-1363751-1735852980120564/loaded.yaml",
+      "bytes": 1533,
+      "sha256": "498d41f2c3b0dc0c42d67aecb1263b2c699cb86700556ebedd8b455edea0423d",
+      "local_binary": false
+    },
+    {
+      "path": "docs/v0/evidence/20261028T150340-yaw/navigation/20261028T150419-1363751-1735852980120564/provenance.json",
+      "bytes": 830,
+      "sha256": "a0350224447cce37b13602c8ea790baff0e86704b66e65b0494cabcbaac7cb1f",
+      "local_binary": false
+    },
+    {
+      "path": "docs/v0/evidence/20261028T150340-yaw/navigation/gate-20261028T150419-1363752-1735852958586551/events.jsonl",
+      "bytes": 475,
+      "sha256": "acac397c18d03125154c6e51e45dae3ae80632a4dd1912c03ce86afcac8473b1",
+      "local_binary": false
+    },
+    {
+      "path": "docs/v0/evidence/20261028T150340-yaw/navigation.txt",
+      "bytes": 1411,
+      "sha256": "5ac2886cbf237c96a1c5d510609401f32b478ab3411ce311ccbc8b83e010f262",
+      "local_binary": false
+    },
+    {
+      "path": "docs/v0/evidence/20261028T150340-yaw/receptions.jsonl",
+      "bytes": 284364,
+      "sha256": "fb9442167565b20d531281a2eaee88e3262b16c9d88f224ab7c5a508cedaab0f",
+      "local_binary": false
+    },
+    {
+      "path": "docs/v0/evidence/20261028T150340-yaw/rosbag.txt",
+      "bytes": 1447,
+      "sha256": "9288a4ad1762654a6684a9dbf18764ad52adb5c6d0184ab4957f129e50acdfcd",
+      "local_binary": false
+    },
+    {
+      "path": "docs/v0/evidence/20261028T150340-yaw/summary.json",
+      "bytes": 31355,
+      "sha256": "373d3e9597617cff0641a2c0f8d5c676aa3957f9c8e11a3829b4023a11dc03ea",
+      "local_binary": false
+    },
+    {
+      "path": "docs/v0/evidence/20261028T150340-yaw/telemetry.jsonl",
+      "bytes": 591563,
+      "sha256": "f1423cc04e71c60eb6b19f9983ea3a8c24195204a0cec3f20a0194156ba59e0e",
+      "local_binary": false
+    },
+    {
+      "path": "docs/v0/evidence/20261028T150619-mode_exit/bag_analysis.json",
+      "bytes": 10598,
+      "sha256": "161e9fe319849dea55655bf970ffed94e34a3177d5fff29d0407b35e7ef468e2",
+      "local_binary": false
+    },
+    {
+      "path": "docs/v0/evidence/20261028T150619-mode_exit/cleanup.json",
+      "bytes": 150,
+      "sha256": "72c3112f9ef0f929d10a5e68e6e9870d530a7ea2c336071e79e9bd55d83dfc2c",
+      "local_binary": false
+    },
+    {
+      "path": "docs/v0/evidence/20261028T150619-mode_exit/events.jsonl",
+      "bytes": 3122,
+      "sha256": "810328fb1efc9cafcae33c8813d2b1858417b33e498351e370b22e8a934b7353",
+      "local_binary": false
+    },
+    {
+      "path": "docs/v0/evidence/20261028T150619-mode_exit/flight.bag",
+      "bytes": 2725020,
+      "sha256": "24ca060dc63b2f21c123ff0d41a1b99e8bdae1dea80ab39e546fb88b1c7569ec",
+      "local_binary": true
+    },
+    {
+      "path": "docs/v0/evidence/20261028T150619-mode_exit/inputs.json",
+      "bytes": 1644,
+      "sha256": "6c140084441de8c5cac7047dba5d5af851c636b0b539d71c95ae9215c2c67835",
+      "local_binary": false
+    },
+    {
+      "path": "docs/v0/evidence/20261028T150619-mode_exit/mission.yaml",
+      "bytes": 1701,
+      "sha256": "d42b756507bbb182e08af026d2d809bdec87720a5d2a8b6ea29970ac7cc0503e",
+      "local_binary": false
+    },
+    {
+      "path": "docs/v0/evidence/20261028T150619-mode_exit/navigation/20261028T150658-1366821-1736011647875957/events.jsonl",
+      "bytes": 4103,
+      "sha256": "dab1cd58f4411a808e69f381897a0eb4c1459b0f7c27db1ab88779bf59373804",
+      "local_binary": false
+    },
+    {
+      "path": "docs/v0/evidence/20261028T150619-mode_exit/navigation/20261028T150658-1366821-1736011647875957/loaded.yaml",
+      "bytes": 1701,
+      "sha256": "d42b756507bbb182e08af026d2d809bdec87720a5d2a8b6ea29970ac7cc0503e",
+      "local_binary": false
+    },
+    {
+      "path": "docs/v0/evidence/20261028T150619-mode_exit/navigation/20261028T150658-1366821-1736011647875957/provenance.json",
+      "bytes": 836,
+      "sha256": "997092b81ff2a7478110b719cbbb33d50bd082e94cb4f1f7174254ddc805af1b",
+      "local_binary": false
+    },
+    {
+      "path": "docs/v0/evidence/20261028T150619-mode_exit/navigation/gate-20261028T150658-1366822-1736011641087823/events.jsonl",
+      "bytes": 476,
+      "sha256": "a1b5d0afe93ab16379f26cc21e44c4f4dc02ce07d849d067646c6154ec35631c",
+      "local_binary": false
+    },
+    {
+      "path": "docs/v0/evidence/20261028T150619-mode_exit/navigation.txt",
+      "bytes": 1411,
+      "sha256": "a376dcf16f616020ff9bf1896c3566bd591dd11f6bd0e3c6ddc3ebe3f6704bdb",
+      "local_binary": false
+    },
+    {
+      "path": "docs/v0/evidence/20261028T150619-mode_exit/receptions.jsonl",
+      "bytes": 214815,
+      "sha256": "1558925c14f2d2cff0e7c03451dc8d3340470bae9f0ae024d956a8168ffb872c",
+      "local_binary": false
+    },
+    {
+      "path": "docs/v0/evidence/20261028T150619-mode_exit/rosbag.txt",
+      "bytes": 1453,
+      "sha256": "a7dbca5e0c5d91468b9e9c30c55182944e6722226fbe6ff9fdeac689b409dfa0",
+      "local_binary": false
+    },
+    {
+      "path": "docs/v0/evidence/20261028T150619-mode_exit/summary.json",
+      "bytes": 7630,
+      "sha256": "44090d55a275305172cb5965362be509124d4abbacfc478bf0ab55852fcab8e1",
+      "local_binary": false
+    },
+    {
+      "path": "docs/v0/evidence/20261028T150619-mode_exit/telemetry.jsonl",
+      "bytes": 574916,
+      "sha256": "58131d07ecf7ff091854c9e3814348a59eb2d7a10eb45ca47309ed77d80f20fa",
+      "local_binary": false
+    },
+    {
+      "path": "docs/v0/evidence/20261028T180543-yaw/cleanup.json",
+      "bytes": 150,
+      "sha256": "72c3112f9ef0f929d10a5e68e6e9870d530a7ea2c336071e79e9bd55d83dfc2c",
+      "local_binary": false
+    },
+    {
+      "path": "docs/v0/evidence/20261028T180543-yaw/events.jsonl",
+      "bytes": 3297,
+      "sha256": "779c8c118160ca5441c05f7904db59a71290064dce3df0a323fe14f30d60a706",
+      "local_binary": false
+    },
+    {
+      "path": "docs/v0/evidence/20261028T180543-yaw/flight.bag",
+      "bytes": 3670218,
+      "sha256": "86a819220841ef58adea14b33b68fdc99317404d32bb990f693f6d14b7c3ac1e",
+      "local_binary": true
+    },
+    {
+      "path": "docs/v0/evidence/20261028T180543-yaw/inputs.json",
+      "bytes": 1644,
+      "sha256": "0209938c3a9ad559ff533e8c28c42b5a216ca398d754e25f0ebdb082b1dc2f51",
+      "local_binary": false
+    },
+    {
+      "path": "docs/v0/evidence/20261028T180543-yaw/mission.yaml",
+      "bytes": 1533,
+      "sha256": "3ca5839cffccbdda27f946eb4e554ce056d2a4ada21b20e4eb70ab3e9c97dd6a",
+      "local_binary": false
+    },
+    {
+      "path": "docs/v0/evidence/20261028T180543-yaw/navigation/20261028T180622-1502469-1746775535450652/events.jsonl",
+      "bytes": 4267,
+      "sha256": "94bebcf624dba07420258ddc7aba95112a6de6868c1ac0b614deb6ab43f3253c",
+      "local_binary": false
+    },
+    {
+      "path": "docs/v0/evidence/20261028T180543-yaw/navigation/20261028T180622-1502469-1746775535450652/loaded.yaml",
+      "bytes": 1533,
+      "sha256": "3ca5839cffccbdda27f946eb4e554ce056d2a4ada21b20e4eb70ab3e9c97dd6a",
+      "local_binary": false
+    },
+    {
+      "path": "docs/v0/evidence/20261028T180543-yaw/navigation/20261028T180622-1502469-1746775535450652/provenance.json",
+      "bytes": 830,
+      "sha256": "e958795c22f1f30b7eaaebe551d9a4633cfdb5491caf499a58391a388fb68cf0",
+      "local_binary": false
+    },
+    {
+      "path": "docs/v0/evidence/20261028T180543-yaw/navigation/gate-20261028T180622-1502470-1746775500183036/events.jsonl",
+      "bytes": 478,
+      "sha256": "765bc57e4ecf1079c8b5f09c2c2b9c93ebcf9cddf94c416a7b1500e358360398",
+      "local_binary": false
+    },
+    {
+      "path": "docs/v0/evidence/20261028T180543-yaw/navigation.txt",
+      "bytes": 1411,
+      "sha256": "2851e28e50a6d42808f747820e3af93b96f4eb3ebff214220cb16e3ed82bd4b0",
+      "local_binary": false
+    },
+    {
+      "path": "docs/v0/evidence/20261028T180543-yaw/receptions.jsonl",
+      "bytes": 284748,
+      "sha256": "3f7f8a5da3b8f1071004d6c609332f9e28d6f2bb65cd4f8e24bc934b14e2e99c",
+      "local_binary": false
+    },
+    {
+      "path": "docs/v0/evidence/20261028T180543-yaw/rosbag.txt",
+      "bytes": 1447,
+      "sha256": "a76326fd69bb3d2c77d2dd0f63c35905fd76a0b9b01824b2c40d95131d330c5e",
+      "local_binary": false
+    },
+    {
+      "path": "docs/v0/evidence/20261028T180543-yaw/summary.json",
+      "bytes": 31338,
+      "sha256": "4af2bf22060ae850bde4acd8fda4b76ad2429617a2f7e2a80b4bf34697fa22c5",
+      "local_binary": false
+    },
+    {
+      "path": "docs/v0/evidence/20261028T180543-yaw/telemetry.jsonl",
+      "bytes": 592692,
+      "sha256": "447dcfc36f85e2a763ddae8a83d01c77bea9064a14201bf7c72904608003ae06",
+      "local_binary": false
+    },
+    {
+      "path": "docs/v0/evidence/20261028T180821-yaw/cleanup.json",
+      "bytes": 150,
+      "sha256": "72c3112f9ef0f929d10a5e68e6e9870d530a7ea2c336071e79e9bd55d83dfc2c",
+      "local_binary": false
+    },
+    {
+      "path": "docs/v0/evidence/20261028T180821-yaw/events.jsonl",
+      "bytes": 3526,
+      "sha256": "59a5ad079e8c7a5a18fcb8e25c376640c15e9d70e68b8920e68bcaaaa39a0ce6",
+      "local_binary": false
+    },
+    {
+      "path": "docs/v0/evidence/20261028T180821-yaw/flight.bag",
+      "bytes": 3313515,
+      "sha256": "e279b689f9c11c233a7827063fdbecbb8c625bc54505c8875474be3cda6986df",
+      "local_binary": true
+    },
+    {
+      "path": "docs/v0/evidence/20261028T180821-yaw/inputs.json",
+      "bytes": 1644,
+      "sha256": "dfd509ac610b4bddd68f691bc42026088c66e845fef715b0b6c4b75e5f166277",
+      "local_binary": false
+    },
+    {
+      "path": "docs/v0/evidence/20261028T180821-yaw/mission.yaml",
+      "bytes": 1533,
+      "sha256": "27cd10f79f8e0587c97f0f80560f12b9bc3d6e2a6fc3deaa1dec04c6a1e233d7",
+      "local_binary": false
+    },
+    {
+      "path": "docs/v0/evidence/20261028T180821-yaw/navigation/20261028T180857-1505375-1746930607502457/events.jsonl",
+      "bytes": 3526,
+      "sha256": "59a5ad079e8c7a5a18fcb8e25c376640c15e9d70e68b8920e68bcaaaa39a0ce6",
+      "local_binary": false
+    },
+    {
+      "path": "docs/v0/evidence/20261028T180821-yaw/navigation/20261028T180857-1505375-1746930607502457/loaded.yaml",
+      "bytes": 1533,
+      "sha256": "27cd10f79f8e0587c97f0f80560f12b9bc3d6e2a6fc3deaa1dec04c6a1e233d7",
+      "local_binary": false
+    },
+    {
+      "path": "docs/v0/evidence/20261028T180821-yaw/navigation/20261028T180857-1505375-1746930607502457/provenance.json",
+      "bytes": 830,
+      "sha256": "4b51cf5bf64a99916c25fc198a123884824ab13f21bb2ce9287f9a8f25c45e1f",
+      "local_binary": false
+    },
+    {
+      "path": "docs/v0/evidence/20261028T180821-yaw/navigation/gate-20261028T180857-1505376-1746930603792037/events.jsonl",
+      "bytes": 461,
+      "sha256": "6b94be1c9dc7846894f4709a5517eafe0a3a5c8f55a5a906fc69224e4a021b87",
+      "local_binary": false
+    },
+    {
+      "path": "docs/v0/evidence/20261028T180821-yaw/navigation.txt",
+      "bytes": 1411,
+      "sha256": "d02df5545417293afcb501e5b8eccfcee1a961bf1745476a1e1bb853d03884f2",
+      "local_binary": false
+    },
+    {
+      "path": "docs/v0/evidence/20261028T180821-yaw/receptions.jsonl",
+      "bytes": 257778,
+      "sha256": "8ce60b216bf3c95f7f01b78cba6f421cd4e07c1938cdf3a606acfac3af61b9a7",
+      "local_binary": false
+    },
+    {
+      "path": "docs/v0/evidence/20261028T180821-yaw/rosbag.txt",
+      "bytes": 1447,
+      "sha256": "6dd0a905bf31fffe2343e852b1d8a2a76a91a7ae910677627928681fa7cce03b",
+      "local_binary": false
+    },
+    {
+      "path": "docs/v0/evidence/20261028T180821-yaw/summary.json",
+      "bytes": 1598,
+      "sha256": "1b011455b2f5d70ed3e1f96271634df46766bd08a8e08cc66bdf7502e4873ff0",
+      "local_binary": false
+    },
+    {
+      "path": "docs/v0/evidence/20261028T180821-yaw/telemetry.jsonl",
+      "bytes": 434546,
+      "sha256": "b9acaea624c5278385f618eb60e134985be05654fb520b9142680856c90ab6f4",
+      "local_binary": false
+    },
+    {
+      "path": "docs/v0/evidence/resume-suite-20261028T180535-1501338/00-yaw-instance.txt",
+      "bytes": 134,
+      "sha256": "045f81f2cb645723e7e2ae0d3986160c50d67d54e7a99397dd96d07c3d6aa245",
+      "local_binary": false
+    },
+    {
+      "path": "docs/v0/evidence/resume-suite-20261028T180535-1501338/00-yaw-stop.txt",
+      "bytes": 129,
+      "sha256": "8b2e494a18e87308d0b4f7261eab848504dbda72a9dd49710700453f8c809f7c",
+      "local_binary": false
+    },
+    {
+      "path": "docs/v0/evidence/resume-suite-20261028T180535-1501338/00-yaw-test.txt",
+      "bytes": 31339,
+      "sha256": "90dea6be2fefef7579fd21899dcb756b6df021a2400cfee0d2f3bfdaf50d134e",
+      "local_binary": false
+    },
+    {
+      "path": "docs/v0/evidence/resume-suite-20261028T180535-1501338/results.json",
+      "bytes": 314,
+      "sha256": "c0eedf62ca3fd38c8570c28279a9a0eb5cc1aed8410eaa17ebd8d94b1df982c5",
+      "local_binary": false
+    },
+    {
+      "path": "docs/v0/evidence/resume-suite-20261028T180812-1504415/00-yaw-instance.txt",
+      "bytes": 134,
+      "sha256": "e0ee5f868256ba357dfca4ac7dfed1b6687b4d2d533f67857f75fc9cb0736081",
+      "local_binary": false
+    },
+    {
+      "path": "docs/v0/evidence/resume-suite-20261028T180812-1504415/00-yaw-stop.txt",
+      "bytes": 129,
+      "sha256": "34477a5f1c5f8ce17e0d794490847d0adcb9c2b1d6ec497f1dcca131518a23bb",
+      "local_binary": false
+    },
+    {
+      "path": "docs/v0/evidence/resume-suite-20261028T180812-1504415/00-yaw-test.txt",
+      "bytes": 1599,
+      "sha256": "7177bae32154e0e8129889a347d252a86d455df78023f892418bcaf3945a4cb9",
+      "local_binary": false
+    },
+    {
+      "path": "docs/v0/evidence/resume-suite-20261028T180812-1504415/results.json",
+      "bytes": 314,
+      "sha256": "e1c6cb157096445356601192969cec30f40dce03ad9566258a5c35444fafdb0d",
+      "local_binary": false
+    },
+    {
+      "path": "docs/v0/evidence/stall-review-20261028/analyze.py",
+      "bytes": 8203,
+      "sha256": "c593e23c6d989f7d520335b57d3f97fa3f8b8f978c9776fcd2b3293505bfeb67",
+      "local_binary": false
+    },
+    {
+      "path": "docs/v0/evidence/stall-review-20261028/dataflash_diagnostic.json",
+      "bytes": 5114,
+      "sha256": "1870453567b92af6aa9dc12452cf84f2d5ecb23a426c8f8dd3316dee5ff3b071",
+      "local_binary": false
+    },
+    {
+      "path": "docs/v0/evidence/stall-review-20261028/final_host_audit.txt",
+      "bytes": 505,
+      "sha256": "a29f7a07868d5a2d25ff94f7c14d110986bec337e7b2631251c8e61a133b545a",
+      "local_binary": false
+    },
+    {
+      "path": "docs/v0/evidence/stall-review-20261028/gui-false-console.txt",
+      "bytes": 265,
+      "sha256": "f13ac212c3bf2f07f4ddb7a58c908b6ee432aaa14464a7c531838e22e5dc3b45",
+      "local_binary": false
+    },
+    {
+      "path": "docs/v0/evidence/stall-review-20261028/gui-false-gazebo-stats.jsonl",
+      "bytes": 35662,
+      "sha256": "3c83d0835a034906b5f74817231940edcd51dc68b095a0401684556b25704e9f",
+      "local_binary": false
+    },
+    {
+      "path": "docs/v0/evidence/stall-review-20261028/gui-false-identity.json",
+      "bytes": 259,
+      "sha256": "508dbfaf367a23bfa0487859757032e31f5965992f14767b4502f3d740a9acf2",
+      "local_binary": false
+    },
+    {
+      "path": "docs/v0/evidence/stall-review-20261028/gui-false-resources.jsonl",
+      "bytes": 948270,
+      "sha256": "97ae26a9186cfb2103c8d83179206282dbc84b710f7e9c79bc02edb9c0624dae",
+      "local_binary": false
+    },
+    {
+      "path": "docs/v0/evidence/stall-review-20261028/gui-true-console.txt",
+      "bytes": 265,
+      "sha256": "4b42f692cc1373248321f310eab41f64090f212f23e51811a74b7a7f7de985c5",
+      "local_binary": false
+    },
+    {
+      "path": "docs/v0/evidence/stall-review-20261028/gui-true-gazebo-stats.jsonl",
+      "bytes": 38559,
+      "sha256": "40a0d1b1045ed25d896ed468a1806f98ca41a65f8a4b6697707d9c22d5ff3b26",
+      "local_binary": false
+    },
+    {
+      "path": "docs/v0/evidence/stall-review-20261028/gui-true-identity.json",
+      "bytes": 258,
+      "sha256": "71e5367a689ee76bca4082b5dab7f6a29605d5a7fac8474cc71498491dc34981",
+      "local_binary": false
+    },
+    {
+      "path": "docs/v0/evidence/stall-review-20261028/gui-true-resources.jsonl",
+      "bytes": 1358708,
+      "sha256": "b9cdedc7e4d30f78b82d8d3d89fe7ff5bf6fd0ff222f6c33508bebfe4ded64e4",
+      "local_binary": false
+    },
+    {
+      "path": "docs/v0/evidence/stall-review-20261028/integrity.json",
+      "bytes": 1083,
+      "sha256": "6355adc29677cebb1f671bbcd0998b4f3a21d15147f021e741b40406cbf14105",
+      "local_binary": false
+    },
+    {
+      "path": "docs/v0/evidence/stall-review-20261028/observe.py",
+      "bytes": 5262,
+      "sha256": "f224dd8d5f205fb14f6ba6f89a7e7d13aba61d14943b7fb33737dd395a632020",
+      "local_binary": false
+    },
+    {
+      "path": "docs/v0/evidence/stall-review-20261028/resource_analysis.json",
+      "bytes": 66383,
+      "sha256": "41146047d2e369b41b7a41b57741a259274b1c2a54b3d1ac7efc14a7beb75524",
+      "local_binary": false
+    },
+    {
+      "path": "docs/v0/evidence/stall-review-20261028/source_probe.txt",
+      "bytes": 3951,
+      "sha256": "e8d70a00e762bd5ea1d461503bbce2efa78bcb88f9b4c2705d63fff906ebb261",
+      "local_binary": false
+    },
+    {
+      "path": "docs/v0/evidence/stall-review-20261028/timing_analysis.json",
+      "bytes": 30094,
+      "sha256": "25f492998f16f360214a5e5e9348201e1b4ca50cf22f34e67c5b44e315b1ceaa",
+      "local_binary": false
+    },
+    {
+      "path": "src/indoor_nav/config/v0_sitl_gps.parm",
+      "bytes": 308,
+      "sha256": "965806e915aad5ab94b9096d92e9ec4a6bfbfb51dfdf9387aa4dd4ffa17a6023",
+      "local_binary": false
+    },
+    {
+      "path": "src/indoor_nav/launch/indoor_nav_v0.launch",
+      "bytes": 1140,
+      "sha256": "032965600a179f3e8050b3e6ad51bb7eeeb10a6b6e401ff4bcc4d0799fd930e7",
+      "local_binary": false
+    },
+    {
+      "path": "src/indoor_nav/scripts/relative_mission_manager.py",
+      "bytes": 18352,
+      "sha256": "170a0a504e953477dab9f17ace7dbe054e26cf1bb901f6a3cdfd2def8eb217e3",
+      "local_binary": false
+    },
+    {
+      "path": "src/indoor_nav/scripts/v0_nav_health.py",
+      "bytes": 15547,
+      "sha256": "2e5f830937d570d88421e4349d2cb6a4b0832771fe7dc74377be794ae2b5fb06",
+      "local_binary": false
+    },
+    {
+      "path": "src/indoor_nav/src/indoor_nav/v0.py",
+      "bytes": 25442,
+      "sha256": "9ee22c8a9304f742eb723ccab3a3d92cd5683be734d43afdd5e23266711a2bb5",
+      "local_binary": false
+    },
+    {
+      "path": "tools/v0_sitl_instance.sh",
+      "bytes": 4117,
+      "sha256": "19bdcbd5b1b316020665ecce3aa30897b0ceaf3af788a1bc1f5f02c9b63e67ed",
+      "local_binary": false
+    },
+    {
+      "path": "tools/v0_sitl_test.py",
+      "bytes": 39470,
+      "sha256": "06e5bb33cdfef97a735fedc814f0fd28448ba33ce7bcc0df8156429e6d3197cd",
+      "local_binary": false
+    }
+  ]
+}

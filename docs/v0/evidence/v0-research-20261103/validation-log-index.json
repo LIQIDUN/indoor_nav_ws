@@ -1,0 +1,84 @@
+{
+  "indexed_on": "2026-11-23",
+  "scope": "Historical software-test logs only; not a rerun; logs local, no counts added across overlapping suites.",
+  "logs": [
+    {
+      "path": "docs/v0/evidence/v0-research-20261103/all-tests-final.log",
+      "bytes": 16043,
+      "sha256": "a388d46857045536aacc8bd43ce1f4fc68f3eb74e0703259b07720a529a420e0",
+      "tests_run": 179,
+      "result": "PASS",
+      "failure_lines": []
+    },
+    {
+      "path": "docs/v0/evidence/v0-research-20261103/all-tests-with-user-deps.log",
+      "bytes": 15943,
+      "sha256": "42e77188b34992dbfd140094f90a045389973f822631e2212e9a607d521f652d",
+      "tests_run": 178,
+      "result": "PASS",
+      "failure_lines": []
+    },
+    {
+      "path": "docs/v0/evidence/v0-research-20261103/all-tests.log",
+      "bytes": 16772,
+      "sha256": "eb6af7be2eafacecdb1d7baa80d1beba75c8c739aef7cd2c5968266c81554759",
+      "tests_run": 176,
+      "result": "FAIL",
+      "failure_lines": [
+        "ERROR: test_flight_runner_ros (unittest.loader._FailedTest)",
+        "FAILED (errors=1)"
+      ]
+    },
+    {
+      "path": "docs/v0/evidence/v0-research-20261103/core-tests-final.log",
+      "bytes": 541,
+      "sha256": "94b79ef62404714bcfab3da17d347c69f9b9468aa18e67165f3d392d6f319618",
+      "tests_run": 9,
+      "result": "PASS",
+      "failure_lines": []
+    },
+    {
+      "path": "docs/v0/evidence/v0-research-20261103/core-tests.log",
+      "bytes": 541,
+      "sha256": "94b79ef62404714bcfab3da17d347c69f9b9468aa18e67165f3d392d6f319618",
+      "tests_run": 9,
+      "result": "PASS",
+      "failure_lines": []
+    },
+    {
+      "path": "docs/v0/evidence/v0-research-20261103/initial-v0-tests.log",
+      "bytes": 6275,
+      "sha256": "2b7eaea0833a9cc2a911a6f679f8fba80b511f49bb0945a4ae7f89d537553b93",
+      "tests_run": 74,
+      "result": "PASS",
+      "failure_lines": []
+    },
+    {
+      "path": "docs/v0/evidence/v0-research-20261103/research-v0-tests-final.log",
+      "bytes": 8870,
+      "sha256": "ef06fde61cbdd17b1bc0cef5f95f548581f42fd5c4e371dfe9b15f20942ae872",
+      "tests_run": 100,
+      "result": "PASS",
+      "failure_lines": []
+    },
+    {
+      "path": "docs/v0/evidence/v0-research-20261103/research-v0-tests.log",
+      "bytes": 8816,
+      "sha256": "594cdb219927c494e970140c9e6c5f4655f15f01cf9ecb6b20c37a98c9759088",
+      "tests_run": 94,
+      "result": "FAIL",
+      "failure_lines": [
+        "FAIL: test_existing_mavros_and_mission_override_are_forwarded (test_v0_streams_ros.OnboardLaunch)",
+        "FAILED (failures=1)"
+      ]
+    },
+    {
+      "path": "docs/v0/evidence/v0-research-20261103/v0-tests-final.log",
+      "bytes": 8970,
+      "sha256": "9b80e28d1fbf572a660db66e7f703aac83de84f2a830e626828dceb725c3a725",
+      "tests_run": 101,
+      "result": "PASS",
+      "failure_lines": []
+    }
+  ]
+}

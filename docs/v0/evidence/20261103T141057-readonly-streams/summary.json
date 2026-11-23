@@ -1,0 +1,316 @@
+{
+  "result": "PASS",
+  "profiles": [
+    {
+      "mission": "mission_v0_level.yaml",
+      "result": "PASS",
+      "rates": {
+        "pose": {
+          "messages": 500,
+          "hz": 24.981380213380522,
+          "max_gap_s": 0.04568511599791236
+        },
+        "velocity": {
+          "messages": 500,
+          "hz": 24.981402003273892,
+          "max_gap_s": 0.045681518997298554
+        },
+        "gps": {
+          "messages": 500,
+          "hz": 24.98190286925632,
+          "max_gap_s": 0.045618728996487334
+        },
+        "imu": {
+          "messages": 500,
+          "hz": 24.98235334050946,
+          "max_gap_s": 0.04541308499756269
+        }
+      },
+      "status": {
+        "state": "IDLE",
+        "mission_id": "acoustic_relative_v0_001",
+        "wp": 0,
+        "reason": "",
+        "health": "DISARMED",
+        "gate": "",
+        "control_enabled": false,
+        "evidence_dir": "/home/liqidun/github/indoor_nav_ws/docs/v0/evidence/20261103T141057-readonly-streams/mission_v0_level.yaml/20261103T141112-252349-164874464507633",
+        "yaml_sha256": "0872b76d8a75c3e34142d92bac9ebd83a58c08f60eafff530bfc645ec635e0c5",
+        "firmware": [
+          4,
+          5,
+          7
+        ],
+        "limit_age_s": 1.0497130779840518,
+        "pose_age_s": 0.033013570006005466,
+        "max_publish_gap_s": 0.0,
+        "rx_ros_s": {
+          "state": 1793686320.9581652,
+          "gps": 1793686321.4518747,
+          "ekf": 1793686321.4531431,
+          "pose": 1793686321.453374,
+          "velocity": 1793686321.4534357
+        },
+        "header_stamps_s": {
+          "state": 1793686320.9579804,
+          "gps": 1793686321.3750033,
+          "ekf": 1793686321.4530895,
+          "pose": 1793686321.4510036,
+          "velocity": 1793686321.4510036
+        },
+        "stamp_diagnostics": {
+          "state": "",
+          "gps": "",
+          "ekf": "",
+          "pose": "",
+          "velocity": ""
+        },
+        "ekf_report": {
+          "flags": 831,
+          "ratios": [
+            0.008060758002102375,
+            0.004596546292304993,
+            0.0006396918906830251,
+            0.0218148622661829,
+            0.0
+          ],
+          "healthy": true
+        },
+        "warnings": [],
+        "speed": {
+          "xy_mps": 0.02179787701219231,
+          "z_mps": 0.004033263772726059,
+          "norm_mps": 0.022167874478601832
+        },
+        "speed_peaks": {
+          "xy_mps": 0.03034331199671161,
+          "z_mps": 0.008330709300935268,
+          "norm_mps": 0.031466129415396366
+        },
+        "fcu_parameters": {
+          "WPNAV_SPEED": 20.0,
+          "WPNAV_SPEED_UP": 20.0,
+          "WPNAV_SPEED_DN": 20.0,
+          "WPNAV_ACCEL": 50.0,
+          "WPNAV_ACCEL_Z": 50.0,
+          "GUID_OPTIONS": 0.0,
+          "AHRS_EKF_TYPE": 3,
+          "EK3_ENABLE": 1,
+          "EK3_SRC1_POSXY": 3
+        },
+        "performance_diagnostics": []
+      },
+      "start_rejected": "DISARMED",
+      "watchdog": {
+        "healthy": true,
+        "reason": "",
+        "owner": null,
+        "revoked": false,
+        "exit_result": null,
+        "mode": "STABILIZE",
+        "max_publish_gap_s": 0.0,
+        "rx_ros_s": {
+          "state": 1793686320.9581532,
+          "gps": 1793686321.4518943,
+          "ekf": 1793686321.4531498,
+          "pose": 1793686321.453381,
+          "velocity": 1793686321.4534528
+        },
+        "header_stamps_s": {
+          "state": 1793686320.9579804,
+          "gps": 1793686321.3750033,
+          "ekf": 1793686321.4530895,
+          "pose": 1793686321.4510036,
+          "velocity": 1793686321.4510036
+        },
+        "stamp_diagnostics": {
+          "state": "",
+          "gps": "",
+          "ekf": "",
+          "pose": "",
+          "velocity": ""
+        },
+        "speed": {
+          "xy_mps": 0.02179787701219231,
+          "z_mps": 0.004033263772726059,
+          "norm_mps": 0.022167874478601832
+        },
+        "speed_peaks": {
+          "xy_mps": 0.03034331199671161,
+          "z_mps": 0.008330709300935268,
+          "norm_mps": 0.031466129415396366
+        },
+        "target_rx_ros_s": null,
+        "target_header_stamp_s": null
+      },
+      "telemetry_logs": [
+        "FCU connection changed: True; telemetry setup reset",
+        "Requested MAVLink stream EXTENDED_STATUS at 5 Hz; verify actual topic rate",
+        "Requested MAVLink stream POSITION at 10 Hz; verify actual topic rate",
+        "Requested MAVLink stream EXTRA1 at 10 Hz; verify actual topic rate",
+        "Requested MAVLink stream EXTRA3 at 5 Hz; verify actual topic rate",
+        "Requested MAVLink stream RAW_SENSORS at 10 Hz; verify actual topic rate"
+      ],
+      "fcu_publishers": []
+    },
+    {
+      "mission": "mission_v0_research.yaml",
+      "result": "PASS",
+      "rates": {
+        "pose": {
+          "messages": 369,
+          "hz": 18.430849439670254,
+          "max_gap_s": 0.11361368600046262
+        },
+        "velocity": {
+          "messages": 369,
+          "hz": 18.430854553604785,
+          "max_gap_s": 0.11361391597893089
+        },
+        "gps": {
+          "messages": 326,
+          "hz": 16.27752186874401,
+          "max_gap_s": 0.20779420499457046
+        },
+        "imu": {
+          "messages": 369,
+          "hz": 18.431275120238183,
+          "max_gap_s": 0.11430665999068879
+        }
+      },
+      "status": {
+        "state": "IDLE",
+        "mission_id": "acoustic_relative_v0_research_001",
+        "wp": 0,
+        "reason": "",
+        "health": "DISARMED",
+        "gate": "",
+        "control_enabled": false,
+        "evidence_dir": "/home/liqidun/github/indoor_nav_ws/docs/v0/evidence/20261103T141057-readonly-streams/mission_v0_research.yaml/20261103T141202-252846-164925240245793",
+        "yaml_sha256": "c8822fc3b7227c0a98bb85d13a68eacea2b2a41542babfc6fea0fb5ff35c62a7",
+        "firmware": [
+          4,
+          5,
+          7
+        ],
+        "limit_age_s": 0.09204105698154308,
+        "pose_age_s": 0.03326749999541789,
+        "max_publish_gap_s": 0.0,
+        "rx_ros_s": {
+          "state": 1793686342.9680145,
+          "gps": 1793686343.1402276,
+          "ekf": 1793686343.106872,
+          "pose": 1793686343.1070955,
+          "velocity": 1793686343.1071641
+        },
+        "header_stamps_s": {
+          "state": 1793686342.967881,
+          "gps": 1793686342.9888275,
+          "ekf": 1793686343.1068199,
+          "pose": 1793686343.1047707,
+          "velocity": 1793686343.1047707
+        },
+        "stamp_diagnostics": {
+          "state": "",
+          "gps": "",
+          "ekf": "",
+          "pose": "",
+          "velocity": ""
+        },
+        "ekf_report": {
+          "flags": 831,
+          "ratios": [
+            0.008086214773356915,
+            0.004724925849586725,
+            0.00023464730475097895,
+            0.018145931884646416,
+            0.0
+          ],
+          "healthy": true
+        },
+        "warnings": [],
+        "speed": {
+          "xy_mps": 0.021419045005237763,
+          "z_mps": 0.005364461336284876,
+          "norm_mps": 0.022080600860594712
+        },
+        "speed_peaks": {
+          "xy_mps": 0.03007904156605609,
+          "z_mps": 0.015620708465576172,
+          "norm_mps": 0.0335560385998112
+        },
+        "fcu_parameters": {
+          "WPNAV_SPEED": 20.0,
+          "WPNAV_SPEED_UP": 20.0,
+          "WPNAV_SPEED_DN": 20.0,
+          "WPNAV_ACCEL": 50.0,
+          "WPNAV_ACCEL_Z": 50.0,
+          "GUID_OPTIONS": 0.0,
+          "AHRS_EKF_TYPE": 3,
+          "EK3_ENABLE": 1,
+          "EK3_SRC1_POSXY": 3
+        },
+        "performance_diagnostics": []
+      },
+      "start_rejected": "DISARMED",
+      "watchdog": {
+        "healthy": true,
+        "reason": "",
+        "owner": null,
+        "revoked": false,
+        "exit_result": null,
+        "mode": "STABILIZE",
+        "max_publish_gap_s": 0.0,
+        "rx_ros_s": {
+          "state": 1793686342.9680371,
+          "gps": 1793686343.1056466,
+          "velocity": 1793686343.1071913,
+          "ekf": 1793686343.106866,
+          "pose": 1793686343.1071076
+        },
+        "header_stamps_s": {
+          "state": 1793686342.967881,
+          "gps": 1793686342.9887707,
+          "velocity": 1793686343.1047707,
+          "ekf": 1793686343.1068199,
+          "pose": 1793686343.1047707
+        },
+        "stamp_diagnostics": {
+          "state": "",
+          "gps": "RAW_STAMP_REPEAT",
+          "velocity": "",
+          "ekf": "",
+          "pose": ""
+        },
+        "speed": {
+          "xy_mps": 0.021419045005237763,
+          "z_mps": 0.005364461336284876,
+          "norm_mps": 0.022080600860594712
+        },
+        "speed_peaks": {
+          "xy_mps": 0.03007904156605609,
+          "z_mps": 0.015620708465576172,
+          "norm_mps": 0.0335560385998112
+        },
+        "target_rx_ros_s": null,
+        "target_header_stamp_s": null
+      },
+      "telemetry_logs": [
+        "FCU connection changed: True; telemetry setup reset",
+        "Requested MAVLink stream EXTENDED_STATUS at 5 Hz; verify actual topic rate",
+        "Requested MAVLink stream POSITION at 10 Hz; verify actual topic rate",
+        "Requested MAVLink stream EXTRA1 at 10 Hz; verify actual topic rate",
+        "Requested MAVLink stream EXTRA3 at 5 Hz; verify actual topic rate",
+        "Requested MAVLink stream RAW_SENSORS at 10 Hz; verify actual topic rate"
+      ],
+      "fcu_publishers": []
+    }
+  ],
+  "identity": {
+    "runtime": "/home/liqidun/github/indoor_nav_ws/.sitl_runtime/v0/20261103T141057-251979",
+    "sitl_pid": 252100,
+    "proxy_pid": 252102,
+    "mavros_pid": 252174
+  },
+  "stop_exit_code": 0
+}

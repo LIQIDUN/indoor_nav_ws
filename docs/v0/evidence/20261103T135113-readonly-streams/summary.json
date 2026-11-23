@@ -1,0 +1,6 @@
+{
+  "result": "FAIL",
+  "profiles": [],
+  "error": "'/mavros/fcu_url'",
+  "stop_exit_code": 1
+}

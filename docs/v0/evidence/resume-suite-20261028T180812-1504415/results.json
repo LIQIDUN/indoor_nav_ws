@@ -1,0 +1,13 @@
+[
+  {
+    "case": "yaw",
+    "test_exit_code": 1,
+    "runtime": "/home/liqidun/github/indoor_nav_ws/.sitl_runtime/v0/20261028T180813-1504416",
+    "summaries": [
+      "docs/v0/evidence/20261028T180821-yaw/summary.json"
+    ],
+    "launcher_pid": 1504416,
+    "stop_exit_code": 0,
+    "ports_released": true
+  }
+]

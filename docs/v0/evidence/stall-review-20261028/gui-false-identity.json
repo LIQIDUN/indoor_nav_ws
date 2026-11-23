@@ -1,0 +1,9 @@
+{
+  "gui": "false",
+  "suite_exit_code": 1,
+  "runtime": "/home/liqidun/github/indoor_nav_ws/.sitl_runtime/v0/20261028T180813-1504416",
+  "suite_directories": [
+    "docs/v0/evidence/resume-suite-20261028T180812-1504415"
+  ],
+  "gazebo_stats_exit_code": -15
+}

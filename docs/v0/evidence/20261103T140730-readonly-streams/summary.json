@@ -1,0 +1,12 @@
+{
+  "result": "FAIL",
+  "profiles": [],
+  "identity": {
+    "runtime": "/home/liqidun/github/indoor_nav_ws/.sitl_runtime/v0/20261103T140730-250909",
+    "sitl_pid": 251026,
+    "proxy_pid": 251028,
+    "mavros_pid": 251100
+  },
+  "error": "missing telemetry request: EXTENDED_STATUS",
+  "stop_exit_code": 0
+}

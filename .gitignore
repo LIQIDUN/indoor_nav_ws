@@ -54,3 +54,35 @@ Thumbs.db
 *.bak
 *.orig
 *.rej
+
+# Generated V0 evidence: keep summaries, inputs, mission YAML and hash indexes.
+# Existing tracked historical evidence is unaffected by these rules.
+/docs/v0/evidence/20??????T??????-*/telemetry.jsonl
+/docs/v0/evidence/20??????T??????-*/receptions.jsonl
+/docs/v0/evidence/20??????T??????-*/events.jsonl
+/docs/v0/evidence/20??????T??????-*/navigation.txt
+/docs/v0/evidence/20??????T??????-*/rosbag.txt
+/docs/v0/evidence/20??????T??????-*/navigation/
+/docs/v0/evidence/20??????T??????-readonly-streams/mission_v0_*.yaml/
+/docs/v0/evidence/resume-suite-*/*-instance.txt
+/docs/v0/evidence/resume-suite-*/*-stop.txt
+/docs/v0/evidence/resume-suite-*/*-test.txt
+/docs/evidence/sitl_flight/*/telemetry.jsonl
+
+# One-off stall diagnostics: full observations and local analysis helpers.
+/docs/v0/evidence/stall-review-20261028/gui-*-console.txt
+/docs/v0/evidence/stall-review-20261028/gui-*-gazebo-stats.jsonl
+/docs/v0/evidence/stall-review-20261028/gui-*-resources.jsonl
+/docs/v0/evidence/stall-review-20261028/resource_analysis.json
+/docs/v0/evidence/stall-review-20261028/final_host_audit.txt
+/docs/v0/evidence/stall-review-20261028/source_probe.txt
+/docs/v0/evidence/stall-review-20261028/analyze.py
+/docs/v0/evidence/stall-review-20261028/observe.py
+
+# Rebuildable deployment/source packages and one-off development snapshots.
+/docs/v0/evidence/v0-research-20261103/*.tgz
+/docs/v0/evidence/v0-research-20261103/working-tree.patch
+/docs/v0/evidence/v0-research-20261103/initial-status.txt
+/docs/v0/evidence/v0-research-20261103/preexisting-untracked.sha256
+/docs/v0/evidence/v0-research-20261103/readonly-orphan-cleanup.json
+/docs/v0/evidence/v0-research-20261103/readonly_probe.py

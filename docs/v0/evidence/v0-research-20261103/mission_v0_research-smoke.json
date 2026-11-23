@@ -1,0 +1,33 @@
+{
+  "result": "PASS",
+  "yaml_sha256": "c8822fc3b7227c0a98bb85d13a68eacea2b2a41542babfc6fea0fb5ff35c62a7",
+  "mission_id": "acoustic_relative_v0_research_001",
+  "waypoints": 5,
+  "targets_yaw_zero": [
+    [
+      0.0,
+      0.0,
+      1.0
+    ],
+    [
+      0.3,
+      0.0,
+      1.0
+    ],
+    [
+      0.3,
+      0.3,
+      1.0
+    ],
+    [
+      0.0,
+      0.3,
+      1.0
+    ],
+    [
+      0.0,
+      0.0,
+      1.0
+    ]
+  ]
+}

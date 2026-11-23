@@ -1,0 +1,1019 @@
+[
+  {
+    "evidence": "docs/v0/evidence/20261028T143245-yaw",
+    "result": "FAIL",
+    "inputs": {
+      "git_commit": "255f49589063067a2e1d77f038beadce914a9cbd",
+      "git_dirty": true,
+      "sha256": {
+        "src/indoor_nav/src/indoor_nav/v0.py": "9ee22c8a9304f742eb723ccab3a3d92cd5683be734d43afdd5e23266711a2bb5",
+        "src/indoor_nav/scripts/relative_mission_manager.py": "170a0a504e953477dab9f17ace7dbe054e26cf1bb901f6a3cdfd2def8eb217e3",
+        "src/indoor_nav/scripts/v0_nav_health.py": "2e5f830937d570d88421e4349d2cb6a4b0832771fe7dc74377be794ae2b5fb06",
+        "src/indoor_nav/launch/indoor_nav_v0.launch": "032965600a179f3e8050b3e6ad51bb7eeeb10a6b6e401ff4bcc4d0799fd930e7",
+        "src/indoor_nav/config/v0_sitl_gps.parm": "965806e915aad5ab94b9096d92e9ec4a6bfbfb51dfdf9387aa4dd4ffa17a6023",
+        "tools/v0_sitl_test.py": "06e5bb33cdfef97a735fedc814f0fd28448ba33ce7bcc0df8156429e6d3197cd",
+        "tools/v0_sitl_instance.sh": "19bdcbd5b1b316020665ecce3aa30897b0ceaf3af788a1bc1f5f02c9b63e67ed"
+      },
+      "runtime": "/home/liqidun/github/indoor_nav_ws/.sitl_runtime/v0/20261028T143237-1327802",
+      "original_hover_gate": {
+        "truth_z_gt_m": 0.85,
+        "speed_norm_lt_mps": 0.06,
+        "timeout_s": 35
+      },
+      "mission_yaml_sha256": "cd35fbef774ba58b6f0c3592bdc090b177e131c1fa9547e3f2df408966252a4a",
+      "fcu_parameters": {
+        "GPS_TYPE": 1,
+        "GPS_TYPE2": 0.0,
+        "EK3_SRC1_POSXY": 3,
+        "EK3_SRC1_VELXY": 3,
+        "EK3_SRC1_POSZ": 1,
+        "EK3_SRC1_VELZ": 3,
+        "EK3_SRC1_YAW": 1,
+        "VISO_TYPE": 0.0,
+        "FS_GCS_ENABLE": 0.0,
+        "FS_EKF_ACTION": 1,
+        "FS_THR_ENABLE": 1,
+        "GUID_TIMEOUT": 3.0,
+        "WPNAV_SPEED": 20.0,
+        "WPNAV_SPEED_UP": 20.0,
+        "WPNAV_SPEED_DN": 20.0,
+        "WPNAV_ACCEL": 50.0,
+        "WPNAV_ACCEL_Z": 50.0,
+        "GUID_OPTIONS": 0.0
+      }
+    },
+    "cleanup": {
+      "armed_before": false,
+      "armed_after": false,
+      "connected": true,
+      "mode": "LAND",
+      "sim_stopped_by_test": false,
+      "processes_exited": true
+    },
+    "flight_bag_window_wall_s": [
+      1793169205.240629,
+      1793169229.6619837
+    ],
+    "fcu_tlog_gap": {
+      "gap_s": 0.5405478477478027,
+      "before": {
+        "wall_s": 1793169223.65488,
+        "source": [
+          1,
+          1
+        ],
+        "msgid": 147,
+        "sequence": 15,
+        "time_boot_ms": null
+      },
+      "after": {
+        "wall_s": 1793169224.195428,
+        "source": [
+          1,
+          1
+        ],
+        "msgid": 111,
+        "sequence": 16,
+        "time_boot_ms": null
+      },
+      "sequence_delta_mod256": 1
+    },
+    "local_position_ned_tlog_gap": {
+      "gap_s": 0.5471360683441162,
+      "before": {
+        "wall_s": 1793169223.654676,
+        "source": [
+          1,
+          1
+        ],
+        "msgid": 32,
+        "sequence": 13,
+        "time_boot_ms": 60457
+      },
+      "after": {
+        "wall_s": 1793169224.201812,
+        "source": [
+          1,
+          1
+        ],
+        "msgid": 32,
+        "sequence": 46,
+        "time_boot_ms": 60497
+      },
+      "boot_delta_ms": 40,
+      "before_median_wall_minus_boot_s": 1793169163.1980681,
+      "after_median_wall_minus_boot_s": 1793169163.6035042,
+      "persistent_wall_minus_boot_increase_s": 0.40543603897094727
+    },
+    "other_sources_during_fcu_gap_system_component_msgid": {
+      "245:190:0": 1,
+      "245:190:134": 3,
+      "1:240:111": 5,
+      "1:240:84": 5
+    },
+    "bag_topic_gaps": {
+      "/mavlink/from": {
+        "gap_s": 0.5406558513641357,
+        "before": {
+          "wall_s": 1793169223.6549606
+        },
+        "after": {
+          "wall_s": 1793169224.1956165
+        }
+      },
+      "/mavros/local_position/pose": {
+        "gap_s": 0.5471465587615967,
+        "before": {
+          "wall_s": 1793169223.6548066
+        },
+        "after": {
+          "wall_s": 1793169224.2019532
+        }
+      },
+      "/mavros/local_position/velocity_local": {
+        "gap_s": 0.5471692085266113,
+        "before": {
+          "wall_s": 1793169223.6548376
+        },
+        "after": {
+          "wall_s": 1793169224.2020068
+        }
+      },
+      "/v0_nav/watchdog": {
+        "gap_s": 0.1002504825592041,
+        "before": {
+          "wall_s": 1793169223.643941
+        },
+        "after": {
+          "wall_s": 1793169223.7441914
+        }
+      },
+      "/v0_nav/status": {
+        "gap_s": 0.10033893585205078,
+        "before": {
+          "wall_s": 1793169217.765721
+        },
+        "after": {
+          "wall_s": 1793169217.86606
+        }
+      },
+      "/mavros/setpoint_position/local": {
+        "gap_s": 0.1001589298248291,
+        "before": {
+          "wall_s": 1793169223.8442411
+        },
+        "after": {
+          "wall_s": 1793169223.9444
+        }
+      }
+    },
+    "tlog_decoding": "v1/v2 frame lengths, source ids and payload time_boot_ms; complete byte consumption and timestamp range checked; CRC not independently checked"
+  },
+  {
+    "evidence": "docs/v0/evidence/20261028T143753-mode_exit",
+    "result": "FAIL",
+    "inputs": {
+      "git_commit": "255f49589063067a2e1d77f038beadce914a9cbd",
+      "git_dirty": true,
+      "sha256": {
+        "src/indoor_nav/src/indoor_nav/v0.py": "9ee22c8a9304f742eb723ccab3a3d92cd5683be734d43afdd5e23266711a2bb5",
+        "src/indoor_nav/scripts/relative_mission_manager.py": "170a0a504e953477dab9f17ace7dbe054e26cf1bb901f6a3cdfd2def8eb217e3",
+        "src/indoor_nav/scripts/v0_nav_health.py": "2e5f830937d570d88421e4349d2cb6a4b0832771fe7dc74377be794ae2b5fb06",
+        "src/indoor_nav/launch/indoor_nav_v0.launch": "032965600a179f3e8050b3e6ad51bb7eeeb10a6b6e401ff4bcc4d0799fd930e7",
+        "src/indoor_nav/config/v0_sitl_gps.parm": "965806e915aad5ab94b9096d92e9ec4a6bfbfb51dfdf9387aa4dd4ffa17a6023",
+        "tools/v0_sitl_test.py": "06e5bb33cdfef97a735fedc814f0fd28448ba33ce7bcc0df8156429e6d3197cd",
+        "tools/v0_sitl_instance.sh": "19bdcbd5b1b316020665ecce3aa30897b0ceaf3af788a1bc1f5f02c9b63e67ed"
+      },
+      "runtime": "/home/liqidun/github/indoor_nav_ws/.sitl_runtime/v0/20261028T143745-1333885",
+      "original_hover_gate": {
+        "truth_z_gt_m": 0.85,
+        "speed_norm_lt_mps": 0.06,
+        "timeout_s": 35
+      },
+      "mission_yaml_sha256": "67ef07778368e8ee08adcf12d05c6074a2a916612fdd84a32bb66c2214e5d983",
+      "fcu_parameters": {
+        "GPS_TYPE": 1,
+        "GPS_TYPE2": 0.0,
+        "EK3_SRC1_POSXY": 3,
+        "EK3_SRC1_VELXY": 3,
+        "EK3_SRC1_POSZ": 1,
+        "EK3_SRC1_VELZ": 3,
+        "EK3_SRC1_YAW": 1,
+        "VISO_TYPE": 0.0,
+        "FS_GCS_ENABLE": 0.0,
+        "FS_EKF_ACTION": 1,
+        "FS_THR_ENABLE": 1,
+        "GUID_TIMEOUT": 3.0,
+        "WPNAV_SPEED": 20.0,
+        "WPNAV_SPEED_UP": 20.0,
+        "WPNAV_SPEED_DN": 20.0,
+        "WPNAV_ACCEL": 50.0,
+        "WPNAV_ACCEL_Z": 50.0,
+        "GUID_OPTIONS": 0.0
+      }
+    },
+    "cleanup": {
+      "armed_before": false,
+      "armed_after": false,
+      "connected": true,
+      "mode": "LAND",
+      "sim_stopped_by_test": false,
+      "processes_exited": true
+    },
+    "flight_bag_window_wall_s": [
+      1793169512.690985,
+      1793169532.9916728
+    ],
+    "fcu_tlog_gap": {
+      "gap_s": 1.6040480136871338,
+      "before": {
+        "wall_s": 1793169525.815264,
+        "source": [
+          1,
+          1
+        ],
+        "msgid": 147,
+        "sequence": 142,
+        "time_boot_ms": null
+      },
+      "after": {
+        "wall_s": 1793169527.419312,
+        "source": [
+          1,
+          1
+        ],
+        "msgid": 111,
+        "sequence": 143,
+        "time_boot_ms": null
+      },
+      "sequence_delta_mod256": 1
+    },
+    "local_position_ned_tlog_gap": {
+      "gap_s": 1.6168880462646484,
+      "before": {
+        "wall_s": 1793169525.814916,
+        "source": [
+          1,
+          1
+        ],
+        "msgid": 32,
+        "sequence": 139,
+        "time_boot_ms": 55289
+      },
+      "after": {
+        "wall_s": 1793169527.431804,
+        "source": [
+          1,
+          1
+        ],
+        "msgid": 32,
+        "sequence": 186,
+        "time_boot_ms": 55329
+      },
+      "boot_delta_ms": 40,
+      "before_median_wall_minus_boot_s": 1793169470.527236,
+      "after_median_wall_minus_boot_s": 1793169472.0177681,
+      "persistent_wall_minus_boot_increase_s": 1.4905321598052979
+    },
+    "other_sources_during_fcu_gap_system_component_msgid": {
+      "1:240:111": 16,
+      "245:190:134": 8,
+      "1:240:84": 5,
+      "245:190:0": 2,
+      "1:240:0": 2,
+      "1:240:2": 2,
+      "1:240:11": 1,
+      "245:190:66": 1
+    },
+    "bag_topic_gaps": {
+      "/mavlink/from": {
+        "gap_s": 1.604205846786499,
+        "before": {
+          "wall_s": 1793169525.815336
+        },
+        "after": {
+          "wall_s": 1793169527.4195418
+        }
+      },
+      "/mavros/local_position/pose": {
+        "gap_s": 1.6168808937072754,
+        "before": {
+          "wall_s": 1793169525.8150885
+        },
+        "after": {
+          "wall_s": 1793169527.4319694
+        }
+      },
+      "/mavros/local_position/velocity_local": {
+        "gap_s": 1.6168851852416992,
+        "before": {
+          "wall_s": 1793169525.815127
+        },
+        "after": {
+          "wall_s": 1793169527.432012
+        }
+      },
+      "/v0_nav/watchdog": {
+        "gap_s": 0.10150527954101562,
+        "before": {
+          "wall_s": 1793169517.6806924
+        },
+        "after": {
+          "wall_s": 1793169517.7821977
+        }
+      },
+      "/v0_nav/status": {
+        "gap_s": 0.10027885437011719,
+        "before": {
+          "wall_s": 1793169529.9123125
+        },
+        "after": {
+          "wall_s": 1793169530.0125914
+        }
+      },
+      "/mavros/setpoint_position/local": {
+        "gap_s": 0.10028934478759766,
+        "before": {
+          "wall_s": 1793169525.7874844
+        },
+        "after": {
+          "wall_s": 1793169525.8877738
+        }
+      }
+    },
+    "tlog_decoding": "v1/v2 frame lengths, source ids and payload time_boot_ms; complete byte consumption and timestamp range checked; CRC not independently checked"
+  },
+  {
+    "evidence": "docs/v0/evidence/20261028T150340-yaw",
+    "result": "PASS",
+    "inputs": {
+      "git_commit": "255f49589063067a2e1d77f038beadce914a9cbd",
+      "git_dirty": true,
+      "sha256": {
+        "src/indoor_nav/src/indoor_nav/v0.py": "9ee22c8a9304f742eb723ccab3a3d92cd5683be734d43afdd5e23266711a2bb5",
+        "src/indoor_nav/scripts/relative_mission_manager.py": "170a0a504e953477dab9f17ace7dbe054e26cf1bb901f6a3cdfd2def8eb217e3",
+        "src/indoor_nav/scripts/v0_nav_health.py": "2e5f830937d570d88421e4349d2cb6a4b0832771fe7dc74377be794ae2b5fb06",
+        "src/indoor_nav/launch/indoor_nav_v0.launch": "032965600a179f3e8050b3e6ad51bb7eeeb10a6b6e401ff4bcc4d0799fd930e7",
+        "src/indoor_nav/config/v0_sitl_gps.parm": "965806e915aad5ab94b9096d92e9ec4a6bfbfb51dfdf9387aa4dd4ffa17a6023",
+        "tools/v0_sitl_test.py": "06e5bb33cdfef97a735fedc814f0fd28448ba33ce7bcc0df8156429e6d3197cd",
+        "tools/v0_sitl_instance.sh": "19bdcbd5b1b316020665ecce3aa30897b0ceaf3af788a1bc1f5f02c9b63e67ed"
+      },
+      "runtime": "/home/liqidun/github/indoor_nav_ws/.sitl_runtime/v0/20261028T150332-1362565",
+      "original_hover_gate": {
+        "truth_z_gt_m": 0.85,
+        "speed_norm_lt_mps": 0.06,
+        "timeout_s": 35
+      },
+      "mission_yaml_sha256": "498d41f2c3b0dc0c42d67aecb1263b2c699cb86700556ebedd8b455edea0423d",
+      "fcu_parameters": {
+        "GPS_TYPE": 1,
+        "GPS_TYPE2": 0.0,
+        "EK3_SRC1_POSXY": 3,
+        "EK3_SRC1_VELXY": 3,
+        "EK3_SRC1_POSZ": 1,
+        "EK3_SRC1_VELZ": 3,
+        "EK3_SRC1_YAW": 1,
+        "VISO_TYPE": 0.0,
+        "FS_GCS_ENABLE": 0.0,
+        "FS_EKF_ACTION": 1,
+        "FS_THR_ENABLE": 1,
+        "GUID_TIMEOUT": 3.0,
+        "WPNAV_SPEED": 20.0,
+        "WPNAV_SPEED_UP": 20.0,
+        "WPNAV_SPEED_DN": 20.0,
+        "WPNAV_ACCEL": 50.0,
+        "WPNAV_ACCEL_Z": 50.0,
+        "GUID_OPTIONS": 0.0
+      }
+    },
+    "cleanup": {
+      "armed_before": false,
+      "armed_after": false,
+      "connected": true,
+      "mode": "LAND",
+      "sim_stopped_by_test": false,
+      "processes_exited": true
+    },
+    "flight_bag_window_wall_s": [
+      1793171059.7345567,
+      1793171090.670511
+    ],
+    "fcu_tlog_gap": {
+      "gap_s": 0.04980802536010742,
+      "before": {
+        "wall_s": 1793171073.861552,
+        "source": [
+          1,
+          1
+        ],
+        "msgid": 147,
+        "sequence": 139,
+        "time_boot_ms": null
+      },
+      "after": {
+        "wall_s": 1793171073.91136,
+        "source": [
+          1,
+          1
+        ],
+        "msgid": 30,
+        "sequence": 140,
+        "time_boot_ms": 56245
+      },
+      "sequence_delta_mod256": 1
+    },
+    "local_position_ned_tlog_gap": {
+      "gap_s": 0.06044411659240723,
+      "before": {
+        "wall_s": 1793171061.573788,
+        "source": [
+          1,
+          1
+        ],
+        "msgid": 32,
+        "sequence": 100,
+        "time_boot_ms": 43925
+      },
+      "after": {
+        "wall_s": 1793171061.634232,
+        "source": [
+          1,
+          1
+        ],
+        "msgid": 32,
+        "sequence": 128,
+        "time_boot_ms": 43965
+      },
+      "boot_delta_ms": 40,
+      "before_median_wall_minus_boot_s": 1793171017.6461382,
+      "after_median_wall_minus_boot_s": 1793171017.647888,
+      "persistent_wall_minus_boot_increase_s": 0.0017497539520263672
+    },
+    "other_sources_during_fcu_gap_system_component_msgid": {
+      "245:190:134": 1
+    },
+    "bag_topic_gaps": {
+      "/mavros/local_position/velocity_local": {
+        "gap_s": 0.07131075859069824,
+        "before": {
+          "wall_s": 1793171064.4555807
+        },
+        "after": {
+          "wall_s": 1793171064.5268915
+        }
+      },
+      "/mavros/local_position/pose": {
+        "gap_s": 0.07132911682128906,
+        "before": {
+          "wall_s": 1793171064.4555607
+        },
+        "after": {
+          "wall_s": 1793171064.5268898
+        }
+      },
+      "/mavlink/from": {
+        "gap_s": 0.04991579055786133,
+        "before": {
+          "wall_s": 1793171073.8616374
+        },
+        "after": {
+          "wall_s": 1793171073.9115531
+        }
+      },
+      "/v0_nav/watchdog": {
+        "gap_s": 0.10103893280029297,
+        "before": {
+          "wall_s": 1793171064.5778544
+        },
+        "after": {
+          "wall_s": 1793171064.6788933
+        }
+      },
+      "/v0_nav/status": {
+        "gap_s": 0.10363101959228516,
+        "before": {
+          "wall_s": 1793171066.9063761
+        },
+        "after": {
+          "wall_s": 1793171067.0100071
+        }
+      },
+      "/mavros/setpoint_position/local": {
+        "gap_s": 0.10082077980041504,
+        "before": {
+          "wall_s": 1793171080.0898883
+        },
+        "after": {
+          "wall_s": 1793171080.190709
+        }
+      }
+    },
+    "tlog_decoding": "v1/v2 frame lengths, source ids and payload time_boot_ms; complete byte consumption and timestamp range checked; CRC not independently checked"
+  },
+  {
+    "evidence": "docs/v0/evidence/20261028T150619-mode_exit",
+    "result": "PASS",
+    "inputs": {
+      "git_commit": "255f49589063067a2e1d77f038beadce914a9cbd",
+      "git_dirty": true,
+      "sha256": {
+        "src/indoor_nav/src/indoor_nav/v0.py": "9ee22c8a9304f742eb723ccab3a3d92cd5683be734d43afdd5e23266711a2bb5",
+        "src/indoor_nav/scripts/relative_mission_manager.py": "170a0a504e953477dab9f17ace7dbe054e26cf1bb901f6a3cdfd2def8eb217e3",
+        "src/indoor_nav/scripts/v0_nav_health.py": "2e5f830937d570d88421e4349d2cb6a4b0832771fe7dc74377be794ae2b5fb06",
+        "src/indoor_nav/launch/indoor_nav_v0.launch": "032965600a179f3e8050b3e6ad51bb7eeeb10a6b6e401ff4bcc4d0799fd930e7",
+        "src/indoor_nav/config/v0_sitl_gps.parm": "965806e915aad5ab94b9096d92e9ec4a6bfbfb51dfdf9387aa4dd4ffa17a6023",
+        "tools/v0_sitl_test.py": "06e5bb33cdfef97a735fedc814f0fd28448ba33ce7bcc0df8156429e6d3197cd",
+        "tools/v0_sitl_instance.sh": "19bdcbd5b1b316020665ecce3aa30897b0ceaf3af788a1bc1f5f02c9b63e67ed"
+      },
+      "runtime": "/home/liqidun/github/indoor_nav_ws/.sitl_runtime/v0/20261028T150610-1365707",
+      "original_hover_gate": {
+        "truth_z_gt_m": 0.85,
+        "speed_norm_lt_mps": 0.06,
+        "timeout_s": 35
+      },
+      "mission_yaml_sha256": "d42b756507bbb182e08af026d2d809bdec87720a5d2a8b6ea29970ac7cc0503e",
+      "fcu_parameters": {
+        "GPS_TYPE": 1,
+        "GPS_TYPE2": 0.0,
+        "EK3_SRC1_POSXY": 3,
+        "EK3_SRC1_VELXY": 3,
+        "EK3_SRC1_POSZ": 1,
+        "EK3_SRC1_VELZ": 3,
+        "EK3_SRC1_YAW": 1,
+        "VISO_TYPE": 0.0,
+        "FS_GCS_ENABLE": 0.0,
+        "FS_EKF_ACTION": 1,
+        "FS_THR_ENABLE": 1,
+        "GUID_TIMEOUT": 3.0,
+        "WPNAV_SPEED": 20.0,
+        "WPNAV_SPEED_UP": 20.0,
+        "WPNAV_SPEED_DN": 20.0,
+        "WPNAV_ACCEL": 50.0,
+        "WPNAV_ACCEL_Z": 50.0,
+        "GUID_OPTIONS": 0.0
+      }
+    },
+    "cleanup": {
+      "armed_before": false,
+      "armed_after": false,
+      "connected": true,
+      "mode": "LAND",
+      "sim_stopped_by_test": false,
+      "processes_exited": true
+    },
+    "flight_bag_window_wall_s": [
+      1793171218.4690464,
+      1793171241.3678882
+    ],
+    "fcu_tlog_gap": {
+      "gap_s": 0.04148387908935547,
+      "before": {
+        "wall_s": 1793171221.873224,
+        "source": [
+          1,
+          1
+        ],
+        "msgid": 147,
+        "sequence": 17,
+        "time_boot_ms": null
+      },
+      "after": {
+        "wall_s": 1793171221.914708,
+        "source": [
+          1,
+          1
+        ],
+        "msgid": 30,
+        "sequence": 18,
+        "time_boot_ms": 45532
+      },
+      "sequence_delta_mod256": 1
+    },
+    "local_position_ned_tlog_gap": {
+      "gap_s": 0.04798007011413574,
+      "before": {
+        "wall_s": 1793171231.315836,
+        "source": [
+          1,
+          1
+        ],
+        "msgid": 32,
+        "sequence": 84,
+        "time_boot_ms": 54932
+      },
+      "after": {
+        "wall_s": 1793171231.363816,
+        "source": [
+          1,
+          1
+        ],
+        "msgid": 32,
+        "sequence": 114,
+        "time_boot_ms": 54972
+      },
+      "boot_delta_ms": 40,
+      "before_median_wall_minus_boot_s": 1793171176.385984,
+      "after_median_wall_minus_boot_s": 1793171176.388032,
+      "persistent_wall_minus_boot_increase_s": 0.002048015594482422
+    },
+    "other_sources_during_fcu_gap_system_component_msgid": {
+      "245:190:134": 1
+    },
+    "bag_topic_gaps": {
+      "/mavlink/from": {
+        "gap_s": 0.04156184196472168,
+        "before": {
+          "wall_s": 1793171221.8733196
+        },
+        "after": {
+          "wall_s": 1793171221.9148815
+        }
+      },
+      "/mavros/local_position/pose": {
+        "gap_s": 0.04799079895019531,
+        "before": {
+          "wall_s": 1793171231.3160164
+        },
+        "after": {
+          "wall_s": 1793171231.3640072
+        }
+      },
+      "/mavros/local_position/velocity_local": {
+        "gap_s": 0.04802346229553223,
+        "before": {
+          "wall_s": 1793171231.316031
+        },
+        "after": {
+          "wall_s": 1793171231.3640544
+        }
+      },
+      "/v0_nav/watchdog": {
+        "gap_s": 0.10034394264221191,
+        "before": {
+          "wall_s": 1793171229.3636458
+        },
+        "after": {
+          "wall_s": 1793171229.4639897
+        }
+      },
+      "/v0_nav/status": {
+        "gap_s": 0.1003873348236084,
+        "before": {
+          "wall_s": 1793171238.7809181
+        },
+        "after": {
+          "wall_s": 1793171238.8813055
+        }
+      },
+      "/mavros/setpoint_position/local": {
+        "gap_s": 0.10020971298217773,
+        "before": {
+          "wall_s": 1793171233.3668141
+        },
+        "after": {
+          "wall_s": 1793171233.4670238
+        }
+      }
+    },
+    "tlog_decoding": "v1/v2 frame lengths, source ids and payload time_boot_ms; complete byte consumption and timestamp range checked; CRC not independently checked"
+  },
+  {
+    "evidence": "docs/v0/evidence/20261028T180821-yaw",
+    "result": "FAIL",
+    "inputs": {
+      "git_commit": "dcf3919d6b14d5531e4044c892bc4572e8875ffd",
+      "git_dirty": true,
+      "sha256": {
+        "src/indoor_nav/src/indoor_nav/v0.py": "9ee22c8a9304f742eb723ccab3a3d92cd5683be734d43afdd5e23266711a2bb5",
+        "src/indoor_nav/scripts/relative_mission_manager.py": "170a0a504e953477dab9f17ace7dbe054e26cf1bb901f6a3cdfd2def8eb217e3",
+        "src/indoor_nav/scripts/v0_nav_health.py": "2e5f830937d570d88421e4349d2cb6a4b0832771fe7dc74377be794ae2b5fb06",
+        "src/indoor_nav/launch/indoor_nav_v0.launch": "032965600a179f3e8050b3e6ad51bb7eeeb10a6b6e401ff4bcc4d0799fd930e7",
+        "src/indoor_nav/config/v0_sitl_gps.parm": "965806e915aad5ab94b9096d92e9ec4a6bfbfb51dfdf9387aa4dd4ffa17a6023",
+        "tools/v0_sitl_test.py": "06e5bb33cdfef97a735fedc814f0fd28448ba33ce7bcc0df8156429e6d3197cd",
+        "tools/v0_sitl_instance.sh": "19bdcbd5b1b316020665ecce3aa30897b0ceaf3af788a1bc1f5f02c9b63e67ed"
+      },
+      "runtime": "/home/liqidun/github/indoor_nav_ws/.sitl_runtime/v0/20261028T180813-1504416",
+      "original_hover_gate": {
+        "truth_z_gt_m": 0.85,
+        "speed_norm_lt_mps": 0.06,
+        "timeout_s": 35
+      },
+      "mission_yaml_sha256": "27cd10f79f8e0587c97f0f80560f12b9bc3d6e2a6fc3deaa1dec04c6a1e233d7",
+      "fcu_parameters": {
+        "GPS_TYPE": 1,
+        "GPS_TYPE2": 0.0,
+        "EK3_SRC1_POSXY": 3,
+        "EK3_SRC1_VELXY": 3,
+        "EK3_SRC1_POSZ": 1,
+        "EK3_SRC1_VELZ": 3,
+        "EK3_SRC1_YAW": 1,
+        "VISO_TYPE": 0.0,
+        "FS_GCS_ENABLE": 0.0,
+        "FS_EKF_ACTION": 1,
+        "FS_THR_ENABLE": 1,
+        "GUID_TIMEOUT": 3.0,
+        "WPNAV_SPEED": 20.0,
+        "WPNAV_SPEED_UP": 20.0,
+        "WPNAV_SPEED_DN": 20.0,
+        "WPNAV_ACCEL": 50.0,
+        "WPNAV_ACCEL_Z": 50.0,
+        "GUID_OPTIONS": 0.0
+      }
+    },
+    "cleanup": {
+      "armed_before": false,
+      "armed_after": false,
+      "connected": true,
+      "mode": "LAND",
+      "sim_stopped_by_test": false,
+      "processes_exited": true
+    },
+    "flight_bag_window_wall_s": [
+      1793182137.425408,
+      1793182165.7259114
+    ],
+    "fcu_tlog_gap": {
+      "gap_s": 0.539668083190918,
+      "before": {
+        "wall_s": 1793182159.644964,
+        "source": [
+          1,
+          1
+        ],
+        "msgid": 147,
+        "sequence": 249,
+        "time_boot_ms": null
+      },
+      "after": {
+        "wall_s": 1793182160.184632,
+        "source": [
+          1,
+          1
+        ],
+        "msgid": 111,
+        "sequence": 250,
+        "time_boot_ms": null
+      },
+      "sequence_delta_mod256": 1
+    },
+    "local_position_ned_tlog_gap": {
+      "gap_s": 0.5463080406188965,
+      "before": {
+        "wall_s": 1793182159.644456,
+        "source": [
+          1,
+          1
+        ],
+        "msgid": 32,
+        "sequence": 246,
+        "time_boot_ms": 64274
+      },
+      "after": {
+        "wall_s": 1793182160.190764,
+        "source": [
+          1,
+          1
+        ],
+        "msgid": 32,
+        "sequence": 24,
+        "time_boot_ms": 64314
+      },
+      "boot_delta_ms": 40,
+      "before_median_wall_minus_boot_s": 1793182095.36697,
+      "after_median_wall_minus_boot_s": 1793182095.771812,
+      "persistent_wall_minus_boot_increase_s": 0.40484189987182617
+    },
+    "other_sources_during_fcu_gap_system_component_msgid": {
+      "1:240:84": 6,
+      "245:190:134": 3,
+      "1:240:111": 5,
+      "1:240:0": 1,
+      "1:240:2": 1,
+      "245:190:0": 1
+    },
+    "bag_topic_gaps": {
+      "/mavlink/from": {
+        "gap_s": 0.5397388935089111,
+        "before": {
+          "wall_s": 1793182159.645041
+        },
+        "after": {
+          "wall_s": 1793182160.18478
+        }
+      },
+      "/mavros/local_position/pose": {
+        "gap_s": 0.5462231636047363,
+        "before": {
+          "wall_s": 1793182159.64468
+        },
+        "after": {
+          "wall_s": 1793182160.1909032
+        }
+      },
+      "/mavros/local_position/velocity_local": {
+        "gap_s": 0.5462601184844971,
+        "before": {
+          "wall_s": 1793182159.6446862
+        },
+        "after": {
+          "wall_s": 1793182160.1909463
+        }
+      },
+      "/v0_nav/status": {
+        "gap_s": 0.1004939079284668,
+        "before": {
+          "wall_s": 1793182155.644463
+        },
+        "after": {
+          "wall_s": 1793182155.744957
+        }
+      },
+      "/v0_nav/watchdog": {
+        "gap_s": 0.10246014595031738,
+        "before": {
+          "wall_s": 1793182160.1409276
+        },
+        "after": {
+          "wall_s": 1793182160.2433877
+        }
+      },
+      "/mavros/setpoint_position/local": {
+        "gap_s": 0.10036492347717285,
+        "before": {
+          "wall_s": 1793182157.5386107
+        },
+        "after": {
+          "wall_s": 1793182157.6389756
+        }
+      }
+    },
+    "tlog_decoding": "v1/v2 frame lengths, source ids and payload time_boot_ms; complete byte consumption and timestamp range checked; CRC not independently checked"
+  },
+  {
+    "evidence": "docs/v0/evidence/20261028T180543-yaw",
+    "result": "PASS",
+    "inputs": {
+      "git_commit": "dcf3919d6b14d5531e4044c892bc4572e8875ffd",
+      "git_dirty": true,
+      "sha256": {
+        "src/indoor_nav/src/indoor_nav/v0.py": "9ee22c8a9304f742eb723ccab3a3d92cd5683be734d43afdd5e23266711a2bb5",
+        "src/indoor_nav/scripts/relative_mission_manager.py": "170a0a504e953477dab9f17ace7dbe054e26cf1bb901f6a3cdfd2def8eb217e3",
+        "src/indoor_nav/scripts/v0_nav_health.py": "2e5f830937d570d88421e4349d2cb6a4b0832771fe7dc74377be794ae2b5fb06",
+        "src/indoor_nav/launch/indoor_nav_v0.launch": "032965600a179f3e8050b3e6ad51bb7eeeb10a6b6e401ff4bcc4d0799fd930e7",
+        "src/indoor_nav/config/v0_sitl_gps.parm": "965806e915aad5ab94b9096d92e9ec4a6bfbfb51dfdf9387aa4dd4ffa17a6023",
+        "tools/v0_sitl_test.py": "06e5bb33cdfef97a735fedc814f0fd28448ba33ce7bcc0df8156429e6d3197cd",
+        "tools/v0_sitl_instance.sh": "19bdcbd5b1b316020665ecce3aa30897b0ceaf3af788a1bc1f5f02c9b63e67ed"
+      },
+      "runtime": "/home/liqidun/github/indoor_nav_ws/.sitl_runtime/v0/20261028T180535-1501339",
+      "original_hover_gate": {
+        "truth_z_gt_m": 0.85,
+        "speed_norm_lt_mps": 0.06,
+        "timeout_s": 35
+      },
+      "mission_yaml_sha256": "3ca5839cffccbdda27f946eb4e554ce056d2a4ada21b20e4eb70ab3e9c97dd6a",
+      "fcu_parameters": {
+        "GPS_TYPE": 1,
+        "GPS_TYPE2": 0.0,
+        "EK3_SRC1_POSXY": 3,
+        "EK3_SRC1_VELXY": 3,
+        "EK3_SRC1_POSZ": 1,
+        "EK3_SRC1_VELZ": 3,
+        "EK3_SRC1_YAW": 1,
+        "VISO_TYPE": 0.0,
+        "FS_GCS_ENABLE": 0.0,
+        "FS_EKF_ACTION": 1,
+        "FS_THR_ENABLE": 1,
+        "GUID_TIMEOUT": 3.0,
+        "WPNAV_SPEED": 20.0,
+        "WPNAV_SPEED_UP": 20.0,
+        "WPNAV_SPEED_DN": 20.0,
+        "WPNAV_ACCEL": 50.0,
+        "WPNAV_ACCEL_Z": 50.0,
+        "GUID_OPTIONS": 0.0
+      }
+    },
+    "cleanup": {
+      "armed_before": false,
+      "armed_after": false,
+      "connected": true,
+      "mode": "LAND",
+      "sim_stopped_by_test": false,
+      "processes_exited": true
+    },
+    "flight_bag_window_wall_s": [
+      1793181982.344428,
+      1793182013.2872605
+    ],
+    "fcu_tlog_gap": {
+      "gap_s": 0.04209184646606445,
+      "before": {
+        "wall_s": 1793181998.716288,
+        "source": [
+          1,
+          1
+        ],
+        "msgid": 147,
+        "sequence": 49,
+        "time_boot_ms": null
+      },
+      "after": {
+        "wall_s": 1793181998.75838,
+        "source": [
+          1,
+          1
+        ],
+        "msgid": 30,
+        "sequence": 50,
+        "time_boot_ms": 58555
+      },
+      "sequence_delta_mod256": 1
+    },
+    "local_position_ned_tlog_gap": {
+      "gap_s": 0.04743599891662598,
+      "before": {
+        "wall_s": 1793182002.237664,
+        "source": [
+          1,
+          1
+        ],
+        "msgid": 32,
+        "sequence": 29,
+        "time_boot_ms": 62035
+      },
+      "after": {
+        "wall_s": 1793182002.2851,
+        "source": [
+          1,
+          1
+        ],
+        "msgid": 32,
+        "sequence": 58,
+        "time_boot_ms": 62075
+      },
+      "boot_delta_ms": 40,
+      "before_median_wall_minus_boot_s": 1793181940.205184,
+      "after_median_wall_minus_boot_s": 1793181940.207226,
+      "persistent_wall_minus_boot_increase_s": 0.002042055130004883
+    },
+    "other_sources_during_fcu_gap_system_component_msgid": {
+      "245:190:134": 1
+    },
+    "bag_topic_gaps": {
+      "/mavlink/from": {
+        "gap_s": 0.04217696189880371,
+        "before": {
+          "wall_s": 1793181998.7163563
+        },
+        "after": {
+          "wall_s": 1793181998.7585332
+        }
+      },
+      "/mavros/local_position/pose": {
+        "gap_s": 0.0474545955657959,
+        "before": {
+          "wall_s": 1793182002.2378032
+        },
+        "after": {
+          "wall_s": 1793182002.2852578
+        }
+      },
+      "/mavros/local_position/velocity_local": {
+        "gap_s": 0.04745626449584961,
+        "before": {
+          "wall_s": 1793182002.2378337
+        },
+        "after": {
+          "wall_s": 1793182002.28529
+        }
+      },
+      "/v0_nav/watchdog": {
+        "gap_s": 0.10076141357421875,
+        "before": {
+          "wall_s": 1793181989.820741
+        },
+        "after": {
+          "wall_s": 1793181989.9215024
+        }
+      },
+      "/v0_nav/status": {
+        "gap_s": 0.10430049896240234,
+        "before": {
+          "wall_s": 1793182005.0697997
+        },
+        "after": {
+          "wall_s": 1793182005.1741002
+        }
+      },
+      "/mavros/setpoint_position/local": {
+        "gap_s": 0.10056495666503906,
+        "before": {
+          "wall_s": 1793182003.8310883
+        },
+        "after": {
+          "wall_s": 1793182003.9316533
+        }
+      }
+    },
+    "tlog_decoding": "v1/v2 frame lengths, source ids and payload time_boot_ms; complete byte consumption and timestamp range checked; CRC not independently checked"
+  }
+]

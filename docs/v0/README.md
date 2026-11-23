@@ -1,5 +1,9 @@
 # ArduCopter V0 相对航点
 
+Git 文档与证据边界见 [2026-11-23 整理报告](GIT_DOCS_AUDIT_20261123.md) 和
+[证据索引说明](evidence/README.md)。V0-Research 实现已在本地提交 `d684028`；
+完整实验日志、bag/BIN/tlog 及部署包不随克隆提供，远程同步状态未核验。
+
 ## 2026-11-03 V0-Research 与机载入口
 
 严格 `mission_v0.yaml` 原样保留。新增 `mission_v0_level.yaml` 是严格门控的左向定高方形参考；

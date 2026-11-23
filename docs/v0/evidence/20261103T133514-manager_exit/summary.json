@@ -1,0 +1,16 @@
+{
+  "result": "FAIL",
+  "case": "manager_exit",
+  "error": "navigation aborted: {\"state\": \"ABORT_LATCHED\", \"mission_id\": \"20261103T133514-manager_exit\", \"wp\": 0, \"reason\": \"POSE_RX_TIMEOUT\", \"health\": \"POSE_RX_TIMEOUT\", \"gate\": \"\", \"control_enabled\": true, \"evidence_dir\": \"/home/liqidun/github/indoor_nav_ws/docs/v0/evidence/20261103T133514-manager_exit/navigation/20261103T133551-242814-162753379761140\", \"yaml_sha256\": \"f18b8b31f371bbb98eccfaec63ae55d94c9034d6bf06b4e5d802f655f9e9b2c8\", \"firmware\": [4, 5, 7], \"limit_age_s\": 0.4074375389900524, \"pose_age_s\": 0.507895157992607, \"max_publish_gap_s\": 0.10007705897442065, \"rx_ros_s\": {\"state\": 1793684164.8069715, \"velocity\": 1793684165.0747628, \"pose\": 1793684165.0746968, \"gps\": 1793684165.0736384, \"ekf\": 1793684165.0745301}, \"header_stamps_s\": {\"state\": 1793684164.806821, \"velocity\": 1793684165.0727615, \"pose\": 1793684165.0727615, \"gps\": 1793684165.0237615, \"ekf\": 1793684165.074457}, \"stamp_diagnostics\": {\"state\": \"\", \"velocity\": \"\", \"pose\": \"\", \"gps\": \"\", \"ekf\": \"\"}, \"ekf_report\": {\"flags\": 831, \"ratios\": [0.009613539092242718, 0.007304532453417778, 0.00030339881777763367, 0.023233946412801743, 0.0], \"healthy\": true}, \"warnings\": [], \"speed\": {\"xy_mps\": 0.02890455764031786, \"z_mps\": 0.0037891766987740993, \"norm_mps\": 0.029151866362841856}, \"speed_peaks\": {\"xy_mps\": 0.031423971146566504, \"z_mps\": 0.22299674153327942, \"norm_mps\": 0.22306067764165458}, \"fcu_parameters\": {\"WPNAV_SPEED\": 20.0, \"WPNAV_SPEED_UP\": 20.0, \"WPNAV_SPEED_DN\": 20.0, \"WPNAV_ACCEL\": 50.0, \"WPNAV_ACCEL_Z\": 50.0, \"GUID_OPTIONS\": 0.0, \"AHRS_EKF_TYPE\": 3, \"EK3_ENABLE\": 1, \"EK3_SRC1_POSXY\": 3}, \"performance_diagnostics\": []}",
+  "evidence": "/home/liqidun/github/indoor_nav_ws/docs/v0/evidence/20261103T133514-manager_exit",
+  "cleanup": {
+    "armed_before": false,
+    "armed_after": false,
+    "connected": true,
+    "mode": "LAND",
+    "sim_stopped_by_test": false,
+    "processes_exited": true
+  },
+  "start_wall_s": 1793684114.7514458,
+  "end_wall_s": 1793684171.935839
+}

@@ -1,0 +1,4 @@
+1.20.1
+['uint8', 'uint16', 'bool']
+[('STREAM_EXTENDED_STATUS', 2), ('STREAM_POSITION', 6), ('STREAM_EXTRA1', 10), ('STREAM_EXTRA3', 12), ('STREAM_RAW_SENSORS', 1)]
+response slots: []

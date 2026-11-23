@@ -6,30 +6,28 @@
 
 ## 1. 台式机审查与GitHub同步
 
-本地起点 `feat/arducopter-v0-relative-waypoints@dcf3919`，本次未改变分支或提交。
-原有未跟踪文件不属于本次修改，不能git add全部。实际新增测试/文档与逐文件清单见 `V0_RESEARCH_UPGRADE.md`。
-在.git可写且人工审查工作树之后，才执行例如：
+2026-11-03 开发起点为 `feat/arducopter-v0-relative-waypoints@dcf3919`；
+实现、配置、测试及必要文档随后已进入本地提交 `d684028`。2026-11-23 整理不修改导航源码，
+不重新提交已有实现，也不连接机载电脑。未核验 GitHub 当前分支是否包含该提交，不能将本地提交等同远程同步。
+先只读核对当前工作树和已有提交：
 
 ```bash
 cd /path/to/indoor_nav_ws
 git status --short
 git diff --check
-git switch -c feat/v0-research-simplification
-# 只暂存明确的运行文件/文档白名单，未改文件不会产生提交差异。
-while IFS= read -r path; do git add -- "$path"; done < docs/v0/V0_RESEARCH_DEPLOY_FILES.txt
-git add -- tests/test_v0_research.py tests/test_v0_research_ros.py tests/test_v0_streams_ros.py
-git add -- tools/v0_sitl_test.py tools/v0_sitl_suite.py
-# 证据目录若要归档，先检查大小/敏感信息，再显式选择；不要提交历史未跟踪目录。
-git diff --cached --stat
-git diff --cached
-# 人工批准后才提交；本次助手没有执行：
-git commit -m 'feat(v0): research policies and readonly onboard USB integration'
-# 再次人工确认远程/分支后才同步，不是本次自动动作：
-git push -u origin feat/v0-research-simplification
+git branch --show-current
+git log -3 --oneline
+git show --stat d684028
+git remote -v
 ```
 
-GitHub仅作同步备份。机载现场存在未提交修复时，不能直接checkout/pull覆盖；优先下面的带哈希增量包。
+GitHub仅作同步备份；push 须另行人工执行，本次没有 push。后续新改动须按明确白名单单独审核，不能 git add 全部。
+机载现场存在未提交修复时，不能直接checkout/pull覆盖；优先下面的带哈希增量包。
 未来若采用Git同步，也须先备份/diff，fetch后审阅提交并逐文件合并，不把开发机旧采集代码带上机。
+
+历史 `evidence/v0-research-20261103/` 中两份 `.tgz` 只保存在本地，Git 中的
+`archive-SHA256SUMS` 校验这些历史包；`deploy-SHA256SUMS`、`final-files.sha256` 校验当时文件，
+不是当前文档的哈希。制作新包应重新生成清单，不覆盖历史证据。保存位置及获取方式见 [证据说明](evidence/README.md)。
 
 ## 2. 台式机制作白名单包
 

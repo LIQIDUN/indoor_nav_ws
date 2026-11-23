@@ -1,0 +1,248 @@
+[
+  {
+    "path": ".sitl_runtime/v0/20261028T143237-1327802/logs/00000001.BIN",
+    "center_boot_s": 60.5,
+    "window_s": 4,
+    "raw_unscaled_fields": [
+      {
+        "type": "DSF",
+        "data": {
+          "TimeUS": 57447332,
+          "Dp": 0,
+          "Blk": 936,
+          "Bytes": 43732,
+          "FMn": 199607,
+          "FMx": 204729,
+          "FAv": 202346
+        }
+      },
+      {
+        "type": "DSF",
+        "data": {
+          "TimeUS": 58449658,
+          "Dp": 0,
+          "Blk": 935,
+          "Bytes": 43712,
+          "FMn": 199045,
+          "FMx": 204720,
+          "FAv": 202314
+        }
+      },
+      {
+        "type": "DSF",
+        "data": {
+          "TimeUS": 59451984,
+          "Dp": 0,
+          "Blk": 935,
+          "Bytes": 43682,
+          "FMn": 199054,
+          "FMx": 204741,
+          "FAv": 202144
+        }
+      },
+      {
+        "type": "DSF",
+        "data": {
+          "TimeUS": 60452311,
+          "Dp": 0,
+          "Blk": 936,
+          "Bytes": 43697,
+          "FMn": 199619,
+          "FMx": 204738,
+          "FAv": 202350
+        }
+      },
+      {
+        "type": "DSF",
+        "data": {
+          "TimeUS": 61454637,
+          "Dp": 0,
+          "Blk": 944,
+          "Bytes": 44087,
+          "FMn": 198990,
+          "FMx": 204737,
+          "FAv": 202443
+        }
+      },
+      {
+        "type": "PM",
+        "data": {
+          "TimeUS": 62342041,
+          "LR": 400,
+          "NLon": 0,
+          "NL": 4000,
+          "MaxT": 2998,
+          "Mem": 131072,
+          "Load": 0,
+          "ErrL": 0,
+          "IntE": 0,
+          "ErrC": 0,
+          "SPIC": 0,
+          "I2CC": 0,
+          "I2CI": 0,
+          "Ex": 0
+        }
+      },
+      {
+        "type": "DSF",
+        "data": {
+          "TimeUS": 62456963,
+          "Dp": 0,
+          "Blk": 937,
+          "Bytes": 43785,
+          "FMn": 199138,
+          "FMx": 204697,
+          "FAv": 202204
+        }
+      },
+      {
+        "type": "DSF",
+        "data": {
+          "TimeUS": 63457291,
+          "Dp": 0,
+          "Blk": 935,
+          "Bytes": 43677,
+          "FMn": 199238,
+          "FMx": 204720,
+          "FAv": 202110
+        }
+      },
+      {
+        "type": "DSF",
+        "data": {
+          "TimeUS": 64459783,
+          "Dp": 0,
+          "Blk": 937,
+          "Bytes": 43706,
+          "FMn": 200517,
+          "FMx": 204743,
+          "FAv": 202620
+        }
+      }
+    ],
+    "note": "FMT-driven standard-library decoding; simulation TimeUS is not a host wall-clock profiler."
+  },
+  {
+    "path": ".sitl_runtime/v0/20261028T143745-1333885/logs/00000001.BIN",
+    "center_boot_s": 55.3,
+    "window_s": 4,
+    "raw_unscaled_fields": [
+      {
+        "type": "DSF",
+        "data": {
+          "TimeUS": 51457366,
+          "Dp": 0,
+          "Blk": 963,
+          "Bytes": 46066,
+          "FMn": 199376,
+          "FMx": 204738,
+          "FAv": 202208
+        }
+      },
+      {
+        "type": "PM",
+        "data": {
+          "TimeUS": 52361758,
+          "LR": 400,
+          "NLon": 0,
+          "NL": 4000,
+          "MaxT": 2998,
+          "Mem": 131072,
+          "Load": 0,
+          "ErrL": 0,
+          "IntE": 0,
+          "ErrC": 0,
+          "SPIC": 0,
+          "I2CC": 0,
+          "I2CI": 0,
+          "Ex": 0
+        }
+      },
+      {
+        "type": "DSF",
+        "data": {
+          "TimeUS": 52459692,
+          "Dp": 0,
+          "Blk": 962,
+          "Bytes": 45985,
+          "FMn": 198875,
+          "FMx": 204767,
+          "FAv": 202129
+        }
+      },
+      {
+        "type": "DSF",
+        "data": {
+          "TimeUS": 53460019,
+          "Dp": 0,
+          "Blk": 948,
+          "Bytes": 44859,
+          "FMn": 199180,
+          "FMx": 204701,
+          "FAv": 202153
+        }
+      },
+      {
+        "type": "DSF",
+        "data": {
+          "TimeUS": 54462345,
+          "Dp": 0,
+          "Blk": 979,
+          "Bytes": 45454,
+          "FMn": 199943,
+          "FMx": 204735,
+          "FAv": 202513
+        }
+      },
+      {
+        "type": "DSF",
+        "data": {
+          "TimeUS": 55464671,
+          "Dp": 0,
+          "Blk": 949,
+          "Bytes": 44334,
+          "FMn": 199021,
+          "FMx": 204728,
+          "FAv": 202231
+        }
+      },
+      {
+        "type": "DSF",
+        "data": {
+          "TimeUS": 56466997,
+          "Dp": 0,
+          "Blk": 937,
+          "Bytes": 43778,
+          "FMn": 199026,
+          "FMx": 204718,
+          "FAv": 202079
+        }
+      },
+      {
+        "type": "DSF",
+        "data": {
+          "TimeUS": 57467325,
+          "Dp": 0,
+          "Blk": 935,
+          "Bytes": 43677,
+          "FMn": 199237,
+          "FMx": 204720,
+          "FAv": 202134
+        }
+      },
+      {
+        "type": "DSF",
+        "data": {
+          "TimeUS": 58469651,
+          "Dp": 0,
+          "Blk": 937,
+          "Bytes": 43744,
+          "FMn": 200509,
+          "FMx": 204736,
+          "FAv": 202596
+        }
+      }
+    ],
+    "note": "FMT-driven standard-library decoding; simulation TimeUS is not a host wall-clock profiler."
+  }
+]

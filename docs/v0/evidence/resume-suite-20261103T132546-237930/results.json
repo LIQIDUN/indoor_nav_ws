@@ -1,0 +1,79 @@
+[
+  {
+    "case": "single",
+    "test_exit_code": 0,
+    "runtime": "/home/liqidun/github/indoor_nav_ws/.sitl_runtime/v0/20261103T132546-237931",
+    "summaries": [
+      "docs/v0/evidence/20261103T132555-single/summary.json"
+    ],
+    "launcher_pid": 237931,
+    "stop_exit_code": 0,
+    "ports_released": true
+  },
+  {
+    "case": "multi",
+    "test_exit_code": 0,
+    "runtime": "/home/liqidun/github/indoor_nav_ws/.sitl_runtime/v0/20261103T132804-238959",
+    "summaries": [
+      "docs/v0/evidence/20261103T132812-multi/summary.json"
+    ],
+    "launcher_pid": 238959,
+    "stop_exit_code": 0,
+    "ports_released": true
+  },
+  {
+    "case": "abort",
+    "test_exit_code": 0,
+    "runtime": "/home/liqidun/github/indoor_nav_ws/.sitl_runtime/v0/20261103T133037-240292",
+    "summaries": [
+      "docs/v0/evidence/20261103T133046-abort/summary.json"
+    ],
+    "launcher_pid": 240292,
+    "stop_exit_code": 0,
+    "ports_released": true
+  },
+  {
+    "case": "mode_exit",
+    "test_exit_code": 0,
+    "runtime": "/home/liqidun/github/indoor_nav_ws/.sitl_runtime/v0/20261103T133253-241353",
+    "summaries": [
+      "docs/v0/evidence/20261103T133301-mode_exit/summary.json"
+    ],
+    "launcher_pid": 241353,
+    "stop_exit_code": 0,
+    "ports_released": true
+  },
+  {
+    "case": "manager_exit",
+    "test_exit_code": 1,
+    "runtime": "/home/liqidun/github/indoor_nav_ws/.sitl_runtime/v0/20261103T133506-242323",
+    "summaries": [
+      "docs/v0/evidence/20261103T133514-manager_exit/summary.json"
+    ],
+    "launcher_pid": 242323,
+    "stop_exit_code": 0,
+    "ports_released": true
+  },
+  {
+    "case": "pose_loss",
+    "test_exit_code": 0,
+    "runtime": "/home/liqidun/github/indoor_nav_ws/.sitl_runtime/v0/20261103T133717-243325",
+    "summaries": [
+      "docs/v0/evidence/20261103T133725-pose_loss/summary.json"
+    ],
+    "launcher_pid": 243325,
+    "stop_exit_code": 0,
+    "ports_released": true
+  },
+  {
+    "case": "gate_kill",
+    "test_exit_code": 0,
+    "runtime": "/home/liqidun/github/indoor_nav_ws/.sitl_runtime/v0/20261103T133932-244344",
+    "summaries": [
+      "docs/v0/evidence/20261103T133940-gate_kill/summary.json"
+    ],
+    "launcher_pid": 244344,
+    "stop_exit_code": 0,
+    "ports_released": true
+  }
+]

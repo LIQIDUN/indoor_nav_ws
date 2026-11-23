@@ -1,5 +1,12 @@
 # 2026-10-28 MAVLink/Pose停流：轻量根因排查
 
+> 2026-11-23 归档注记：本文“本轮”及进程状态均指 10 月 28 日排查结束时。
+> 报告已在本地 `d684028` 中；本次补充小型诊断索引，没有新增仿真或根因结论。
+> 下文 `manifest.json`、`timing_analysis.json`、`integrity.json` 等摘要进入 Git；
+> 完整 `resource_analysis.json`、观测日志、`observe.py`/`analyze.py` 及二进制保存在本地原路径。
+> Git 中提供 [精简资源摘要](evidence/stall-review-20261028/resource_summary.json)，
+> [证据说明](evidence/README.md) 列出获取和校验方式。克隆后需取得本地材料才能执行本文观测/重分析命令。
+
 ## 结论
 
 **更可能是SITL ↔ Gazebo仿真推进/数据交换的瞬时停顿，而不是MAVROS原始时间戳误判或导航回调单独卡住。GUI不是必要条件，也没有证据证明主机CPU饱和是主因。**
